@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/XXX/jrpg-2017b-cliente.svg?branch=master)](https://travis-ci.org/XXX/jrpg-2017b-cliente)
+[![Build Status](https://travis-ci.org/JavaPeppers/jrpg-2017b-cliente.svg?branch=master)](https://travis-ci.org/JavaPeppers/jrpg-2017b-servidor)
 # World Of Middle Earth (WOME) - cliente
 
 ## Sobre las personas
