@@ -48,8 +48,14 @@ public class Juego implements Runnable {
 	private PaquetePersonaje paquetePersonaje;
 	private PaqueteEnemigo paqueteEnemigo;
 	private PaqueteMovimiento ubicacionPersonaje;
+	private PaqueteMovimiento ubicacionEnemigo;
 	private Map<Integer, PaquetePersonaje> personajesConectados;
 	private Map<Integer, PaqueteMovimiento> ubicacionPersonajes;
+	private Map<Integer, PaqueteEnemigo> enemigos;
+	private Map<Integer, PaqueteMovimiento> ubicacionEnemigos;
+	
+	
+	
 	private Map<String, MiChat> chatsActivos = new HashMap<>();
 
 
@@ -256,5 +262,29 @@ public class Juego implements Runnable {
 
 	public Map<String, MiChat> getChatsActivos() {
 		return chatsActivos;
+	}
+
+	public PaqueteMovimiento getUbicacionEnemigo() {
+		return ubicacionEnemigo;
+	}
+
+	public void setUbicacionEnemigo(PaqueteMovimiento ubicacionEnemigo) {
+		this.ubicacionEnemigo = ubicacionEnemigo;
+	}
+
+	public Map<Integer, PaqueteEnemigo> getEnemigos() {
+		return enemigos;
+	}
+
+	public void setEnemigos(Map<Integer, PaqueteEnemigo> enemigos) {
+		this.enemigos = enemigos;
+	}
+
+	public Map<Integer, PaqueteMovimiento> getUbicacionEnemigos() {
+		return ubicacionEnemigos;
+	}
+
+	public void setUbicacionEnemigos(Map<Integer, PaqueteMovimiento> ubicacionEnemigos) {
+		this.ubicacionEnemigos = ubicacionEnemigos;
 	}
 }

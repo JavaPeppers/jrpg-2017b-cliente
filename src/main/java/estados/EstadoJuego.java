@@ -20,6 +20,7 @@ import interfaz.MenuInfoPersonaje;
 import juego.Juego;
 import juego.Pantalla;
 import mensajeria.Comando;
+import mensajeria.PaqueteEnemigo;
 import mensajeria.PaqueteMovimiento;
 import mensajeria.PaquetePersonaje;
 import mundo.Mundo;
@@ -29,9 +30,12 @@ public class EstadoJuego extends Estado {
 
 	private Entidad entidadPersonaje;
 	private PaquetePersonaje paquetePersonaje;
+	private PaqueteEnemigo paqueteEnemigo;
 	private Mundo mundo;
 	private Map<Integer, PaqueteMovimiento> ubicacionPersonajes;
 	private Map<Integer, PaquetePersonaje> personajesConectados;
+	private Map<Integer, PaqueteEnemigo> enemigos;
+	private Map<Integer, PaqueteMovimiento> ubicacionEnemigos;
 	private boolean haySolicitud;
 	private int tipoSolicitud;
 
@@ -71,6 +75,7 @@ public class EstadoJuego extends Estado {
 		mundo.graficar(g);
 		//entidadPersonaje.graficar(g);
 		graficarPersonajes(g);
+		//graficarEnemigos(g); //SE GRAFICAN LOS ENEMIGOS
 		mundo.graficarObstaculos(g);
 		entidadPersonaje.graficarNombre(g);
 		g.drawImage(Recursos.marco, 0, 0, juego.getAncho(), juego.getAlto(), null);
