@@ -41,7 +41,7 @@ public class MenuAsignarSkills extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuAsignarSkills(final Cliente cliente) {
-		puntosAsignarInicial = 3;
+		puntosAsignarInicial = cliente.getPaquetePersonaje().getPuntosSkills();  
 		puntosFuerzaInicial = cliente.getPaquetePersonaje().getFuerza();
 		puntosDestrezaInicial = cliente.getPaquetePersonaje().getDestreza();
 		puntosInteligenciaInicial = cliente.getPaquetePersonaje().getInteligencia();
@@ -138,6 +138,7 @@ public class MenuAsignarSkills extends JFrame {
 				int bonusI = puntosInteligencia-puntosInteligenciaInicial;
 				cliente.getPaquetePersonaje().useBonus(0, 0, bonusF, bonusD, bonusI);
 				cliente.getPaquetePersonaje().removerBonus();
+				cliente.getPaquetePersonaje().setPuntosSkills(Integer.valueOf(labelPuntos.getText())); //Se va actualizando la cant de puntos q puedo asignar a skilss
 				cliente.getPaquetePersonaje().setComando(Comando.ACTUALIZARPERSONAJELV);
 				try {
 					cliente.getSalida().writeObject(gson.toJson(cliente.getPaquetePersonaje()));
@@ -163,6 +164,33 @@ public class MenuAsignarSkills extends JFrame {
 		});
 		buttonCancel.setBounds(176, 146, 97, 25);
 		contentPane.add(buttonCancel);
+		
+		
+		/**Primero probemos con un Boton de reset, luego vemos si se podemos
+		 * Mejorarlo y trabajarlo en los botones "menos" y "mas" */
+		final JButton buttonReiniciar = new JButton("Resetear");
+		ImageIcon icono_Reset = new ImageIcon("recursos//botonConfirmar.png");
+		buttonReiniciar.setIcon(icono_Reset);
+		buttonReiniciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {;
+				puntosAsignarInicial = (cliente.getPaquetePersonaje().getNivel() - 1) * 3;
+				int energia = cliente.getPaquetePersonaje().getEnergiaTope();
+				int salud = cliente.getPaquetePersonaje().getSaludTope();
+				cliente.getPaquetePersonaje().setSkills(salud, energia, 15, 10, 10);
+				cliente.getPaquetePersonaje().setPuntosSkills(puntosAsignarInicial);
+				cliente.getPaquetePersonaje().setComando(Comando.ACTUALIZARPERSONAJELV);
+				try {
+					cliente.getSalida().writeObject(gson.toJson(cliente.getPaquetePersonaje()));
+				} catch (IOException e1) {
+					JOptionPane.showMessageDialog(null, "Error al resetear los skills");
+
+				}
+				JOptionPane.showMessageDialog(null,"Se resetaron los Skills del Personaje.");
+				dispose();
+			}
+		});
+		buttonReiniciar.setBounds(180, 210, 97, 25);
+		contentPane.add(buttonReiniciar);
 		
 		final JButton buttonMinus = new JButton("");
 		final JButton buttonMinus1 = new JButton("");
