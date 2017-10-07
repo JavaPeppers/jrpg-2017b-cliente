@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import dominio.Item;
 import estados.Estado;
+import java.util.HashMap;
 
 public class PaquetePersonaje extends Paquete implements Serializable, Cloneable {
 
@@ -25,6 +26,10 @@ public class PaquetePersonaje extends Paquete implements Serializable, Cloneable
 	private int inteligencia;
 	private int nivel = 1;
 	private int experiencia;
+	private int puntosSkillsDisponibles;
+	private int fuerzaSkill;
+	private int destrezaSkill;
+	private int inteligenciaSkill;
 	private ArrayList<Item> items = new ArrayList<Item>();
 	
 	public PaquetePersonaje() throws IOException {
@@ -278,4 +283,50 @@ public class PaquetePersonaje extends Paquete implements Serializable, Cloneable
 			this.items.add(item);
 		}
 	}
+
+	public void setSkills(int salud, int energia, int ataque, int defensa, int intelig){
+		fuerza = ataque;
+		destreza = defensa;
+		inteligencia = intelig;
+		saludTope = salud;
+		energiaTope = energia;
+		 
+	}
+
+	public int getPuntosSkillsDisponibles() {
+		return puntosSkillsDisponibles;
+	}
+	
+	public void actualizarPuntosSkillsDisponibles(int puntosSkillsDisponibles) {
+		this.puntosSkillsDisponibles += puntosSkillsDisponibles;
+	}	
+
+	public void setPuntosSkillsDisponibles(int puntosSkillsDisponibles) {
+		this.puntosSkillsDisponibles = puntosSkillsDisponibles;
+	}
+
+	public int getFuerzaSkill() {
+		return fuerzaSkill;
+	}
+
+	public void setFuerzaSkill(int fuerzaSkill) {
+		this.fuerzaSkill = fuerzaSkill;
+	}
+
+	public int getDestrezaSkill() {
+		return destrezaSkill;
+	}
+
+	public void setDestrezaSkill(int destrezaSkill) {
+		this.destrezaSkill = destrezaSkill;
+	}
+
+	public int getInteligenciaSkill() {
+		return inteligenciaSkill;
+	}
+
+	public void setInteligenciaSkill(int inteligenciaSkill) {
+		this.inteligenciaSkill = inteligenciaSkill;
+	}
+	
 }

@@ -27,11 +27,13 @@ import java.awt.event.WindowEvent;
 public class MenuAsignarSkills extends JFrame {
 
 	private JPanel contentPane;
-	private int puntosAsignarInicial = 10;
+	private int puntosSkillsDisponibles;
+	private int fuerzaSkill;
+	private int destrezaSkill;
+	private int inteligenciaSkill;
 	private int puntosFuerzaInicial = 0;
 	private int puntosDestrezaInicial = 0;
 	private int puntosInteligenciaInicial = 0;
-	private int puntosAsignar = puntosAsignarInicial;
 	private int puntosFuerza = puntosFuerzaInicial;
 	private int puntosDestreza = puntosDestrezaInicial;
 	private int puntosInteligencia = puntosInteligenciaInicial;
@@ -41,11 +43,13 @@ public class MenuAsignarSkills extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuAsignarSkills(final Cliente cliente) {
-		puntosAsignarInicial = 3;
+		fuerzaSkill = cliente.getPaquetePersonaje().getFuerzaSkill();
+		destrezaSkill = cliente.getPaquetePersonaje().getDestrezaSkill();
+		inteligenciaSkill = cliente.getPaquetePersonaje().getInteligenciaSkill();
+		puntosSkillsDisponibles = cliente.getPaquetePersonaje().getPuntosSkillsDisponibles();  
 		puntosFuerzaInicial = cliente.getPaquetePersonaje().getFuerza();
 		puntosDestrezaInicial = cliente.getPaquetePersonaje().getDestreza();
 		puntosInteligenciaInicial = cliente.getPaquetePersonaje().getInteligencia();
-		puntosAsignar = puntosAsignarInicial;
 		puntosFuerza = puntosFuerzaInicial;
 		puntosDestreza = puntosDestrezaInicial;
 		puntosInteligencia = puntosInteligenciaInicial;
@@ -100,7 +104,7 @@ public class MenuAsignarSkills extends JFrame {
 		labelPuntos.setForeground(Color.WHITE);
 		labelPuntos.setHorizontalAlignment(SwingConstants.CENTER);
 		labelPuntos.setBounds(39, 41, 83, 26);
-		labelPuntos.setText(String.valueOf(puntosAsignarInicial));
+		labelPuntos.setText(String.valueOf(puntosSkillsDisponibles));
 		contentPane.add(labelPuntos);
 		
 		final JLabel lblCantidadDePuntos = new JLabel("Cantidad de Puntos a Asignar");
@@ -131,13 +135,17 @@ public class MenuAsignarSkills extends JFrame {
 		buttonConfirm.setIcon(icono_confirm);
 		buttonConfirm.setEnabled(false);
 		buttonConfirm.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {;
-				puntosAsignarInicial = puntosAsignar;
+			public void actionPerformed(ActionEvent e) {
+				cliente.getPaquetePersonaje().setFuerzaSkill(fuerzaSkill);
+				cliente.getPaquetePersonaje().setInteligenciaSkill(inteligenciaSkill);
+				cliente.getPaquetePersonaje().setDestrezaSkill(destrezaSkill);
+				cliente.getPaquetePersonaje().setPuntosSkillsDisponibles(puntosSkillsDisponibles);
 				int bonusF = puntosFuerza-puntosFuerzaInicial;
 				int bonusD = puntosDestreza-puntosDestrezaInicial;
 				int bonusI = puntosInteligencia-puntosInteligenciaInicial;
 				cliente.getPaquetePersonaje().useBonus(0, 0, bonusF, bonusD, bonusI);
 				cliente.getPaquetePersonaje().removerBonus();
+				cliente.getPaquetePersonaje().setPuntosSkillsDisponibles(Integer.valueOf(labelPuntos.getText())); //Se va actualizando la cant de puntos q puedo asignar a skilss
 				cliente.getPaquetePersonaje().setComando(Comando.ACTUALIZARPERSONAJELV);
 				try {
 					cliente.getSalida().writeObject(gson.toJson(cliente.getPaquetePersonaje()));
@@ -146,8 +154,10 @@ public class MenuAsignarSkills extends JFrame {
 
 				}
 				JOptionPane.showMessageDialog(null,"Se han actualizado tus atributos.");
+				Pantalla.menuAsignar = null;
 				dispose();
 			}
+			
 		});
 		buttonConfirm.setBounds(176, 112, 97, 25);
 		contentPane.add(buttonConfirm);
@@ -170,21 +180,29 @@ public class MenuAsignarSkills extends JFrame {
 		final JButton buttonMore = new JButton("");
 		final JButton buttonMore1 = new JButton("");
 		final JButton buttonMore2 = new JButton("");
-		buttonMinus.setEnabled(false);
-		buttonMinus1.setEnabled(false);
-		buttonMinus2.setEnabled(false);
 		
+		boolean moreHabilitados = puntosSkillsDisponibles > 0;
+		
+		buttonMore.setEnabled(moreHabilitados);
+		buttonMore1.setEnabled(moreHabilitados);
+		buttonMore2.setEnabled(moreHabilitados);
+		
+		buttonMinus.setEnabled(fuerzaSkill > 0);
+		buttonMinus1.setEnabled(destrezaSkill > 0);
+		buttonMinus2.setEnabled(inteligenciaSkill > 0);
+
 		ImageIcon icono_1 = new ImageIcon("recursos//botonMenoss.png");
 		buttonMinus.setIcon(icono_1);
 		buttonMinus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(puntosFuerza > puntosFuerzaInicial){
+				if(fuerzaSkill > 0){
+					fuerzaSkill--;
 					puntosFuerza--;
-					if(puntosAsignar == 0){
-						if(puntosInteligencia != 200){
+					if(puntosSkillsDisponibles == 0){
+						if(puntosInteligencia < 200){
 							buttonMore2.setEnabled(true);
 						}
-						if(puntosDestreza != 200){
+						if(puntosDestreza < 200){
 							buttonMore1.setEnabled(true);
 						}
 					} else {
@@ -192,15 +210,13 @@ public class MenuAsignarSkills extends JFrame {
 							buttonMore1.setEnabled(true);
 							buttonMore2.setEnabled(true);
 					}
-					puntosAsignar++;
-					if(puntosAsignar == puntosAsignarInicial){
-						buttonConfirm.setEnabled(false);
-					}
-					labelPuntos.setText(String.valueOf(puntosAsignar));
+					puntosSkillsDisponibles++;
+					buttonConfirm.setEnabled(true);
+					
+					labelPuntos.setText(String.valueOf(puntosSkillsDisponibles));
 					labelFuerza.setText(String.valueOf(puntosFuerza));
-					if(puntosFuerza == puntosFuerzaInicial){
+					if(fuerzaSkill == 0){
 						buttonMinus.setEnabled(false);
-						buttonMore.setEnabled(true);
 					} else if(puntosFuerza >= puntosFuerzaInicial) {
 						buttonMore.setEnabled(true);
 					}
@@ -212,9 +228,13 @@ public class MenuAsignarSkills extends JFrame {
 		
 		buttonMinus1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(puntosDestreza > puntosDestrezaInicial){
+				if(destrezaSkill > 0){
+					destrezaSkill--;
 					puntosDestreza--;
-					if(puntosAsignar == 0){
+					if(destrezaSkill == 0){
+						buttonMinus1.setEnabled(false);
+					}
+					if(puntosSkillsDisponibles == 0){
 						if(puntosInteligencia != 200){
 							buttonMore2.setEnabled(true);
 						}
@@ -226,18 +246,10 @@ public class MenuAsignarSkills extends JFrame {
 							buttonMore1.setEnabled(true);
 							buttonMore2.setEnabled(true);
 					}
-					puntosAsignar++;
-					if(puntosAsignar == puntosAsignarInicial){
-						buttonConfirm.setEnabled(false);
-					}
-					labelPuntos.setText(String.valueOf(puntosAsignar));
+					puntosSkillsDisponibles++;
+					buttonConfirm.setEnabled(true);
+					labelPuntos.setText(String.valueOf(puntosSkillsDisponibles));
 					labelDestreza.setText(String.valueOf(puntosDestreza));
-					if(puntosDestreza == puntosDestrezaInicial){
-						buttonMinus1.setEnabled(false);
-						buttonMore1.setEnabled(true);
-					} else if(puntosDestreza >= puntosDestrezaInicial) {
-						buttonMore1.setEnabled(true);
-					}
 				}
 			}
 		});
@@ -247,9 +259,13 @@ public class MenuAsignarSkills extends JFrame {
 		
 		buttonMinus2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(puntosInteligencia > puntosInteligenciaInicial){
+				if(inteligenciaSkill > 0){
+					inteligenciaSkill--;
 					puntosInteligencia--;
-					if(puntosAsignar == 0){
+					if(inteligenciaSkill == 0){
+						buttonMinus2.setEnabled(false);
+					}
+					if(puntosSkillsDisponibles == 0){
 						if(puntosFuerza != 200){
 							buttonMore.setEnabled(true);
 						}
@@ -261,11 +277,9 @@ public class MenuAsignarSkills extends JFrame {
 							buttonMore1.setEnabled(true);
 							buttonMore2.setEnabled(true);
 					}
-					puntosAsignar++;
-					if(puntosAsignar == puntosAsignarInicial){
-						buttonConfirm.setEnabled(false);
-					}
-					labelPuntos.setText(String.valueOf(puntosAsignar));
+					puntosSkillsDisponibles++;
+					buttonConfirm.setEnabled(true);
+					labelPuntos.setText(String.valueOf(puntosSkillsDisponibles));
 					labelInteligencia.setText(String.valueOf(puntosInteligencia));
 					if(puntosInteligencia == puntosInteligenciaInicial){
 						buttonMinus2.setEnabled(false);
@@ -282,20 +296,21 @@ public class MenuAsignarSkills extends JFrame {
 		
 		buttonMore.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(puntosAsignar != 0 && !labelFuerza.getText().equals("200")){
+				if(puntosSkillsDisponibles != 0 && !labelFuerza.getText().equals("200")){
+					puntosSkillsDisponibles--;
 					puntosFuerza++;
-					puntosAsignar--;
+					fuerzaSkill++;
 					buttonConfirm.setEnabled(true);
-					labelPuntos.setText(String.valueOf(puntosAsignar));
+					labelPuntos.setText(String.valueOf(puntosSkillsDisponibles));
 					labelFuerza.setText(String.valueOf(puntosFuerza));
 					buttonMinus.setEnabled(true);
-					if(puntosAsignar == 0){
+					if(puntosSkillsDisponibles == 0){
 							buttonMore.setEnabled(false);
 							buttonMore1.setEnabled(false);
 							buttonMore2.setEnabled(false);
 					}
 				}
-				if(puntosAsignar == 0 || labelFuerza.getText().equals("200")){
+				if(puntosSkillsDisponibles == 0 || labelFuerza.getText().equals("200")){
 					buttonMore.setEnabled(false);
 				}
 			}
@@ -308,19 +323,20 @@ public class MenuAsignarSkills extends JFrame {
 		
 		buttonMore1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(puntosAsignar != 0 && !labelDestreza.getText().equals("200")){
+				if(puntosSkillsDisponibles != 0 && !labelDestreza.getText().equals("200")){
+					destrezaSkill++;
 					puntosDestreza++;
-					puntosAsignar--;
+					puntosSkillsDisponibles--;
 					buttonConfirm.setEnabled(true);
-					labelPuntos.setText(String.valueOf(puntosAsignar));
+					labelPuntos.setText(String.valueOf(puntosSkillsDisponibles));
 					labelDestreza.setText(String.valueOf(puntosDestreza));
 					buttonMinus1.setEnabled(true);
-					if(puntosAsignar == 0){
+					if(puntosSkillsDisponibles == 0){
 						buttonMore.setEnabled(false);
 						buttonMore1.setEnabled(false);
 						buttonMore2.setEnabled(false);
 					}
-					if(puntosAsignar == 0 || labelDestreza.getText().equals("200")){
+					if(puntosSkillsDisponibles == 0 || labelDestreza.getText().equals("200")){
 						buttonMore1.setEnabled(false);
 					}
 				}
@@ -332,19 +348,20 @@ public class MenuAsignarSkills extends JFrame {
 		
 		buttonMore2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(puntosAsignar != 0 && !labelInteligencia.getText().equals("200")){
+				if(puntosSkillsDisponibles != 0 && !labelInteligencia.getText().equals("200")){
+					inteligenciaSkill++;
 					puntosInteligencia++;
-					puntosAsignar--;
+					puntosSkillsDisponibles--;
 					buttonConfirm.setEnabled(true);
-					labelPuntos.setText(String.valueOf(puntosAsignar));
+					labelPuntos.setText(String.valueOf(puntosSkillsDisponibles));
 					labelInteligencia.setText(String.valueOf(puntosInteligencia));					
 					buttonMinus2.setEnabled(true);
-					if(puntosAsignar == 0){
+					if(puntosSkillsDisponibles == 0){
 						buttonMore.setEnabled(false);
 						buttonMore1.setEnabled(false);
 						buttonMore2.setEnabled(false);
 					}
-					if(puntosAsignar == 0 || labelInteligencia.getText().equals("200")){
+					if(puntosSkillsDisponibles == 0 || labelInteligencia.getText().equals("200")){
 						buttonMore2.setEnabled(false);
 					}
 				}
