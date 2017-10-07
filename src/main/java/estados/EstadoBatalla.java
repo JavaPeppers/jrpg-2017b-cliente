@@ -286,9 +286,9 @@ public class EstadoBatalla extends Estado {
 			 *  para asignar puntos de Skills
 			 */
 			if(paquetePersonaje.getNivel() > this.nivelDePersonaje) {
-				paquetePersonaje.setPuntosSkills(PUNTOSSKILLSPORNIVEL);
+				paquetePersonaje.actualizarPuntosSkillsDisponibles(PUNTOSSKILLSPORNIVEL);
 			}else if( paqueteEnemigo.getNivel() > this.nivelDeEnemigo) {
-				paqueteEnemigo.setPuntosSkills(PUNTOSSKILLSPORNIVEL);
+				paqueteEnemigo.actualizarPuntosSkillsDisponibles(PUNTOSSKILLSPORNIVEL);
 			}
 			
 			paquetePersonaje.setComando(Comando.ACTUALIZARPERSONAJE);

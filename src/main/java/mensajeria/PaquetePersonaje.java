@@ -26,7 +26,10 @@ public class PaquetePersonaje extends Paquete implements Serializable, Cloneable
 	private int inteligencia;
 	private int nivel = 1;
 	private int experiencia;
-	private int puntosSkills;
+	private int puntosSkillsDisponibles;
+	private int fuerzaSkill;
+	private int destrezaSkill;
+	private int inteligenciaSkill;
 	private static final int PUNTOSSKILLSPORNIVEL = 3;
 	private ArrayList<Item> items = new ArrayList<Item>();
 	
@@ -282,20 +285,6 @@ public class PaquetePersonaje extends Paquete implements Serializable, Cloneable
 		}
 	}
 
-	public int getPuntosSkills() {
-		return puntosSkills;
-	}
-
-	public void setPuntosSkills(int puntosSkills) {
-		this.puntosSkills = puntosSkills;
-	}
-	
-	public void actualizarPuntosParaSkills() {
-		
-		this.puntosSkills += PUNTOSSKILLSPORNIVEL; //por el momento son 3 ptos por nivel
-	}
-	
-	
 	public void setSkills(int salud, int energia, int ataque, int defensa, int intelig){
 		fuerza = ataque;
 		destreza = defensa;
@@ -304,6 +293,41 @@ public class PaquetePersonaje extends Paquete implements Serializable, Cloneable
 		energiaTope = energia;
 		 
 	}
+
+	public int getPuntosSkillsDisponibles() {
+		return puntosSkillsDisponibles;
+	}
 	
+	public void actualizarPuntosSkillsDisponibles(int puntosSkillsDisponibles) {
+		this.puntosSkillsDisponibles += puntosSkillsDisponibles;
+	}	
+
+	public void setPuntosSkillsDisponibles(int puntosSkillsDisponibles) {
+		this.puntosSkillsDisponibles = puntosSkillsDisponibles;
+	}
+
+	public int getFuerzaSkill() {
+		return fuerzaSkill;
+	}
+
+	public void setFuerzaSkill(int fuerzaSkill) {
+		this.fuerzaSkill = fuerzaSkill;
+	}
+
+	public int getDestrezaSkill() {
+		return destrezaSkill;
+	}
+
+	public void setDestrezaSkill(int destrezaSkill) {
+		this.destrezaSkill = destrezaSkill;
+	}
+
+	public int getInteligenciaSkill() {
+		return inteligenciaSkill;
+	}
+
+	public void setInteligenciaSkill(int inteligenciaSkill) {
+		this.inteligenciaSkill = inteligenciaSkill;
+	}
 	
 }
