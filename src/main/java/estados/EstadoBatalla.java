@@ -283,7 +283,7 @@ public class EstadoBatalla extends Estado {
 			paqueteEnemigo.removerBonus();
 
 			/**Se verifica si Mi Personaje o El Enemigo subio de nivel al ganar la batalla,
-			 *  para asignar puntos de Skills
+			 *  para asignar puntos de Skills, esto deberia ir donde sube de nivel (refactorear)
 			 */
 			if(paquetePersonaje.getNivel() > this.nivelDePersonaje) {
 				paquetePersonaje.actualizarPuntosSkillsDisponibles(PUNTOSSKILLSPORNIVEL);

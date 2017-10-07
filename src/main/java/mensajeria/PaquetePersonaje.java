@@ -30,7 +30,6 @@ public class PaquetePersonaje extends Paquete implements Serializable, Cloneable
 	private int fuerzaSkill;
 	private int destrezaSkill;
 	private int inteligenciaSkill;
-	private static final int PUNTOSSKILLSPORNIVEL = 3;
 	private ArrayList<Item> items = new ArrayList<Item>();
 	
 	public PaquetePersonaje() throws IOException {
