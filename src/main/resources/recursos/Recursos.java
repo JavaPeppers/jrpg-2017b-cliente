@@ -27,7 +27,7 @@ public class Recursos {
 	// Hash de imagenes para los personajes (humano, ogro, elfo)
 	public static Map<String, LinkedList<BufferedImage[]>> personaje = new HashMap<>();
 	
-	
+	public static Map<String, LinkedList<BufferedImage[]>> npcImg = new HashMap<>();
 
 	private static SpriteSheet spriteHumano;
 	public static LinkedList<BufferedImage[]> humano = new LinkedList<>();
@@ -62,18 +62,17 @@ public class Recursos {
 	private static BufferedImage[] elfoAbajo;
 	private static BufferedImage[] elfoAbajoIzq;
 	
-	/**Es un Enemigo*/
-	private static SpriteSheet spriteSalvaje;
-	public static LinkedList<BufferedImage[]> salvaje = new LinkedList<>();
-	private static BufferedImage[] salvajeIzq;
-	private static BufferedImage[] salvajeArribaIzq;
-	private static BufferedImage[] salvajeArriba;
-	private static BufferedImage[] salvajeArribaDer;
-	private static BufferedImage[] salvajeDer;
-	private static BufferedImage[] salvajeAbajoDer;
-	private static BufferedImage[] salvajeAbajo;
-	private static BufferedImage[] salvajeAbajoIzq;
 	
+	private static SpriteSheet spriteNpc;
+	public static LinkedList<BufferedImage[]> npc = new LinkedList<>();
+	private static BufferedImage[] npcIzq;
+	private static BufferedImage[] npcArribaIzq;
+	private static BufferedImage[] npcArriba;
+	private static BufferedImage[] npcArribaDer;
+	private static BufferedImage[] npcDer;
+	private static BufferedImage[] npcAbajoDer;
+	private static BufferedImage[] npcAbajo;
+	private static BufferedImage[] npcAbajoIzq;
 	// Fin Personajes
 
 	// Entorno
@@ -193,7 +192,82 @@ public class Recursos {
 		humano.add(humanoAbajo);
 		humano.add(humanoAbajoIzq);
 		// Fin humano
+		
+		
+		// Inicio npc
+				spriteNpc = new SpriteSheet(CargadorImagen.cargarImagen("/Salvaje.png"));
+				
+				actualizarBarraDeCarga(++elementosCargados, menuCarga);
+				
+				npcIzq = new BufferedImage[4];
+				npcArribaIzq = new BufferedImage[4];
+				npcArriba = new BufferedImage[4];
+				npcArribaDer = new BufferedImage[4];
+				npcDer = new BufferedImage[4];
+				npcAbajoDer = new BufferedImage[4];
+				npcAbajo = new BufferedImage[4];
+				npcAbajoIzq = new BufferedImage[4];
 
+				for (int i = 0; i < 4; i++) {
+					npcIzq[i] = spriteNpc.getTile(ANCHO * i, 0, ANCHO, ALTO);
+				}
+				
+				actualizarBarraDeCarga(++elementosCargados, menuCarga);
+
+				for (int i = 0; i < 4; i++) {
+					npcArribaIzq[i] = spriteNpc.getTile(ANCHO * i, ALTO, ANCHO, ALTO);
+				}
+
+				actualizarBarraDeCarga(++elementosCargados, menuCarga);
+				
+				for (int i = 0; i < 4; i++) {
+					npcArriba[i] = spriteNpc.getTile(ANCHO * i, ALTO * 2, ANCHO, ALTO);
+				}
+				
+				actualizarBarraDeCarga(++elementosCargados, menuCarga);
+
+				for (int i = 0; i < 4; i++) {
+					npcArribaDer[i] = spriteNpc.getTile(ANCHO * i, ALTO * 3, ANCHO, ALTO);
+				}
+				
+				actualizarBarraDeCarga(++elementosCargados, menuCarga);
+
+				for (int i = 0; i < 4; i++) {
+					npcDer[i] = spriteNpc.getTile(ANCHO * i, ALTO * 4, ANCHO, ALTO);
+				}
+
+				actualizarBarraDeCarga(++elementosCargados, menuCarga);
+				
+				for (int i = 0; i < 4; i++) {
+					npcAbajoDer[i] = spriteNpc.getTile(ANCHO * i, ALTO * 5, ANCHO, ALTO);
+				}
+				
+				actualizarBarraDeCarga(++elementosCargados, menuCarga);
+
+				for (int i = 0; i < 4; i++) {
+					npcAbajo[i] = spriteNpc.getTile(ANCHO * i, ALTO * 6, ANCHO, ALTO);
+				}
+
+				actualizarBarraDeCarga(++elementosCargados, menuCarga);
+				
+				for (int i = 0; i < 4; i++) {
+					npcAbajoIzq[i] = spriteNpc.getTile(ANCHO * i, ALTO * 7, ANCHO, ALTO);
+				}
+
+				actualizarBarraDeCarga(++elementosCargados, menuCarga);
+				
+				npc.add(npcIzq);
+				npc.add(npcArribaIzq);
+				npc.add(npcArriba);
+				npc.add(npcArribaDer);
+				npc.add(npcDer);
+				npc.add(npcAbajoDer);
+				npc.add(npcAbajo);
+				npc.add(npcAbajoIzq);
+				// Fin npc
+
+		
+		
 		// Inicio Ogro
 		spriteOgro = new SpriteSheet(CargadorImagen.cargarImagen("/Ogro.png"));
 
@@ -339,90 +413,15 @@ public class Recursos {
 		elfo.add(elfoAbajoIzq);
 
 		// Fin Elfo
-		
-		//Inicio Salvaje
-		
-		spriteSalvaje = new SpriteSheet(CargadorImagen.cargarImagen("/Salvaje.png"));
-		
-		actualizarBarraDeCarga(++elementosCargados, menuCarga);
-		
-		salvajeIzq = new BufferedImage[4];
-		salvajeArribaIzq = new BufferedImage[4];
-		salvajeArriba = new BufferedImage[4];
-		salvajeArribaDer = new BufferedImage[4];
-		salvajeDer = new BufferedImage[4];
-		salvajeAbajoDer = new BufferedImage[4];
-		salvajeAbajo = new BufferedImage[4];
-		salvajeAbajoIzq = new BufferedImage[4];
-
-		for (int i = 0; i < 4; i++) {
-			salvajeIzq[i] = spriteSalvaje.getTile(ANCHO * i, 0, ANCHO, ALTO);
-		}
-		
-		actualizarBarraDeCarga(++elementosCargados, menuCarga);
-
-		for (int i = 0; i < 4; i++) {
-			salvajeArribaIzq[i] = spriteSalvaje.getTile(ANCHO * i, ALTO, ANCHO, ALTO);
-		}
-
-		actualizarBarraDeCarga(++elementosCargados, menuCarga);
-		
-		for (int i = 0; i < 4; i++) {
-			salvajeArriba[i] = spriteSalvaje.getTile(ANCHO * i, ALTO * 2, ANCHO, ALTO);
-		}
-		
-		actualizarBarraDeCarga(++elementosCargados, menuCarga);
-
-		for (int i = 0; i < 4; i++) {
-			salvajeArribaDer[i] = spriteSalvaje.getTile(ANCHO * i, ALTO * 3, ANCHO, ALTO);
-		}
-		
-		actualizarBarraDeCarga(++elementosCargados, menuCarga);
-
-		for (int i = 0; i < 4; i++) {
-			salvajeDer[i] = spriteSalvaje.getTile(ANCHO * i, ALTO * 4, ANCHO, ALTO);
-		}
-
-		actualizarBarraDeCarga(++elementosCargados, menuCarga);
-		
-		for (int i = 0; i < 4; i++) {
-			salvajeAbajoDer[i] = spriteSalvaje.getTile(ANCHO * i, ALTO * 5, ANCHO, ALTO);
-		}
-		
-		actualizarBarraDeCarga(++elementosCargados, menuCarga);
-
-		for (int i = 0; i < 4; i++) {
-			salvajeAbajo[i] = spriteSalvaje.getTile(ANCHO * i, ALTO * 6, ANCHO, ALTO);
-		}
-
-		actualizarBarraDeCarga(++elementosCargados, menuCarga);
-		
-		for (int i = 0; i < 4; i++) {
-			salvajeAbajoIzq[i] = spriteSalvaje.getTile(ANCHO * i, ALTO * 7, ANCHO, ALTO);
-		}
-
-		actualizarBarraDeCarga(++elementosCargados, menuCarga);
-		
-		salvaje.add(salvajeIzq);
-		salvaje.add(salvajeArribaIzq);
-		salvaje.add(salvajeArriba);
-		salvaje.add(salvajeArribaDer);
-		salvaje.add(salvajeDer);
-		salvaje.add(salvajeAbajoDer);
-		salvaje.add(salvajeAbajo);
-		salvaje.add(salvajeAbajoIzq);
-		
-		
-		//Fin Salvaje
 
 		// Agrego los pj al hash
 		personaje.put("Humano", humano);
 		personaje.put("Orco", orco);
 		personaje.put("Elfo", elfo);
 		
-		/**Deberia crear un Hash nuevo con todos Enemigos o NPC o lo dejo en el hash de Personaje?*/
-		personaje.put("Salvaje", salvaje); 
+		npcImg.put("Npc",npc);
 		
+
 		// Inicio Entorno
 		cesped = CargadorImagen.cargarImagen("/Cesped.png");
 		actualizarBarraDeCarga(++elementosCargados, menuCarga);

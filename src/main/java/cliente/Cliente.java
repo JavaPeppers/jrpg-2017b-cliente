@@ -19,6 +19,7 @@ import mensajeria.Comando;
 import mensajeria.Paquete;
 import mensajeria.PaqueteComerciar;
 import mensajeria.PaqueteMensaje;
+import mensajeria.PaqueteNPC;
 import mensajeria.PaquetePersonaje;
 import mensajeria.PaqueteUsuario;
 /**La clase Cliente tiene como función  
@@ -37,6 +38,7 @@ public class Cliente extends Thread {
 	// Paquete usuario y paquete personaje
 	private PaqueteUsuario paqueteUsuario;
 	private PaquetePersonaje paquetePersonaje;
+	private PaqueteNPC paqueteNpc;
 	private PaqueteComerciar paqueteComercio;
 	private PaqueteMensaje paqueteMensaje = new PaqueteMensaje();
 
@@ -117,6 +119,7 @@ public class Cliente extends Thread {
 						// Creo los paquetes que le voy a enviar al servidor
 						paqueteUsuario = new PaqueteUsuario();
 						paquetePersonaje = new PaquetePersonaje();
+						paqueteNpc = new PaqueteNPC();
 	
 						// Espero a que el usuario seleccione alguna accion
 						wait();

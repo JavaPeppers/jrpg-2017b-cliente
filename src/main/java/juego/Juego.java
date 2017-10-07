@@ -11,11 +11,12 @@ import javax.swing.JOptionPane;
 import chat.MiChat;
 import cliente.Cliente;
 import cliente.EscuchaMensajes;
+import dominio.NonPlayableCharacter;
 import dominio.Personaje;
 import estados.Estado;
 import estados.EstadoBatalla;
 import estados.EstadoJuego;
-import mensajeria.PaqueteEnemigo;
+import mensajeria.PaqueteNPC;
 import mensajeria.PaqueteMovimiento;
 import mensajeria.PaquetePersonaje;
 
@@ -46,13 +47,13 @@ public class Juego implements Runnable {
 	private Cliente cliente;
 	private EscuchaMensajes escuchaMensajes;
 	private PaquetePersonaje paquetePersonaje;
-	private PaqueteEnemigo paqueteEnemigo;
+	private PaqueteNPC paqueteNpc;
 	private PaqueteMovimiento ubicacionPersonaje;
-	private PaqueteMovimiento ubicacionEnemigo;
+	private PaqueteMovimiento ubicacionNpc;
 	private Map<Integer, PaquetePersonaje> personajesConectados;
 	private Map<Integer, PaqueteMovimiento> ubicacionPersonajes;
-	private Map<Integer, PaqueteEnemigo> enemigos;
-	private Map<Integer, PaqueteMovimiento> ubicacionEnemigos;
+	private Map<Integer, NonPlayableCharacter> npcs;
+	private Map<Integer, PaqueteMovimiento> ubicacionNpcs;
 	
 	
 	
@@ -74,6 +75,11 @@ public class Juego implements Runnable {
 		ubicacionPersonaje.setFrame(0);
 		ubicacionPersonaje.setDireccion(6);
 
+		ubicacionNpc = new PaqueteMovimiento();
+		//ubicacionNpc.setIdPersonaje(paqueteNpc.getId());
+		ubicacionNpc.setFrame(0);
+		ubicacionNpc.setDireccion(6);
+		
 		// Creo el escucha de mensajes
 		escuchaMensajes = new EscuchaMensajes(this);
 		escuchaMensajes.start();
@@ -224,22 +230,22 @@ public class Juego implements Runnable {
 		return paquetePersonaje;
 	}
 	
-	public PaqueteEnemigo getEnemigo() {
-		return paqueteEnemigo;
+	public PaqueteNPC getNpc() {
+		return paqueteNpc;
 	}
 
 	public PaqueteMovimiento getUbicacionPersonaje(){
 		return ubicacionPersonaje;
+	}
+	
+	public PaqueteMovimiento getUbicacionNpC() {
+		return ubicacionNpc;
 	}
 
 	public void setPersonaje(PaquetePersonaje paquetePersonaje) {
 		this.paquetePersonaje = paquetePersonaje;
 	}
 	
-	public void setEnemigo(PaqueteEnemigo paqueteEnemigo) {
-		this.paqueteEnemigo = paqueteEnemigo;
-	}
-
 	public void actualizarPersonaje() {
 		paquetePersonaje = (PaquetePersonaje) (personajesConectados.get(paquetePersonaje.getId()).clone());
 	}
@@ -264,27 +270,23 @@ public class Juego implements Runnable {
 		return chatsActivos;
 	}
 
-	public PaqueteMovimiento getUbicacionEnemigo() {
-		return ubicacionEnemigo;
+	public Map<Integer, NonPlayableCharacter> getNpcs() {
+		return npcs;
+	}
+	
+	public void setNpc(PaqueteNPC paqueteNpc) {
+		this.paqueteNpc = paqueteNpc;
 	}
 
-	public void setUbicacionEnemigo(PaqueteMovimiento ubicacionEnemigo) {
-		this.ubicacionEnemigo = ubicacionEnemigo;
+	public void setNpcs(Map<Integer, NonPlayableCharacter> npcs) {
+		this.npcs = npcs;
 	}
 
-	public Map<Integer, PaqueteEnemigo> getEnemigos() {
-		return enemigos;
-	}
-
-	public void setEnemigos(Map<Integer, PaqueteEnemigo> enemigos) {
-		this.enemigos = enemigos;
-	}
-
-	public Map<Integer, PaqueteMovimiento> getUbicacionEnemigos() {
-		return ubicacionEnemigos;
-	}
+	public Map<Integer, PaqueteMovimiento> getUbicacionNpcs() {
+		return ubicacionNpcs;
+	}/*
 
 	public void setUbicacionEnemigos(Map<Integer, PaqueteMovimiento> ubicacionEnemigos) {
 		this.ubicacionEnemigos = ubicacionEnemigos;
-	}
+	}*/
 }
