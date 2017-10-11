@@ -13,8 +13,6 @@ public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
 	private int saludTope;
 	private int energiaTope;
 	private int fuerza;
-	//private int destreza;
-	//private int inteligencia;
 	private int nivel = 1;
 	
 	
