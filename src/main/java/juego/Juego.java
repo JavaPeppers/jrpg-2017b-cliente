@@ -15,6 +15,7 @@ import dominio.Personaje;
 import estados.Estado;
 import estados.EstadoBatalla;
 import estados.EstadoJuego;
+import mensajeria.PaqueteDeEnemigos;
 import mensajeria.PaqueteEnemigo;
 import mensajeria.PaqueteMovimiento;
 import mensajeria.PaquetePersonaje;
@@ -48,11 +49,10 @@ public class Juego implements Runnable {
 	private PaquetePersonaje paquetePersonaje;
 	private PaqueteEnemigo paqueteEnemigo;
 	private PaqueteMovimiento ubicacionPersonaje;
-	private PaqueteMovimiento ubicacionEnemigo;
+	private PaqueteDeEnemigos paqueteDeEnemigos;
 	private Map<Integer, PaquetePersonaje> personajesConectados;
 	private Map<Integer, PaqueteMovimiento> ubicacionPersonajes;
 	private Map<Integer, PaqueteEnemigo> enemigos;
-	private Map<Integer, PaqueteMovimiento> ubicacionEnemigos;
 	
 	
 	
@@ -243,6 +243,7 @@ public class Juego implements Runnable {
 	public void actualizarPersonaje() {
 		paquetePersonaje = (PaquetePersonaje) (personajesConectados.get(paquetePersonaje.getId()).clone());
 	}
+	
 
 	public Map<Integer, PaquetePersonaje> getPersonajesConectados() {
 		return personajesConectados;
@@ -264,14 +265,6 @@ public class Juego implements Runnable {
 		return chatsActivos;
 	}
 
-	public PaqueteMovimiento getUbicacionEnemigo() {
-		return ubicacionEnemigo;
-	}
-
-	public void setUbicacionEnemigo(PaqueteMovimiento ubicacionEnemigo) {
-		this.ubicacionEnemigo = ubicacionEnemigo;
-	}
-
 	public Map<Integer, PaqueteEnemigo> getEnemigos() {
 		return enemigos;
 	}
@@ -279,12 +272,16 @@ public class Juego implements Runnable {
 	public void setEnemigos(Map<Integer, PaqueteEnemigo> enemigos) {
 		this.enemigos = enemigos;
 	}
-
-	public Map<Integer, PaqueteMovimiento> getUbicacionEnemigos() {
-		return ubicacionEnemigos;
+	
+	public void actualizarEnemigo() {
+		paqueteEnemigo = (PaqueteEnemigo) (personajesConectados.get(paqueteEnemigo.getId()).clone());
+	}
+	
+	public PaqueteDeEnemigos getPaqueteDeEnemigos() {
+		return paqueteDeEnemigos;
 	}
 
-	public void setUbicacionEnemigos(Map<Integer, PaqueteMovimiento> ubicacionEnemigos) {
-		this.ubicacionEnemigos = ubicacionEnemigos;
+	public void setPaqueteDeNPCS(PaqueteDeEnemigos paqueteDeEnemigos) {
+		this.paqueteDeEnemigos = paqueteDeEnemigos;
 	}
 }

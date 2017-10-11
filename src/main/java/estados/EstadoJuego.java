@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
 import com.google.gson.Gson;
@@ -20,6 +21,7 @@ import interfaz.MenuInfoPersonaje;
 import juego.Juego;
 import juego.Pantalla;
 import mensajeria.Comando;
+import mensajeria.PaqueteDeEnemigos;
 import mensajeria.PaqueteEnemigo;
 import mensajeria.PaqueteMovimiento;
 import mensajeria.PaquetePersonaje;
@@ -58,6 +60,9 @@ public class EstadoJuego extends Estado {
 			juego.getPersonaje().setEstado(Estado.estadoJuego);
 			juego.getCliente().getSalida().writeObject(gson.toJson(juego.getPersonaje(), PaquetePersonaje.class));
 			juego.getCliente().getSalida().writeObject(gson.toJson(juego.getUbicacionPersonaje(), PaqueteMovimiento.class));
+			juego.getPaqueteDeEnemigos().setComando(Comando.SETENEMIGOS);
+			juego.getCliente().getSalida().writeObject(gson.toJson(juego.getEnemigos(), PaqueteDeEnemigos.class));
+			
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Fallo la conexión con el servidor al ingresar al mundo");
 		}
@@ -73,9 +78,9 @@ public class EstadoJuego extends Estado {
 	public void graficar(Graphics g) {
 		g.drawImage(Recursos.background, 0, 0, juego.getAncho(), juego.getAlto(), null);
 		mundo.graficar(g);
-		//entidadPersonaje.graficar(g);
+		entidadPersonaje.graficar(g);
 		graficarPersonajes(g);
-		//graficarEnemigos(g); //SE GRAFICAN LOS ENEMIGOS
+		graficarEnemigos(g); //SE GRAFICAN LOS ENEMIGOS
 		mundo.graficarObstaculos(g);
 		entidadPersonaje.graficarNombre(g);
 		g.drawImage(Recursos.marco, 0, 0, juego.getAncho(), juego.getAlto(), null);
@@ -86,6 +91,31 @@ public class EstadoJuego extends Estado {
 		if(haySolicitud)
 			menuEnemigo.graficar(g, tipoSolicitud);
 
+	}
+
+	private void graficarEnemigos(Graphics g) {
+		if (juego.getEnemigos() != null) {
+			enemigos = new HashMap(juego.getEnemigos());
+			BufferedImage imagen;
+			Iterator<Integer> it = enemigos.keySet().iterator();
+			int key;
+			g.setColor(Color.WHITE);
+			g.setFont(new Font("Book Antiqua", Font.PLAIN, 15));
+			while (it.hasNext()) {
+				key = it.next();
+				
+				try {
+					imagen = ImageIO.read(getClass().getResourceAsStream("/salvaje.png"));
+					g.drawImage(imagen, enemigos.get(key).getPosX(), enemigos.get(key).getPosY(), 64, 64, null);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public void actualizarEnemigo() {
+		paqueteEnemigo = juego.getEnemigo();
 	}
 
 	public void graficarPersonajes(Graphics g) {

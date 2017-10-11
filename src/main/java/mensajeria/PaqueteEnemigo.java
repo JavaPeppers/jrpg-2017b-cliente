@@ -13,65 +13,61 @@ public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
 	private int saludTope;
 	private int energiaTope;
 	private int fuerza;
-	private int nivel = 1;
+	private String nombre;
+	private static int NIVEL = 1;
+	private int posX;
+	private int posY;
 	
 	
 	public PaqueteEnemigo() {
 		this.estado = Estado.estadoOffline;
 	}
 	
+	public PaqueteEnemigo(int id, String nombre, int posX, int posY) {
+		this.id = id;
+		this.nombre = nombre;
+		this.posX = posX;
+		this.posY = posY;
+	}
+	
+	public int getIdMapa() {
+		return idMapa;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+	
+	public int getPosX() {
+		return posX;
+	}
+
+	public int getPosY() {
+		return posY;
+	}
+
 	public int getEstado() {
 		return estado;
 	}
 
-	public void setEstado(int estado) {
-		this.estado = estado;
-	}
-
 	public int getMapa(){
 		return idMapa;
-	}
-
-	public void setMapa(int mapa){
-		idMapa = mapa;
 	}
 	
 	public int getId() {
 		return id;
 	}
 
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public int getSaludTope() {
 		return saludTope;
 	}
-
-
-	public void setSaludTope(int saludTope) {
-		this.saludTope = saludTope;
-	}
-
 
 	public int getEnergiaTope() {
 		return energiaTope;
 	}
 
-
-	public void setEnergiaTope(int energiaTope) {
-		this.energiaTope = energiaTope;
-	}
-
-
 	public int getFuerza() {
 		return fuerza;
-	}
-
-
-	public void setFuerza(int fuerza) {
-		this.fuerza = fuerza;
 	}
 	
 	@Override

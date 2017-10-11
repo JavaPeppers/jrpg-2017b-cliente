@@ -18,6 +18,7 @@ import juego.Juego;
 import mensajeria.Comando;
 import mensajeria.Paquete;
 import mensajeria.PaqueteComerciar;
+import mensajeria.PaqueteEnemigo;
 import mensajeria.PaqueteMensaje;
 import mensajeria.PaquetePersonaje;
 import mensajeria.PaqueteUsuario;
@@ -39,6 +40,9 @@ public class Cliente extends Thread {
 	private PaquetePersonaje paquetePersonaje;
 	private PaqueteComerciar paqueteComercio;
 	private PaqueteMensaje paqueteMensaje = new PaqueteMensaje();
+	
+	//	Paquete Enemigo
+	private PaqueteEnemigo paqueteEnemigo;
 
 	// Acciones que realiza el usuario
 	private int accion;
@@ -157,9 +161,14 @@ public class Cliente extends Thread {
 				} else {
 					// Establezco el mapa en el paquete personaje
 					paquetePersonaje.setIp(miIp);
+					
+					//Cargo los enemigos
+//					paqueteEnemigo.setIp(miIp);
+					
 	
 					// Le envio el paquete con el mapa seleccionado
 					salida.writeObject(gson.toJson(paquetePersonaje));
+//					salida.writeObject(gson.toJson(paqueteEnemigo));
 	
 					// Instancio el juego y cargo los recursos
 					wome = new Juego("World Of the Middle Earth", 800, 600, this, paquetePersonaje);
@@ -313,4 +322,13 @@ public class Cliente extends Thread {
 	public void setPaqueteMensaje(PaqueteMensaje paqueteMensaje) {
 		this.paqueteMensaje = paqueteMensaje;
 	}
+	
+	public PaqueteEnemigo getPaqueteEnemigo() {
+		return paqueteEnemigo;
+	}
+	
+	public void actualizarEnemigo(PaqueteEnemigo paqueteEnemigo) {
+		this.paqueteEnemigo = paqueteEnemigo;
+	}
+	
 }
