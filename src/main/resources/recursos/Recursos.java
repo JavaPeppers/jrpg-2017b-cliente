@@ -6,9 +6,11 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Scanner;
 
 import javax.imageio.ImageIO;
 
+import dominio.Item;
 import frames.MenuCarga;
 import frames.MenuMapas;
 import mundo.Tile;
@@ -24,7 +26,7 @@ public class Recursos {
 	// Inicio Personajes
 	// Hash de imagenes para los personajes (humano, ogro, elfo)
 	public static Map<String, LinkedList<BufferedImage[]>> personaje = new HashMap<>();
-	public static Map<String, LinkedList<BufferedImage[]>> enemigo = new HashMap<>();
+	
 	
 
 	private static SpriteSheet spriteHumano;
@@ -60,7 +62,7 @@ public class Recursos {
 	private static BufferedImage[] elfoAbajo;
 	private static BufferedImage[] elfoAbajoIzq;
 	
-	//Sprite para enemigo
+	/**Es un Enemigo*/
 	private static SpriteSheet spriteSalvaje;
 	public static LinkedList<BufferedImage[]> salvaje = new LinkedList<>();
 	private static BufferedImage[] salvajeIzq;
@@ -419,7 +421,7 @@ public class Recursos {
 		personaje.put("Elfo", elfo);
 		
 		/**Deberia crear un Hash nuevo con todos Enemigos o NPC o lo dejo en el hash de Personaje?*/
-		enemigo.put("Salvaje", salvaje); 
+		personaje.put("Salvaje", salvaje); 
 		
 		// Inicio Entorno
 		cesped = CargadorImagen.cargarImagen("/Cesped.png");
