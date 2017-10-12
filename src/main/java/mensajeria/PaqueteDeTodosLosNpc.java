@@ -1,23 +1,24 @@
 package mensajeria;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 import dominio.NonPlayableCharacter;
 
 public class PaqueteDeTodosLosNpc extends Paquete implements Serializable, Cloneable{
 	
-	private Map<Integer, PaqueteNPC> npcs;
+	private HashMap<Integer, PaqueteNPC> npcs;
 
 	public PaqueteDeTodosLosNpc(){
-
+		npcs = new HashMap<Integer, PaqueteNPC>();
 	}
 
-	public PaqueteDeTodosLosNpc(Map<Integer, PaqueteNPC> npcs){
+	public PaqueteDeTodosLosNpc(HashMap<Integer, PaqueteNPC> npcs){
 		this.npcs = npcs;
 	}
 
-	public Map<Integer, PaqueteNPC> getNPCS(){
+	public HashMap<Integer, PaqueteNPC> getNPCS(){
 		return npcs;
 	}
 

@@ -133,10 +133,10 @@ public class Entidad {
 		juego.getUbicacionPersonaje().setDireccion(getDireccion());
 		juego.getUbicacionPersonaje().setFrame(getFrame());
 		
-		juego.getUbicacionNpC().setPosX(x);
-		juego.getUbicacionNpC().setPosY(y);
-		juego.getUbicacionNpC().setDireccion(getDireccion());
-		juego.getUbicacionNpC().setFrame(getFrame());
+//		juego.getUbicacionNpC().setPosX(x);
+//		juego.getUbicacionNpC().setPosY(y);
+//		juego.getUbicacionNpC().setDireccion(getDireccion());
+//		juego.getUbicacionNpC().setFrame(getFrame());
 	}
 	/**Actualiza el personaje
 	 */
@@ -525,14 +525,14 @@ public class Entidad {
 		juego.getUbicacionPersonaje().setDireccion(getDireccion());
 		juego.getUbicacionPersonaje().setFrame(getFrame());
 		
-		juego.getUbicacionNpC().setPosX(x);
-		juego.getUbicacionNpC().setPosY(y);
-		juego.getUbicacionNpC().setDireccion(getDireccion());
-		juego.getUbicacionNpC().setFrame(getFrame());
+//		juego.getUbicacionNpC().setPosX(x);
+//		juego.getUbicacionNpC().setPosY(y);
+//		juego.getUbicacionNpC().setDireccion(getDireccion());
+//		juego.getUbicacionNpC().setFrame(getFrame());
 		try {
 			juego.getCliente().getSalida().writeObject(gson.toJson(juego.
 					getUbicacionPersonaje(), PaqueteMovimiento.class));
-			juego.getCliente().getSalida().writeObject(gson.toJson(juego.getUbicacionNpC(), PaqueteMovimiento.class));
+			//juego.getCliente().getSalida().writeObject(gson.toJson(juego.getUbicacionNpC(), PaqueteMovimiento.class));
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Fallo la conexión con el servidor");
 		}

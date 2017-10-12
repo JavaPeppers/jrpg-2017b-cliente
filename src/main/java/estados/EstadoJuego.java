@@ -20,6 +20,7 @@ import interfaz.MenuInfoPersonaje;
 import juego.Juego;
 import juego.Pantalla;
 import mensajeria.Comando;
+import mensajeria.PaqueteDeTodosLosNpc;
 import mensajeria.PaqueteNPC;
 import mensajeria.PaqueteMovimiento;
 import mensajeria.PaquetePersonaje;
@@ -43,6 +44,7 @@ public class EstadoJuego extends Estado {
 	private final Gson gson = new Gson();
 
 	private BufferedImage miniaturaPersonaje;
+	private BufferedImage miniaturaNpc;
 
 	MenuInfoPersonaje menuEnemigo;
 
@@ -54,7 +56,7 @@ public class EstadoJuego extends Estado {
 		entidadPersonaje = new Entidad(juego, mundo, 64, 64, juego.getPersonaje().getNombre(), 0, 0, Recursos.personaje.get(juego.getPersonaje().getRaza()), 150);
 		miniaturaPersonaje = Recursos.personaje.get(paquetePersonaje.getRaza()).get(5)[0];
 		entidadNpc = new Entidad(juego, mundo, 64, 64, "Npc", 0, 0, Recursos.npcImg.get("Npc") ,150);
-
+		miniaturaNpc = Recursos.npc.getFirst()[1];
 		try {
 			// Le envio al servidor que me conecte al mapa y mi posicion
 			juego.getPersonaje().setComando(Comando.CONEXION);
@@ -62,10 +64,11 @@ public class EstadoJuego extends Estado {
 			juego.getCliente().getSalida().writeObject(gson.toJson(juego.getPersonaje(), PaquetePersonaje.class));
 			juego.getCliente().getSalida().writeObject(gson.toJson(juego.getUbicacionPersonaje(), PaqueteMovimiento.class));
 			
-			juego.getNpc().setComando(Comando.MANDARNPC);
-			juego.getNpc().setEstado(Estado.estadoJuego);
-			juego.getCliente().getSalida().writeObject(gson.toJson(juego.getNpc(), PaqueteNPC.class));
-			juego.getCliente().getSalida().writeObject(gson.toJson(juego.getUbicacionNpC(), PaqueteMovimiento.class));
+			juego.getTodosLosNpcs().setComando(Comando.MANDARNPC);
+			juego.getCliente().getSalida().writeObject(gson.toJson(juego.getTodosLosNpcs(), PaqueteDeTodosLosNpc.class));
+//			juego.getNpc().setEstado(Estado.estadoJuego);
+//			juego.getCliente().getSalida().writeObject(gson.toJson(juego.getNpc(), PaqueteNPC.class));
+//			juego.getCliente().getSalida().writeObject(gson.toJson(juego.getUbicacionNpC(), PaqueteMovimiento.class));
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Fallo la conexión con el servidor al ingresar al mundo");
 		}
@@ -83,7 +86,7 @@ public class EstadoJuego extends Estado {
 		mundo.graficar(g);
 		//entidadPersonaje.graficar(g);
 		graficarPersonajes(g);
-		graficarNpcs(g); //SE GRAFICAN LOS ENEMIGOS
+		//graficarNpcs(g); //SE GRAFICAN LOS ENEMIGOS
 		mundo.graficarObstaculos(g);
 		entidadPersonaje.graficarNombre(g);
 		g.drawImage(Recursos.marco, 0, 0, juego.getAncho(), juego.getAlto(), null);
@@ -96,6 +99,7 @@ public class EstadoJuego extends Estado {
 
 	}
 
+	/** REVISARRRR*/ 
 	private void graficarNpcs(Graphics g) {
 		if(juego.getNpcs() != null){
 			npcs = new HashMap(juego.getNpcs());
@@ -112,7 +116,7 @@ public class EstadoJuego extends Estado {
 						Pantalla.centerString(g, new Rectangle((int) (actual.getPosX() - juego.getCamara().getxOffset() + 32), (int) (actual.getPosY() - juego.getCamara().getyOffset() - 20 ), 0, 10), " ");
 						g.drawImage(Recursos.npc.get(actual.getDireccion())[actual.getFrame()], (int) (actual.getPosX() - juego.getCamara().getxOffset() ), (int) (actual.getPosY() - juego.getCamara().getyOffset()), 64, 64, null);
 				}
-			}
+		}
 		}
 		
 	}

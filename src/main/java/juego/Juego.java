@@ -17,6 +17,7 @@ import estados.Estado;
 import estados.EstadoBatalla;
 import estados.EstadoJuego;
 import mensajeria.PaqueteNPC;
+import mensajeria.PaqueteDeTodosLosNpc;
 import mensajeria.PaqueteMovimiento;
 import mensajeria.PaquetePersonaje;
 
@@ -48,11 +49,12 @@ public class Juego implements Runnable {
 	private EscuchaMensajes escuchaMensajes;
 	private PaquetePersonaje paquetePersonaje;
 	private PaqueteNPC paqueteNpc;
+	private PaqueteDeTodosLosNpc paqueteTodosLosNpcs;
 	private PaqueteMovimiento ubicacionPersonaje;
 	private PaqueteMovimiento ubicacionNpc;
 	private Map<Integer, PaquetePersonaje> personajesConectados;
 	private Map<Integer, PaqueteMovimiento> ubicacionPersonajes;
-	private Map<Integer, NonPlayableCharacter> npcs;
+	private Map<Integer, PaqueteNPC> npcs;
 	private Map<Integer, PaqueteMovimiento> ubicacionNpcs;
 	
 	
@@ -68,6 +70,7 @@ public class Juego implements Runnable {
 		this.ANCHO = ancho;
 		this.cliente = cliente;
 		this.paquetePersonaje = pp;
+		paqueteTodosLosNpcs = new PaqueteDeTodosLosNpc();
 
 		// Inicializo la ubicacion del personaje
 		ubicacionPersonaje = new PaqueteMovimiento();
@@ -76,7 +79,6 @@ public class Juego implements Runnable {
 		ubicacionPersonaje.setDireccion(6);
 
 		ubicacionNpc = new PaqueteMovimiento();
-		//ubicacionNpc.setIdPersonaje(paqueteNpc.getId());
 		ubicacionNpc.setFrame(0);
 		ubicacionNpc.setDireccion(6);
 		
@@ -270,15 +272,23 @@ public class Juego implements Runnable {
 		return chatsActivos;
 	}
 
-	public Map<Integer, NonPlayableCharacter> getNpcs() {
+	public Map<Integer, PaqueteNPC> getNpcs() {
 		return npcs;
 	}
 	
+	public void setTodosLosNpc(PaqueteDeTodosLosNpc paqueteDeNPCS) {
+		this.paqueteTodosLosNpcs = paqueteDeNPCS;
+	}
+	
+	public PaqueteDeTodosLosNpc getTodosLosNpcs() {
+		return paqueteTodosLosNpcs;
+	}
+	
 	public void setNpc(PaqueteNPC paqueteNpc) {
-		this.paqueteNpc = paqueteNpc;
+		this.paqueteNpc = paqueteNpc ;
 	}
 
-	public void setNpcs(Map<Integer, NonPlayableCharacter> npcs) {
+	public void setNpcs(Map<Integer, PaqueteNPC> npcs) {
 		this.npcs = npcs;
 	}
 

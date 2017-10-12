@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import estados.Estado;
 import juego.Juego;
+import mensajeria.PaqueteNPC;
 
 public class Mundo {
 	private Juego juego;
@@ -73,6 +74,7 @@ public class Mundo {
 		for (int i = 0; i < alto; i++) {
 			for (int j = 0; j < ancho; j++) {
 				iso = dosDaIso(j, i);
+				juego.getEstadoJuego().getNpc().graficar(g);
 				// Grafico al personaje
 				if(Estado.getEstado() == juego.getEstadoJuego())
 					if (Mundo.mouseATile(juego.getUbicacionPersonaje().getPosX(),
@@ -81,7 +83,6 @@ public class Mundo {
 									juego.getUbicacionPersonaje().getPosY())[1] == i )
 					{
 						juego.getEstadoJuego().getPersonaje().graficar(g);
-						juego.getEstadoJuego().getNpc().graficar(g);
 					}
 
 				// Grafico los obstaculos
