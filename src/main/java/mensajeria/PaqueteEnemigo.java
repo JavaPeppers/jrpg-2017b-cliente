@@ -9,15 +9,23 @@ public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
 
 	private int id;
 	private int idMapa;
+	private String nombre;
 	private int estado;
 	private int saludTope;
 	private int energiaTope;
 	private int fuerza;
-	private int nivel = 1;
+	private int nivel;
 	
 	
-	public PaqueteEnemigo() {
-		this.estado = Estado.estadoOffline;
+	public PaqueteEnemigo(int id) {
+		super();
+		this.id = id;
+		idMapa = 1;
+		nombre = "enemigo";
+		saludTope = 100;
+		energiaTope = 20;
+		fuerza = 50;
+		nivel = 1;
 	}
 	
 	public int getEstado() {
@@ -79,6 +87,22 @@ public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
 		Object obj = null;
 		obj = super.clone();
 		return obj;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public int getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
 	}
 
 }

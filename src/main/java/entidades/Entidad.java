@@ -5,8 +5,10 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Map;
 
 import javax.swing.JOptionPane;
 
@@ -14,6 +16,7 @@ import com.google.gson.Gson;
 
 import chat.VentanaContactos;
 import estados.Estado;
+import estados.EstadoBatallaNPC;
 import frames.MenuEscape;
 import frames.MenuInventario;
 import interfaz.MenuInfoPersonaje;
@@ -21,6 +24,7 @@ import juego.Juego;
 import juego.Pantalla;
 import mensajeria.PaqueteBatalla;
 import mensajeria.PaqueteComerciar;
+import mensajeria.PaqueteEnemigo;
 import mensajeria.PaqueteMovimiento;
 import mundo.Grafo;
 import mundo.Mundo;
@@ -436,6 +440,7 @@ public class Entidad {
 
 			// Le envio la posicion
 			if (intervaloEnvio == 2) {
+				verSiNoEstaCercaDeUnNPC();
 				enviarPosicion();
 				intervaloEnvio = 0;
 			}
@@ -446,6 +451,50 @@ public class Entidad {
 			}
 		}
 	}
+	
+	private void verSiNoEstaCercaDeUnNPC() {
+		if(juego.getEnemigos() != null){
+			boolean esPelea = false;
+			
+			Map<Integer, PaqueteEnemigo> enemigos;
+			enemigos = new HashMap(juego.getEnemigos());
+			Map<Integer, PaqueteMovimiento> ubicacionEnemigos;
+			ubicacionEnemigos = new HashMap(juego.getUbicacionEnemigos());
+			
+			Iterator<Integer> it = ubicacionEnemigos.keySet().iterator();
+			int key;
+			PaqueteMovimiento actual;
+	
+			while (it.hasNext()) {
+				key = it.next();
+				actual = ubicacionEnemigos.get(key);
+				if (actual != null) {
+					if( actual.getPosX() - x < 50 && x > -50 &&
+						actual.getPosY() - y < 50 && y > -50){
+						// iniciar pelea
+						
+						PaqueteBatalla pBatalla = new PaqueteBatalla();
+						
+						pBatalla.setId(juego.getPersonaje().getId());
+						pBatalla.setIdEnemigo(key);
+						
+						juego.getPersonaje().setEstado( Estado.estadoBatallaNPC );
+						Estado.setEstado(null);
+						juego.setEstadoBatallaNPC(new EstadoBatallaNPC(juego, pBatalla));
+						Estado.setEstado(juego.getEstadoBatallaNPC());
+						
+						
+						//mandarcomando INICIARPELEA al servidor asi los hace invisibles;
+												
+						//Cliente.log.append("Se Peleaaaaaaaaaaaaa" + actual.getPosX() + "," + actual.getPosY() + "       " + escuchaCliente.getPaqueteMovimiento().getPosX() + "," + escuchaCliente.getPaqueteMovimiento().getPosY() + System.lineSeparator());
+						esPelea = true;
+						break;
+					}
+				}
+			}
+		}
+	}
+	
 	/**Grafica el frame del personaje
 	 */
 	public void graficar(final Graphics g) {
@@ -483,12 +532,14 @@ public class Entidad {
 
 		return Recursos.orco.get(6)[0];
 	}
+	
 	/**Pide la direccion donde va
 	 * @return devuelve el movimiento hacia donde va
 	 */
 	private int getDireccion() {
 		return movimientoHacia;
 	}
+	
 	/**Obtiene el frame donde esta el personaje
 	 */
 	private int getFrame() {
@@ -512,6 +563,7 @@ public class Entidad {
 
 		return 0;
 	}
+	
 	/**Envia la posicion del personaje
 	 */
 	private void enviarPosicion() {
@@ -526,6 +578,7 @@ public class Entidad {
 			JOptionPane.showMessageDialog(null, "Fallo la conexión con el servidor");
 		}
 	}
+	
 	/**Busca el camino más corto a recorrer para llegar a una posición
 	 * @param xInicial ubicacion en X inicial
 	 * @param yInicial ubicacion en Y inicial
@@ -609,6 +662,7 @@ public class Entidad {
 
 		return camino;
 	}
+	
 	/**Pregunta si los personajes estan en diagonal
 	 * @param nodoUno personaje 1
 	 * @param nodoDos personaje 2
@@ -619,60 +673,74 @@ public class Entidad {
 			return false;
 		return true;
 	}
+	
 	/**Pide el valor de X 
 	 * @return devuelve la ubicacion en X
 	 */
 	public float getX() {
 		return x;
 	}
+	
 	/**Setea el valor de X
 	 * @param x valor nuevo de la ubicacion en X
 	 */
+	
 	public void setX(final float x) {
 		this.x = x;
 	}
+	
 	/**Pide el valor de Y 
 	 * @return devuelve la ubicacion en Y
 	 */
+	
 	public float getY() {
 		return y;
 	}
+	
 	/**Setea el valor de Y
 	 * @param y valor nuevo de la ubicacion en Y
 	 */
+	
 	public void setY(final float y) {
 		this.y = y;
 	}
+	
 	/**Pide el ancho 
 	 * @return devuelve el ancho
 	 */
+	
 	public int getAncho() {
 		return ancho;
 	}
+	
 	/**Setea el ancho
 	 * @param ancho nuevo ancho a setear
 	 */
 	public void setAncho(final int ancho) {
 		this.ancho = ancho;
 	}
+	
 	/**Pide el alto 
 	 * @return devuelve el alto
 	 */
 	public int getAlto() {
 		return alto;
 	}
+	
 	/**Setea el alto
 	 * @param alto nuevo alto a setear
 	 */
 	public void setAlto(final int alto) {
 		this.alto = alto;
 	}
+	
 	/**Pide el offset de X
 	 * @return devuelve el offset de X
 	 */
 	public int getxOffset() {
 		return xOffset;
 	}
+	
 	/**Pide el offset de Y 
 	 * @return devuelve el offset de Y
 	 */

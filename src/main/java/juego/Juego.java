@@ -35,6 +35,7 @@ public class Juego implements Runnable {
 	// Estados
 	private Estado estadoJuego;
 	private Estado estadoBatalla;
+	private Estado estadoBatallaNPC;
 
 	// HandlerMouse
 	private HandlerMouse handlerMouse;
@@ -46,9 +47,7 @@ public class Juego implements Runnable {
 	private Cliente cliente;
 	private EscuchaMensajes escuchaMensajes;
 	private PaquetePersonaje paquetePersonaje;
-	private PaqueteEnemigo paqueteEnemigo;
 	private PaqueteMovimiento ubicacionPersonaje;
-	private PaqueteMovimiento ubicacionEnemigo;
 	private Map<Integer, PaquetePersonaje> personajesConectados;
 	private Map<Integer, PaqueteMovimiento> ubicacionPersonajes;
 	private Map<Integer, PaqueteEnemigo> enemigos;
@@ -224,9 +223,6 @@ public class Juego implements Runnable {
 		return paquetePersonaje;
 	}
 	
-	public PaqueteEnemigo getEnemigo() {
-		return paqueteEnemigo;
-	}
 
 	public PaqueteMovimiento getUbicacionPersonaje(){
 		return ubicacionPersonaje;
@@ -235,10 +231,7 @@ public class Juego implements Runnable {
 	public void setPersonaje(PaquetePersonaje paquetePersonaje) {
 		this.paquetePersonaje = paquetePersonaje;
 	}
-	
-	public void setEnemigo(PaqueteEnemigo paqueteEnemigo) {
-		this.paqueteEnemigo = paqueteEnemigo;
-	}
+
 
 	public void actualizarPersonaje() {
 		paquetePersonaje = (PaquetePersonaje) (personajesConectados.get(paquetePersonaje.getId()).clone());
@@ -264,13 +257,6 @@ public class Juego implements Runnable {
 		return chatsActivos;
 	}
 
-	public PaqueteMovimiento getUbicacionEnemigo() {
-		return ubicacionEnemigo;
-	}
-
-	public void setUbicacionEnemigo(PaqueteMovimiento ubicacionEnemigo) {
-		this.ubicacionEnemigo = ubicacionEnemigo;
-	}
 
 	public Map<Integer, PaqueteEnemigo> getEnemigos() {
 		return enemigos;
@@ -286,5 +272,13 @@ public class Juego implements Runnable {
 
 	public void setUbicacionEnemigos(Map<Integer, PaqueteMovimiento> ubicacionEnemigos) {
 		this.ubicacionEnemigos = ubicacionEnemigos;
+	}
+
+	public Estado getEstadoBatallaNPC() {
+		return estadoBatallaNPC;
+	}
+
+	public void setEstadoBatallaNPC(Estado estadoBatallaNPC) {
+		this.estadoBatallaNPC = estadoBatallaNPC;
 	}
 }

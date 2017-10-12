@@ -26,6 +26,8 @@ public class Recursos {
 	// Inicio Personajes
 	// Hash de imagenes para los personajes (humano, ogro, elfo)
 	public static Map<String, LinkedList<BufferedImage[]>> personaje = new HashMap<>();
+	// Hash de imagenes para los enemigos (se pueden agregar mas Sprites)
+	public static Map<String, LinkedList<BufferedImage[]>> enemigos = new HashMap<>();
 	
 	
 
@@ -421,7 +423,7 @@ public class Recursos {
 		personaje.put("Elfo", elfo);
 		
 		/**Deberia crear un Hash nuevo con todos Enemigos o NPC o lo dejo en el hash de Personaje?*/
-		personaje.put("Salvaje", salvaje); 
+		enemigos.put("Salvaje", salvaje); 
 		
 		// Inicio Entorno
 		cesped = CargadorImagen.cargarImagen("/Cesped.png");

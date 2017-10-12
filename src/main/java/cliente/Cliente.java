@@ -21,6 +21,7 @@ import mensajeria.PaqueteComerciar;
 import mensajeria.PaqueteMensaje;
 import mensajeria.PaquetePersonaje;
 import mensajeria.PaqueteUsuario;
+
 /**La clase Cliente tiene como función  
  * ejecutar el cliente.
  */
@@ -49,12 +50,14 @@ public class Cliente extends Thread {
 	// Ip y puerto
 	private String ip;
 	private final int puerto = 55050;
+	
 	/**Pide la accion
 	 * @return Devuelve la accion
 	 */
 	public int getAccion() {
 		return accion;
 	}
+	
 	/**Setea la accion
 	 * @param accion accion a setear
 	 */
@@ -64,12 +67,13 @@ public class Cliente extends Thread {
 
 	private Juego wome;
 	private MenuCarga menuCarga;
-	/**Constructor del Cliente
+	
+	/**
+	 * Constructor del Cliente
 	 */
 	public Cliente() {
 
 
-		
 		ip = JOptionPane.showInputDialog("Ingrese IP del servidor: (default localhost)");
 		if(ip == null) {
 			ip = "localhost";
@@ -160,6 +164,12 @@ public class Cliente extends Thread {
 	
 					// Le envio el paquete con el mapa seleccionado
 					salida.writeObject(gson.toJson(paquetePersonaje));
+					
+//					// Cargo NPCS
+					paquetePersonaje.setComando(Comando.SETENEMIGOS);
+//					
+//					// Le envio el paquete con los enemigos ya cargados
+					salida.writeObject(gson.toJson(paquetePersonaje));
 	
 					// Instancio el juego y cargo los recursos
 					wome = new Juego("World Of the Middle Earth", 800, 600, this, paquetePersonaje);
@@ -190,77 +200,90 @@ public class Cliente extends Thread {
 	public Socket getSocket() {
 		return cliente;
 	}
+	
 	/**Setea el cliente
 	 * @param cliente cliente a setear
 	 */
 	public void setSocket(final Socket cliente) {
 		this.cliente = cliente;
 	}
+	
 	/**Pide la ip
 	 * @return Devuelve la ip
 	 */
 	public String getMiIp() {
 		return miIp;
 	}
+	
 	/**Setea la ip
 	 * @param miIp ip a setear
 	 */
 	public void setMiIp(final String miIp) {
 		this.miIp = miIp;
 	}
+	
 	/**Pide la entrada
 	 * @return Devuelve la entrada
 	 */
 	public ObjectInputStream getEntrada() {
 		return entrada;
 	}
+	
 	/**Setea la entrada
 	 * @param entrada entrada a setear
 	 */
 	public void setEntrada(final ObjectInputStream entrada) {
 		this.entrada = entrada;
 	}
+	
 	/**Pide la salida
 	 * @return Devuelve la salida
 	 */
 	public ObjectOutputStream getSalida() {
 		return salida;
 	}
+	
 	/**Setea la salida
 	 * @param salida salida a setear
 	 */
 	public void setSalida(final ObjectOutputStream salida) {
 		this.salida = salida;
 	}
+	
 	/**Pide el paquete usuario
 	 * @return Devuelve el paquete usuario
 	 */
 	public PaqueteUsuario getPaqueteUsuario() {
 		return paqueteUsuario;
 	}
+	
 	/**Pide el paquete personaje
 	 * @return Devuelve el paquete personaje
 	 */
 	public PaquetePersonaje getPaquetePersonaje() {
 		return paquetePersonaje;
 	}
+	
 	/**Pide el juego
 	 * @return Devuelve el juego
 	 */
 	public Juego getJuego() {
 		return wome;
 	}
+	
 	/**Pide el menu de carga
 	 * @return Devuelve el menu de carga
 	 */
 	public MenuCarga getMenuCarga() {
 		return menuCarga;
 	}
+	
 	public void actualizarItems(PaquetePersonaje paqueteActualizado) {
 		if(paquetePersonaje.getCantItems() != 0 && paquetePersonaje.getCantItems() != paqueteActualizado.getCantItems()) {
 			paquetePersonaje.anadirItem(paqueteActualizado.getItems().get(paqueteActualizado.getItems().size() -1));
 		}
 	}
+	
 	public String getIp() {
 		return ip;
 	}
@@ -268,24 +291,31 @@ public class Cliente extends Thread {
 	public void actualizarPersonaje(PaquetePersonaje pP) {
 		paquetePersonaje = pP;
 	}
+	
 	public Juego getWome() {
 		return wome;
 	}
+	
 	public void setWome(Juego wome) {
 		this.wome = wome;
 	}
+	
 	public int getPuerto() {
 		return puerto;
 	}
+	
 	public void setPaqueteUsuario(PaqueteUsuario paqueteUsuario) {
 		this.paqueteUsuario = paqueteUsuario;
 	}
+	
 	public void setPaquetePersonaje(PaquetePersonaje paquetePersonaje) {
 		this.paquetePersonaje = paquetePersonaje;
 	}
+	
 	public void setIp(String ip) {
 		this.ip = ip;
 	}
+	
 	public void setMenuCarga(MenuCarga menuCarga) {
 		this.menuCarga = menuCarga;
 	}
