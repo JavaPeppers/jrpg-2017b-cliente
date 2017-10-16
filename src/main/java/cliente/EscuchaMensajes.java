@@ -25,9 +25,7 @@ public class EscuchaMensajes extends Thread {
 	private Cliente cliente;
 	private ObjectInputStream entrada;
 	private final Gson gson = new Gson();
-
-	//private Map<Integer, PaqueteMovimiento> ubicacionPersonajes;
-	//private Map<Integer, PaquetePersonaje> personajesConectados;
+	
 	/**Constructor de EsuchaMensaje
 	 * @param juego juego del que se escucha el mensaje
 	 */
@@ -65,12 +63,4 @@ public class EscuchaMensajes extends Thread {
 			JOptionPane.showMessageDialog(null, "Fallo la conexión con el servidor.");
 		}
 	}
-	/**Pide la ubicacion de los personajes
-	 * @return devuelve el mapa con la ubicacion de los personajes
-	 */
-
-	/**Pide los personajes conectados
-	 * @return devuelve el mapa con los personajes conectados
-	 */
-
 }

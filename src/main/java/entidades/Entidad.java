@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import com.google.gson.Gson;
 
 import chat.VentanaContactos;
+import dominio.Enemigo;
 import estados.Estado;
 import estados.EstadoBatallaNPC;
 import frames.MenuEscape;
@@ -440,7 +441,7 @@ public class Entidad {
 
 			// Le envio la posicion
 			if (intervaloEnvio == 2) {
-				verSiNoEstaCercaDeUnNPC();
+				rangoEnemigo();
 				enviarPosicion();
 				intervaloEnvio = 0;
 			}
@@ -452,7 +453,7 @@ public class Entidad {
 		}
 	}
 	
-	private void verSiNoEstaCercaDeUnNPC() {
+	private void rangoEnemigo() {
 		if(juego.getEnemigos() != null){
 			boolean esPelea = false;
 			
@@ -468,10 +469,9 @@ public class Entidad {
 			while (it.hasNext()) {
 				key = it.next();
 				actual = ubicacionEnemigos.get(key);
-				if (actual != null) {
-					if( actual.getPosX() - x < 50 && x > -50 &&
-						actual.getPosY() - y < 50 && y > -50){
-						// iniciar pelea
+				if (actual != null && actual.getIdPersonaje()!=0) {
+					if( Math.sqrt(Math.pow(actual.getPosX() - x, 2) +
+							Math.pow(actual.getPosY() - y, 2))<=Enemigo.RANGO){
 						
 						PaqueteBatalla pBatalla = new PaqueteBatalla();
 						
@@ -483,10 +483,7 @@ public class Entidad {
 						juego.setEstadoBatallaNPC(new EstadoBatallaNPC(juego, pBatalla));
 						Estado.setEstado(juego.getEstadoBatallaNPC());
 						
-						
-						//mandarcomando INICIARPELEA al servidor asi los hace invisibles;
 												
-						//Cliente.log.append("Se Peleaaaaaaaaaaaaa" + actual.getPosX() + "," + actual.getPosY() + "       " + escuchaCliente.getPaqueteMovimiento().getPosX() + "," + escuchaCliente.getPaqueteMovimiento().getPosY() + System.lineSeparator());
 						esPelea = true;
 						break;
 					}

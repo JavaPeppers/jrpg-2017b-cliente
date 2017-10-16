@@ -68,6 +68,7 @@ public class Cliente extends Thread {
 	private Juego wome;
 	private MenuCarga menuCarga;
 	
+	
 	/**
 	 * Constructor del Cliente
 	 */
@@ -165,12 +166,18 @@ public class Cliente extends Thread {
 					// Le envio el paquete con el mapa seleccionado
 					salida.writeObject(gson.toJson(paquetePersonaje));
 					
-//					// Cargo NPCS
+					// Cargo NPCS
 					paquetePersonaje.setComando(Comando.SETENEMIGOS);
-//					
-//					// Le envio el paquete con los enemigos ya cargados
+					
+					// Le envio el paquete con los enemigos ya cargados
 					salida.writeObject(gson.toJson(paquetePersonaje));
 	
+					// Cargo la ubicacion de los NPCS
+					paquetePersonaje.setComando(Comando.SETUBENEMIGOS);
+					
+					// Le envio el paquete de la ubicacion de los enemigos
+					salida.writeObject(gson.toJson(paquetePersonaje));
+					
 					// Instancio el juego y cargo los recursos
 					wome = new Juego("World Of the Middle Earth", 800, 600, this, paquetePersonaje);
 	
@@ -291,6 +298,7 @@ public class Cliente extends Thread {
 	public void actualizarPersonaje(PaquetePersonaje pP) {
 		paquetePersonaje = pP;
 	}
+	
 	
 	public Juego getWome() {
 		return wome;

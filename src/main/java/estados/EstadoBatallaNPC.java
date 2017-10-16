@@ -21,6 +21,7 @@ import mensajeria.Comando;
 import mensajeria.PaqueteBatalla;
 import mensajeria.PaqueteEnemigo;
 import mensajeria.PaqueteFinalizarBatalla;
+import mensajeria.PaqueteFinalizarBatallaNPC;
 import mensajeria.PaquetePersonaje;
 import mundo.Mundo;
 import recursos.Recursos;
@@ -33,8 +34,8 @@ public class EstadoBatallaNPC extends Estado{
 	private int[] posMouse;
 	private PaquetePersonaje paquetePersonaje;
 	private PaqueteEnemigo paqueteEnemigo;
-	private PaqueteFinalizarBatalla paqueteFinalizarBatalla;
-	private boolean miTurno;
+	private PaqueteFinalizarBatallaNPC paqueteFinalizarBatalla;
+	private boolean miTurno = true;;
 
 	private boolean haySpellSeleccionada;
 	private boolean seRealizoAccion;
@@ -49,7 +50,7 @@ public class EstadoBatallaNPC extends Estado{
 	public EstadoBatallaNPC(Juego juego, PaqueteBatalla paqueteBatalla) {
 		super(juego);
 		mundo = new Mundo(juego, "recursos/mundoBatalla.txt", "recursos/mundoBatallaCapaDos.txt");
-		miTurno = paqueteBatalla.isMiTurno();
+		miTurno = true;
 
 		paquetePersonaje = juego.getPersonajesConectados().get(paqueteBatalla.getId());
 		paqueteEnemigo = juego.getEnemigos().get(paqueteBatalla.getIdEnemigo());
@@ -61,7 +62,7 @@ public class EstadoBatallaNPC extends Estado{
 		miniaturaEnemigo = Recursos.salvaje.get(5)[0];
 		miniaturaPersonaje = Recursos.personaje.get(personaje.getNombreRaza()).get(5)[0];
 
-		paqueteFinalizarBatalla = new PaqueteFinalizarBatalla();
+		paqueteFinalizarBatalla = new PaqueteFinalizarBatallaNPC();
 		paqueteFinalizarBatalla.setId(personaje.getIdPersonaje());
 		paqueteFinalizarBatalla.setIdEnemigo(paqueteEnemigo.getId());
 		
@@ -156,9 +157,9 @@ public class EstadoBatallaNPC extends Estado{
 							
 							juego.getPersonaje().setEstado(Estado.estadoJuego);
 							
-							paqueteFinalizarBatalla.setGanadorBatalla( -1 );
-							
+							paqueteFinalizarBatalla.setGanadorBatalla(juego.getPersonaje().getId());
 							finalizarBatalla();
+							Estado.setEstado(juego.getEstadoJuego());
 						}
 						
 						miTurno = true;
@@ -225,12 +226,11 @@ public class EstadoBatallaNPC extends Estado{
 		/**Se crea mi Enemigo en la batalla*/
 		nombre = paqueteEnemigo.getNombre();
 		salud = paqueteEnemigo.getSaludTope();
-		energia = paqueteEnemigo.getEnergiaTope();
 		fuerza = paqueteEnemigo.getFuerza();
 		nivel = paqueteEnemigo.getNivel();
 		id = paqueteEnemigo.getId();
 
-		enemigo = new Enemigo(15, 5, "Salvaje", 60);
+		enemigo = new Enemigo(fuerza, 10, "Salvaje", salud);
 	}
 
 	@Override

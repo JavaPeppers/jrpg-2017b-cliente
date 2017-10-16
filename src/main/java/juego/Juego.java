@@ -47,6 +47,7 @@ public class Juego implements Runnable {
 	private Cliente cliente;
 	private EscuchaMensajes escuchaMensajes;
 	private PaquetePersonaje paquetePersonaje;
+	private PaqueteEnemigo paqueteEnemigo;
 	private PaqueteMovimiento ubicacionPersonaje;
 	private Map<Integer, PaquetePersonaje> personajesConectados;
 	private Map<Integer, PaqueteMovimiento> ubicacionPersonajes;
@@ -59,6 +60,7 @@ public class Juego implements Runnable {
 
 
 	private CargarRecursos cargarRecursos;
+
 
 	public Juego(final String nombre, final int ancho, final int alto, Cliente cliente, PaquetePersonaje pp) {
 		this.NOMBRE = nombre;
@@ -235,6 +237,10 @@ public class Juego implements Runnable {
 
 	public void actualizarPersonaje() {
 		paquetePersonaje = (PaquetePersonaje) (personajesConectados.get(paquetePersonaje.getId()).clone());
+	}
+	
+	public void actualizarEnemigo() {
+		paqueteEnemigo = (PaqueteEnemigo) (enemigos.get(paqueteEnemigo.getId()).clone());
 	}
 
 	public Map<Integer, PaquetePersonaje> getPersonajesConectados() {
