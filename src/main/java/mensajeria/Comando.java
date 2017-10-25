@@ -8,11 +8,11 @@ public abstract class Comando {
 	public static final String[] CLASSNAMES = { "Conexion", "CrearPersonaje", "Desconectar", "InicioSesion", "MostrarMapas",
 			"Movimiento", "Registro", "Salir", "Batalla", "Atacar", "FinalizarBatalla", "ActualizarPersonaje", "ActualizarPersonajeLvl",
 			"ActualizarInventario", "Comercio", "ActualizarComercio", "Trueque", "ActualizarTrueque", "Talk", "ActualizarPuntosSkills",
-			"ActualizarEnemigos","SetEnemigos","SetUbEnemigos","IniciarBatallaNPC","FinalizarBatallaNPC" };
+			"SetEnemigos","IniciarBatallaNPC","FinalizarBatallaNPC", "BatallaNPC"};
 	public static final String[] CLASSNAMESBIS = { "Conexion", "CrearPersonaje", "Desconectar", "InicioSesionSet", "MostrarMapas",
 			"Movimiento", "RegistroSet", "SalirSet", "Batalla", "Atacar", "FinalizarBatalla", "ActualizarPersonaje", "ActualizarPersonajeLvl",
 			"ActualizarInventario", "Comercio", "ActualizarComercio", "Trueque", "ActualizarTrueque", "Talk", "ActualizarPuntosSkills",
-			"ActualizarEnemigos","SetEnemigos","SetUbEnemigos","IniciarBatallaNPC","FinalizarBatallaNPC" };
+			"SetEnemigos","IniciarBatallaNPC","FinalizarBatallaNPC","BatallaNPC" };
 	
 	public static final int CONEXION = 0;
 	public static final int CREACIONPJ = 1;
@@ -34,11 +34,10 @@ public abstract class Comando {
 	public static final int ACTUALIZARTRUEQUE = 17;
 	public static final int TALK = 18;
 	public static final int ACTUALIZARPUNTOSSKILLS = 19;
-	public static final int ACTUALIZARENEMIGOS = 20;
-	public static final int SETENEMIGOS = 21;
-	public static final int SETUBENEMIGOS = 22;
-	public static final int INICIARBATALLANPC = 23;
-	public static final int FINALIZARBATALLANPC = 24;
+	public static final int SETENEMIGOS = 20;
+	public static final int INICIARBATALLANPC = 21;
+	public static final int FINALIZARBATALLANPC = 22;
+	public static final int BATALLANPC = 23;
 	
 	protected final Gson gson = new Gson();
 	protected String cadenaLeida;

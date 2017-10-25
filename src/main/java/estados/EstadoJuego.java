@@ -21,7 +21,6 @@ import juego.Juego;
 import juego.Pantalla;
 import mensajeria.Comando;
 import mensajeria.PaqueteEnemigo;
-import mensajeria.PaqueteMovEnemigo;
 import mensajeria.PaqueteMovimiento;
 import mensajeria.PaquetePersonaje;
 import mundo.Mundo;
@@ -35,7 +34,6 @@ public class EstadoJuego extends Estado {
 	private Map<Integer, PaqueteMovimiento> ubicacionPersonajes;
 	private Map<Integer, PaquetePersonaje> personajesConectados;
 	private Map<Integer, PaqueteEnemigo> enemigos;
-	private Map<Integer, PaqueteMovimiento> ubicacionEnemigos;
 	private boolean haySolicitud;
 	private int tipoSolicitud;
 
@@ -73,9 +71,8 @@ public class EstadoJuego extends Estado {
 	public void graficar(Graphics g) {
 		g.drawImage(Recursos.background, 0, 0, juego.getAncho(), juego.getAlto(), null);
 		mundo.graficar(g);
-		//entidadPersonaje.graficar(g);
 		graficarPersonajes(g);
-		graficarEnemigos(g); //SE GRAFICAN LOS ENEMIGOS
+		graficarEnemigos(g);
 		mundo.graficarObstaculos(g);
 		entidadPersonaje.graficarNombre(g);
 		g.drawImage(Recursos.marco, 0, 0, juego.getAncho(), juego.getAlto(), null);
@@ -88,26 +85,27 @@ public class EstadoJuego extends Estado {
 
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void graficarEnemigos(Graphics g) {
 		if(juego.getEnemigos() != null){
 			enemigos = new HashMap(juego.getEnemigos());
-			ubicacionEnemigos = new HashMap(juego.getUbicacionEnemigos());
 			Iterator<Integer> it = enemigos.keySet().iterator();
 			int key;
-			PaqueteMovimiento actual;
+			PaqueteEnemigo actual;
 			g.setColor(Color.WHITE);
 			g.setFont(new Font("Book Antiqua", Font.PLAIN, 15));
 			while (it.hasNext()) {
 				key = it.next();
-				actual = ubicacionEnemigos.get(key);
-				if (actual != null) {
-						Pantalla.centerString(g, new Rectangle((int) (actual.getPosX() - juego.getCamara().getxOffset() + 32), (int) (actual.getPosY() - juego.getCamara().getyOffset() - 20 ), 0, 10), enemigos.get(actual.getIdPersonaje()).getNombre());
-						g.drawImage( Recursos.salvaje.get(5)[0], (int) (actual.getPosX() - juego.getCamara().getxOffset() ), (int) (actual.getPosY() - juego.getCamara().getyOffset()), 64, 64, null);
+				actual = enemigos.get(key);
+				if (actual != null && enemigos.get(actual.getId()).getEstado() == Estado.estadoJuego) {
+						Pantalla.centerString(g, new Rectangle((int) (actual.getX() - juego.getCamara().getxOffset() + 32), (int) (actual.getY() - juego.getCamara().getyOffset() - 20 ), 0, 10), enemigos.get(actual.getId()).getNombre());
+						g.drawImage( Recursos.salvaje.get(5)[0], (int) (actual.getX() - juego.getCamara().getxOffset() ), (int) (actual.getY() - juego.getCamara().getyOffset()), 64, 64, null);
 				}
 			}
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void graficarPersonajes(Graphics g) {
 
 		if(juego.getPersonajesConectados() != null){

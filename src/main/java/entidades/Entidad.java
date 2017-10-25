@@ -24,6 +24,7 @@ import interfaz.MenuInfoPersonaje;
 import juego.Juego;
 import juego.Pantalla;
 import mensajeria.PaqueteBatalla;
+import mensajeria.PaqueteBatallaNPC;
 import mensajeria.PaqueteComerciar;
 import mensajeria.PaqueteEnemigo;
 import mensajeria.PaqueteMovimiento;
@@ -332,8 +333,8 @@ public class Entidad {
 
 			enMovimiento = false;
 
-			xInicio = x;
-			yInicio = y;
+			setxInicio(x);
+			setyInicio(y);
 
 			tileActual = Mundo.mouseATile(x, y);
 
@@ -441,7 +442,7 @@ public class Entidad {
 
 			// Le envio la posicion
 			if (intervaloEnvio == 2) {
-				rangoEnemigo();
+				verificarRangoEnemigo();
 				enviarPosicion();
 				intervaloEnvio = 0;
 			}
@@ -453,38 +454,42 @@ public class Entidad {
 		}
 	}
 	
-	private void rangoEnemigo() {
+	@SuppressWarnings("unchecked")
+	private void verificarRangoEnemigo() {
 		if(juego.getEnemigos() != null){
-			boolean esPelea = false;
+//			boolean esPelea = false;
 			
 			Map<Integer, PaqueteEnemigo> enemigos;
 			enemigos = new HashMap(juego.getEnemigos());
-			Map<Integer, PaqueteMovimiento> ubicacionEnemigos;
-			ubicacionEnemigos = new HashMap(juego.getUbicacionEnemigos());
 			
-			Iterator<Integer> it = ubicacionEnemigos.keySet().iterator();
+			Iterator<Integer> it = enemigos.keySet().iterator();
 			int key;
-			PaqueteMovimiento actual;
+			PaqueteEnemigo actual;
 	
 			while (it.hasNext()) {
 				key = it.next();
-				actual = ubicacionEnemigos.get(key);
-				if (actual != null && actual.getIdPersonaje()!=0) {
-					if( Math.sqrt(Math.pow(actual.getPosX() - x, 2) +
-							Math.pow(actual.getPosY() - y, 2))<=Enemigo.RANGO){
+				actual = enemigos.get(key);
+				if (actual != null && actual.getEstado()==Estado.estadoJuego) {
+					if( Math.sqrt(Math.pow(actual.getX() - x, 2) +
+							Math.pow(actual.getY() - y, 2))<=Enemigo.RANGO){
 						
-						PaqueteBatalla pBatalla = new PaqueteBatalla();
-						
+						PaqueteBatallaNPC pBatalla = new PaqueteBatallaNPC();
 						pBatalla.setId(juego.getPersonaje().getId());
 						pBatalla.setIdEnemigo(key);
 						
-						juego.getPersonaje().setEstado( Estado.estadoBatallaNPC );
-						Estado.setEstado(null);
-						juego.setEstadoBatallaNPC(new EstadoBatallaNPC(juego, pBatalla));
-						Estado.setEstado(juego.getEstadoBatallaNPC());
+//						juego.getPersonaje().setEstado( Estado.estadoBatallaNPC );
+//						Estado.setEstado(null);
+//						juego.setEstadoBatallaNPC(new EstadoBatallaNPC(juego, pBatalla));
+//						Estado.setEstado(juego.getEstadoBatallaNPC());
+						try {
+							juego.getCliente().getSalida().writeObject(gson.toJson
+									(pBatalla));
+						} catch (IOException e) {
+							System.out.println("Error al enviar paquete Batalla NPC");
+						}
 						
 												
-						esPelea = true;
+//						esPelea = true;
 						break;
 					}
 				}
@@ -623,6 +628,7 @@ public class Entidad {
 			// sea minimo
 			double minimo = Double.MAX_VALUE;
 			int indiceMinimo = 0;
+			@SuppressWarnings("unused")
 			Nodo nodoW = null;
 			for (int i = 0; i < grafoLibres.obtenerCantidadDeNodosTotal(); i++) {
 				if (!conjSolucion[i] && vecCostos[i] < minimo) {
@@ -743,5 +749,23 @@ public class Entidad {
 	 */
 	public int getYOffset() {
 		return yOffset;
+	}
+	public float getxInicio() {
+		return xInicio;
+	}
+	public void setxInicio(float xInicio) {
+		this.xInicio = xInicio;
+	}
+	public float getyInicio() {
+		return yInicio;
+	}
+	public void setyInicio(float yInicio) {
+		this.yInicio = yInicio;
+	}
+	public int[] getTile() {
+		return tile;
+	}
+	public void setTile(int[] tile) {
+		this.tile = tile;
 	}
 }

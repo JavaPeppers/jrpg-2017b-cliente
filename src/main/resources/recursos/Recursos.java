@@ -6,11 +6,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Scanner;
 
 import javax.imageio.ImageIO;
 
-import dominio.Item;
 import frames.MenuCarga;
 import frames.MenuMapas;
 import mundo.Tile;
@@ -422,7 +420,7 @@ public class Recursos {
 		personaje.put("Orco", orco);
 		personaje.put("Elfo", elfo);
 		
-		/**Deberia crear un Hash nuevo con todos Enemigos o NPC o lo dejo en el hash de Personaje?*/
+		// Agrego los enemigos al hash
 		enemigos.put("Salvaje", salvaje); 
 		
 		// Inicio Entorno

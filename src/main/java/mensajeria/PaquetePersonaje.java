@@ -4,13 +4,11 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
-
 import javax.swing.JOptionPane;
-
 import dominio.Item;
 import estados.Estado;
-import java.util.HashMap;
 
+@SuppressWarnings("serial")
 public class PaquetePersonaje extends Paquete implements Serializable, Cloneable {
 
 	private int id;

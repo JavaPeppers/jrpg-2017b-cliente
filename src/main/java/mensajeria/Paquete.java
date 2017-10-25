@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.swing.JOptionPane;
 
+@SuppressWarnings("serial")
 public class Paquete implements Serializable, Cloneable {
 
 	public static String msjExito = "1";

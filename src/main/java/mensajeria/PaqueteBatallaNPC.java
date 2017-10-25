@@ -3,14 +3,14 @@ package mensajeria;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
-public class PaqueteBatalla extends Paquete implements Serializable, Cloneable {
+public class PaqueteBatallaNPC extends Paquete implements Serializable, Cloneable {
 
 	private int id;
 	private int idEnemigo;
 	private boolean miTurno;
 
-	public PaqueteBatalla(){
-		setComando(Comando.BATALLA);
+	public PaqueteBatallaNPC(){
+		setComando(Comando.BATALLANPC);
 	}
 
 	public int getId() {

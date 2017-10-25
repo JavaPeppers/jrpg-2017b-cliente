@@ -52,7 +52,6 @@ public class Juego implements Runnable {
 	private Map<Integer, PaquetePersonaje> personajesConectados;
 	private Map<Integer, PaqueteMovimiento> ubicacionPersonajes;
 	private Map<Integer, PaqueteEnemigo> enemigos;
-	private Map<Integer, PaqueteMovimiento> ubicacionEnemigos;
 	
 	
 	
@@ -272,13 +271,6 @@ public class Juego implements Runnable {
 		this.enemigos = enemigos;
 	}
 
-	public Map<Integer, PaqueteMovimiento> getUbicacionEnemigos() {
-		return ubicacionEnemigos;
-	}
-
-	public void setUbicacionEnemigos(Map<Integer, PaqueteMovimiento> ubicacionEnemigos) {
-		this.ubicacionEnemigos = ubicacionEnemigos;
-	}
 
 	public Estado getEstadoBatallaNPC() {
 		return estadoBatallaNPC;
@@ -287,4 +279,6 @@ public class Juego implements Runnable {
 	public void setEstadoBatallaNPC(Estado estadoBatallaNPC) {
 		this.estadoBatallaNPC = estadoBatallaNPC;
 	}
+
+
 }

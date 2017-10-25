@@ -3,6 +3,7 @@ package mensajeria;
 import java.io.Serializable;
 import java.util.HashMap;
 
+@SuppressWarnings("serial")
 public class PaqueteAtacar extends Paquete implements Serializable, Cloneable {
 
 	private int id;

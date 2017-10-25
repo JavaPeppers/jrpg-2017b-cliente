@@ -18,9 +18,8 @@ import interfaz.MenuBatalla;
 import interfaz.MenuInfoPersonaje;
 import juego.Juego;
 import mensajeria.Comando;
-import mensajeria.PaqueteBatalla;
+import mensajeria.PaqueteBatallaNPC;
 import mensajeria.PaqueteEnemigo;
-import mensajeria.PaqueteFinalizarBatalla;
 import mensajeria.PaqueteFinalizarBatallaNPC;
 import mensajeria.PaquetePersonaje;
 import mundo.Mundo;
@@ -32,10 +31,11 @@ public class EstadoBatallaNPC extends Estado{
 	private Personaje personaje;
 	private Enemigo enemigo;
 	private int[] posMouse;
+	private int nivelDePersonaje;
 	private PaquetePersonaje paquetePersonaje;
 	private PaqueteEnemigo paqueteEnemigo;
 	private PaqueteFinalizarBatallaNPC paqueteFinalizarBatalla;
-	private boolean miTurno = true;;
+	private boolean miTurno;
 
 	private boolean haySpellSeleccionada;
 	private boolean seRealizoAccion;
@@ -46,11 +46,12 @@ public class EstadoBatallaNPC extends Estado{
 	private BufferedImage miniaturaEnemigo;
 
 	private MenuBatalla menuBatalla;
+	private static final int PUNTOSSKILLSPORNIVEL = 3;
 	
-	public EstadoBatallaNPC(Juego juego, PaqueteBatalla paqueteBatalla) {
+	public EstadoBatallaNPC(Juego juego, PaqueteBatallaNPC paqueteBatalla) {
 		super(juego);
 		mundo = new Mundo(juego, "recursos/mundoBatalla.txt", "recursos/mundoBatallaCapaDos.txt");
-		miTurno = true;
+		miTurno = paqueteBatalla.isMiTurno();
 
 		paquetePersonaje = juego.getPersonajesConectados().get(paqueteBatalla.getId());
 		paqueteEnemigo = juego.getEnemigos().get(paqueteBatalla.getIdEnemigo());
@@ -157,7 +158,7 @@ public class EstadoBatallaNPC extends Estado{
 							
 							juego.getPersonaje().setEstado(Estado.estadoJuego);
 							
-							paqueteFinalizarBatalla.setGanadorBatalla(juego.getPersonaje().getId());
+							paqueteFinalizarBatalla.setGanadorBatalla(juego.getEnemigos().get(paqueteFinalizarBatalla.getIdEnemigo()).getId());
 							finalizarBatalla();
 							Estado.setEstado(juego.getEstadoJuego());
 						}
@@ -190,7 +191,13 @@ public class EstadoBatallaNPC extends Estado{
 			//paquetePersonaje.setPuntosSkill(personaje.getPuntosSkill());
 			paquetePersonaje.removerBonus();
 
+			if(paquetePersonaje.getNivel() > this.nivelDePersonaje) {
+				paquetePersonaje.setPuntosSkills(PUNTOSSKILLSPORNIVEL);
+			}
+			
 			paquetePersonaje.setComando(Comando.ACTUALIZARPERSONAJE);
+			paqueteEnemigo.setComando(Comando.FINALIZARBATALLANPC);
+			
 			juego.getCliente().getSalida().writeObject(gson.toJson(paquetePersonaje));
 			
 		} catch (IOException e) {

@@ -171,12 +171,6 @@ public class Cliente extends Thread {
 					
 					// Le envio el paquete con los enemigos ya cargados
 					salida.writeObject(gson.toJson(paquetePersonaje));
-	
-					// Cargo la ubicacion de los NPCS
-					paquetePersonaje.setComando(Comando.SETUBENEMIGOS);
-					
-					// Le envio el paquete de la ubicacion de los enemigos
-					salida.writeObject(gson.toJson(paquetePersonaje));
 					
 					// Instancio el juego y cargo los recursos
 					wome = new Juego("World Of the Middle Earth", 800, 600, this, paquetePersonaje);

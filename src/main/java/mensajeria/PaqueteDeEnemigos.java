@@ -3,6 +3,7 @@ package mensajeria;
 import java.io.Serializable;
 import java.util.Map;
 
+@SuppressWarnings("serial")
 public class PaqueteDeEnemigos extends Paquete implements Serializable, Cloneable {
 
 	private Map<Integer, PaqueteEnemigo> enemigos;

@@ -26,8 +26,8 @@ public class EscuchaMensajes extends Thread {
 	private ObjectInputStream entrada;
 	private final Gson gson = new Gson();
 	
-	/**Constructor de EsuchaMensaje
-	 * @param juego juego del que se escucha el mensaje
+	/**Constructor de EscuchaMensaje
+	 * @param juego ->juego del que se escucha el mensaje
 	 */
 	public EscuchaMensajes(final Juego juego) {
 		this.juego = juego;
@@ -46,7 +46,6 @@ public class EscuchaMensajes extends Thread {
 			juego.setPersonajesConectados(new HashMap<Integer, PaquetePersonaje>());
 			juego.setUbicacionPersonajes(new HashMap<Integer, PaqueteMovimiento>());
 			juego.setEnemigos(new HashMap<Integer,PaqueteEnemigo>());
-			juego.setUbicacionEnemigos(new HashMap<Integer, PaqueteMovimiento>());
 			
 			while (true) {
 

@@ -1,12 +1,12 @@
 package mensajeria;
 
 import java.io.Serializable;
+
 import estados.Estado;
-import java.io.IOException;
-import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
-
+	
 	private int id;
 	private int idMapa;
 	private String nombre;
@@ -14,18 +14,23 @@ public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
 	private int saludTope;
 	private int fuerza;
 	private int nivel;
+	private float x;
+	private float y;
 	
 	
-	public PaqueteEnemigo(int id) {
-		//super();
+	public PaqueteEnemigo(int id,float x, float y) {
 		this.id = id;
-		idMapa = 1;
+//		idMapa = 1;
 		nombre = "Enemigo";
+		estado = Estado.estadoJuego;
 		saludTope = 60;
 		fuerza = 40;
 		nivel = 1;
+		this.x=x;
+		this.y=y;
 	}
 	
+
 	public int getEstado() {
 		return estado;
 	}
@@ -60,17 +65,6 @@ public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
 		this.saludTope = saludTope;
 	}
 
-
-//	public int getEnergiaTope() {
-//		return energiaTope;
-//	}
-//
-//
-//	public void setEnergiaTope(int energiaTope) {
-//		this.energiaTope = energiaTope;
-//	}
-
-
 	public int getFuerza() {
 		return fuerza;
 	}
@@ -101,6 +95,22 @@ public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
 
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
+	}
+
+	public float getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public float getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
 	}
 
 }
