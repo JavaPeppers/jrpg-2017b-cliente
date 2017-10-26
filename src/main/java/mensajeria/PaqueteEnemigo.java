@@ -24,7 +24,7 @@ public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
 		nombre = "Enemigo";
 		estado = Estado.estadoJuego;
 		saludTope = 60;
-		fuerza = 40;
+		fuerza = 25;
 		nivel = 1;
 		this.x=x;
 		this.y=y;
