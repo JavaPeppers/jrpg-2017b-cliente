@@ -17,7 +17,6 @@ import com.google.gson.Gson;
 import chat.VentanaContactos;
 import dominio.Enemigo;
 import estados.Estado;
-import estados.EstadoBatallaNPC;
 import frames.MenuEscape;
 import frames.MenuInventario;
 import interfaz.MenuInfoPersonaje;
@@ -454,10 +453,9 @@ public class Entidad {
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void verificarRangoEnemigo() {
 		if(juego.getEnemigos() != null){
-//			boolean esPelea = false;
 			
 			Map<Integer, PaqueteEnemigo> enemigos;
 			enemigos = new HashMap(juego.getEnemigos());
@@ -476,11 +474,7 @@ public class Entidad {
 						PaqueteBatallaNPC pBatalla = new PaqueteBatallaNPC();
 						pBatalla.setId(juego.getPersonaje().getId());
 						pBatalla.setIdEnemigo(key);
-						
-//						juego.getPersonaje().setEstado( Estado.estadoBatallaNPC );
-//						Estado.setEstado(null);
-//						juego.setEstadoBatallaNPC(new EstadoBatallaNPC(juego, pBatalla));
-//						Estado.setEstado(juego.getEstadoBatallaNPC());
+
 						try {
 							juego.getCliente().getSalida().writeObject(gson.toJson
 									(pBatalla));

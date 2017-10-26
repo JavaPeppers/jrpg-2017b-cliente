@@ -101,7 +101,7 @@ public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
 		return x;
 	}
 
-	public void setX(int x) {
+	public void setX(float x) {
 		this.x = x;
 	}
 
@@ -109,7 +109,7 @@ public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
 		return y;
 	}
 
-	public void setY(int y) {
+	public void setY(float y) {
 		this.y = y;
 	}
 

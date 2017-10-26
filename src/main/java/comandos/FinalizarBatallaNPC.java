@@ -9,6 +9,7 @@ public class FinalizarBatallaNPC extends ComandosEscucha{
 	public void ejecutar() {
 		PaqueteFinalizarBatallaNPC paqueteFinalizarBatalla = (PaqueteFinalizarBatallaNPC) gson.fromJson(cadenaLeida, PaqueteFinalizarBatallaNPC.class);
 		juego.getPersonaje().setEstado(Estado.estadoJuego);
+		juego.getEnemigos().get(paqueteFinalizarBatalla.getIdEnemigo()).setEstado(Estado.estadoJuego);
 		juego.actualizarEnemigo();
 		Estado.setEstado(juego.getEstadoJuego());
 		
