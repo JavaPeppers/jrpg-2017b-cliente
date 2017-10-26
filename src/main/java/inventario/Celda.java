@@ -17,6 +17,7 @@ import dominio.Item;
 import mensajeria.PaquetePersonaje;
 import recursos.Recursos;
 
+@SuppressWarnings("serial")
 public class Celda extends JPanel {
 
   

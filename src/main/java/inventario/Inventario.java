@@ -14,7 +14,7 @@ import dominio.Item;
 import mensajeria.PaquetePersonaje;
 
 
-
+@SuppressWarnings("serial")
 public class Inventario extends JPanel {
 	private static final int CANTCOLUMNAS = 3;
 	private static final int CANTFILAS = 3;

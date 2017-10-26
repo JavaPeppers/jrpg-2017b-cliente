@@ -6,11 +6,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Scanner;
 
 import javax.imageio.ImageIO;
 
-import dominio.Item;
 import frames.MenuCarga;
 import frames.MenuMapas;
 import mundo.Tile;
@@ -26,6 +24,10 @@ public class Recursos {
 	// Inicio Personajes
 	// Hash de imagenes para los personajes (humano, ogro, elfo)
 	public static Map<String, LinkedList<BufferedImage[]>> personaje = new HashMap<>();
+	// Hash de imagenes para los enemigos (se pueden agregar mas Sprites)
+	public static Map<String, LinkedList<BufferedImage[]>> enemigos = new HashMap<>();
+	
+	
 
 	private static SpriteSheet spriteHumano;
 	public static LinkedList<BufferedImage[]> humano = new LinkedList<>();
@@ -59,6 +61,19 @@ public class Recursos {
 	private static BufferedImage[] elfoAbajoDer;
 	private static BufferedImage[] elfoAbajo;
 	private static BufferedImage[] elfoAbajoIzq;
+	
+	/**Es un Enemigo*/
+	private static SpriteSheet spriteSalvaje;
+	public static LinkedList<BufferedImage[]> salvaje = new LinkedList<>();
+	private static BufferedImage[] salvajeIzq;
+	private static BufferedImage[] salvajeArribaIzq;
+	private static BufferedImage[] salvajeArriba;
+	private static BufferedImage[] salvajeArribaDer;
+	private static BufferedImage[] salvajeDer;
+	private static BufferedImage[] salvajeAbajoDer;
+	private static BufferedImage[] salvajeAbajo;
+	private static BufferedImage[] salvajeAbajoIzq;
+	
 	// Fin Personajes
 
 	// Entorno
@@ -324,12 +339,90 @@ public class Recursos {
 		elfo.add(elfoAbajoIzq);
 
 		// Fin Elfo
+		
+		//Inicio Salvaje
+		
+		spriteSalvaje = new SpriteSheet(CargadorImagen.cargarImagen("/Salvaje.png"));
+		
+		actualizarBarraDeCarga(++elementosCargados, menuCarga);
+		
+		salvajeIzq = new BufferedImage[4];
+		salvajeArribaIzq = new BufferedImage[4];
+		salvajeArriba = new BufferedImage[4];
+		salvajeArribaDer = new BufferedImage[4];
+		salvajeDer = new BufferedImage[4];
+		salvajeAbajoDer = new BufferedImage[4];
+		salvajeAbajo = new BufferedImage[4];
+		salvajeAbajoIzq = new BufferedImage[4];
+
+		for (int i = 0; i < 4; i++) {
+			salvajeIzq[i] = spriteSalvaje.getTile(ANCHO * i, 0, ANCHO, ALTO);
+		}
+		
+		actualizarBarraDeCarga(++elementosCargados, menuCarga);
+
+		for (int i = 0; i < 4; i++) {
+			salvajeArribaIzq[i] = spriteSalvaje.getTile(ANCHO * i, ALTO, ANCHO, ALTO);
+		}
+
+		actualizarBarraDeCarga(++elementosCargados, menuCarga);
+		
+		for (int i = 0; i < 4; i++) {
+			salvajeArriba[i] = spriteSalvaje.getTile(ANCHO * i, ALTO * 2, ANCHO, ALTO);
+		}
+		
+		actualizarBarraDeCarga(++elementosCargados, menuCarga);
+
+		for (int i = 0; i < 4; i++) {
+			salvajeArribaDer[i] = spriteSalvaje.getTile(ANCHO * i, ALTO * 3, ANCHO, ALTO);
+		}
+		
+		actualizarBarraDeCarga(++elementosCargados, menuCarga);
+
+		for (int i = 0; i < 4; i++) {
+			salvajeDer[i] = spriteSalvaje.getTile(ANCHO * i, ALTO * 4, ANCHO, ALTO);
+		}
+
+		actualizarBarraDeCarga(++elementosCargados, menuCarga);
+		
+		for (int i = 0; i < 4; i++) {
+			salvajeAbajoDer[i] = spriteSalvaje.getTile(ANCHO * i, ALTO * 5, ANCHO, ALTO);
+		}
+		
+		actualizarBarraDeCarga(++elementosCargados, menuCarga);
+
+		for (int i = 0; i < 4; i++) {
+			salvajeAbajo[i] = spriteSalvaje.getTile(ANCHO * i, ALTO * 6, ANCHO, ALTO);
+		}
+
+		actualizarBarraDeCarga(++elementosCargados, menuCarga);
+		
+		for (int i = 0; i < 4; i++) {
+			salvajeAbajoIzq[i] = spriteSalvaje.getTile(ANCHO * i, ALTO * 7, ANCHO, ALTO);
+		}
+
+		actualizarBarraDeCarga(++elementosCargados, menuCarga);
+		
+		salvaje.add(salvajeIzq);
+		salvaje.add(salvajeArribaIzq);
+		salvaje.add(salvajeArriba);
+		salvaje.add(salvajeArribaDer);
+		salvaje.add(salvajeDer);
+		salvaje.add(salvajeAbajoDer);
+		salvaje.add(salvajeAbajo);
+		salvaje.add(salvajeAbajoIzq);
+		
+		
+		//Fin Salvaje
 
 		// Agrego los pj al hash
 		personaje.put("Humano", humano);
 		personaje.put("Orco", orco);
 		personaje.put("Elfo", elfo);
-
+		
+		// Agrego los enemigos al hash
+		enemigos.put("Salvaje", salvaje); 
+		
 		// Inicio Entorno
 		cesped = CargadorImagen.cargarImagen("/Cesped.png");
 		actualizarBarraDeCarga(++elementosCargados, menuCarga);

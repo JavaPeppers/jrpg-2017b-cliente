@@ -5,14 +5,17 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Map;
 
 import javax.swing.JOptionPane;
 
 import com.google.gson.Gson;
 
 import chat.VentanaContactos;
+import dominio.Enemigo;
 import estados.Estado;
 import frames.MenuEscape;
 import frames.MenuInventario;
@@ -20,7 +23,9 @@ import interfaz.MenuInfoPersonaje;
 import juego.Juego;
 import juego.Pantalla;
 import mensajeria.PaqueteBatalla;
+import mensajeria.PaqueteBatallaNPC;
 import mensajeria.PaqueteComerciar;
+import mensajeria.PaqueteEnemigo;
 import mensajeria.PaqueteMovimiento;
 import mundo.Grafo;
 import mundo.Mundo;
@@ -327,8 +332,8 @@ public class Entidad {
 
 			enMovimiento = false;
 
-			xInicio = x;
-			yInicio = y;
+			setxInicio(x);
+			setyInicio(y);
 
 			tileActual = Mundo.mouseATile(x, y);
 
@@ -436,6 +441,7 @@ public class Entidad {
 
 			// Le envio la posicion
 			if (intervaloEnvio == 2) {
+				verificarRangoEnemigo();
 				enviarPosicion();
 				intervaloEnvio = 0;
 			}
@@ -446,6 +452,45 @@ public class Entidad {
 			}
 		}
 	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	private void verificarRangoEnemigo() {
+		if(juego.getEnemigos() != null){
+			
+			Map<Integer, PaqueteEnemigo> enemigos;
+			enemigos = new HashMap(juego.getEnemigos());
+			
+			Iterator<Integer> it = enemigos.keySet().iterator();
+			int key;
+			PaqueteEnemigo actual;
+	
+			while (it.hasNext()) {
+				key = it.next();
+				actual = enemigos.get(key);
+				if (actual != null && actual.getEstado()==Estado.estadoJuego) {
+					if( Math.sqrt(Math.pow(actual.getX() - x, 2) +
+							Math.pow(actual.getY() - y, 2))<=Enemigo.RANGO){
+						
+						PaqueteBatallaNPC pBatalla = new PaqueteBatallaNPC();
+						pBatalla.setId(juego.getPersonaje().getId());
+						pBatalla.setIdEnemigo(key);
+
+						try {
+							juego.getCliente().getSalida().writeObject(gson.toJson
+									(pBatalla));
+						} catch (IOException e) {
+							System.out.println("Error al enviar paquete Batalla NPC");
+						}
+						
+												
+//						esPelea = true;
+						break;
+					}
+				}
+			}
+		}
+	}
+	
 	/**Grafica el frame del personaje
 	 */
 	public void graficar(final Graphics g) {
@@ -483,12 +528,14 @@ public class Entidad {
 
 		return Recursos.orco.get(6)[0];
 	}
+	
 	/**Pide la direccion donde va
 	 * @return devuelve el movimiento hacia donde va
 	 */
 	private int getDireccion() {
 		return movimientoHacia;
 	}
+	
 	/**Obtiene el frame donde esta el personaje
 	 */
 	private int getFrame() {
@@ -512,6 +559,7 @@ public class Entidad {
 
 		return 0;
 	}
+	
 	/**Envia la posicion del personaje
 	 */
 	private void enviarPosicion() {
@@ -526,6 +574,7 @@ public class Entidad {
 			JOptionPane.showMessageDialog(null, "Fallo la conexión con el servidor");
 		}
 	}
+	
 	/**Busca el camino más corto a recorrer para llegar a una posición
 	 * @param xInicial ubicacion en X inicial
 	 * @param yInicial ubicacion en Y inicial
@@ -573,6 +622,7 @@ public class Entidad {
 			// sea minimo
 			double minimo = Double.MAX_VALUE;
 			int indiceMinimo = 0;
+			@SuppressWarnings("unused")
 			Nodo nodoW = null;
 			for (int i = 0; i < grafoLibres.obtenerCantidadDeNodosTotal(); i++) {
 				if (!conjSolucion[i] && vecCostos[i] < minimo) {
@@ -609,6 +659,7 @@ public class Entidad {
 
 		return camino;
 	}
+	
 	/**Pregunta si los personajes estan en diagonal
 	 * @param nodoUno personaje 1
 	 * @param nodoDos personaje 2
@@ -619,64 +670,96 @@ public class Entidad {
 			return false;
 		return true;
 	}
+	
 	/**Pide el valor de X 
 	 * @return devuelve la ubicacion en X
 	 */
 	public float getX() {
 		return x;
 	}
+	
 	/**Setea el valor de X
 	 * @param x valor nuevo de la ubicacion en X
 	 */
+	
 	public void setX(final float x) {
 		this.x = x;
 	}
+	
 	/**Pide el valor de Y 
 	 * @return devuelve la ubicacion en Y
 	 */
+	
 	public float getY() {
 		return y;
 	}
+	
 	/**Setea el valor de Y
 	 * @param y valor nuevo de la ubicacion en Y
 	 */
+	
 	public void setY(final float y) {
 		this.y = y;
 	}
+	
 	/**Pide el ancho 
 	 * @return devuelve el ancho
 	 */
+	
 	public int getAncho() {
 		return ancho;
 	}
+	
 	/**Setea el ancho
 	 * @param ancho nuevo ancho a setear
 	 */
 	public void setAncho(final int ancho) {
 		this.ancho = ancho;
 	}
+	
 	/**Pide el alto 
 	 * @return devuelve el alto
 	 */
 	public int getAlto() {
 		return alto;
 	}
+	
 	/**Setea el alto
 	 * @param alto nuevo alto a setear
 	 */
 	public void setAlto(final int alto) {
 		this.alto = alto;
 	}
+	
 	/**Pide el offset de X
 	 * @return devuelve el offset de X
 	 */
 	public int getxOffset() {
 		return xOffset;
 	}
+	
 	/**Pide el offset de Y 
 	 * @return devuelve el offset de Y
 	 */
 	public int getYOffset() {
 		return yOffset;
+	}
+	public float getxInicio() {
+		return xInicio;
+	}
+	public void setxInicio(float xInicio) {
+		this.xInicio = xInicio;
+	}
+	public float getyInicio() {
+		return yInicio;
+	}
+	public void setyInicio(float yInicio) {
+		this.yInicio = yInicio;
+	}
+	public int[] getTile() {
+		return tile;
+	}
+	public void setTile(int[] tile) {
+		this.tile = tile;
 	}
 }
