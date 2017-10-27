@@ -5,7 +5,7 @@ import estados.Estado;
 import java.io.IOException;
 import java.io.Serializable;
 
-public class PaqueteNPC extends Paquete implements Serializable, Cloneable {
+public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
 
 	private int id;
 	private int idMapa;
@@ -18,7 +18,7 @@ public class PaqueteNPC extends Paquete implements Serializable, Cloneable {
 	private int nivel = 1;
 	
 	
-	public PaqueteNPC() {
+	public PaqueteEnemigo() {
 		this.estado = Estado.estadoOffline;
 	}
 	

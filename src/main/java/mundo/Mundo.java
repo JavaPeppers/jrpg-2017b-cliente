@@ -79,10 +79,7 @@ public class Mundo {
 							juego.getUbicacionPersonaje().getPosY())[0] == j
 							&& Mundo.mouseATile(juego.getUbicacionPersonaje().getPosX(),
 									juego.getUbicacionPersonaje().getPosY())[1] == i )
-					{
 						juego.getEstadoJuego().getPersonaje().graficar(g);
-						juego.getEstadoJuego().getNpc().graficar(g);
-					}
 
 				// Grafico los obstaculos
 				if ((iso[0] >= xMinimo && iso[0] <= xMaximo) && (iso[1] >= yMinimo && iso[1] <= yMaximo)

@@ -20,7 +20,7 @@ import interfaz.MenuInfoPersonaje;
 import juego.Juego;
 import juego.Pantalla;
 import mensajeria.Comando;
-import mensajeria.PaqueteNPC;
+import mensajeria.PaqueteEnemigo;
 import mensajeria.PaqueteMovimiento;
 import mensajeria.PaquetePersonaje;
 import mundo.Mundo;
@@ -29,14 +29,13 @@ import recursos.Recursos;
 public class EstadoJuego extends Estado {
 
 	private Entidad entidadPersonaje;
-	private Entidad entidadNpc;
 	private PaquetePersonaje paquetePersonaje;
-	private PaqueteNPC paqueteNpc;
+	private PaqueteEnemigo paqueteEnemigo;
 	private Mundo mundo;
 	private Map<Integer, PaqueteMovimiento> ubicacionPersonajes;
 	private Map<Integer, PaquetePersonaje> personajesConectados;
-	private Map<Integer, PaqueteNPC> npcs;
-	private Map<Integer, PaqueteMovimiento> ubicacionNpcs;
+	private Map<Integer, PaqueteEnemigo> enemigos;
+	private Map<Integer, PaqueteMovimiento> ubicacionEnemigos;
 	private boolean haySolicitud;
 	private int tipoSolicitud;
 
@@ -50,10 +49,8 @@ public class EstadoJuego extends Estado {
 		super(juego);
 		mundo = new Mundo(juego, "recursos/" + getMundo() + ".txt", "recursos/" + getMundo() + ".txt");
 		paquetePersonaje = juego.getPersonaje();
-		paqueteNpc = juego.getNpc();
 		entidadPersonaje = new Entidad(juego, mundo, 64, 64, juego.getPersonaje().getNombre(), 0, 0, Recursos.personaje.get(juego.getPersonaje().getRaza()), 150);
 		miniaturaPersonaje = Recursos.personaje.get(paquetePersonaje.getRaza()).get(5)[0];
-		entidadNpc = new Entidad(juego, mundo, 64, 64, "Npc", 0, 0, Recursos.npcImg.get("Npc") ,150);
 
 		try {
 			// Le envio al servidor que me conecte al mapa y mi posicion
@@ -61,11 +58,6 @@ public class EstadoJuego extends Estado {
 			juego.getPersonaje().setEstado(Estado.estadoJuego);
 			juego.getCliente().getSalida().writeObject(gson.toJson(juego.getPersonaje(), PaquetePersonaje.class));
 			juego.getCliente().getSalida().writeObject(gson.toJson(juego.getUbicacionPersonaje(), PaqueteMovimiento.class));
-			
-			juego.getNpc().setComando(Comando.MANDARNPC);
-			juego.getNpc().setEstado(Estado.estadoJuego);
-			juego.getCliente().getSalida().writeObject(gson.toJson(juego.getNpc(), PaqueteNPC.class));
-			juego.getCliente().getSalida().writeObject(gson.toJson(juego.getUbicacionNpC(), PaqueteMovimiento.class));
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Fallo la conexión con el servidor al ingresar al mundo");
 		}
@@ -83,7 +75,7 @@ public class EstadoJuego extends Estado {
 		mundo.graficar(g);
 		//entidadPersonaje.graficar(g);
 		graficarPersonajes(g);
-		graficarNpcs(g); //SE GRAFICAN LOS ENEMIGOS
+		//graficarEnemigos(g); //SE GRAFICAN LOS ENEMIGOS
 		mundo.graficarObstaculos(g);
 		entidadPersonaje.graficarNombre(g);
 		g.drawImage(Recursos.marco, 0, 0, juego.getAncho(), juego.getAlto(), null);
@@ -94,27 +86,6 @@ public class EstadoJuego extends Estado {
 		if(haySolicitud)
 			menuEnemigo.graficar(g, tipoSolicitud);
 
-	}
-
-	private void graficarNpcs(Graphics g) {
-		if(juego.getNpcs() != null){
-			npcs = new HashMap(juego.getNpcs());
-			ubicacionNpcs = new HashMap(juego.getUbicacionNpcs());
-			Iterator<Integer> it = personajesConectados.keySet().iterator();
-			int key;
-			PaqueteMovimiento actual;
-			g.setColor(Color.WHITE);
-			g.setFont(new Font("Book Antiqua", Font.PLAIN, 15));
-			while (it.hasNext()) {
-				key = it.next();
-				actual = ubicacionNpcs.get(key);
-				if (actual != null && actual.getIdPersonaje() != juego.getNpc().getId() && npcs.get(actual.getIdPersonaje()).getEstado() == Estado.estadoJuego) {
-						Pantalla.centerString(g, new Rectangle((int) (actual.getPosX() - juego.getCamara().getxOffset() + 32), (int) (actual.getPosY() - juego.getCamara().getyOffset() - 20 ), 0, 10), " ");
-						g.drawImage(Recursos.npc.get(actual.getDireccion())[actual.getFrame()], (int) (actual.getPosX() - juego.getCamara().getxOffset() ), (int) (actual.getPosY() - juego.getCamara().getyOffset()), 64, 64, null);
-				}
-			}
-		}
-		
 	}
 
 	public void graficarPersonajes(Graphics g) {
@@ -140,10 +111,6 @@ public class EstadoJuego extends Estado {
 
 	public Entidad getPersonaje() {
 		return entidadPersonaje;
-	}
-	
-	public Entidad getNpc() {
-		return entidadNpc;
 	}
 
 	private String getMundo() {
