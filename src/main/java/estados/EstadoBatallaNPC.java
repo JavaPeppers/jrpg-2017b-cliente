@@ -187,8 +187,6 @@ public class EstadoBatallaNPC extends Estado{
 			paquetePersonaje.setDestreza(personaje.getDestreza());
 			paquetePersonaje.setFuerza(personaje.getFuerza());
 			paquetePersonaje.setInteligencia(personaje.getInteligencia());
-			
-			//paquetePersonaje.setPuntosSkill(personaje.getPuntosSkill());
 			paquetePersonaje.removerBonus();
 
 			if(paquetePersonaje.getNivel() > this.nivelDePersonaje) {
@@ -219,6 +217,8 @@ public class EstadoBatallaNPC extends Estado{
 		int nivel = paquetePersonaje.getNivel();
 		int id = paquetePersonaje.getId();
 
+		nivelDePersonaje = paquetePersonaje.getNivel();
+		
 		Casta casta = null;
 		try {
 			casta = (Casta) Class.forName("dominio" + "." + paquetePersonaje.getCasta()).newInstance();
