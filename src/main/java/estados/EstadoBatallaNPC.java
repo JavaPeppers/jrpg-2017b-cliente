@@ -192,7 +192,7 @@ public class EstadoBatallaNPC extends Estado{
 			paquetePersonaje.removerBonus();
 
 			if(paquetePersonaje.getNivel() > this.nivelDePersonaje) {
-				paquetePersonaje.setPuntosSkills(PUNTOSSKILLSPORNIVEL);
+				paquetePersonaje.actualizarPuntosSkillsDisponibles(PUNTOSSKILLSPORNIVEL);
 			}
 			
 			paquetePersonaje.setComando(Comando.ACTUALIZARPERSONAJE);
