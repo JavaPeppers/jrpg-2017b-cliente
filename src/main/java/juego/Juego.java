@@ -15,7 +15,6 @@ import dominio.Personaje;
 import estados.Estado;
 import estados.EstadoBatalla;
 import estados.EstadoJuego;
-import mensajeria.PaqueteEnemigo;
 import mensajeria.PaqueteMovimiento;
 import mensajeria.PaquetePersonaje;
 
@@ -46,7 +45,6 @@ public class Juego implements Runnable {
 	private Cliente cliente;
 	private EscuchaMensajes escuchaMensajes;
 	private PaquetePersonaje paquetePersonaje;
-	private PaqueteEnemigo paqueteEnemigo;
 	private PaqueteMovimiento ubicacionPersonaje;
 	private Map<Integer, PaquetePersonaje> personajesConectados;
 	private Map<Integer, PaqueteMovimiento> ubicacionPersonajes;
@@ -217,10 +215,6 @@ public class Juego implements Runnable {
 	public PaquetePersonaje getPersonaje() {
 		return paquetePersonaje;
 	}
-	
-	public PaqueteEnemigo getEnemigo() {
-		return paqueteEnemigo;
-	}
 
 	public PaqueteMovimiento getUbicacionPersonaje(){
 		return ubicacionPersonaje;
@@ -228,10 +222,6 @@ public class Juego implements Runnable {
 
 	public void setPersonaje(PaquetePersonaje paquetePersonaje) {
 		this.paquetePersonaje = paquetePersonaje;
-	}
-	
-	public void setEnemigo(PaqueteEnemigo paqueteEnemigo) {
-		this.paqueteEnemigo = paqueteEnemigo;
 	}
 
 	public void actualizarPersonaje() {
