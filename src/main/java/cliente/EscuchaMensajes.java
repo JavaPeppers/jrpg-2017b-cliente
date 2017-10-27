@@ -47,7 +47,7 @@ public class EscuchaMensajes extends Thread {
 			ComandosEscucha comand;
 			juego.setPersonajesConectados(new HashMap<Integer, PaquetePersonaje>());
 			juego.setUbicacionPersonajes(new HashMap<Integer, PaqueteMovimiento>());
-			juego.setNpcs(new HashMap<Integer, PaqueteNPC>());
+			juego.setNpcs(new HashMap<Integer, NonPlayableCharacter>());
 
 			while (true) {
 

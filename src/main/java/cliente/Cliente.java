@@ -119,7 +119,7 @@ public class Cliente extends Thread {
 						// Creo los paquetes que le voy a enviar al servidor
 						paqueteUsuario = new PaqueteUsuario();
 						paquetePersonaje = new PaquetePersonaje();
-//						paqueteNpc = new PaqueteNPC();
+						paqueteNpc = new PaqueteNPC();
 	
 						// Espero a que el usuario seleccione alguna accion
 						wait();

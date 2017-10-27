@@ -115,6 +115,7 @@ public class Recursos {
 		//Items
 		
 		
+		
 		noItem = ImageIO.read(new File("recursos//noItem.png"));
 		mochila = ImageIO.read(new File("recursos//mochila.png"));
 		menu = ImageIO.read(new File("recursos//menu.png"));
