@@ -37,9 +37,7 @@ public class EstadoBatalla extends Estado {
 	private Personaje enemigo;
 	private int[] posMouse;
 	private PaquetePersonaje paquetePersonaje;
-	private int nivelDePersonaje;
 	private PaquetePersonaje paqueteEnemigo;
-	private int nivelDeEnemigo;
 	private PaqueteAtacar paqueteAtacar;
 	private PaqueteFinalizarBatalla paqueteFinalizarBatalla;
 	private boolean miTurno;
@@ -53,8 +51,7 @@ public class EstadoBatalla extends Estado {
 	private BufferedImage miniaturaEnemigo;
 
 	private MenuBatalla menuBatalla;
-	private static final int PUNTOSSKILLSPORNIVEL = 3;
-	
+
 	public EstadoBatalla(Juego juego, PaqueteBatalla paqueteBatalla) {
 		super(juego);
 		mundo = new Mundo(juego, "recursos/mundoBatalla.txt", "recursos/mundoBatallaCapaDos.txt");
@@ -195,8 +192,6 @@ public class EstadoBatalla extends Estado {
 	}
 
 	private void crearPersonajes() {
-		
-		/**Se crea mi Personaje en la batalla*/
 		String nombre = paquetePersonaje.getNombre();
 		int salud = paquetePersonaje.getSaludTope();
 		int energia = paquetePersonaje.getEnergiaTope();
@@ -206,7 +201,6 @@ public class EstadoBatalla extends Estado {
 		int experiencia = paquetePersonaje.getExperiencia();
 		int nivel = paquetePersonaje.getNivel();
 		int id = paquetePersonaje.getId();
-		this.nivelDePersonaje = paquetePersonaje.getNivel();
 
 		Casta casta = null;
 		try {
@@ -219,7 +213,10 @@ public class EstadoBatalla extends Estado {
 			JOptionPane.showMessageDialog(null, "Error al crear la batalla");
 		}
 		
-		/**Se crea mi Enemigo en la batalla*/
+
+
+
+
 		nombre = paqueteEnemigo.getNombre();
 		salud = paqueteEnemigo.getSaludTope();
 		energia = paqueteEnemigo.getEnergiaTope();
@@ -229,7 +226,6 @@ public class EstadoBatalla extends Estado {
 		experiencia = paqueteEnemigo.getExperiencia();
 		nivel = paqueteEnemigo.getNivel();
 		id = paqueteEnemigo.getId();
-		this.nivelDeEnemigo = paqueteEnemigo.getNivel();
 
 		casta = null;
 		if (paqueteEnemigo.getCasta().equals("Guerrero")) {
@@ -282,15 +278,6 @@ public class EstadoBatalla extends Estado {
 			paqueteEnemigo.setInteligencia(enemigo.getInteligencia());
 			paqueteEnemigo.removerBonus();
 
-			/**Se verifica si Mi Personaje o El Enemigo subio de nivel al ganar la batalla,
-			 *  para asignar puntos de Skills
-			 */
-			if(paquetePersonaje.getNivel() > this.nivelDePersonaje) {
-				paquetePersonaje.setPuntosSkills(PUNTOSSKILLSPORNIVEL);
-			}else if( paqueteEnemigo.getNivel() > this.nivelDeEnemigo) {
-				paqueteEnemigo.setPuntosSkills(PUNTOSSKILLSPORNIVEL);
-			}
-			
 			paquetePersonaje.setComando(Comando.ACTUALIZARPERSONAJE);
 			paqueteEnemigo.setComando(Comando.ACTUALIZARPERSONAJE);
 

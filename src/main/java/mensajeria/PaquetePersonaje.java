@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 
 import dominio.Item;
 import estados.Estado;
-import java.util.HashMap;
 
 public class PaquetePersonaje extends Paquete implements Serializable, Cloneable {
 
@@ -26,8 +25,6 @@ public class PaquetePersonaje extends Paquete implements Serializable, Cloneable
 	private int inteligencia;
 	private int nivel = 1;
 	private int experiencia;
-	private int puntosSkills;
-	private static final int PUNTOSSKILLSPORNIVEL = 3;
 	private ArrayList<Item> items = new ArrayList<Item>();
 	
 	public PaquetePersonaje() throws IOException {
@@ -281,29 +278,4 @@ public class PaquetePersonaje extends Paquete implements Serializable, Cloneable
 			this.items.add(item);
 		}
 	}
-
-	public int getPuntosSkills() {
-		return puntosSkills;
-	}
-
-	public void setPuntosSkills(int puntosSkills) {
-		this.puntosSkills = puntosSkills;
-	}
-	
-	public void actualizarPuntosParaSkills() {
-		
-		this.puntosSkills += PUNTOSSKILLSPORNIVEL; //por el momento son 3 ptos por nivel
-	}
-	
-	
-	public void setSkills(int salud, int energia, int ataque, int defensa, int intelig){
-		fuerza = ataque;
-		destreza = defensa;
-		inteligencia = intelig;
-		saludTope = salud;
-		energiaTope = energia;
-		 
-	}
-	
-	
 }
