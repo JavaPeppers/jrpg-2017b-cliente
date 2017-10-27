@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import dominio.Item;
 
+@SuppressWarnings("serial")
 public class PaqueteComerciar extends Paquete implements Serializable, Cloneable  {
 	
 	private int id;

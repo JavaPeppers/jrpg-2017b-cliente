@@ -15,6 +15,7 @@ import dominio.Personaje;
 import estados.Estado;
 import estados.EstadoBatalla;
 import estados.EstadoJuego;
+import mensajeria.PaqueteEnemigo;
 import mensajeria.PaqueteMovimiento;
 import mensajeria.PaquetePersonaje;
 
@@ -34,6 +35,7 @@ public class Juego implements Runnable {
 	// Estados
 	private Estado estadoJuego;
 	private Estado estadoBatalla;
+	private Estado estadoBatallaNPC;
 
 	// HandlerMouse
 	private HandlerMouse handlerMouse;
@@ -45,13 +47,19 @@ public class Juego implements Runnable {
 	private Cliente cliente;
 	private EscuchaMensajes escuchaMensajes;
 	private PaquetePersonaje paquetePersonaje;
+	private PaqueteEnemigo paqueteEnemigo;
 	private PaqueteMovimiento ubicacionPersonaje;
 	private Map<Integer, PaquetePersonaje> personajesConectados;
 	private Map<Integer, PaqueteMovimiento> ubicacionPersonajes;
+	private Map<Integer, PaqueteEnemigo> enemigos;
+	
+	
+	
 	private Map<String, MiChat> chatsActivos = new HashMap<>();
 
 
 	private CargarRecursos cargarRecursos;
+
 
 	public Juego(final String nombre, final int ancho, final int alto, Cliente cliente, PaquetePersonaje pp) {
 		this.NOMBRE = nombre;
@@ -215,6 +223,7 @@ public class Juego implements Runnable {
 	public PaquetePersonaje getPersonaje() {
 		return paquetePersonaje;
 	}
+	
 
 	public PaqueteMovimiento getUbicacionPersonaje(){
 		return ubicacionPersonaje;
@@ -224,8 +233,13 @@ public class Juego implements Runnable {
 		this.paquetePersonaje = paquetePersonaje;
 	}
 
+
 	public void actualizarPersonaje() {
 		paquetePersonaje = (PaquetePersonaje) (personajesConectados.get(paquetePersonaje.getId()).clone());
+	}
+	
+	public void actualizarEnemigo() {
+		paqueteEnemigo = (PaqueteEnemigo) (enemigos.get(paqueteEnemigo.getId()).clone());
 	}
 
 	public Map<Integer, PaquetePersonaje> getPersonajesConectados() {
@@ -247,4 +261,24 @@ public class Juego implements Runnable {
 	public Map<String, MiChat> getChatsActivos() {
 		return chatsActivos;
 	}
+
+
+	public Map<Integer, PaqueteEnemigo> getEnemigos() {
+		return enemigos;
+	}
+
+	public void setEnemigos(Map<Integer, PaqueteEnemigo> enemigos) {
+		this.enemigos = enemigos;
+	}
+
+
+	public Estado getEstadoBatallaNPC() {
+		return estadoBatallaNPC;
+	}
+
+	public void setEstadoBatallaNPC(Estado estadoBatallaNPC) {
+		this.estadoBatallaNPC = estadoBatallaNPC;
+	}
+
+
 }

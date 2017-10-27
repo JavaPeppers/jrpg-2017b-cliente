@@ -3,8 +3,6 @@ package comandos;
 import java.util.Map;
 
 import javax.swing.DefaultListModel;
-
-import cliente.Cliente;
 import chat.VentanaContactos;
 import mensajeria.PaqueteDePersonajes;
 import mensajeria.PaquetePersonaje;
