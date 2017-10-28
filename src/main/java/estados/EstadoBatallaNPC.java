@@ -237,7 +237,7 @@ public class EstadoBatallaNPC extends Estado{
 		nivel = paqueteEnemigo.getNivel();
 		id = paqueteEnemigo.getId();
 
-		enemigo = new Enemigo(fuerza, 10, "Salvaje", salud);
+		enemigo = new Enemigo("Enemigo");
 	}
 
 	@Override
