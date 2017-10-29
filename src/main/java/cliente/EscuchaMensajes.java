@@ -15,51 +15,77 @@ import mensajeria.PaqueteEnemigo;
 import mensajeria.PaqueteMovimiento;
 import mensajeria.PaquetePersonaje;
 
-/**La clase EscuchaMensajes tiene como función  
- * esuchar los mensajes que se enviaran
- * al servidor.
+/**
+ * La clase EscuchaMensajes tiene como función esuchar los mensajes que se
+ * enviaran al servidor.
  */
 public class EscuchaMensajes extends Thread {
 
-	private Juego juego;
-	private Cliente cliente;
-	private ObjectInputStream entrada;
-	private final Gson gson = new Gson();
-	
-	/**Constructor de EscuchaMensaje
-	 * @param juego ->juego del que se escucha el mensaje
-	 */
-	public EscuchaMensajes(final Juego juego) {
-		this.juego = juego;
-		cliente = juego.getCliente();
-		entrada = cliente.getEntrada();
-	}
+    /**
+     * The juego.
+     */
+    private Juego juego;
 
-	@Override
-	public void run() {
+    /**
+     * The cliente.
+     */
+    private Cliente cliente;
 
-		try {
+    /**
+     * The entrada.
+     */
+    private ObjectInputStream entrada;
 
-			Paquete paquete;
-			
-			ComandosEscucha comand;
-			juego.setPersonajesConectados(new HashMap<Integer, PaquetePersonaje>());
-			juego.setUbicacionPersonajes(new HashMap<Integer, PaqueteMovimiento>());
-			juego.setEnemigos(new HashMap<Integer,PaqueteEnemigo>());
-			
-			while (true) {
+    /**
+     * The gson.
+     */
+    private final Gson gson = new Gson();
 
-				String objetoLeido = (String) entrada.readObject();
+    /**
+     * Constructor de EscuchaMensaje.
+     *
+     * @param juegoParam juego del que se escucha el mensaje
+     */
+    public EscuchaMensajes(final Juego juegoParam) {
+        this.juego = juegoParam;
+        cliente = juego.getCliente();
+        entrada = cliente.getEntrada();
+    }
 
-				paquete = gson.fromJson(objetoLeido , Paquete.class);
-				comand = (ComandosEscucha) paquete.getObjeto(Comando.NOMBREPAQUETE);
-				comand.setJuego(juego);
-				comand.setCadena(objetoLeido);
-				comand.ejecutar();
-				
-			}
-		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Fallo la conexión con el servidor.");
-		}
-	}
+    /*
+     * (non-Javadoc)
+     *
+     * @see java.lang.Thread#run()
+     */
+    @Override
+    public void run() {
+
+        try {
+
+            Paquete paquete;
+
+            ComandosEscucha comand;
+            juego.setPersonajesConectados(
+                    new HashMap<Integer, PaquetePersonaje>());
+            juego.setUbicacionPersonajes(
+                    new HashMap<Integer, PaqueteMovimiento>());
+            juego.setEnemigos(new HashMap<Integer, PaqueteEnemigo>());
+
+            while (true) {
+
+                String objetoLeido = (String) entrada.readObject();
+
+                paquete = gson.fromJson(objetoLeido, Paquete.class);
+                comand = (ComandosEscucha) paquete
+                        .getObjeto(Comando.NOMBREPAQUETE);
+                comand.setJuego(juego);
+                comand.setCadena(objetoLeido);
+                comand.ejecutar();
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,
+                    "Fallo la conexión con el servidor.");
+        }
+    }
 }

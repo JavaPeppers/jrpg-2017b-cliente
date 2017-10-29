@@ -9,55 +9,120 @@ import dominio.Enemigo;
 import mensajeria.PaqueteEnemigo;
 import recursos.Recursos;
 
-public class EstadoEnemigo {
+/**
+ * The Class EstadoEnemigo.
+ */
+public final class EstadoEnemigo {
 
-	private static final int ANCHOBARRA = 122;
-	private static final int ALTOSALUD = 14;
-	private static final int ALTOMINIATURA = 64;
-	private static final int ANCHOMINIATURA = 64;
+    /**
+     * Instantiates a new estado enemigo.
+     */
+    private EstadoEnemigo() {
 
-	public static void dibujarEstadoDeEnemigo(Graphics g, int x, int y, Enemigo enemigo, BufferedImage miniaturaEnemigo){
+    }
 
-		int drawBarra = 0;
+    /**
+     * The Constant ANCHOBARRA.
+     */
+    private static final int ANCHOBARRA = 122;
 
-		g.drawImage(Recursos.estadoPersonaje, x, y, null);
+    /**
+     * The Constant ALTOSALUD.
+     */
+    private static final int ALTOSALUD = 14;
 
-		g.drawImage(miniaturaEnemigo, x + 10, y + 9, ANCHOMINIATURA, ALTOMINIATURA, null);
+    /**
+     * The Constant ALTOMINIATURA.
+     */
+    private static final int ALTOMINIATURA = 64;
 
-		if(enemigo.getSalud() == enemigo.getSaludTope()) {
-			drawBarra = ANCHOBARRA;
-		} else {
-			drawBarra = (enemigo.getSalud() * ANCHOBARRA) / enemigo.getSaludTope();
-		}
+    /**
+     * The Constant ANCHOMINIATURA.
+     */
+    private static final int ANCHOMINIATURA = 64;
 
-		g.setColor(Color.WHITE);
-		g.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		g.drawImage(Recursos.barraSalud,  x + 80, y + 26, drawBarra, ALTOSALUD, null);
-		g.drawString(String.valueOf(enemigo.getSalud()) + " / " + String.valueOf(enemigo.getSaludTope()), x + 132, y + 37);
+    /**
+     * Dibujar estado de enemigo.
+     *
+     * @param g
+     *            the g
+     * @param x
+     *            the x
+     * @param y
+     *            the y
+     * @param enemigo
+     *            the enemigo
+     * @param miniaturaEnemigo
+     *            the miniatura enemigo
+     */
+    public static void dibujarEstadoDeEnemigo(final Graphics g, final int x,
+            final int y, final Enemigo enemigo,
+            final BufferedImage miniaturaEnemigo) {
 
-		g.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		g.setColor(Color.GREEN);
-		g.drawString(String.valueOf(enemigo.getNivel()), x + 59, y + 70);
+        int drawBarra = 0;
 
+        g.drawImage(Recursos.estadoPersonaje, x, y, null);
 
-	}
+        g.drawImage(miniaturaEnemigo, x + 10, y + 9, ANCHOMINIATURA,
+                ALTOMINIATURA, null);
 
-	public static void dibujarEstadoDeEnemigo(Graphics g, int x, int y, PaqueteEnemigo enemigo, BufferedImage miniaturaEnemigo){
+        if (enemigo.getSalud() == enemigo.getSaludTope()) {
+            drawBarra = ANCHOBARRA;
+        } else {
+            drawBarra = (enemigo.getSalud() * ANCHOBARRA)
+                    / enemigo.getSaludTope();
+        }
 
-		
-		int drawBarra = 0;
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Tahoma", Font.PLAIN, 10));
+        g.drawImage(Recursos.barraSalud, x + 80, y + 26, drawBarra, ALTOSALUD,
+                null);
+        g.drawString(
+                String.valueOf(enemigo.getSalud()) + " / "
+                        + String.valueOf(enemigo.getSaludTope()),
+                x + 132, y + 37);
 
-		g.drawImage(Recursos.estadoPersonaje, x, y, null);
+        g.setFont(new Font("Tahoma", Font.PLAIN, 10));
+        g.setColor(Color.GREEN);
+        g.drawString(String.valueOf(enemigo.getNivel()), x + 59, y + 70);
 
-		g.drawImage(miniaturaEnemigo, x + 10, y + 9, ANCHOMINIATURA, ALTOMINIATURA, null);
+    }
 
-	
-		g.setColor(Color.WHITE);
-		g.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		g.drawImage(Recursos.barraSalud, x + 80, y + 26, drawBarra, ALTOSALUD, null);
-		g.drawString(String.valueOf(enemigo.getSaludTope()) + " / " + String.valueOf(enemigo.getSaludTope()), x + 132, y + 37);
-		g.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		g.setColor(Color.GREEN);
-		g.drawString(String.valueOf(enemigo.getNivel()), x + 59, y + 70);
-	}
+    /**
+     * Dibujar estado de enemigo.
+     *
+     * @param g
+     *            the g
+     * @param x
+     *            the x
+     * @param y
+     *            the y
+     * @param enemigo
+     *            the enemigo
+     * @param miniaturaEnemigo
+     *            the miniatura enemigo
+     */
+    public static void dibujarEstadoDeEnemigo(final Graphics g, final int x,
+            final int y, final PaqueteEnemigo enemigo,
+            final BufferedImage miniaturaEnemigo) {
+
+        int drawBarra = 0;
+
+        g.drawImage(Recursos.estadoPersonaje, x, y, null);
+
+        g.drawImage(miniaturaEnemigo, x + 10, y + 9, ANCHOMINIATURA,
+                ALTOMINIATURA, null);
+
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Tahoma", Font.PLAIN, 10));
+        g.drawImage(Recursos.barraSalud, x + 80, y + 26, drawBarra, ALTOSALUD,
+                null);
+        g.drawString(
+                String.valueOf(enemigo.getSaludTope()) + " / "
+                        + String.valueOf(enemigo.getSaludTope()),
+                x + 132, y + 37);
+        g.setFont(new Font("Tahoma", Font.PLAIN, 10));
+        g.setColor(Color.GREEN);
+        g.drawString(String.valueOf(enemigo.getNivel()), x + 59, y + 70);
+    }
 }

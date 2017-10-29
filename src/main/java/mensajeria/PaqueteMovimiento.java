@@ -2,76 +2,178 @@ package mensajeria;
 
 import java.io.Serializable;
 
+/**
+ * The Class PaqueteMovimiento.
+ */
 @SuppressWarnings("serial")
-public class PaqueteMovimiento extends Paquete implements Serializable, Cloneable {
+public class PaqueteMovimiento extends Paquete
+        implements Serializable, Cloneable {
 
-	private int id;
-	private float posX;
-	private float posY;
-	private int direccion;
-	private int frame;
+    /**
+     * The id.
+     */
+    private int id;
 
-	public PaqueteMovimiento() {
-		setComando(Comando.MOVIMIENTO);
-	}
+    /**
+     * The pos X.
+     */
+    private float posX;
 
-	public PaqueteMovimiento(int idPersonaje) {
-		id = idPersonaje;
-		setComando(Comando.MOVIMIENTO);
-	}
+    /**
+     * The pos Y.
+     */
+    private float posY;
 
-	public PaqueteMovimiento(int idPersonaje, float posX, float posY) {
-		this.id = idPersonaje;
-		this.posX = posX;
-		this.posY = posY;
-		setComando(Comando.MOVIMIENTO);
-	}
+    /**
+     * The direccion.
+     */
+    private int direccion;
 
-	public int getIdPersonaje() {
-		return id;
-	}
+    /**
+     * The frame.
+     */
+    private int frame;
 
-	public void setIdPersonaje(int idPersonaje) {
-		this.id = idPersonaje;
-	}
+    /**
+     * Instantiates a new paquete movimiento.
+     */
+    public PaqueteMovimiento() {
+        setComando(Comando.MOVIMIENTO);
+    }
 
-	public float getPosX() {
-		return posX;
-	}
+    /**
+     * Instantiates a new paquete movimiento.
+     *
+     * @param idPersonajeParam
+     *            the id personaje
+     */
+    public PaqueteMovimiento(final int idPersonajeParam) {
+        id = idPersonajeParam;
+        setComando(Comando.MOVIMIENTO);
+    }
 
-	public void setPosX(float posX) {
-		this.posX = posX;
-	}
+    /**
+     * Instantiates a new paquete movimiento.
+     *
+     * @param idPersonajeParam
+     *            the id personaje
+     * @param posXParam
+     *            the pos X
+     * @param posYParam
+     *            the pos Y
+     */
+    public PaqueteMovimiento(final int idPersonajeParam, final float posXParam,
+            final float posYParam) {
+        this.id = idPersonajeParam;
+        this.posX = posXParam;
+        this.posY = posYParam;
+        setComando(Comando.MOVIMIENTO);
+    }
 
-	public float getPosY() {
-		return posY;
-	}
+    /**
+     * Gets the id personaje.
+     *
+     * @return the id personaje
+     */
+    public int getIdPersonaje() {
+        return id;
+    }
 
-	public void setPosY(float posY) {
-		this.posY = posY;
-	}
+    /**
+     * Sets the id personaje.
+     *
+     * @param idPersonajeParam
+     *            the new id personaje
+     */
+    public void setIdPersonaje(final int idPersonajeParam) {
+        this.id = idPersonajeParam;
+    }
 
-	public int getDireccion() {
-		return direccion;
-	}
+    /**
+     * Gets the pos X.
+     *
+     * @return the pos X
+     */
+    public float getPosX() {
+        return posX;
+    }
 
-	public void setDireccion(int direccion) {
-		this.direccion = direccion;
-	}
+    /**
+     * Sets the pos X.
+     *
+     * @param posXParam
+     *            the new pos X
+     */
+    public void setPosX(final float posXParam) {
+        this.posX = posXParam;
+    }
 
-	public int getFrame() {
-		return frame;
-	}
+    /**
+     * Gets the pos Y.
+     *
+     * @return the pos Y
+     */
+    public float getPosY() {
+        return posY;
+    }
 
-	public void setFrame(int frame) {
-		this.frame = frame;
-	}
+    /**
+     * Sets the pos Y.
+     *
+     * @param posYParam
+     *            the new pos Y
+     */
+    public void setPosY(final float posYParam) {
+        this.posY = posYParam;
+    }
 
-	@Override
-	public Object clone() {
-		Object obj = null;
-		obj = super.clone();
-		return obj;
-	}
+    /**
+     * Gets the direccion.
+     *
+     * @return the direccion
+     */
+    public int getDireccion() {
+        return direccion;
+    }
+
+    /**
+     * Sets the direccion.
+     *
+     * @param direccionParam
+     *            the new direccion
+     */
+    public void setDireccion(final int direccionParam) {
+        this.direccion = direccionParam;
+    }
+
+    /**
+     * Gets the frame.
+     *
+     * @return the frame
+     */
+    public int getFrame() {
+        return frame;
+    }
+
+    /**
+     * Sets the frame.
+     *
+     * @param frameParam
+     *            the new frame
+     */
+    public void setFrame(final int frameParam) {
+        this.frame = frameParam;
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see mensajeria.Paquete#clone()
+     */
+    @Override
+    public Object clone() {
+        Object obj = null;
+        obj = super.clone();
+        return obj;
+    }
 }
-

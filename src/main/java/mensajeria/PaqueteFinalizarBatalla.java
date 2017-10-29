@@ -2,37 +2,89 @@ package mensajeria;
 
 import java.io.Serializable;
 
+/**
+ * The Class PaqueteFinalizarBatalla.
+ */
 @SuppressWarnings("serial")
-public class PaqueteFinalizarBatalla extends Paquete implements Serializable, Cloneable {
+public class PaqueteFinalizarBatalla extends Paquete
+        implements Serializable, Cloneable {
 
-	private int id;
-	private int idEnemigo;
-	private int ganadorBatalla;
-	public PaqueteFinalizarBatalla(){
-		setComando(Comando.FINALIZARBATALLA);
-	}
+    /**
+     * The id.
+     */
+    private int id;
 
-	public int getId() {
-		return id;
-	}
+    /**
+     * The id enemigo.
+     */
+    private int idEnemigo;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    /**
+     * The ganador batalla.
+     */
+    private int ganadorBatalla;
 
-	public int getIdEnemigo() {
-		return idEnemigo;
-	}
+    /**
+     * Instantiates a new paquete finalizar batalla.
+     */
+    public PaqueteFinalizarBatalla() {
+        setComando(Comando.FINALIZARBATALLA);
+    }
 
-	public void setIdEnemigo(int idEnemigo) {
-		this.idEnemigo = idEnemigo;
-	}
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
 
-	public int getGanadorBatalla() {
-		return ganadorBatalla;
-	}
+    /**
+     * Sets the id.
+     *
+     * @param idParam
+     *            the new id
+     */
+    public void setId(final int idParam) {
+        this.id = idParam;
+    }
 
-	public void setGanadorBatalla(int ganadorBatalla) {
-		this.ganadorBatalla = ganadorBatalla;
-	}
+    /**
+     * Gets the id enemigo.
+     *
+     * @return the id enemigo
+     */
+    public int getIdEnemigo() {
+        return idEnemigo;
+    }
+
+    /**
+     * Sets the id enemigo.
+     *
+     * @param idEnemigoParam
+     *            the new id enemigo
+     */
+    public void setIdEnemigo(final int idEnemigoParam) {
+        this.idEnemigo = idEnemigoParam;
+    }
+
+    /**
+     * Gets the ganador batalla.
+     *
+     * @return the ganador batalla
+     */
+    public int getGanadorBatalla() {
+        return ganadorBatalla;
+    }
+
+    /**
+     * Sets the ganador batalla.
+     *
+     * @param ganadorBatallaParam
+     *            the new ganador batalla
+     */
+    public void setGanadorBatalla(final int ganadorBatallaParam) {
+        this.ganadorBatalla = ganadorBatallaParam;
+    }
 }

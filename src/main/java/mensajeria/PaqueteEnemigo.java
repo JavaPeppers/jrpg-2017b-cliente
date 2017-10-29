@@ -4,113 +4,261 @@ import java.io.Serializable;
 
 import estados.Estado;
 
+/**
+ * The Class PaqueteEnemigo.
+ */
 @SuppressWarnings("serial")
 public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
-	
-	private int id;
-	private int idMapa;
-	private String nombre;
-	private int estado;
-	private int saludTope;
-	private int fuerza;
-	private int nivel;
-	private float x;
-	private float y;
-	
-	
-	public PaqueteEnemigo(int id,float x, float y) {
-		this.id = id;
-//		idMapa = 1;
-		nombre = "Enemigo";
-		estado = Estado.estadoJuego;
-		saludTope = 60;
-		fuerza = 25;
-		nivel = 1;
-		this.x=x;
-		this.y=y;
-	}
-	
 
-	public int getEstado() {
-		return estado;
-	}
+    /**
+     * The id.
+     */
+    private int id;
 
-	public void setEstado(int estado) {
-		this.estado = estado;
-	}
+    /**
+     * The id mapa.
+     */
+    private int idMapa;
 
-	public int getMapa(){
-		return idMapa;
-	}
+    /**
+     * The nombre.
+     */
+    private String nombre;
 
-	public void setMapa(int mapa){
-		idMapa = mapa;
-	}
-	
-	public int getId() {
-		return id;
-	}
+    /**
+     * The estado.
+     */
+    private int estado;
 
+    /**
+     * The salud tope.
+     */
+    private int saludTope;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    /**
+     * The fuerza.
+     */
+    private int fuerza;
 
-	public int getSaludTope() {
-		return saludTope;
-	}
+    /**
+     * The nivel.
+     */
+    private int nivel;
 
+    /**
+     * The x.
+     */
+    private float x;
 
-	public void setSaludTope(int saludTope) {
-		this.saludTope = saludTope;
-	}
+    /**
+     * The y.
+     */
+    private float y;
 
-	public int getFuerza() {
-		return fuerza;
-	}
+    /**
+     * Instantiates a new paquete enemigo.
+     *
+     * @param idParam
+     *            the id
+     * @param xParam
+     *            the x
+     * @param yParam
+     *            the y
+     */
+    public PaqueteEnemigo(final int idParam, final float xParam,
+            final float yParam) {
+        this.id = idParam;
+        // idMapa = 1;
+        nombre = "Enemigo";
+        estado = Estado.ESTADOJUEGO;
+        saludTope = 60;
+        fuerza = 25;
+        nivel = 1;
+        this.x = xParam;
+        this.y = yParam;
+    }
 
+    /**
+     * Gets the estado.
+     *
+     * @return the estado
+     */
+    public int getEstado() {
+        return estado;
+    }
 
-	public void setFuerza(int fuerza) {
-		this.fuerza = fuerza;
-	}
-	
-	@Override
-	public Object clone() {
-		Object obj = null;
-		obj = super.clone();
-		return obj;
-	}
+    /**
+     * Sets the estado.
+     *
+     * @param estadoParam
+     *            the new estado
+     */
+    public void setEstado(final int estadoParam) {
+        this.estado = estadoParam;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    /**
+     * Gets the mapa.
+     *
+     * @return the mapa
+     */
+    public int getMapa() {
+        return idMapa;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    /**
+     * Sets the mapa.
+     *
+     * @param mapaParam
+     *            the new mapa
+     */
+    public void setMapa(final int mapaParam) {
+        idMapa = mapaParam;
+    }
 
-	public int getNivel() {
-		return nivel;
-	}
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
 
-	public void setNivel(int nivel) {
-		this.nivel = nivel;
-	}
+    /**
+     * Sets the id.
+     *
+     * @param idParam
+     *            the new id
+     */
+    public void setId(final int idParam) {
+        this.id = idParam;
+    }
 
-	public float getX() {
-		return x;
-	}
+    /**
+     * Gets the salud tope.
+     *
+     * @return the salud tope
+     */
+    public int getSaludTope() {
+        return saludTope;
+    }
 
-	public void setX(float x) {
-		this.x = x;
-	}
+    /**
+     * Sets the salud tope.
+     *
+     * @param saludTopeParam
+     *            the new salud tope
+     */
+    public void setSaludTope(final int saludTopeParam) {
+        this.saludTope = saludTopeParam;
+    }
 
-	public float getY() {
-		return y;
-	}
+    /**
+     * Gets the fuerza.
+     *
+     * @return the fuerza
+     */
+    public int getFuerza() {
+        return fuerza;
+    }
 
-	public void setY(float y) {
-		this.y = y;
-	}
+    /**
+     * Sets the fuerza.
+     *
+     * @param fuerzaParam
+     *            the new fuerza
+     */
+    public void setFuerza(final int fuerzaParam) {
+        this.fuerza = fuerzaParam;
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * @see mensajeria.Paquete#clone()
+     */
+    @Override
+    public Object clone() {
+        Object obj = null;
+        obj = super.clone();
+        return obj;
+    }
+
+    /**
+     * Gets the nombre.
+     *
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * Sets the nombre.
+     *
+     * @param nombreParam
+     *            the new nombre
+     */
+    public void setNombre(final String nombreParam) {
+        this.nombre = nombreParam;
+    }
+
+    /**
+     * Gets the nivel.
+     *
+     * @return the nivel
+     */
+    public int getNivel() {
+        return nivel;
+    }
+
+    /**
+     * Sets the nivel.
+     *
+     * @param nivelParam
+     *            the new nivel
+     */
+    public void setNivel(final int nivelParam) {
+        this.nivel = nivelParam;
+    }
+
+    /**
+     * Gets the x.
+     *
+     * @return the x
+     */
+    public float getX() {
+        return x;
+    }
+
+    /**
+     * Sets the x.
+     *
+     * @param xParam
+     *            the new x
+     */
+    public void setX(final float xParam) {
+        this.x = xParam;
+    }
+
+    /**
+     * Gets the y.
+     *
+     * @return the y
+     */
+    public float getY() {
+        return y;
+    }
+
+    /**
+     * Sets the y.
+     *
+     * @param yParam
+     *            the new y
+     */
+    public void setY(final float yParam) {
+        this.y = yParam;
+    }
 
 }

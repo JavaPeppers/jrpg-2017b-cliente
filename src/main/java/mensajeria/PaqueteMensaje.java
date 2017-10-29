@@ -2,43 +2,94 @@ package mensajeria;
 
 import java.io.Serializable;
 
+/**
+ * The Class PaqueteMensaje.
+ */
 @SuppressWarnings("serial")
 public class PaqueteMensaje extends Paquete implements Serializable, Cloneable {
-	
-		private String userEmisor;
-		private String userReceptor;
-		private String msj;
 
-		public PaqueteMensaje(){
-		}
+    /**
+     * The user emisor.
+     */
+    private String userEmisor;
 
-		public String getMensaje() {
-			return msj;
-		}
+    /**
+     * The user receptor.
+     */
+    private String userReceptor;
 
-		public void setMensaje(String mensaje) {
-			this.msj = mensaje;
-		}
+    /**
+     * The msj.
+     */
+    private String msj;
 
-		public String getUserEmisor() {
-			return userEmisor;
-		}
+    /**
+     * Instantiates a new paquete mensaje.
+     */
+    public PaqueteMensaje() {
+    }
 
-		public void setUserEmisor(String idEmisor) {
-			this.userEmisor = idEmisor;
-		}
+    /**
+     * getter de Mensaje.
+     * @return mensaje.
+     */
+    public String getMensaje() {
+        return msj;
+    }
 
-		public String getUserReceptor() {
-			return userReceptor;
-		}
+    /**
+     * setter de Mensaje.
+     * @param mensaje mensaje recibido.
+     */
+    public void setMensaje(final String mensaje) {
+        this.msj = mensaje;
+    }
 
-		public void setUserReceptor(String idReceptor){
-			this.userReceptor = idReceptor;
-		}
-		
-		public Object clone() {
-			Object obj = null;
-			obj = super.clone();
-			return obj;
-		}
+    /**
+     * Gets the user emisor.
+     *
+     * @return the user emisor
+     */
+    public String getUserEmisor() {
+        return userEmisor;
+    }
+
+    /**
+     * Sets the user emisor.
+     *
+     * @param idEmisorParam
+     *            the new user emisor
+     */
+    public void setUserEmisor(final String idEmisorParam) {
+        this.userEmisor = idEmisorParam;
+    }
+
+    /**
+     * Gets the user receptor.
+     *
+     * @return the user receptor
+     */
+    public String getUserReceptor() {
+        return userReceptor;
+    }
+
+    /**
+     * Sets the user receptor.
+     *
+     * @param idReceptorParam
+     *            the new user receptor
+     */
+    public void setUserReceptor(final String idReceptorParam) {
+        this.userReceptor = idReceptorParam;
+    }
+
+    /**
+     * metodo para clonar.
+     * @return el objeto clonado.
+     */
+    public Object clone() {
+        Object obj = null;
+        obj = super.clone();
+        return obj;
+    }
 }
