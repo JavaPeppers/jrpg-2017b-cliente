@@ -55,12 +55,14 @@ public final class Recursos {
     /**
      * Hash de imagenes para los personajes (humano, ogro, elfo).
      */
-    public static Map<String, LinkedList<BufferedImage[]>> personaje = new HashMap<>();
+    private static Map<String, LinkedList<BufferedImage[]>> personaje
+                        = new HashMap<>();
 
     /**
      * Hash de imagenes para los enemigos (se pueden agregar mas Sprites).
      */
-    public static Map<String, LinkedList<BufferedImage[]>> enemigos = new HashMap<>();
+    private static Map<String, LinkedList<BufferedImage[]>> enemigos
+                    = new HashMap<>();
 
     /**
      * El sprite humano.
@@ -70,7 +72,7 @@ public final class Recursos {
     /**
      * El humano.
      */
-    public static LinkedList<BufferedImage[]> humano = new LinkedList<>();
+    private static LinkedList<BufferedImage[]> humano = new LinkedList<>();
 
     /**
      * El humano izq.
@@ -120,7 +122,7 @@ public final class Recursos {
     /**
      * El orco.
      */
-    public static LinkedList<BufferedImage[]> orco = new LinkedList<>();
+    private static LinkedList<BufferedImage[]> orco = new LinkedList<>();
 
     /**
      * El orco izq.
@@ -170,7 +172,7 @@ public final class Recursos {
     /**
      * El elfo.
      */
-    public static LinkedList<BufferedImage[]> elfo = new LinkedList<>();
+    private static LinkedList<BufferedImage[]> elfo = new LinkedList<>();
 
     /**
      * El elfo izq.
@@ -273,7 +275,7 @@ public final class Recursos {
     /**
      * Cesped.
      */
-    public static BufferedImage cesped;
+    private static BufferedImage cesped;
 
     /**
      * La roca.
@@ -283,37 +285,37 @@ public final class Recursos {
     /**
      * Fondo.
      */
-    public static BufferedImage background;
+    private static BufferedImage background;
 
     /**
      * El marco.
      */
-    public static BufferedImage marco;
+    private static BufferedImage marco;
 
     /**
      * El boton menu.
      */
-    public static BufferedImage botonMenu;
+    private static BufferedImage botonMenu;
 
     /**
      * El menu enemigo.
      */
-    public static BufferedImage menuEnemigo;
+    private static BufferedImage menuEnemigo;
 
     /**
      * El arbol verde.
      */
-    public static BufferedImage greenTree;
+    private static BufferedImage greenTree;
 
     /**
      * La nieve piso 1.
      */
-    public static BufferedImage nievePiso1;
+    private static BufferedImage nievePiso1;
 
     /**
      * El bloque de hielo.
      */
-    public static BufferedImage iceBlock;
+    private static BufferedImage iceBlock;
 
     // Fin Entorno
 
@@ -323,42 +325,42 @@ public final class Recursos {
      * La barra spells.
      */
 
-    public static BufferedImage barraSpells;
+    private static BufferedImage barraSpells;
 
     /**
      * El estado personaje.
      */
-    public static BufferedImage estadoPersonaje;
+    private static BufferedImage estadoPersonaje;
 
     /**
      * El barra salud.
      */
-    public static BufferedImage barraSalud;
+    private static BufferedImage barraSalud;
 
     /**
      * The barra energia.
      */
-    public static BufferedImage barraEnergia;
+    private static BufferedImage barraEnergia;
 
     /**
      * The barra experiencia.
      */
-    public static BufferedImage barraExperiencia;
+    private static BufferedImage barraExperiencia;
 
     /**
      * The menu batalla.
      */
-    public static BufferedImage menuBatalla;
+    private static BufferedImage menuBatalla;
 
     /**
      * The menu batalla deshabilitado.
      */
-    public static BufferedImage menuBatallaDeshabilitado;
+    private static BufferedImage menuBatallaDeshabilitado;
 
     /**
      * The no item.
      */
-    public static BufferedImage noItem;
+    private static BufferedImage noItem;
 
     /**
      * The mochila.
@@ -368,20 +370,67 @@ public final class Recursos {
     /**
      * The menu.
      */
-    public static BufferedImage menu;
+    private static BufferedImage menu;
 
     /**
      * The chat.
      */
-    public static BufferedImage chat;
+    private static BufferedImage chat;
 
     /**
      * The habilidades.
      */
-    public static Map<String, BufferedImage> habilidades = new HashMap<>();
+    private static Map<String, BufferedImage> habilidades = new HashMap<>();
     // Fin Batalla
 
     // Se cargan todos los recursos del juego una sola vez al inicio
+
+    /**
+     * @return the personaje
+     */
+    public static Map<String, LinkedList<BufferedImage[]>> getPersonaje() {
+        return personaje;
+    }
+
+    /**
+     * @param personajeParam
+     *            the personaje to set
+     */
+    public static void setPersonaje(
+            final Map<String, LinkedList<BufferedImage[]>> personajeParam) {
+        Recursos.personaje = personajeParam;
+    }
+
+    /**
+     * @return the enemigos
+     */
+    public static Map<String, LinkedList<BufferedImage[]>> getEnemigos() {
+        return enemigos;
+    }
+
+    /**
+     * @param enemigosParam
+     *            the enemigos to set
+     */
+    public static void setEnemigos(
+            final Map<String, LinkedList<BufferedImage[]>> enemigosParam) {
+        Recursos.enemigos = enemigosParam;
+    }
+
+    /**
+     * @return the orco
+     */
+    public static LinkedList<BufferedImage[]> getOrco() {
+        return orco;
+    }
+
+    /**
+     * @param orcoParam
+     *            the orco to set
+     */
+    public static void setOrco(final LinkedList<BufferedImage[]> orcoParam) {
+        Recursos.orco = orcoParam;
+    }
 
     /**
      * @return the mochila
@@ -391,13 +440,14 @@ public final class Recursos {
     }
 
     /**
-     * @param mochilaParam the mochila to set
+     * @param mochilaParam
+     *            the mochila to set
      */
     public static void setMochila(final BufferedImage mochilaParam) {
         Recursos.mochila = mochilaParam;
     }
 
-        /**
+    /**
      * @return the salvaje
      */
     public static LinkedList<BufferedImage[]> getSalvaje() {
@@ -433,10 +483,10 @@ public final class Recursos {
         alto = 256;
         // Items
 
-        noItem = ImageIO.read(new File("recursos//noItem.png"));
+        setNoItem(ImageIO.read(new File("recursos//noItem.png")));
         mochila = ImageIO.read(new File("recursos//mochila.png"));
-        menu = ImageIO.read(new File("recursos//menu.png"));
-        chat = ImageIO.read(new File("recursos//chat.png"));
+        setMenu(ImageIO.read(new File("recursos//menu.png")));
+        setChat(ImageIO.read(new File("recursos//chat.png")));
 
         // Inicio humano
         spriteHumano = new SpriteSheet(
@@ -767,47 +817,47 @@ public final class Recursos {
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
         roca = CargadorImagen.cargarImagen("/rock.png");
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
-        background = CargadorImagen.cargarImagen("/background.jpg");
+        setBackground(CargadorImagen.cargarImagen("/background.jpg"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
-        marco = CargadorImagen.cargarImagen("/marco.png");
+        setMarco(CargadorImagen.cargarImagen("/marco.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
-        botonMenu = CargadorImagen.cargarImagen("/botonMenu.png");
+        setBotonMenu(CargadorImagen.cargarImagen("/botonMenu.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
-        menuEnemigo = CargadorImagen.cargarImagen("/MenuEnemigo.png");
+        setMenuEnemigo(CargadorImagen.cargarImagen("/MenuEnemigo.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
         trees = new SpriteSheet(CargadorImagen.cargarImagen("/trees.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
-        greenTree = trees.getTile(0, 0, 42, 50);
+        setGreenTree(trees.getTile(0, 0, 42, 50));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
-        nievePiso1 = CargadorImagen.cargarImagen("/nieve piso.png");
+        setNievePiso1(CargadorImagen.cargarImagen("/nieve piso.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
-        iceBlock = CargadorImagen.cargarImagen("/nieve cubo.png");
+        setIceBlock(CargadorImagen.cargarImagen("/nieve cubo.png"));
 
         // Mapa
-        if (MenuMapas.numberMap == 1) {
+        if (MenuMapas.getNumberMap() == 1) {
             SpriteSheet mapaAubenor = new SpriteSheet(
                     CargadorImagen.cargarImagen("/Aubenor.png"));
-            Tile.aubenor = new Tile[81];
+            Tile.setAubenor(new Tile[81]);
             boolean[][] solidezAubenor = {
-                    { true, true, false, true, false, true, true, true, true,
+                    {true, true, false, true, false, true, true, true, true,
                             true },
-                    { true, true, true, true, true, true, true, true, true,
+                    {true, true, true, true, true, true, true, true, true,
                             true },
-                    { true, true, true, true, true, true, true, true, true,
+                    {true, true, true, true, true, true, true, true, true,
                             true },
-                    { true, false, false, false, false, false, false, false,
+                    {true, false, false, false, false, false, false, false,
                             true, true },
-                    { false, false, false, false, false, false, false, false,
+                    {false, false, false, false, false, false, false, false,
                             true, true },
-                    { false, true, true, true, true, true, true, true, true,
+                    {false, true, true, true, true, true, true, true, true,
                             true },
-                    { true, true, true, true, true, true, true, true, true,
+                    {true, true, true, true, true, true, true, true, true,
                             true },
-                    { true, true, true, true, true, true, true, true, true,
+                    {true, true, true, true, true, true, true, true, true,
                             true } };
             for (int y = 0; y < 8; y++) {
                 for (int x = 0; x < 10; x++) {
-                    Tile.aubenor[y * 10 + x + 1] = new Tile(
+                    Tile.getAubenor()[y * 10 + x + 1] = new Tile(
                             mapaAubenor.getTile(x * 64, y * 64, 64, 64),
                             y * 10 + x + 1, solidezAubenor[y][x], 64, 64);
                 }
@@ -815,27 +865,27 @@ public final class Recursos {
         } else {
             SpriteSheet mapaAris = new SpriteSheet(
                     CargadorImagen.cargarImagen("/Aris.png"));
-            Tile.aris = new Tile[81];
+            Tile.setAris(new Tile[81]);
             boolean[][] solidezAris = {
-                    { true, false, false, false, false, false, false, true,
+                    {true, false, false, false, false, false, false, true,
                             true, true },
-                    { false, false, false, false, false, false, false, false,
+                    {false, false, false, false, false, false, false, false,
                             true, true },
-                    { false, false, false, false, true, true, true, true, true,
+                    {false, false, false, false, true, true, true, true, true,
                             true },
-                    { true, true, true, true, true, true, true, true, true,
+                    {true, true, true, true, true, true, true, true, true,
                             true },
-                    { true, true, true, true, true, true, true, true, true,
+                    {true, true, true, true, true, true, true, true, true,
                             true },
-                    { false, true, true, true, true, true, true, true, true,
+                    {false, true, true, true, true, true, true, true, true,
                             true },
-                    { true, true, true, true, true, true, true, true, true,
+                    {true, true, true, true, true, true, true, true, true,
                             true },
-                    { true, true, true, true, true, true, true, true, true,
+                    {true, true, true, true, true, true, true, true, true,
                             true } };
             for (int y = 0; y < 8; y++) {
                 for (int x = 0; x < 10; x++) {
-                    Tile.aris[y * 10 + x + 1] = new Tile(
+                    Tile.getAris()[y * 10 + x + 1] = new Tile(
                             mapaAris.getTile(x * 64, y * 64, 64, 64),
                             y * 10 + x + 1, solidezAris[y][x], 64, 64);
                 }
@@ -845,16 +895,16 @@ public final class Recursos {
         // Fin Entorno
 
         // Inicio Batalla
-        barraSpells = CargadorImagen.cargarImagen("/BarraSpells.png");
+        setBarraSpells(CargadorImagen.cargarImagen("/BarraSpells.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
-        estadoPersonaje = CargadorImagen.cargarImagen("/EstadoPersonaje.png");
+        setEstadoPersonaje(CargadorImagen.cargarImagen("/EstadoPersonaje.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
-        barraSalud = CargadorImagen.cargarImagen("/BarraDeSalud.png");
+        setBarraSalud(CargadorImagen.cargarImagen("/BarraDeSalud.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
-        barraEnergia = CargadorImagen.cargarImagen("/BarraDeEnergia.png");
+        setBarraEnergia(CargadorImagen.cargarImagen("/BarraDeEnergia.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
-        barraExperiencia = CargadorImagen
-                .cargarImagen("/BarraDeExperiencia.png");
+        setBarraExperiencia(
+                CargadorImagen.cargarImagen("/BarraDeExperiencia.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         habilidades.put("Golpe Level",
@@ -920,11 +970,11 @@ public final class Recursos {
                 CargadorImagen.cargarImagen("/Ser Energizado.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
-        menuBatalla = CargadorImagen.cargarImagen("/MenuBatalla.png");
+        setMenuBatalla(CargadorImagen.cargarImagen("/MenuBatalla.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
-        menuBatallaDeshabilitado = CargadorImagen
-                .cargarImagen("/MenuBatallaDeshabilitado.png");
+        setMenuBatallaDeshabilitado(
+                CargadorImagen.cargarImagen("/MenuBatallaDeshabilitado.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
         // Fin Batalla
     }
@@ -940,5 +990,279 @@ public final class Recursos {
     private static void actualizarBarraDeCarga(final int elementosCargados,
             final MenuCarga menuCarga) {
         menuCarga.setBarraCargando(elementosCargados * ANCHOBARRA / ELEMENTOS);
+    }
+
+    /**
+     * @return the nievePiso1
+     */
+    public static BufferedImage getNievePiso1() {
+        return nievePiso1;
+    }
+
+    /**
+     * @param nievePiso1Param
+     *            the nievePiso1 to set
+     */
+    public static void setNievePiso1(final BufferedImage nievePiso1Param) {
+        Recursos.nievePiso1 = nievePiso1Param;
+    }
+
+    /**
+     * @return the background
+     */
+    public static BufferedImage getBackground() {
+        return background;
+    }
+
+    /**
+     * @param backgroundParam
+     *            the background to set
+     */
+    public static void setBackground(final BufferedImage backgroundParam) {
+        Recursos.background = backgroundParam;
+    }
+
+    /**
+     * @return the marco
+     */
+    public static BufferedImage getMarco() {
+        return marco;
+    }
+
+    /**
+     * @param marcoParam
+     *            the marco to set
+     */
+    public static void setMarco(final BufferedImage marcoParam) {
+        Recursos.marco = marcoParam;
+    }
+
+    /**
+     * @return the botonMenu
+     */
+    public static BufferedImage getBotonMenu() {
+        return botonMenu;
+    }
+
+    /**
+     * @param botonMenuParam
+     *            the botonMenu to set
+     */
+    public static void setBotonMenu(final BufferedImage botonMenuParam) {
+        Recursos.botonMenu = botonMenuParam;
+    }
+
+    /**
+     * @return the menuEnemigo
+     */
+    public static BufferedImage getMenuEnemigo() {
+        return menuEnemigo;
+    }
+
+    /**
+     * @param menuEnemigoParam
+     *            the menuEnemigo to set
+     */
+    public static void setMenuEnemigo(final BufferedImage menuEnemigoParam) {
+        Recursos.menuEnemigo = menuEnemigoParam;
+    }
+
+    /**
+     * @return the greenTree
+     */
+    public static BufferedImage getGreenTree() {
+        return greenTree;
+    }
+
+    /**
+     * @param greenTreeParam
+     *            the greenTree to set
+     */
+    public static void setGreenTree(final BufferedImage greenTreeParam) {
+        Recursos.greenTree = greenTreeParam;
+    }
+
+    /**
+     * @return the iceBlock
+     */
+    public static BufferedImage getIceBlock() {
+        return iceBlock;
+    }
+
+    /**
+     * @param iceBlockParam
+     *            the iceBlock to set
+     */
+    public static void setIceBlock(final BufferedImage iceBlockParam) {
+        Recursos.iceBlock = iceBlockParam;
+    }
+
+    /**
+     * @return the estadoPersonaje
+     */
+    public static BufferedImage getEstadoPersonaje() {
+        return estadoPersonaje;
+    }
+
+    /**
+     * @param estadoPersonajeParam
+     *            the estadoPersonaje to set
+     */
+    public static void setEstadoPersonaje(
+            final BufferedImage estadoPersonajeParam) {
+        Recursos.estadoPersonaje = estadoPersonajeParam;
+    }
+
+    /**
+     * @return the barraSpells
+     */
+    public static BufferedImage getBarraSpells() {
+        return barraSpells;
+    }
+
+    /**
+     * @param barraSpellsParam
+     *            the barraSpells to set
+     */
+    public static void setBarraSpells(final BufferedImage barraSpellsParam) {
+        Recursos.barraSpells = barraSpellsParam;
+    }
+
+    /**
+     * @return the barraSalud
+     */
+    public static BufferedImage getBarraSalud() {
+        return barraSalud;
+    }
+
+    /**
+     * @param barraSaludParam
+     *            the barraSalud to set
+     */
+    public static void setBarraSalud(final BufferedImage barraSaludParam) {
+        Recursos.barraSalud = barraSaludParam;
+    }
+
+    /**
+     * @return the barraEnergia
+     */
+    public static BufferedImage getBarraEnergia() {
+        return barraEnergia;
+    }
+
+    /**
+     * @param barraEnergiaParam
+     *            the barraEnergia to set
+     */
+    public static void setBarraEnergia(final BufferedImage barraEnergiaParam) {
+        Recursos.barraEnergia = barraEnergiaParam;
+    }
+
+    /**
+     * @return the barraExperiencia
+     */
+    public static BufferedImage getBarraExperiencia() {
+        return barraExperiencia;
+    }
+
+    /**
+     * @param barraExperienciaParam
+     *            the barraExperiencia to set
+     */
+    public static void setBarraExperiencia(
+            final BufferedImage barraExperienciaParam) {
+        Recursos.barraExperiencia = barraExperienciaParam;
+    }
+
+    /**
+     * @return the menuBatalla
+     */
+    public static BufferedImage getMenuBatalla() {
+        return menuBatalla;
+    }
+
+    /**
+     * @param menuBatallaParam
+     *            the menuBatalla to set
+     */
+    public static void setMenuBatalla(final BufferedImage menuBatallaParam) {
+        Recursos.menuBatalla = menuBatallaParam;
+    }
+
+    /**
+     * @return the menuBatallaDeshabilitado
+     */
+    public static BufferedImage getMenuBatallaDeshabilitado() {
+        return menuBatallaDeshabilitado;
+    }
+
+    /**
+     * @param menuBatallaDeshabilitadoParam
+     *            the menuBatallaDeshabilitado to set
+     */
+    public static void setMenuBatallaDeshabilitado(
+            final BufferedImage menuBatallaDeshabilitadoParam) {
+        Recursos.menuBatallaDeshabilitado = menuBatallaDeshabilitadoParam;
+    }
+
+    /**
+     * @return the noItem
+     */
+    public static BufferedImage getNoItem() {
+        return noItem;
+    }
+
+    /**
+     * @param noItemParam
+     *            the noItem to set
+     */
+    public static void setNoItem(final BufferedImage noItemParam) {
+        Recursos.noItem = noItemParam;
+    }
+
+    /**
+     * @return the menu
+     */
+    public static BufferedImage getMenu() {
+        return menu;
+    }
+
+    /**
+     * @param menuParam
+     *            the menu to set
+     */
+    public static void setMenu(final BufferedImage menuParam) {
+        Recursos.menu = menuParam;
+    }
+
+    /**
+     * @return the chat
+     */
+    public static BufferedImage getChat() {
+        return chat;
+    }
+
+    /**
+     * @param chatParam
+     *            the chat to set
+     */
+    public static void setChat(final BufferedImage chatParam) {
+        Recursos.chat = chatParam;
+    }
+
+    /**
+     * @return the habilidades
+     */
+    public static Map<String, BufferedImage> getHabilidades() {
+        return habilidades;
+    }
+
+    /**
+     * @param habilidadesParam
+     *            the habilidades to set
+     */
+    public static void setHabilidades(
+            final Map<String, BufferedImage> habilidadesParam) {
+        Recursos.habilidades = habilidadesParam;
     }
 }

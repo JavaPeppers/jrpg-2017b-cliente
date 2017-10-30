@@ -51,22 +51,22 @@ public class Pantalla {
      * The menu inventario.
      */
     // Menus
-    public static MenuInventario menuInventario;
+    private static MenuInventario menuInventario;
 
     /**
      * The menu asignar.
      */
-    public static MenuAsignarSkills menuAsignar;
+    private static MenuAsignarSkills menuAsignar;
 
     /**
      * The menu stats.
      */
-    public static MenuStats menuStats;
+    private static MenuStats menuStats;
 
     /**
      * The menu escp.
      */
-    public static MenuEscape menuEscp;
+    private static MenuEscape menuEscp;
 
     /**
      * The vent contac.
@@ -198,7 +198,8 @@ public class Pantalla {
     /**
      * Set la ventana contactos.
      *
-     * @param ventContacParam ventana contactos a setear.
+     * @param ventContacParam
+     *            ventana contactos a setear.
      */
     public static void setVentContac(final VentanaContactos ventContacParam) {
         Pantalla.ventContac = ventContacParam;
@@ -244,5 +245,67 @@ public class Pantalla {
         int b = (r.height / 2) - (rHeight / 2) - rY;
 
         g.drawString(s, r.x + a, r.y + b);
+    }
+
+    /**
+     * @return the menuAsignar
+     */
+    public static MenuAsignarSkills getMenuAsignar() {
+        return menuAsignar;
+    }
+
+    /**
+     * @param menuAsignarParam
+     *            the menuAsignar to set
+     */
+    public static void setMenuAsignar(
+            final MenuAsignarSkills menuAsignarParam) {
+        Pantalla.menuAsignar = menuAsignarParam;
+    }
+
+    /**
+     * @return the menuInventario
+     */
+    public static MenuInventario getMenuInventario() {
+        return menuInventario;
+    }
+
+    /**
+     * @param menuInventarioParam
+     *            the menuInventario to set
+     */
+    public static void setMenuInventario(
+            final MenuInventario menuInventarioParam) {
+        Pantalla.menuInventario = menuInventarioParam;
+    }
+
+    /**
+     * @return the menuStats
+     */
+    public static MenuStats getMenuStats() {
+        return menuStats;
+    }
+
+    /**
+     * @param menuStatsParam
+     *            the menuStats to set
+     */
+    public static void setMenuStats(final MenuStats menuStatsParam) {
+        Pantalla.menuStats = menuStatsParam;
+    }
+
+    /**
+     * @return the menuEscp
+     */
+    public static MenuEscape getMenuEscp() {
+        return menuEscp;
+    }
+
+    /**
+     * @param menuEscpParam
+     *            the menuEscp to set
+     */
+    public static void setMenuEscp(final MenuEscape menuEscpParam) {
+        Pantalla.menuEscp = menuEscpParam;
     }
 }

@@ -132,19 +132,19 @@ public class Mundo {
                         && (iso[1] >= yMinimo && iso[1] <= yMaximo)) {
                     int map = juego.getPersonaje().getMapa();
                     if (map == 1) {
-                        Tile.aubenor[Tile.aubenorBase].graficar(g,
+                        Tile.getAubenor()[Tile.getAubenorBase()].graficar(g,
                                 (int) (iso[0] - juego.getCamara().getxOffset()),
                                 (int) (iso[1] - juego.getCamara().getyOffset()
                                         - 32),
                                 64, 64);
                     } else if (map == 2) {
-                        Tile.aris[Tile.arisBase].graficar(g,
+                        Tile.getAris()[Tile.getArisBase()].graficar(g,
                                 (int) (iso[0] - juego.getCamara().getxOffset()),
                                 (int) (iso[1] - juego.getCamara().getyOffset()
                                         - 32),
                                 64, 64);
                     } else if (map == 3) {
-                        Tile.aubenor[Tile.aubenorBase].graficar(g,
+                        Tile.getAubenor()[Tile.getAubenorBase()].graficar(g,
                                 (int) (iso[0] - juego.getCamara().getxOffset()),
                                 (int) (iso[1] - juego.getCamara().getyOffset()
                                         - 32),
@@ -214,11 +214,11 @@ public class Mundo {
         if (t == null) {
             int map = juego.getPersonaje().getMapa();
             if (map == 1) {
-                return Tile.aubenor[Tile.aubenorBase];
+                return Tile.getAubenor()[Tile.getAubenorBase()];
             } else if (map == 2) {
-                return Tile.aris[Tile.arisBase];
+                return Tile.getAris()[Tile.getArisBase()];
             } else if (map == 3) {
-                return Tile.aubenor[Tile.aubenorBase];
+                return Tile.getAubenor()[Tile.getAubenorBase()];
             }
         }
         return t;
@@ -276,8 +276,8 @@ public class Mundo {
                 if (!Tile.getTiles()[tilesInv[x][y]].esSolido()) {
                     // Si no es la ultima fila y el tile de abajo es no solido,
                     // lo uno
-                    if (y < yFinal - 1
-                            && !Tile.getTiles()[tilesInv[x][y + 1]].esSolido()) {
+                    if (y < yFinal - 1 && !Tile.getTiles()[tilesInv[x][y + 1]]
+                            .esSolido()) {
                         nodos[x][y].agregarAdyacente(nodos[x][y + 1]);
                         nodos[x][y + 1].agregarAdyacente(nodos[x][y]);
                     }
@@ -290,8 +290,10 @@ public class Mundo {
                         if (y > 0
                                 && !Tile.getTiles()[tilesInv[x + 1][y - 1]]
                                         .esSolido()
-                                && !Tile.getTiles()[tilesInv[x + 1][y]].esSolido()
-                                && !Tile.getTiles()[tilesInv[x][y - 1]].esSolido()) {
+                                && !Tile.getTiles()[tilesInv[x + 1][y]]
+                                        .esSolido()
+                                && !Tile.getTiles()[tilesInv[x][y - 1]]
+                                        .esSolido()) {
                             nodos[x][y].agregarAdyacente(nodos[x + 1][y - 1]);
                             nodos[x + 1][y - 1].agregarAdyacente(nodos[x][y]);
                         }
@@ -307,8 +309,10 @@ public class Mundo {
                         if (y < yFinal - 1
                                 && !Tile.getTiles()[tilesInv[x + 1][y + 1]]
                                         .esSolido()
-                                && !Tile.getTiles()[tilesInv[x + 1][y]].esSolido()
-                                && !Tile.getTiles()[tilesInv[x][y + 1]].esSolido()) {
+                                && !Tile.getTiles()[tilesInv[x + 1][y]]
+                                        .esSolido()
+                                && !Tile.getTiles()[tilesInv[x][y + 1]]
+                                        .esSolido()) {
                             nodos[x][y].agregarAdyacente(nodos[x + 1][y + 1]);
                             nodos[x + 1][y + 1].agregarAdyacente(nodos[x][y]);
                         }

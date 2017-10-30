@@ -33,7 +33,7 @@ public class MenuMapas extends JFrame {
     /**
      * The number map.
      */
-    public static int numberMap = 0;
+    private static int numberMap = 0;
 
     /**
      * The content pane.
@@ -53,7 +53,7 @@ public class MenuMapas extends JFrame {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     synchronized (cliente) {
                         cliente.getPaquetePersonaje().setMapa(1);
-                        numberMap = 1;
+                        setNumberMap(1);
                         cliente.notify();
                     }
                     dispose();
@@ -156,7 +156,7 @@ public class MenuMapas extends JFrame {
             public void actionPerformed(final ActionEvent e) {
                 synchronized (cliente) {
                     cliente.getPaquetePersonaje().setMapa(2);
-                    numberMap = 2;
+                    setNumberMap(2);
                     cliente.notify();
                 }
                 dispose();
@@ -175,11 +175,25 @@ public class MenuMapas extends JFrame {
             public void actionPerformed(final ActionEvent e) {
                 synchronized (cliente) {
                     cliente.getPaquetePersonaje().setMapa(1);
-                    numberMap = 1;
+                    setNumberMap(1);
                     cliente.notify();
                 }
                 dispose();
             }
         });
+    }
+
+    /**
+     * @return the numberMap
+     */
+    public static int getNumberMap() {
+        return numberMap;
+    }
+
+    /**
+     * @param numberMapParam the numberMap to set
+     */
+    public static void setNumberMap(final int numberMapParam) {
+        MenuMapas.numberMap = numberMapParam;
     }
 }

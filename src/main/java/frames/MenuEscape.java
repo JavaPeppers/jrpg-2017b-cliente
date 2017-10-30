@@ -64,10 +64,10 @@ public class MenuEscape extends JFrame {
         verStats.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
                 dispose();
-                Pantalla.menuEscp = null;
-                if (Pantalla.menuStats == null) {
-                    Pantalla.menuStats = new MenuStats(cliente);
-                    Pantalla.menuStats.setVisible(true);
+                Pantalla.setMenuEscp(null);
+                if (Pantalla.getMenuStats() == null) {
+                    Pantalla.setMenuStats(new MenuStats(cliente));
+                    Pantalla.getMenuStats().setVisible(true);
                 }
             }
         });
@@ -80,10 +80,10 @@ public class MenuEscape extends JFrame {
         asignarSkills.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
                 dispose();
-                Pantalla.menuEscp = null;
-                if (Pantalla.menuAsignar == null) {
-                    Pantalla.menuAsignar = new MenuAsignarSkills(cliente);
-                    Pantalla.menuAsignar.setVisible(true);
+                Pantalla.setMenuEscp(null);
+                if (Pantalla.getMenuAsignar() == null) {
+                    Pantalla.setMenuAsignar(new MenuAsignarSkills(cliente));
+                    Pantalla.getMenuAsignar().setVisible(true);
                 }
             }
         });
@@ -96,11 +96,11 @@ public class MenuEscape extends JFrame {
         inventario.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
                 dispose();
-                Pantalla.menuEscp = null;
+                Pantalla.setMenuEscp(null);
                 if (Estado.getEstado().esEstadoDeJuego()) {
-                    if (Pantalla.menuInventario == null) {
-                        Pantalla.menuInventario = new MenuInventario(cliente);
-                        Pantalla.menuInventario.setVisible(true);
+                    if (Pantalla.getMenuInventario() == null) {
+                        Pantalla.setMenuInventario(new MenuInventario(cliente));
+                        Pantalla.getMenuInventario().setVisible(true);
                     }
                 }
             }
@@ -134,7 +134,7 @@ public class MenuEscape extends JFrame {
         volver.setBounds(29, 227, 125, 25);
         volver.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent arg0) {
-                Pantalla.menuEscp = null;
+                Pantalla.setMenuEscp(null);
                 dispose();
             }
         });

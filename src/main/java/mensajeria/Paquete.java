@@ -13,12 +13,12 @@ public class Paquete implements Serializable, Cloneable {
     /**
      * The msj exito.
      */
-    public static String msjExito = "1";
+    private static String msjExito = "1";
 
     /**
      * The msj fracaso.
      */
-    public static String msjFracaso = "0";
+    private static String msjFracaso = "0";
 
     /**
      * The mensaje.
@@ -202,6 +202,34 @@ public class Paquete implements Serializable, Cloneable {
             return null;
         }
 
+    }
+
+    /**
+     * @return the msjFracaso
+     */
+    public static String getMsjFracaso() {
+        return msjFracaso;
+    }
+
+    /**
+     * @param msjFracasoParam the msjFracaso to set
+     */
+    public static void setMsjFracaso(final String msjFracasoParam) {
+        Paquete.msjFracaso = msjFracasoParam;
+    }
+
+    /**
+     * @return the msjExito
+     */
+    public static String getMsjExito() {
+        return msjExito;
+    }
+
+    /**
+     * @param msjExitoParam the msjExito to set
+     */
+    public static void setMsjExito(final String msjExitoParam) {
+        Paquete.msjExito = msjExitoParam;
     }
 
 }

@@ -84,7 +84,7 @@ public class EstadoJuego extends Estado {
     /**
      * The menu enemigo.
      */
-    MenuInfoPersonaje menuEnemigo;
+    private MenuInfoPersonaje menuEnemigo;
 
     /**
      * Instantiates a new estado juego.
@@ -99,9 +99,10 @@ public class EstadoJuego extends Estado {
         paquetePersonaje = juego.getPersonaje();
         entidadPersonaje = new Entidad(juego, mundo, 64, 64,
                 juego.getPersonaje().getNombre(), 0, 0,
-                Recursos.personaje.get(juego.getPersonaje().getRaza()), 150);
-        miniaturaPersonaje = Recursos.personaje.get(paquetePersonaje.getRaza())
-                .get(5)[0];
+                Recursos.getPersonaje().get(juego.getPersonaje().getRaza()),
+                150);
+        miniaturaPersonaje = Recursos.getPersonaje()
+                .get(paquetePersonaje.getRaza()).get(5)[0];
 
         try {
             // Le envio al servidor que me conecte al mapa y mi posicion
@@ -135,20 +136,20 @@ public class EstadoJuego extends Estado {
      */
     @Override
     public void graficar(final Graphics g) {
-        g.drawImage(Recursos.background, 0, 0, juego.getAncho(),
+        g.drawImage(Recursos.getBackground(), 0, 0, juego.getAncho(),
                 juego.getAlto(), null);
         mundo.graficar(g);
         graficarPersonajes(g);
         graficarEnemigos(g);
         mundo.graficarObstaculos(g);
         entidadPersonaje.graficarNombre(g);
-        g.drawImage(Recursos.marco, 0, 0, juego.getAncho(), juego.getAlto(),
-                null);
+        g.drawImage(Recursos.getMarco(), 0, 0, juego.getAncho(),
+                juego.getAlto(), null);
         EstadoDePersonaje.dibujarEstadoDePersonaje(g, 5, 5, paquetePersonaje,
                 miniaturaPersonaje);
         g.drawImage(Recursos.getMochila(), 738, 545, 59, 52, null);
-        g.drawImage(Recursos.menu, 3, 562, 102, 35, null);
-        g.drawImage(Recursos.chat, 3, 524, 102, 35, null);
+        g.drawImage(Recursos.getMenu(), 3, 562, 102, 35, null);
+        g.drawImage(Recursos.getChat(), 3, 524, 102, 35, null);
         if (haySolicitud) {
             menuEnemigo.graficar(g, tipoSolicitud);
         }
@@ -224,7 +225,7 @@ public class EstadoJuego extends Estado {
                             0, 10),
                             personajesConectados.get(actual.getIdPersonaje())
                                     .getNombre());
-                    g.drawImage(Recursos.personaje
+                    g.drawImage(Recursos.getPersonaje()
                             .get(personajesConectados
                                     .get(actual.getIdPersonaje()).getRaza())
                             .get(actual.getDireccion())[actual.getFrame()],

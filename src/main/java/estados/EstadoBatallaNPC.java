@@ -139,8 +139,8 @@ public class EstadoBatallaNPC extends Estado {
         menuBatalla = new MenuBatalla(miTurno, personaje);
 
         miniaturaEnemigo = Recursos.getSalvaje().get(5)[0];
-        miniaturaPersonaje = Recursos.personaje.get(personaje.getNombreRaza())
-                .get(5)[0];
+        miniaturaPersonaje = Recursos.getPersonaje().
+                get(personaje.getNombreRaza()).get(5)[0];
 
         paqueteFinalizarBatalla = new PaqueteFinalizarBatallaNPC();
         paqueteFinalizarBatalla.setId(personaje.getIdPersonaje());
@@ -372,8 +372,8 @@ public class EstadoBatallaNPC extends Estado {
         mundo.graficar(g);
 
         g.drawImage(
-                Recursos.personaje.get(paquetePersonaje.getRaza()).get(3)[0], 0,
-                175, ANCHURAALTURA, ANCHURAALTURA, null);
+                Recursos.getPersonaje().get(paquetePersonaje.getRaza()).
+                get(3)[0], 0,175, ANCHURAALTURA, ANCHURAALTURA, null);
         g.drawImage(Recursos.getSalvaje().get(7)[0], 550, 75, ANCHURAALTURA,
                 ANCHURAALTURA, null);
 

@@ -16,23 +16,22 @@ public class Tile {
     /**
      * The aubenor.
      */
-    public static Tile[] aubenor;
+    private static Tile[] aubenor;
 
     /**
      * The aris.
      */
-    public static Tile[] aris;
+    private static Tile[] aris;
 
     /**
-     * The aris base.
+     * es el piso de aubenor por defecto si queres llamarlo asi, es gris.
      */
-    // es el piso de aubenor por defecto si queres llamarlo asi, es gris
-    public static int arisBase = 3;
+    private static int arisBase = 3;
 
     /**
      * The aubenor base.
      */
-    public static int aubenorBase = 3;
+    private static int aubenorBase = 3;
 
     /**
      * The Constant ANCHO.
@@ -52,7 +51,7 @@ public class Tile {
     /**
      * The id.
      */
-    protected final int id;
+    private final int id;
 
     /**
      * The es solido.
@@ -62,12 +61,12 @@ public class Tile {
     /**
      * The ancho.
      */
-    protected int ancho;
+    private int ancho;
 
     /**
      * The alto.
      */
-    protected int alto;
+    private int alto;
 
     /**
      * Instantiates a new tile.
@@ -226,5 +225,61 @@ public class Tile {
      */
     public void setTextura(final BufferedImage texturaParam) {
         this.textura = texturaParam;
+    }
+
+    /**
+     * @return the aubenor
+     */
+    public static Tile[] getAubenor() {
+        return aubenor;
+    }
+
+    /**
+     * @param aubenorParam the aubenor to set
+     */
+    public static void setAubenor(final Tile[] aubenorParam) {
+        Tile.aubenor = aubenorParam;
+    }
+
+    /**
+     * @return the aris
+     */
+    public static Tile[] getAris() {
+        return aris;
+    }
+
+    /**
+     * @param arisParam the aris to set
+     */
+    public static void setAris(final Tile[] arisParam) {
+        Tile.aris = arisParam;
+    }
+
+    /**
+     * @return the arisBase
+     */
+    public static int getArisBase() {
+        return arisBase;
+    }
+
+    /**
+     * @param arisBaseParam the arisBase to set
+     */
+    public static void setArisBase(final int arisBaseParam) {
+        Tile.arisBase = arisBaseParam;
+    }
+
+    /**
+     * @return the aubenorBase
+     */
+    public static int getAubenorBase() {
+        return aubenorBase;
+    }
+
+    /**
+     * @param aubenorBaseParam the aubenorBase to set
+     */
+    public static void setAubenorBase(final int aubenorBaseParam) {
+        Tile.aubenorBase = aubenorBaseParam;
     }
 }

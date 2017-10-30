@@ -18,8 +18,8 @@ public class BatallaNPC extends ComandosEscucha {
     public void ejecutar() {
         // Recibo el paquete Batalla del servidor y seteo el estado Batalla NPC
         // para que se borren del mapa
-        PaqueteBatallaNPC paqueteBatalla = (PaqueteBatallaNPC) gson
-                .fromJson(cadenaLeida, PaqueteBatallaNPC.class);
+        PaqueteBatallaNPC paqueteBatalla = (PaqueteBatallaNPC) getGson()
+                .fromJson(getCadenaLeida(), PaqueteBatallaNPC.class);
         juego.getPersonaje().setEstado(Estado.ESTADOBATALLANPC);
         Estado.setEstado(null);
         juego.getEnemigos().get(paqueteBatalla.getIdEnemigo())

@@ -61,7 +61,7 @@ public final class EstadoEnemigo {
 
         int drawBarra = 0;
 
-        g.drawImage(Recursos.estadoPersonaje, x, y, null);
+        g.drawImage(Recursos.getEstadoPersonaje(), x, y, null);
 
         g.drawImage(miniaturaEnemigo, x + 10, y + 9, ANCHOMINIATURA,
                 ALTOMINIATURA, null);
@@ -75,8 +75,8 @@ public final class EstadoEnemigo {
 
         g.setColor(Color.WHITE);
         g.setFont(new Font("Tahoma", Font.PLAIN, 10));
-        g.drawImage(Recursos.barraSalud, x + 80, y + 26, drawBarra, ALTOSALUD,
-                null);
+        g.drawImage(Recursos.getBarraSalud(), x + 80, y + 26, drawBarra,
+                ALTOSALUD, null);
         g.drawString(
                 String.valueOf(enemigo.getSalud()) + " / "
                         + String.valueOf(enemigo.getSaludTope()),
@@ -108,15 +108,15 @@ public final class EstadoEnemigo {
 
         int drawBarra = 0;
 
-        g.drawImage(Recursos.estadoPersonaje, x, y, null);
+        g.drawImage(Recursos.getEstadoPersonaje(), x, y, null);
 
         g.drawImage(miniaturaEnemigo, x + 10, y + 9, ANCHOMINIATURA,
                 ALTOMINIATURA, null);
 
         g.setColor(Color.WHITE);
         g.setFont(new Font("Tahoma", Font.PLAIN, 10));
-        g.drawImage(Recursos.barraSalud, x + 80, y + 26, drawBarra, ALTOSALUD,
-                null);
+        g.drawImage(Recursos.getBarraSalud(), x + 80, y + 26, drawBarra,
+                ALTOSALUD, null);
         g.drawString(
                 String.valueOf(enemigo.getSaludTope()) + " / "
                         + String.valueOf(enemigo.getSaludTope()),

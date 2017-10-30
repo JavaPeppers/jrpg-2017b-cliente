@@ -183,7 +183,7 @@ public class TestCliente {
             cliente.getEntrada().close();
             cliente.getSocket().close();
 
-            Assert.assertEquals(Paquete.msjExito, resultado.getMensaje());
+            Assert.assertEquals(Paquete.getMsjExito(), resultado.getMensaje());
             myThread.stop();
         } catch (JsonSyntaxException | ClassNotFoundException | IOException e) {
             JOptionPane.showMessageDialog(null, "Falló");
@@ -226,7 +226,8 @@ public class TestCliente {
             cliente.getSalida().close();
             cliente.getEntrada().close();
             cliente.getSocket().close();
-            Assert.assertEquals(Paquete.msjFracaso, resultado.getMensaje());
+            Assert.assertEquals(Paquete.getMsjFracaso(),
+                    resultado.getMensaje());
             myThread.stop();
         } catch (JsonSyntaxException | ClassNotFoundException | IOException e) {
             JOptionPane.showMessageDialog(null, "Falló");

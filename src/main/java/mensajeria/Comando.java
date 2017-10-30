@@ -153,12 +153,12 @@ public abstract class Comando {
     /**
      * The gson.
      */
-    protected final Gson gson = new Gson();
+    private final Gson gson = new Gson();
 
     /**
      * The cadena leida.
      */
-    protected String cadenaLeida;
+    private String cadenaLeida;
 
     /**
      * Sets the cadena.
@@ -167,11 +167,32 @@ public abstract class Comando {
      *            the new cadena
      */
     public void setCadena(final String cadenaLeidaParam) {
-        this.cadenaLeida = cadenaLeidaParam;
+        this.setCadenaLeida(cadenaLeidaParam);
     }
 
     /**
      * Ejecutar.
      */
     public abstract void ejecutar();
+
+    /**
+     * @return the cadenaLeida
+     */
+    public String getCadenaLeida() {
+        return cadenaLeida;
+    }
+
+    /**
+     * @param cadenaLeidaParam the cadenaLeida to set
+     */
+    public void setCadenaLeida(final String cadenaLeidaParam) {
+        this.cadenaLeida = cadenaLeidaParam;
+    }
+
+    /**
+     * @return the gson
+     */
+    public Gson getGson() {
+        return gson;
+    }
 }

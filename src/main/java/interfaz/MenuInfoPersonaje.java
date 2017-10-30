@@ -24,7 +24,7 @@ public class MenuInfoPersonaje {
     /**
      * The Constant menu.
      */
-    private static final BufferedImage MENU = Recursos.menuEnemigo;
+    private static final BufferedImage MENU = Recursos.getMenuEnemigo();
 
     /**
      * The Constant menuBatallar.
@@ -113,7 +113,7 @@ public class MenuInfoPersonaje {
         g.drawImage(MENU, x, y, null);
 
         // dibujo el personaje
-        g.drawImage(Recursos.personaje.get(personaje.getRaza()).get(6)[0],
+        g.drawImage(Recursos.getPersonaje().get(personaje.getRaza()).get(6)[0],
                 x + MENU.getWidth() / 2 - ANCHOPERSONAJE / 2, y + 70, 128, 128,
                 null);
 
@@ -151,7 +151,7 @@ public class MenuInfoPersonaje {
 
         // muestro los botones
         g.setFont(new Font("Book Antiqua", 1, 20));
-        g.drawImage(Recursos.botonMenu, x + 50, y + 380, 200, 25, null);
+        g.drawImage(Recursos.getBotonMenu(), x + 50, y + 380, 200, 25, null);
         g.setColor(Color.WHITE);
         Pantalla.centerString(g, new Rectangle(x + 50, y + 380, 200, 25),
                 LEYENDABOTON[tipoMenu]);

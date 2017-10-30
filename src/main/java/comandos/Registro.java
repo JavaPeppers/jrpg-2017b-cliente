@@ -19,13 +19,13 @@ public class Registro extends ComandosCliente {
     public void ejecutar() {
         synchronized (this) {
 
-            Paquete paquete = (Paquete) gson.fromJson(cadenaLeida,
+            Paquete paquete = (Paquete) getGson().fromJson(getCadenaLeida(),
                     Paquete.class);
-            if (paquete.getMensaje().equals(Paquete.msjExito)) {
+            if (paquete.getMensaje().equals(Paquete.getMsjExito())) {
 
                 // Abro el menu para la creaci�n del personaje
                 MenuCreacionPj menuCreacionPJ = new MenuCreacionPj(cliente,
-                        cliente.getPaquetePersonaje(), gson);
+                        cliente.getPaquetePersonaje(), getGson());
                 menuCreacionPJ.setVisible(true);
 
                 // Espero a que el usuario cree el personaje
@@ -35,7 +35,7 @@ public class Registro extends ComandosCliente {
                 // Indico que el usuario ya inicio sesion
 
             } else {
-                if (paquete.getMensaje().equals(Paquete.msjFracaso)) {
+                if (paquete.getMensaje().equals(Paquete.getMsjFracaso())) {
                     JOptionPane.showMessageDialog(null,
                             "No se pudo registrar.");
                 }

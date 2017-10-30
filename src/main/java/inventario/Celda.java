@@ -77,7 +77,7 @@ public class Celda extends JPanel {
      * Instantiates a new celda.
      */
     public Celda() {
-        label = new JLabel(new ImageIcon(Recursos.noItem.getScaledInstance(
+        label = new JLabel(new ImageIcon(Recursos.getNoItem().getScaledInstance(
                 ANCHOALTURA, ANCHOALTURA, Image.SCALE_DEFAULT)));
         add(label);
     }
@@ -122,7 +122,7 @@ public class Celda extends JPanel {
      * Reset label.
      */
     protected void resetLabel() {
-        label.setIcon(new ImageIcon(Recursos.noItem.getScaledInstance(
+        label.setIcon(new ImageIcon(Recursos.getNoItem().getScaledInstance(
                 ANCHOALTURA, ANCHOALTURA, Image.SCALE_DEFAULT)));
         label.setToolTipText(null);
         paquetePersonaje.removerItem(it);
@@ -152,7 +152,7 @@ public class Celda extends JPanel {
     /**
      * The mouse listener.
      */
-    MouseListener mouseListener = new MouseAdapter() {
+    private MouseListener mouseListener = new MouseAdapter() {
         public void mouseClicked(final MouseEvent e) {
             Object[] options = {"Tirar", "Cancelar" };
             if (e.getClickCount() == 2) {

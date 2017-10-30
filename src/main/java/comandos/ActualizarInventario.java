@@ -14,8 +14,8 @@ public class ActualizarInventario extends ComandosEscucha {
      */
     @Override
     public void ejecutar() {
-        PaquetePersonaje paquetePersonaje = (PaquetePersonaje) gson
-                .fromJson(cadenaLeida, PaquetePersonaje.class);
+        PaquetePersonaje paquetePersonaje = (PaquetePersonaje) getGson()
+                .fromJson(getCadenaLeida(), PaquetePersonaje.class);
         juego.getPersonajesConectados().remove(paquetePersonaje.getId());
         juego.getPersonajesConectados().put(paquetePersonaje.getId(),
                 paquetePersonaje);

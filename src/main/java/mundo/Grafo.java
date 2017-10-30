@@ -28,7 +28,7 @@ public class Grafo {
      */
     public Grafo(final int cantidadDeNodosTotalParam) {
         cantidadDeNodos = 0;
-        nodos = new Nodo[cantidadDeNodosTotal];
+        nodos = new Nodo[cantidadDeNodosTotalParam];
         this.cantidadDeNodosTotal = cantidadDeNodosTotalParam;
     }
 

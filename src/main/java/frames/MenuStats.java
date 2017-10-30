@@ -87,7 +87,7 @@ public class MenuStats extends JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(final WindowEvent e) {
-                Pantalla.menuStats = null;
+                Pantalla.setMenuStats(null);
                 dispose();
             }
         });
@@ -267,7 +267,7 @@ public class MenuStats extends JFrame {
         btnVolver.setIcon(new ImageIcon("recursos//volver.png"));
         btnVolver.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
-                Pantalla.menuStats = null;
+                Pantalla.setMenuStats(null);
                 dispose();
             }
         });

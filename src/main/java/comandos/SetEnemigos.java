@@ -18,8 +18,8 @@ public class SetEnemigos extends ComandosEscucha {
     @Override
     public void ejecutar() {
         // Primero seteo en el juego los enemigos
-        PaqueteDeEnemigos paqueteEnemigos = (PaqueteDeEnemigos) gson
-                .fromJson(cadenaLeida, PaqueteDeEnemigos.class);
+        PaqueteDeEnemigos paqueteEnemigos = (PaqueteDeEnemigos) getGson()
+                .fromJson(getCadenaLeida(), PaqueteDeEnemigos.class);
         for (int i = -1; i >= ULTIMOENEMIGO; i--) {
             paqueteEnemigos.getEnemigos().get(i).setMapa(
                     juego.getCliente().getPaquetePersonaje().getMapa());

@@ -14,7 +14,8 @@ public class Atacar extends ComandosEscucha {
      */
     @Override
     public void ejecutar() {
-        PaqueteAtacar paqueteAtacar = (PaqueteAtacar) gson.fromJson(cadenaLeida,
+        PaqueteAtacar paqueteAtacar = (PaqueteAtacar) getGson()
+                .fromJson(getCadenaLeida(),
                 PaqueteAtacar.class);
         juego.getEstadoBatalla().getEnemigo()
                 .actualizarAtributos(paqueteAtacar.getMapPersonaje());

@@ -32,9 +32,9 @@ public class MenuBatalla {
     /**
      * The Constant botones.
      */
-    private static final int[][] BOTONES = {{X + 48, Y + 72 },
-            {X + 48, Y + 146 }, {X + 221, Y + 72 }, {X + 221, Y + 146 },
-            {X + 394, Y + 72 }, {X + 394, Y + 146 } };
+    private static final int[][] BOTONES = { { X + 48, Y + 72 },
+            { X + 48, Y + 146 }, { X + 221, Y + 72 }, { X + 221, Y + 146 },
+            { X + 394, Y + 72 }, { X + 394, Y + 146 } };
 
     /**
      * The habilitado.
@@ -69,27 +69,34 @@ public class MenuBatalla {
     public void graficar(final Graphics g) {
 
         if (habilitado) {
-            g.drawImage(Recursos.menuBatalla, X, Y, null);
+            g.drawImage(Recursos.getMenuBatalla(), X, Y, null);
         } else {
-            g.drawImage(Recursos.menuBatallaDeshabilitado, X, Y, null);
+            g.drawImage(Recursos.getMenuBatallaDeshabilitado(), X, Y, null);
         }
 
         // Dibujo los boones
-        g.drawImage(Recursos.habilidades.get(personaje.getHabilidadesRaza()[0]),
+        g.drawImage(
+                Recursos.getHabilidades()
+                        .get(personaje.getHabilidadesRaza()[0]),
                 BOTONES[0][0], BOTONES[0][1], ANCHOBOTON, ANCHOBOTON, null);
-        g.drawImage(Recursos.habilidades.get(personaje.getHabilidadesRaza()[1]),
+        g.drawImage(
+                Recursos.getHabilidades()
+                        .get(personaje.getHabilidadesRaza()[1]),
                 BOTONES[1][0], BOTONES[1][1], ANCHOBOTON, ANCHOBOTON, null);
         g.drawImage(
-                Recursos.habilidades.get(personaje.getHabilidadesCasta()[0]),
+                Recursos.getHabilidades()
+                        .get(personaje.getHabilidadesCasta()[0]),
                 BOTONES[2][0], BOTONES[2][1], ANCHOBOTON, ANCHOBOTON, null);
         g.drawImage(
-                Recursos.habilidades.get(personaje.getHabilidadesCasta()[1]),
+                Recursos.getHabilidades()
+                        .get(personaje.getHabilidadesCasta()[1]),
                 BOTONES[3][0], BOTONES[3][1], ANCHOBOTON, ANCHOBOTON, null);
         g.drawImage(
-                Recursos.habilidades.get(personaje.getHabilidadesCasta()[2]),
+                Recursos.getHabilidades()
+                        .get(personaje.getHabilidadesCasta()[2]),
                 BOTONES[4][0], BOTONES[4][1], ANCHOBOTON, ANCHOBOTON, null);
-        g.drawImage(Recursos.habilidades.get("Ser Energizado"), BOTONES[5][0],
-                BOTONES[5][1], ANCHOBOTON, ANCHOBOTON, null);
+        g.drawImage(Recursos.getHabilidades().get("Ser Energizado"),
+                BOTONES[5][0], BOTONES[5][1], ANCHOBOTON, ANCHOBOTON, null);
 
         // Dibujo las leyendas
         g.setFont(new Font("Book Antiqua", 1, 14));
@@ -103,11 +110,15 @@ public class MenuBatalla {
         // Dibujo el turno de quien es
         g.setColor(Color.WHITE);
         if (habilitado) {
-            Pantalla.centerString(g, new Rectangle(X, Y + 5,
-                    Recursos.menuBatalla.getWidth(), 20), "Mi Turno");
+            Pantalla.centerString(g,
+                    new Rectangle(X, Y + 5,
+                            Recursos.getMenuBatalla().getWidth(), 20),
+                    "Mi Turno");
         } else {
-            Pantalla.centerString(g, new Rectangle(X, Y + 5,
-                    Recursos.menuBatalla.getWidth(), 20), "Turno Rival");
+            Pantalla.centerString(g,
+                    new Rectangle(X, Y + 5,
+                            Recursos.getMenuBatalla().getWidth(), 20),
+                    "Turno Rival");
         }
     }
 
@@ -144,9 +155,9 @@ public class MenuBatalla {
      * @return true, if successful
      */
     public boolean clickEnMenu(final int mouseX, final int mouseY) {
-        if (mouseX >= X && mouseX <= X + Recursos.menuBatalla.getWidth()
+        if (mouseX >= X && mouseX <= X + Recursos.getMenuBatalla().getWidth()
                 && mouseY >= Y
-                && mouseY <= Y + Recursos.menuBatalla.getHeight()) {
+                && mouseY <= Y + Recursos.getMenuBatalla().getHeight()) {
             return habilitado;
         }
         return false;

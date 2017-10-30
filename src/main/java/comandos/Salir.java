@@ -19,7 +19,7 @@ public class Salir extends ComandosCliente {
     public void ejecutar() {
         try {
             cliente.getPaqueteUsuario().setInicioSesion(false);
-            cliente.getSalida().writeObject(gson
+            cliente.getSalida().writeObject(getGson()
                     .toJson(new Paquete(Comando.DESCONECTAR), Paquete.class));
             cliente.getSocket().close();
         } catch (IOException e) {

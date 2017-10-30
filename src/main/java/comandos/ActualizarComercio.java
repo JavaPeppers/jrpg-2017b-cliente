@@ -29,7 +29,8 @@ public class ActualizarComercio extends ComandosEscucha {
         int sizeAObtener;
         int cuentaSize;
         PaqueteComerciar paqueteComerciar;
-        paqueteComerciar = gson.fromJson(cadenaLeida, PaqueteComerciar.class);
+        paqueteComerciar = getGson().fromJson(getCadenaLeida(),
+                PaqueteComerciar.class);
         sizeAObtener = paqueteComerciar.getItemsADar().size();
         cuentaSize = sizeMisItems - sizeADar + sizeAObtener;
         if (sizeADar != 0) {

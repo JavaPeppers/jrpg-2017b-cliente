@@ -18,8 +18,8 @@ public class FinalizarBatalla extends ComandosEscucha {
         @SuppressWarnings("unused")
         // Creo que esta medio al pedo el paqueteFinalizarBatalla
         PaqueteFinalizarBatalla paqueteFinalizarBatalla
-        = (PaqueteFinalizarBatalla) gson.fromJson(
-                cadenaLeida, PaqueteFinalizarBatalla.class);
+        = (PaqueteFinalizarBatalla) getGson().fromJson(
+                getCadenaLeida(), PaqueteFinalizarBatalla.class);
         juego.getPersonaje().setEstado(Estado.ESTADOJUEGO);
         Estado.setEstado(juego.getEstadoJuego());
     }
