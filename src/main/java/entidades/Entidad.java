@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -30,7 +31,6 @@ import mensajeria.PaqueteMovimiento;
 import mundo.Grafo;
 import mundo.Mundo;
 import mundo.Nodo;
-import recursos.Recursos;
 /**Clase Entidad
  */
 public class Entidad {
@@ -59,26 +59,19 @@ public class Entidad {
 	private int[] tile;
 
 	// Movimiento Actual
-	private static final int horizontalDer = 4;
 	private static final int horizontalIzq = 0;
+	private static final int diagonalSupIzq = 1;
 	private static final int verticalSup = 2;
+	private static final int diagonalSupDer = 3;
+	private static final int horizontalDer = 4;
+	private static final int diagonalInfDer = 5;
 	private static final int verticalInf = 6;
 	private static final int diagonalInfIzq = 7;
-	private static final int diagonalInfDer = 5;
-	private static final int diagonalSupDer = 3;
-	private static final int diagonalSupIzq = 1;
 	private int movimientoHacia = 6;
 	private boolean enMovimiento;
 
 	// Animaciones
-	private final Animacion moverIzq;
-	private final Animacion moverArribaIzq;
-	private final Animacion moverArriba;
-	private final Animacion moverArribaDer;
-	private final Animacion moverDer;
-	private final Animacion moverAbajoDer;
-	private final Animacion moverAbajo;
-	private final Animacion moverAbajoIzq;
+	private final ArrayList<Animacion> mov;
 
 	private final Gson gson = new Gson();
 	private int intervaloEnvio = 0;
@@ -123,14 +116,16 @@ public class Entidad {
 		x = (int) (spawnX / 64) * 64;
 		y = (int) (spawnY / 32) * 32;
 
-		moverIzq = new Animacion(velAnimacion, animaciones.get(0));
-		moverArribaIzq = new Animacion(velAnimacion, animaciones.get(1));
-		moverArriba = new Animacion(velAnimacion, animaciones.get(2));
-		moverArribaDer = new Animacion(velAnimacion, animaciones.get(3));
-		moverDer = new Animacion(velAnimacion, animaciones.get(4));
-		moverAbajoDer = new Animacion(velAnimacion, animaciones.get(5));
-		moverAbajo = new Animacion(velAnimacion, animaciones.get(6));
-		moverAbajoIzq = new Animacion(velAnimacion, animaciones.get(7));
+		mov = new ArrayList<Animacion>();
+		mov.add(new Animacion(velAnimacion, animaciones.get(0)));
+		mov.add(new Animacion(velAnimacion, animaciones.get(1)));
+		mov.add(new Animacion(velAnimacion, animaciones.get(2)));
+		mov.add(new Animacion(velAnimacion, animaciones.get(3)));
+		mov.add(new Animacion(velAnimacion, animaciones.get(4)));
+		mov.add(new Animacion(velAnimacion, animaciones.get(5)));
+		mov.add(new Animacion(velAnimacion, animaciones.get(6)));
+		mov.add(new Animacion(velAnimacion, animaciones.get(7)));
+		
 
 		// Informo mi posicion actual
 		juego.getUbicacionPersonaje().setPosX(x);
@@ -143,23 +138,13 @@ public class Entidad {
 	public void actualizar() {
 
 		if (enMovimiento) {
-			moverIzq.actualizar();
-			moverArribaIzq.actualizar();
-			moverArriba.actualizar();
-			moverArribaDer.actualizar();
-			moverDer.actualizar();
-			moverAbajoDer.actualizar();
-			moverAbajo.actualizar();
-			moverAbajoIzq.actualizar();
+			for(int i = 0; i<mov.size();i++) {
+				mov.get(i).actualizar();
+			}
 		} else {
-			moverIzq.reset();
-			moverArribaIzq.reset();
-			moverArriba.reset();
-			moverArribaDer.reset();
-			moverDer.reset();
-			moverAbajoDer.reset();
-			moverAbajo.reset();
-			moverAbajoIzq.reset();
+			for(int i = 0; i<mov.size();i++) {
+				mov.get(i).reset();
+			}
 		}
 
 		getEntrada();
@@ -508,25 +493,7 @@ public class Entidad {
 	/**Obtiene el frameActual del personaje
 	 */
 	private BufferedImage getFrameAnimacionActual() {
-		if (movimientoHacia == horizontalIzq) {
-			return moverIzq.getFrameActual();
-		} else if (movimientoHacia == horizontalDer) {
-			return moverDer.getFrameActual();
-		} else if (movimientoHacia == verticalSup) {
-			return moverArriba.getFrameActual();
-		} else if (movimientoHacia == verticalInf) {
-			return moverAbajo.getFrameActual();
-		} else if (movimientoHacia == diagonalInfIzq) {
-			return moverAbajoIzq.getFrameActual();
-		} else if (movimientoHacia == diagonalInfDer) {
-			return moverAbajoDer.getFrameActual();
-		} else if (movimientoHacia == diagonalSupIzq) {
-			return moverArribaIzq.getFrameActual();
-		} else if (movimientoHacia == diagonalSupDer) {
-			return moverArribaDer.getFrameActual();
-		}
-
-		return Recursos.orco.get(6)[0];
+		return mov.get(movimientoHacia).getFrameActual();
 	}
 	
 	/**Pide la direccion donde va
@@ -539,25 +506,9 @@ public class Entidad {
 	/**Obtiene el frame donde esta el personaje
 	 */
 	private int getFrame() {
-		if (movimientoHacia == horizontalIzq) {
-			return moverIzq.getFrame();
-		} else if (movimientoHacia == horizontalDer) {
-			return moverDer.getFrame();
-		} else if (movimientoHacia == verticalSup) {
-			return moverArriba.getFrame();
-		} else if (movimientoHacia == verticalInf) {
-			return moverAbajo.getFrame();
-		} else if (movimientoHacia == diagonalInfIzq) {
-			return moverAbajoIzq.getFrame();
-		} else if (movimientoHacia == diagonalInfDer) {
-			return moverAbajoDer.getFrame();
-		} else if (movimientoHacia == diagonalSupIzq) {
-			return moverArribaIzq.getFrame();
-		} else if (movimientoHacia == diagonalSupDer) {
-			return moverArribaDer.getFrame();
-		}
 
-		return 0;
+
+		return mov.get(movimientoHacia).getFrame();
 	}
 	
 	/**Envia la posicion del personaje
