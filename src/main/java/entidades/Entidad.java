@@ -173,7 +173,7 @@ public class Entidad {
     /**
      * The movimiento hacia.
      */
-    private int movimientoHacia;
+    private int movimientoHacia = 6;
 
     /**
      * The en movimiento.
