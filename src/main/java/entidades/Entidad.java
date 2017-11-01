@@ -148,23 +148,23 @@ public class Entidad {
      * The Constant diagonalSupDer.
      */
     private static final int DIAGONALSUPDER = 3;
-    
+
     /**
      * The Constant horizontalDer.
      */
     // Movimiento Actual
     private static final int HORIZONTALDER = 4;
-    
+
     /**
      * The Constant diagonalInfDer.
      */
     private static final int DIAGONALINFDER = 5;
-    
+
     /**
      * The Constant verticalInf.
      */
     private static final int VERTICALINF = 6;
-    
+
     /**
      * The Constant diagonalInfIzq.
      */
@@ -176,12 +176,10 @@ public class Entidad {
     private int movimientoHacia = 6;
 
     /**
-     * ArrayList de animaciones que contiene los frames de los
-     * personajes.
+     * ArrayList de animaciones que contiene los frames de los personajes.
      */
- 	// Animaciones
- 	private final ArrayList<Animacion> mov;
- 	
+    private final ArrayList<Animacion> mov;
+
     /**
      * The en movimiento.
      */
@@ -292,14 +290,14 @@ public class Entidad {
         y = (int) (spawnY / 32) * 32;
 
         mov = new ArrayList<Animacion>();
-		mov.add(new Animacion(velAnimacion, animaciones.get(0)));
-		mov.add(new Animacion(velAnimacion, animaciones.get(1)));
-		mov.add(new Animacion(velAnimacion, animaciones.get(2)));
-		mov.add(new Animacion(velAnimacion, animaciones.get(3)));
-		mov.add(new Animacion(velAnimacion, animaciones.get(4)));
-		mov.add(new Animacion(velAnimacion, animaciones.get(5)));
-		mov.add(new Animacion(velAnimacion, animaciones.get(6)));
-		mov.add(new Animacion(velAnimacion, animaciones.get(7)));
+        mov.add(new Animacion(velAnimacion, animaciones.get(0)));
+        mov.add(new Animacion(velAnimacion, animaciones.get(1)));
+        mov.add(new Animacion(velAnimacion, animaciones.get(2)));
+        mov.add(new Animacion(velAnimacion, animaciones.get(3)));
+        mov.add(new Animacion(velAnimacion, animaciones.get(4)));
+        mov.add(new Animacion(velAnimacion, animaciones.get(5)));
+        mov.add(new Animacion(velAnimacion, animaciones.get(6)));
+        mov.add(new Animacion(velAnimacion, animaciones.get(7)));
 
         // Informo mi posicion actual
         juego.getUbicacionPersonaje().setPosX(x);
@@ -311,23 +309,23 @@ public class Entidad {
     /**
      * Actualiza el personaje.
      */
-	public void actualizar() {
+    public void actualizar() {
 
-		if (enMovimiento) {
-			for(int i = 0; i<mov.size();i++) {
-				mov.get(i).actualizar();
-			}
-		} else {
-			for(int i = 0; i<mov.size();i++) {
-				mov.get(i).reset();
-			}
-		}
+        if (enMovimiento) {
+            for (int i = 0; i < mov.size(); i++) {
+                mov.get(i).actualizar();
+            }
+        } else {
+            for (int i = 0; i < mov.size(); i++) {
+                mov.get(i).reset();
+            }
+        }
 
-		getEntrada();
-		mover();
+        getEntrada();
+        mover();
 
-		juego.getCamara().centrar(this);
-	}
+        juego.getCamara().centrar(this);
+    }
 
     /**
      * Devuelve la entrada.
@@ -339,8 +337,8 @@ public class Entidad {
                 && posMouse[0] <= 797 && posMouse[1] >= 545
                 && posMouse[1] <= 597) {
             if (Pantalla.getMenuInventario() == null) {
-                Pantalla.setMenuInventario(new MenuInventario(
-                        juego.getCliente()));
+                Pantalla.setMenuInventario(
+                        new MenuInventario(juego.getCliente()));
                 Pantalla.getMenuInventario().setVisible(true);
             }
             juego.getHandlerMouse().setNuevoClick(false);
@@ -414,7 +412,7 @@ public class Entidad {
                             } else {
                                 JOptionPane.showMessageDialog(null,
                                         "El otro usuario se encuentra"
-                                       + "dentro de la zona de comercio");
+                                    + "dentro de la zona de comercio");
                             }
                         } else {
                             // PREGUNTO SI EL MENU EMERGENTE ES DE TIPO COMERCIO
@@ -436,19 +434,20 @@ public class Entidad {
                                         try {
                                             juego.getCliente().getSalida()
                                                     .writeObject(gson.toJson(
-                                     juego.getCliente().getPaqueteComercio()));
+                                      juego.getCliente().getPaqueteComercio()));
                                         } catch (IOException e) {
                                             JOptionPane.showMessageDialog(null,
-                                     "Fallo la conexión " + "con el servidor");
+                                                    "Fallo la conexión "
+                                                    + "con el servidor");
                                         }
                                     } else {
                                         JOptionPane.showMessageDialog(null,
-                                         "Ya te encuentras comerciando!");
+                                        "Ya te encuentras comerciando!");
                                     }
                                 } else {
                                     JOptionPane.showMessageDialog(null,
                                             "El otro usuario no se encuentra "
-                                      + "dentro de la zona de comercio");
+                                         + "dentro de la zona de comercio");
                                 }
                             }
                         }
@@ -744,9 +743,9 @@ public class Entidad {
      *
      * @return frameActual
      */
-	private BufferedImage getFrameAnimacionActual() {
-		return mov.get(movimientoHacia).getFrameActual();
-	}
+    private BufferedImage getFrameAnimacionActual() {
+        return mov.get(movimientoHacia).getFrameActual();
+    }
 
     /**
      * Pide la direccion donde va.
@@ -762,9 +761,9 @@ public class Entidad {
      *
      * @return frame
      */
-	private int getFrame() {
-		return mov.get(movimientoHacia).getFrame();
-	}
+    private int getFrame() {
+        return mov.get(movimientoHacia).getFrame();
+    }
 
     /**
      * Envia la posicion del personaje.

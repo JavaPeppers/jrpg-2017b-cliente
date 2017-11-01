@@ -652,12 +652,12 @@ public class PaquetePersonaje extends Paquete
     /**
      * Actualizar trueque.
      *
-     * @param items
+     * @param itemsParam
      *            the items
      */
-    public void actualizarTrueque(final ArrayList<Item> items) {
+    public void actualizarTrueque(final ArrayList<Item> itemsParam) {
         this.items.removeAll(this.items);
-        for (Item item : items) {
+        for (Item item : itemsParam) {
             this.items.add(item);
         }
     }

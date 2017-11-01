@@ -373,7 +373,7 @@ public class EstadoBatallaNPC extends Estado {
 
         g.drawImage(
                 Recursos.getPersonaje().get(paquetePersonaje.getRaza()).
-                get(3)[0], 0,175, ANCHURAALTURA, ANCHURAALTURA, null);
+                get(3)[0], 0, 175, ANCHURAALTURA, ANCHURAALTURA, null);
         g.drawImage(Recursos.getSalvaje().get(7)[0], 550, 75, ANCHURAALTURA,
                 ANCHURAALTURA, null);
 

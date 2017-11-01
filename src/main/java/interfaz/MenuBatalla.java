@@ -32,9 +32,9 @@ public class MenuBatalla {
     /**
      * The Constant botones.
      */
-    private static final int[][] BOTONES = { { X + 48, Y + 72 },
-            { X + 48, Y + 146 }, { X + 221, Y + 72 }, { X + 221, Y + 146 },
-            { X + 394, Y + 72 }, { X + 394, Y + 146 } };
+    private static final int[][] BOTONES = {{X + 48, Y + 72 },
+            {X + 48, Y + 146 }, {X + 221, Y + 72 }, {X + 221, Y + 146 },
+            {X + 394, Y + 72 }, {X + 394, Y + 146 } };
 
     /**
      * The habilitado.
