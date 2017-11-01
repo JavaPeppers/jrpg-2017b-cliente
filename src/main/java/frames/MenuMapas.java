@@ -28,6 +28,7 @@ import java.awt.event.KeyEvent;
 /**
  * The Class MenuMapas.
  */
+@SuppressWarnings("serial")
 public class MenuMapas extends JFrame {
 
     /**

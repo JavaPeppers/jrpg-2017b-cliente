@@ -28,6 +28,7 @@ import mensajeria.Comando;
 /**
  * The Class MiChat.
  */
+@SuppressWarnings("serial")
 public class MiChat extends JFrame {
 
     /**

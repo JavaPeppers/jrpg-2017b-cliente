@@ -22,6 +22,7 @@ import java.awt.event.KeyEvent;
 /**
  * The Class MenuInicio.
  */
+@SuppressWarnings("serial")
 public class MenuInicio extends JFrame {
 
     /**

@@ -119,7 +119,8 @@ public class TestCliente {
     /**
      * Test conexion con el servidor.
      */
-    @Test
+    @SuppressWarnings("deprecation")
+	@Test
     public void testConexionConElServidor() {
         Queue<Paquete> queue = new LinkedList<Paquete>();
 
@@ -150,7 +151,8 @@ public class TestCliente {
     /**
      * Test registro.
      */
-    @Test
+    @SuppressWarnings("deprecation")
+	@Test
     public void testRegistro() {
 
         Queue<Paquete> queue = new LinkedList<Paquete>();
@@ -193,7 +195,8 @@ public class TestCliente {
     /**
      * Test registro fallido.
      */
-    @Test
+    @SuppressWarnings("deprecation")
+	@Test
 
     public void testRegistroFallido() {
 
@@ -240,7 +243,8 @@ public class TestCliente {
      * @throws IOException
      *             Signals that an I/O exception has occurred.
      */
-    @Test
+    @SuppressWarnings("deprecation")
+	@Test
     public void testRegistrarPersonaje() throws IOException {
         Queue<Paquete> queue = new LinkedList<Paquete>();
 
@@ -274,7 +278,8 @@ public class TestCliente {
             cliente.getSalida().writeObject(gson.toJson(pu));
 
             // Recibo la respuesta del servidor
-            Paquete paquete = (Paquete) gson.fromJson(
+            @SuppressWarnings("unused")
+			Paquete paquete = (Paquete) gson.fromJson(
                     (String) cliente.getEntrada().readObject(), Paquete.class);
 
             // Envio el paquete de registro de personaje
@@ -308,7 +313,8 @@ public class TestCliente {
      * @throws IOException
      *             Signals that an I/O exception has occurred.
      */
-    @Test
+    @SuppressWarnings("deprecation")
+	@Test
     public void testIniciarSesion() throws IOException {
         Queue<Paquete> queue = new LinkedList<Paquete>();
 
@@ -355,7 +361,8 @@ public class TestCliente {
      * @throws IOException
      *             Signals that an I/O exception has occurred.
      */
-    @Test
+    @SuppressWarnings("deprecation")
+	@Test
     public void testActualizarPersonaje() throws IOException {
 
         Queue<Paquete> queue = new LinkedList<Paquete>();

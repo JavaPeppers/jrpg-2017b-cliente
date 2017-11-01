@@ -25,6 +25,7 @@ import mensajeria.PaquetePersonaje;
 /**
  * The Class VentanaContactos.
  */
+@SuppressWarnings("serial")
 public class VentanaContactos extends JFrame {
 
     /**

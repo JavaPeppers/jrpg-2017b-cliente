@@ -19,6 +19,7 @@ import mensajeria.Comando;
 /**
  * The Class MenuInventario.
  */
+@SuppressWarnings("serial")
 public class MenuInventario extends JFrame {
 
     /**

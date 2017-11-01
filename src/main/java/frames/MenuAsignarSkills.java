@@ -27,6 +27,7 @@ import java.awt.event.WindowEvent;
 /**
  * The Class MenuAsignarSkills.
  */
+@SuppressWarnings("serial")
 public class MenuAsignarSkills extends JFrame {
 
     /**

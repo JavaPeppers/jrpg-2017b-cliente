@@ -27,6 +27,7 @@ import mensajeria.Paquete;
 /**
  * The Class MenuEscape.
  */
+@SuppressWarnings("serial")
 public class MenuEscape extends JFrame {
 
     /**

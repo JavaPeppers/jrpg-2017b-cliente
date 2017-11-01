@@ -813,9 +813,9 @@ public final class Recursos {
         enemigos.put("Salvaje", salvaje);
 
         // Inicio Entorno
-        cesped = CargadorImagen.cargarImagen("/Cesped.png");
+        setCesped(CargadorImagen.cargarImagen("/Cesped.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
-        roca = CargadorImagen.cargarImagen("/rock.png");
+        setRoca(CargadorImagen.cargarImagen("/rock.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
         setBackground(CargadorImagen.cargarImagen("/background.jpg"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
@@ -1265,4 +1265,36 @@ public final class Recursos {
             final Map<String, BufferedImage> habilidadesParam) {
         Recursos.habilidades = habilidadesParam;
     }
+
+    /**
+     * Get Cesped.
+     * @return cesped
+     */
+	public static BufferedImage getCesped() {
+		return cesped;
+	}
+
+	/**
+	 * Set Cesped.
+	 * @param cespedParam
+	 */
+	public static void setCesped(BufferedImage cespedParam) {
+		Recursos.cesped = cespedParam;
+	}
+
+	/**
+	 * Get Roca.
+	 * @return roca
+	 */
+	public static BufferedImage getRoca() {
+		return roca;
+	}
+
+	/**
+	 * Set Roca.
+	 * @param rocaParam
+	 */
+	public static void setRoca(BufferedImage rocaParam) {
+		Recursos.roca = rocaParam;
+	}
 }

@@ -18,6 +18,7 @@ import java.awt.event.WindowEvent;
 /**
  * The Class MenuCarga.
  */
+@SuppressWarnings("serial")
 public class MenuCarga extends JFrame {
 
     /**

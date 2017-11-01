@@ -32,6 +32,7 @@ import mensajeria.PaquetePersonaje;
 /**
  * The Class MenuCreacionPj.
  */
+@SuppressWarnings("serial")
 public class MenuCreacionPj extends JFrame {
 
     /**

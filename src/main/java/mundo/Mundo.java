@@ -238,8 +238,8 @@ public class Mundo {
         String[] tokens = archivo.split("\\s+");
         ancho = Utilitarias.parseInt(tokens[0]);
         alto = Utilitarias.parseInt(tokens[1]);
-        spawnX = Utilitarias.parseInt(tokens[2]);
-        spawnY = Utilitarias.parseInt(tokens[3]);
+        setSpawnX(Utilitarias.parseInt(tokens[2]));
+        setSpawnY(Utilitarias.parseInt(tokens[3]));
 
         tiles = new int[ancho][alto];
         tilesInv = new int[alto][ancho];
@@ -411,4 +411,36 @@ public class Mundo {
 
         return tile;
     }
+
+    /**
+     * Get de SpawnX.
+     * @return spawnX
+     */
+	public int getSpawnX() {
+		return spawnX;
+	}
+
+	/**
+	 * Set de SpawnX.
+	 * @param spawnXParam
+	 */
+	public void setSpawnX(int spawnXParam) {
+		this.spawnX = spawnXParam;
+	}
+
+	/**
+	 * Get de SpawnY.
+	 * @return spawnY
+	 */
+	public int getSpawnY() {
+		return spawnY;
+	}
+
+	/**
+	 * Set de SpawnY
+	 * @param spawnYParam
+	 */
+	public void setSpawnY(int spawnYParam) {
+		this.spawnY = spawnYParam;
+	}
 }

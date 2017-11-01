@@ -27,6 +27,7 @@ import mensajeria.Comando;
 /**
  * The Class MenuRegistro.
  */
+@SuppressWarnings("serial")
 public class MenuRegistro extends JFrame {
 
     /**

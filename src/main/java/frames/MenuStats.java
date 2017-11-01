@@ -27,6 +27,7 @@ import mensajeria.PaquetePersonaje;
 /**
  * The Class MenuStats.
  */
+@SuppressWarnings("serial")
 public class MenuStats extends JFrame {
 
     /**

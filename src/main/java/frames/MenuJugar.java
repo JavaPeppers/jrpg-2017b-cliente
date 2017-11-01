@@ -26,6 +26,7 @@ import javax.swing.JLayeredPane;
 /**
  * The Class MenuJugar.
  */
+@SuppressWarnings("serial")
 public class MenuJugar extends JFrame {
 
     /**

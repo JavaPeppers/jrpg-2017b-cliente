@@ -36,6 +36,7 @@ import mensajeria.Comando;
 /**
  * The Class MenuComerciar.
  */
+@SuppressWarnings("serial")
 public class MenuComerciar extends JFrame {
 
     /**

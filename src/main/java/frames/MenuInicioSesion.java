@@ -26,6 +26,7 @@ import mensajeria.Comando;
 /**
  * The Class MenuInicioSesion.
  */
+@SuppressWarnings("serial")
 public class MenuInicioSesion extends JFrame {
 
     /**
