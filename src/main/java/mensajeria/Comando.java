@@ -2,49 +2,197 @@ package mensajeria;
 
 import com.google.gson.Gson;
 
+/**
+ * The Class Comando.
+ */
 public abstract class Comando {
-	// Nombre del paquete donde se encuentran las clases con las responsabilidades
-	public static final String NOMBREPAQUETE = "comandos";
-	public static final String[] CLASSNAMES = { "Conexion", "CrearPersonaje", "Desconectar", "InicioSesion", "MostrarMapas",
-			"Movimiento", "Registro", "Salir", "Batalla", "Atacar", "FinalizarBatalla", "ActualizarPersonaje", "ActualizarPersonajeLvl",
-			"ActualizarInventario", "Comercio", "ActualizarComercio", "Trueque", "ActualizarTrueque", "Talk", "ActualizarPuntosSkills",
-			"SetEnemigos","FinalizarBatallaNPC", "BatallaNPC"};
-	public static final String[] CLASSNAMESBIS = { "Conexion", "CrearPersonaje", "Desconectar", "InicioSesionSet", "MostrarMapas",
-			"Movimiento", "RegistroSet", "SalirSet", "Batalla", "Atacar", "FinalizarBatalla", "ActualizarPersonaje", "ActualizarPersonajeLvl",
-			"ActualizarInventario", "Comercio", "ActualizarComercio", "Trueque", "ActualizarTrueque", "Talk", "ActualizarPuntosSkills",
-			"SetEnemigos","FinalizarBatallaNPC","BatallaNPC" };
-	
-	public static final int CONEXION = 0;
-	public static final int CREACIONPJ = 1;
-	public static final int DESCONECTAR = 2;
-	public static final int INICIOSESION = 3;
-	public static final int MOSTRARMAPAS = 4;
-	public static final int MOVIMIENTO = 5;
-	public static final int REGISTRO = 6;
-	public static final int SALIR = 7;
-	public static final int BATALLA = 8;
-	public static final int ATACAR = 9;
-	public static final int FINALIZARBATALLA = 10;
-	public static final int ACTUALIZARPERSONAJE = 11;
-	public static final int ACTUALIZARPERSONAJELV = 12;
-	public static final int ACTUALIZARINVENTARIO = 13;
-	public static final int COMERCIO = 14;
-	public static final int ACTUALIZARCOMERCIO = 15;
-	public static final int TRUEQUE = 16;
-	public static final int ACTUALIZARTRUEQUE = 17;
-	public static final int TALK = 18;
-	public static final int ACTUALIZARPUNTOSSKILLS = 19;
-	public static final int SETENEMIGOS = 20;
-	public static final int FINALIZARBATALLANPC = 21;
-	public static final int BATALLANPC = 22;
-	
-	protected final Gson gson = new Gson();
-	protected String cadenaLeida;
-	
-	public void setCadena(String cadenaLeida) {
-		this.cadenaLeida = cadenaLeida;
-	}
+    // Nombre del paquete donde se encuentran las clases con las
+    /**
+     * The Constant NOMBREPAQUETE.
+     */
+    // responsabilidades
+    public static final String NOMBREPAQUETE = "comandos";
 
-	
-	public abstract void ejecutar();
+    /**
+     * The Constant CLASSNAMES.
+     */
+    public static final String[] CLASSNAMES = {"Conexion", "CrearPersonaje",
+            "Desconectar", "InicioSesion", "MostrarMapas", "Movimiento",
+            "Registro", "Salir", "Batalla", "Atacar", "FinalizarBatalla",
+            "ActualizarPersonaje", "ActualizarPersonajeLvl",
+            "ActualizarInventario", "Comercio", "ActualizarComercio", "Trueque",
+            "ActualizarTrueque", "Talk", "ActualizarPuntosSkills",
+            "SetEnemigos", "FinalizarBatallaNPC", "BatallaNPC" };
+
+    /**
+     * The Constant CLASSNAMESBIS.
+     */
+    public static final String[] CLASSNAMESBIS = {"Conexion", "CrearPersonaje",
+            "Desconectar", "InicioSesionSet", "MostrarMapas", "Movimiento",
+            "RegistroSet", "SalirSet", "Batalla", "Atacar", "FinalizarBatalla",
+            "ActualizarPersonaje", "ActualizarPersonajeLvl",
+            "ActualizarInventario", "Comercio", "ActualizarComercio", "Trueque",
+            "ActualizarTrueque", "Talk", "ActualizarPuntosSkills",
+            "SetEnemigos", "FinalizarBatallaNPC", "BatallaNPC" };
+
+    /**
+     * The Constant CONEXION.
+     */
+    public static final int CONEXION = 0;
+
+    /**
+     * The Constant CREACIONPJ.
+     */
+    public static final int CREACIONPJ = 1;
+
+    /**
+     * The Constant DESCONECTAR.
+     */
+    public static final int DESCONECTAR = 2;
+
+    /**
+     * The Constant INICIOSESION.
+     */
+    public static final int INICIOSESION = 3;
+
+    /**
+     * The Constant MOSTRARMAPAS.
+     */
+    public static final int MOSTRARMAPAS = 4;
+
+    /**
+     * The Constant MOVIMIENTO.
+     */
+    public static final int MOVIMIENTO = 5;
+
+    /**
+     * The Constant REGISTRO.
+     */
+    public static final int REGISTRO = 6;
+
+    /**
+     * The Constant SALIR.
+     */
+    public static final int SALIR = 7;
+
+    /**
+     * The Constant BATALLA.
+     */
+    public static final int BATALLA = 8;
+
+    /**
+     * The Constant ATACAR.
+     */
+    public static final int ATACAR = 9;
+
+    /**
+     * The Constant FINALIZARBATALLA.
+     */
+    public static final int FINALIZARBATALLA = 10;
+
+    /**
+     * The Constant ACTUALIZARPERSONAJE.
+     */
+    public static final int ACTUALIZARPERSONAJE = 11;
+
+    /**
+     * The Constant ACTUALIZARPERSONAJELV.
+     */
+    public static final int ACTUALIZARPERSONAJELV = 12;
+
+    /**
+     * The Constant ACTUALIZARINVENTARIO.
+     */
+    public static final int ACTUALIZARINVENTARIO = 13;
+
+    /**
+     * The Constant COMERCIO.
+     */
+    public static final int COMERCIO = 14;
+
+    /**
+     * The Constant ACTUALIZARCOMERCIO.
+     */
+    public static final int ACTUALIZARCOMERCIO = 15;
+
+    /**
+     * The Constant TRUEQUE.
+     */
+    public static final int TRUEQUE = 16;
+
+    /**
+     * The Constant ACTUALIZARTRUEQUE.
+     */
+    public static final int ACTUALIZARTRUEQUE = 17;
+
+    /**
+     * The Constant TALK.
+     */
+    public static final int TALK = 18;
+
+    /**
+     * The Constant ACTUALIZARPUNTOSSKILLS.
+     */
+    public static final int ACTUALIZARPUNTOSSKILLS = 19;
+
+    /**
+     * The Constant SETENEMIGOS.
+     */
+    public static final int SETENEMIGOS = 20;
+
+    /**
+     * The Constant FINALIZARBATALLANPC.
+     */
+    public static final int FINALIZARBATALLANPC = 21;
+
+    /**
+     * The Constant BATALLANPC.
+     */
+    public static final int BATALLANPC = 22;
+
+    /**
+     * The gson.
+     */
+    private final Gson gson = new Gson();
+
+    /**
+     * The cadena leida.
+     */
+    private String cadenaLeida;
+
+    /**
+     * Sets the cadena.
+     *
+     * @param cadenaLeidaParam
+     *            the new cadena
+     */
+    public void setCadena(final String cadenaLeidaParam) {
+        this.setCadenaLeida(cadenaLeidaParam);
+    }
+
+    /**
+     * Ejecutar.
+     */
+    public abstract void ejecutar();
+
+    /**
+     * @return the cadenaLeida
+     */
+    public String getCadenaLeida() {
+        return cadenaLeida;
+    }
+
+    /**
+     * @param cadenaLeidaParam the cadenaLeida to set
+     */
+    public void setCadenaLeida(final String cadenaLeidaParam) {
+        this.cadenaLeida = cadenaLeidaParam;
+    }
+
+    /**
+     * @return the gson
+     */
+    public Gson getGson() {
+        return gson;
+    }
 }

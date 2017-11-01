@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import cliente.*;
+import cliente.Cliente;
 import mensajeria.Comando;
 
 import javax.swing.ImageIcon;
@@ -15,65 +15,91 @@ import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+/**
+ * The Class MenuCarga.
+ */
 public class MenuCarga extends JFrame {
 
-	private JPanel contentPane;
-	private JLabel barraCargando;
+    /**
+     * The content pane.
+     */
+    private JPanel contentPane;
 
-	public MenuCarga(final Cliente cliente) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/java/frames/IconoWome.png"));
-		setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
-				new ImageIcon(MenuJugar.class.getResource("/cursor.png")).getImage(),
-				new Point(0,0),"custom cursor"));
+    /**
+     * The barra cargando.
+     */
+    private JLabel barraCargando;
 
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    /**
+     * Instantiates a new menu carga.
+     *
+     * @param cliente
+     *            the cliente
+     */
+    public MenuCarga(final Cliente cliente) {
+        setIconImage(Toolkit.getDefaultToolkit()
+                .getImage("src/main/java/frames/IconoWome.png"));
+        setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
+                new ImageIcon(MenuJugar.class.getResource("/cursor.png"))
+                        .getImage(),
+                new Point(0, 0), "custom cursor"));
 
-		// En caso de cerrar la ventana
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent e) {
-				synchronized(cliente){
-					cliente.setAccion(Comando.SALIR);
-					cliente.notify();
-				}
-				dispose();
-			}
-		});
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		// Propiedades de la ventana
-		setTitle("WOME - World Of the Middle Earth");
-		setBounds(100, 100, 450, 300);
-		setLocationRelativeTo(null);
-		setResizable(false);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+        // En caso de cerrar la ventana
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(final WindowEvent e) {
+                synchronized (cliente) {
+                    cliente.setAccion(Comando.SALIR);
+                    cliente.notify();
+                }
+                dispose();
+            }
+        });
 
-		barraCargando = new JLabel("");
-		barraCargando.setIcon(new ImageIcon(MenuCarga.class.getResource("/frames/Barra.png")));
-		barraCargando.setBounds(52, 160, 0, 27);
-		contentPane.add(barraCargando);
+        // Propiedades de la ventana
+        setTitle("WOME - World Of the Middle Earth");
+        setBounds(100, 100, 450, 300);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
 
-		JLabel lblBarraCarga = new JLabel("");
-		lblBarraCarga.setIcon(new ImageIcon(MenuCarga.class.getResource("/frames/BarraCarga.png")));
-		lblBarraCarga.setBounds(47, 154, 355, 40);
-		contentPane.add(lblBarraCarga);
+        barraCargando = new JLabel("");
+        barraCargando.setIcon(new ImageIcon(
+                MenuCarga.class.getResource("/frames/Barra.png")));
+        barraCargando.setBounds(52, 160, 0, 27);
+        contentPane.add(barraCargando);
 
-		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(MenuCarga.class.getResource("/frames/WOME.png")));
-		lblLogo.setBounds(109, 39, 216, 90);
-		contentPane.add(lblLogo);
+        JLabel lblBarraCarga = new JLabel("");
+        lblBarraCarga.setIcon(new ImageIcon(
+                MenuCarga.class.getResource("/frames/BarraCarga.png")));
+        lblBarraCarga.setBounds(47, 154, 355, 40);
+        contentPane.add(lblBarraCarga);
 
-		JLabel lblBackground = new JLabel("");
-		lblBackground.setBounds(0, 0, 444, 271);
-		contentPane.add(lblBackground);
-		lblBackground.setIcon(new ImageIcon(MenuCarga.class.getResource("/frames/menuBackground.jpg")));
-	}
+        JLabel lblLogo = new JLabel("");
+        lblLogo.setIcon(
+                new ImageIcon(MenuCarga.class.getResource("/frames/WOME.png")));
+        lblLogo.setBounds(109, 39, 216, 90);
+        contentPane.add(lblLogo);
 
-	public void setBarraCargando(int ancho) {
-		barraCargando.setSize(ancho, 27);
-	}
+        JLabel lblBackground = new JLabel("");
+        lblBackground.setBounds(0, 0, 444, 271);
+        contentPane.add(lblBackground);
+        lblBackground.setIcon(new ImageIcon(
+                MenuCarga.class.getResource("/frames/menuBackground.jpg")));
+    }
+
+    /**
+     * Sets the barra cargando.
+     *
+     * @param ancho
+     *            the new barra cargando
+     */
+    public void setBarraCargando(final int ancho) {
+        barraCargando.setSize(ancho, 27);
+    }
 }
-
-

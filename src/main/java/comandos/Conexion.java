@@ -7,23 +7,38 @@ import chat.VentanaContactos;
 import mensajeria.PaqueteDePersonajes;
 import mensajeria.PaquetePersonaje;
 
+/**
+ * The Class Conexion.
+ */
 public class Conexion extends ComandosEscucha {
 
-	
-	@Override
-	public void ejecutar() {
-		PaqueteDePersonajes pdp = (PaqueteDePersonajes) gson.fromJson(cadenaLeida, PaqueteDePersonajes.class);
-		juego.setPersonajesConectados(pdp.getPersonajes());
-		actualizarLista(pdp);
-	}
+    /*
+     * (non-Javadoc)
+     *
+     * @see mensajeria.Comando#ejecutar()
+     */
+    @Override
+    public void ejecutar() {
+        PaqueteDePersonajes pdp = (PaqueteDePersonajes) getGson()
+                .fromJson(getCadenaLeida(), PaqueteDePersonajes.class);
+        juego.setPersonajesConectados(pdp.getPersonajes());
+        actualizarLista(pdp);
+    }
 
-	private void actualizarLista(final PaqueteDePersonajes pdp) {
-		DefaultListModel<String> modelo = new DefaultListModel<String>();
-		VentanaContactos.getList().removeAll();
-		for (Map.Entry<Integer, PaquetePersonaje> personaje : pdp.getPersonajes().entrySet()) {
-			modelo.addElement(personaje.getValue().getNombre());
-		}
-		modelo.removeElement(juego.getPersonaje().getNombre());
-		VentanaContactos.getList().setModel(modelo);
-	}
+    /**
+     * Actualizar lista.
+     *
+     * @param pdp
+     *            the pdp
+     */
+    private void actualizarLista(final PaqueteDePersonajes pdp) {
+        DefaultListModel<String> modelo = new DefaultListModel<String>();
+        VentanaContactos.getList().removeAll();
+        for (Map.Entry<Integer, PaquetePersonaje> personaje : pdp
+                .getPersonajes().entrySet()) {
+            modelo.addElement(personaje.getValue().getNombre());
+        }
+        modelo.removeElement(juego.getPersonaje().getNombre());
+        VentanaContactos.getList().setModel(modelo);
+    }
 }

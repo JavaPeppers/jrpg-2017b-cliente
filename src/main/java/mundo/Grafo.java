@@ -1,35 +1,84 @@
 package mundo;
 
+/**
+ * The Class Grafo.
+ */
 public class Grafo {
 
-	private int cantidadDeNodos;
-	private int cantidadDeNodosTotal;
-	private Nodo [] nodos;
+    /**
+     * The cantidad de nodos.
+     */
+    private int cantidadDeNodos;
 
-	public Grafo(int cantidadDeNodosTotal){
-		cantidadDeNodos = 0;
-		nodos = new Nodo[cantidadDeNodosTotal];
-		this.cantidadDeNodosTotal = cantidadDeNodosTotal;
-	}
+    /**
+     * The cantidad de nodos total.
+     */
+    private int cantidadDeNodosTotal;
 
-	public void agregarNodo(Nodo nodo){
-		nodos [cantidadDeNodos++] = nodo;
-	}
+    /**
+     * The nodos.
+     */
+    private Nodo[] nodos;
 
-	public void agregarAdyacentes(Nodo nodoUno, Nodo nodoDos){
-		nodoUno.agregarAdyacente(nodoDos);
-	}
+    /**
+     * Instantiates a new grafo.
+     *
+     * @param cantidadDeNodosTotalParam
+     *            the cantidad de nodos total
+     */
+    public Grafo(final int cantidadDeNodosTotalParam) {
+        cantidadDeNodos = 0;
+        nodos = new Nodo[cantidadDeNodosTotalParam];
+        this.cantidadDeNodosTotal = cantidadDeNodosTotalParam;
+    }
 
-	public Nodo [] obtenerNodos(){
-		return nodos;
-	}
+    /**
+     * Agregar nodo.
+     *
+     * @param nodo
+     *            the nodo
+     */
+    public void agregarNodo(final Nodo nodo) {
+        nodos[cantidadDeNodos++] = nodo;
+    }
 
-	public int obtenerCantidadDeNodos(){
-		return cantidadDeNodos;
-	}
+    /**
+     * Agregar adyacentes.
+     *
+     * @param nodoUno
+     *            the nodo uno
+     * @param nodoDos
+     *            the nodo dos
+     */
+    public void agregarAdyacentes(final Nodo nodoUno, final Nodo nodoDos) {
+        nodoUno.agregarAdyacente(nodoDos);
+    }
 
-	public int obtenerCantidadDeNodosTotal(){
-		return cantidadDeNodosTotal;
-	}
+    /**
+     * Obtener nodos.
+     *
+     * @return the nodo[]
+     */
+    public Nodo[] obtenerNodos() {
+        return nodos;
+    }
+
+    /**
+     * Obtener cantidad de nodos.
+     *
+     * @return the int
+     */
+    public int obtenerCantidadDeNodos() {
+        return cantidadDeNodos;
+    }
+
+    /**
+     * Obtener cantidad de nodos total.
+     *
+     * @return the int
+     */
+    public int obtenerCantidadDeNodosTotal() {
+        return cantidadDeNodosTotal;
+    }
 
 }

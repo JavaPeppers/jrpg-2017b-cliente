@@ -5,70 +5,166 @@ import java.util.ArrayList;
 
 import dominio.Item;
 
+/**
+ * The Class PaqueteComerciar.
+ */
 @SuppressWarnings("serial")
-public class PaqueteComerciar extends Paquete implements Serializable, Cloneable  {
-	
-	private int id;
-	private int idEnemigo;
-	private int listo = 0;
-	private ArrayList<Item> itemsADar = new ArrayList<Item>();
-	private ArrayList<Item> itemsAObtener = new ArrayList<Item>();
-	private boolean solicitudDeComercio;
+public class PaqueteComerciar extends Paquete
+        implements Serializable, Cloneable {
 
-	public PaqueteComerciar(){
-		setComando(Comando.COMERCIO);
-		solicitudDeComercio = true;
-	}
-	
-	public boolean isSolicitudDeComercio() {
-		return solicitudDeComercio;
-	}
+    /**
+     * The id.
+     */
+    private int id;
 
-	public void setSolicitudDeComercio(boolean solicitudDeComercio) {
-		this.solicitudDeComercio = solicitudDeComercio;
-	}
+    /**
+     * The id enemigo.
+     */
+    private int idEnemigo;
 
-	public ArrayList<Item> getItemsADar() {
-		return itemsADar;
-	}
+    /**
+     * The listo.
+     */
+    private int listo = 0;
 
-	public void setItemsADar(ArrayList<Item> itemsADar) {
-		this.itemsADar = itemsADar;
-	}
+    /**
+     * The items A dar.
+     */
+    private ArrayList<Item> itemsADar = new ArrayList<Item>();
 
-	public int getId() {
-		return id;
-	}
+    /**
+     * The items A obtener.
+     */
+    private ArrayList<Item> itemsAObtener = new ArrayList<Item>();
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    /**
+     * The solicitud de comercio.
+     */
+    private boolean solicitudDeComercio;
 
-	public int getIdEnemigo() {
-		return idEnemigo;
-	}
+    /**
+     * Instantiates a new paquete comerciar.
+     */
+    public PaqueteComerciar() {
+        setComando(Comando.COMERCIO);
+        solicitudDeComercio = true;
+    }
 
-	public void setIdEnemigo(int idEnemigo){
-		this.idEnemigo = idEnemigo;
-	}
+    /**
+     * Checks if is solicitud de comercio.
+     *
+     * @return true, if is solicitud de comercio
+     */
+    public boolean isSolicitudDeComercio() {
+        return solicitudDeComercio;
+    }
 
-	public int getListo() {
-		return listo;
-	}
+    /**
+     * Sets the solicitud de comercio.
+     *
+     * @param solicitudDeComercioParam
+     *            the new solicitud de comercio
+     */
+    public void setSolicitudDeComercio(final boolean solicitudDeComercioParam) {
+        this.solicitudDeComercio = solicitudDeComercioParam;
+    }
 
-	public void aumentarListo() {
-		this.listo++;
-	}
-	
-	public void disminuirListo() {
-		this.listo--;
-	}
-	
-	public ArrayList<Item> getItemsAObtener() {
-		return itemsAObtener;
-	}
+    /**
+     * Gets the items A dar.
+     *
+     * @return the items A dar
+     */
+    public ArrayList<Item> getItemsADar() {
+        return itemsADar;
+    }
 
-	public void setItemsAObtener(ArrayList<Item> itemsAObtener) {
-		this.itemsAObtener = itemsAObtener;
-	}
+    /**
+     * Sets the items A dar.
+     *
+     * @param itemsADarParam
+     *            the new items A dar
+     */
+    public void setItemsADar(final ArrayList<Item> itemsADarParam) {
+        this.itemsADar = itemsADarParam;
+    }
+
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Sets the id.
+     *
+     * @param idParam
+     *            the new id
+     */
+    public void setId(final int idParam) {
+        this.id = idParam;
+    }
+
+    /**
+     * Gets the id enemigo.
+     *
+     * @return the id enemigo
+     */
+    public int getIdEnemigo() {
+        return idEnemigo;
+    }
+
+    /**
+     * Sets the id enemigo.
+     *
+     * @param idEnemigoParam
+     *            the new id enemigo
+     */
+    public void setIdEnemigo(final int idEnemigoParam) {
+        this.idEnemigo = idEnemigoParam;
+    }
+
+    /**
+     * Gets the listo.
+     *
+     * @return the listo
+     */
+    public int getListo() {
+        return listo;
+    }
+
+    /**
+     * Aumentar listo.
+     */
+    public void aumentarListo() {
+        this.listo++;
+    }
+
+    /**
+     * Disminuir listo.
+     */
+    public void disminuirListo() {
+        this.listo--;
+    }
+
+    /**
+     * Gets the items A obtener.
+     *
+     * @return the items A obtener
+     */
+    public ArrayList<Item> getItemsAObtener() {
+        return itemsAObtener;
+    }
+
+    /**
+     * Sets the items A obtener.
+     *
+     * @param itemsAObtenerParam
+     *            the new items A obtener
+     */
+    public void setItemsAObtener(final ArrayList<Item> itemsAObtenerParam) {
+        this.itemsAObtener = itemsAObtenerParam;
+    }
 }
