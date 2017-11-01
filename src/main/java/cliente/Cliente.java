@@ -221,8 +221,7 @@ public class Cliente extends Thread {
                     String cadenaLeida = (String) entrada.readObject();
                     Paquete paquete = gson.fromJson(cadenaLeida, Paquete.class);
 
-                    comand = (ComandosCliente) paquete
-                            .getObjeto(Comando.NOMBREPAQUETE);
+                    comand = (ComandosCliente) paquete.getObjeto(Comando.NOMBREPAQUETE);
                     comand.setCadena(cadenaLeida);
                     comand.setCliente(this);
                     comand.ejecutar();
