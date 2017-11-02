@@ -318,11 +318,8 @@ public class MenuInfoPersonaje {
      * @return true, if successful
      */
     public boolean clickEnBoton(final int mouseX, final int mouseY) {
-        if (mouseX >= x + 50 && mouseX <= x + 250 && mouseY >= y + 380
-                && mouseY <= y + 405) {
-            return true;
-        }
-        return false;
+        return (mouseX >= x + 50 && mouseX <= x + 250 && mouseY >= y + 380
+                && mouseY <= y + 405);
     }
 
     /**
@@ -335,12 +332,9 @@ public class MenuInfoPersonaje {
      * @return true, if successful
      */
     public boolean clickEnCerrar(final int mouseX, final int mouseY) {
-        if (mouseX >= x + MENU.getWidth() - 24
+        return (mouseX >= x + MENU.getWidth() - 24
                 && mouseX <= x + MENU.getWidth() + 4 && mouseY >= y + 12
-                && mouseY <= y + 36) {
-            return true;
-        }
-        return false;
+                && mouseY <= y + 36);
     }
 
     /**
@@ -353,10 +347,7 @@ public class MenuInfoPersonaje {
      * @return true, if successful
      */
     public boolean clickEnMenu(final int mouseX, final int mouseY) {
-        if (mouseX >= x && mouseX <= x + MENU.getWidth() && mouseY >= y
-                && mouseY <= y + MENU.getHeight()) {
-            return true;
-        }
-        return false;
+        return (mouseX >= x && mouseX <= x + MENU.getWidth() && mouseY >= y
+                && mouseY <= y + MENU.getHeight());
     }
 }

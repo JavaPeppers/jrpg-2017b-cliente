@@ -1,5 +1,7 @@
 package tests.Cliente;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -7,10 +9,12 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.google.gson.Gson;
@@ -35,7 +39,7 @@ public class TestCliente {
     /**
      * Constante PUERTO.
      */
-    private static final int PUERTO = 55050;
+    private int puerto;// = 55050;
 
     /**
      * Hilo myThread.
@@ -62,6 +66,22 @@ public class TestCliente {
      */
     private ObjectInputStream entrada;
 
+    
+    public int getPuerto() throws FileNotFoundException {
+        int puerto;
+        Scanner sc = new Scanner(new File("puerto.properties"));
+        sc.next();
+        sc.next();
+        puerto = sc.nextInt();
+        sc.close();
+        return puerto;
+    }
+    
+    @Before //LO USO PARA CREAR ALGO ANTES DE TODAS LAS PRUEBAS DE LA MISMA CLASE, PARA NO ESTAR CREANDO EL CONTADOR DENTRO DE TODOS LOS TEST
+    public void creaPuerto() throws FileNotFoundException {
+        puerto = getPuerto();
+    }
+    
     // Si quiero probar la conexión del cliente si o si necesito un servidor
     // stub (lamentablemente)
     // Y para no complicarme la existencia con que el server se quede esperando
@@ -76,11 +96,10 @@ public class TestCliente {
     // Paquete tipo "Paquete", el test de PjTest me de bien..
     public void testServer(final Queue<Paquete> cantPaquetes) {
         myThread = new Thread(new Runnable() {
-
             @Override
             public void run() {
                 try {
-                    server = new ServerSocket(PUERTO);
+                    server = new ServerSocket(puerto);
                     Socket cliente = server.accept();
                     salida = new ObjectOutputStream(cliente.getOutputStream());
                     entrada = new ObjectInputStream(cliente.getInputStream());
@@ -125,7 +144,7 @@ public class TestCliente {
 
         queue.add(new Paquete());
         testServer(queue);
-        Cliente cliente = new Cliente("localhost", PUERTO);
+        Cliente cliente = new Cliente("localhost", puerto);
 
         // Pasado este punto la conexión entre el cliente y el servidor resulto
         // exitosa
@@ -163,7 +182,7 @@ public class TestCliente {
         queue.add(new Paquete());
         queue.add(pu);
         testServer(queue);
-        Cliente cliente = new Cliente("localhost", PUERTO);
+        Cliente cliente = new Cliente("localhost", puerto);
 
         try {
 
@@ -209,7 +228,7 @@ public class TestCliente {
         queue.add(pu);
         testServer(queue);
 
-        Cliente cliente = new Cliente("localhost", PUERTO);
+        Cliente cliente = new Cliente("localhost", puerto);
         try {
 
             // Envio el paquete para registrarme
@@ -267,7 +286,7 @@ public class TestCliente {
         queue.add(pu);
         queue.add(pp);
         testServer(queue);
-        Cliente cliente = new Cliente("localhost", PUERTO);
+        Cliente cliente = new Cliente("localhost", puerto);
         try {
 
             // Envio el paquete de registro de usuario
@@ -321,7 +340,7 @@ public class TestCliente {
         queue.add(pp);
 
         testServer(queue);
-        Cliente cliente = new Cliente("localhost", PUERTO);
+        Cliente cliente = new Cliente("localhost", puerto);
 
         try {
 
@@ -374,7 +393,7 @@ public class TestCliente {
         pp.setSaludTope(SALUDTOPE);
         queue.add(pp);
         testServer(queue);
-        Cliente cliente = new Cliente("localhost", PUERTO);
+        Cliente cliente = new Cliente("localhost", puerto);
         try {
 
             // Envio el paquete de actualizacion de personaje
