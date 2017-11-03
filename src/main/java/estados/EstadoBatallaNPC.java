@@ -301,9 +301,12 @@ public class EstadoBatallaNPC extends Estado {
             }
 
             paquetePersonaje.setComando(Comando.ACTUALIZARPERSONAJE);
+            paqueteEnemigo.setComando(Comando.ACTUALIZARENEMIGO);
 
             juego.getCliente().getSalida()
                     .writeObject(gson.toJson(paquetePersonaje));
+            juego.getCliente().getSalida()
+            		.writeObject(gson.toJson(paqueteEnemigo));
 
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null,
