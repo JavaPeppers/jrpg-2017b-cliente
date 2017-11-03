@@ -11,6 +11,61 @@ import juego.Juego;
 public class Mundo {
 
     /**
+     * The Constant SUMAPARCEINT.
+     */
+    private static final int SUMAPARCEINT = 4;
+
+    /**
+     * The Constant POSICIONSPAWNY.
+     */
+    private static final int POSICIONSPAWNY = 3;
+
+    /**
+     * The Constant MAPAUNO.
+     */
+    private static final int MAPAUNO = 1;
+
+    /**
+     * The Constant MAPADOS.
+     */
+    private static final int MAPADOS = 2;
+
+    /**
+     * The Constant MAPATRES.
+     */
+    private static final int MAPATRES = 3;
+
+    /**
+     * The Constant RESTARAY.
+     */
+    private static final int RESTARAY = 32;
+
+    /**
+     * The Constant ANCHURAALTURA.
+     */
+    private static final int ANCHURAALTURA = 64;
+
+    /**
+     * The Constant YMAXIMO.
+     */
+    private static final int YMAXIMO = 60;
+
+    /**
+     * The Constant YMINIMO.
+     */
+    private static final int YMINIMO = 60;
+
+    /**
+     * The Constant XMINIMO.
+     */
+    private static final int XMINIMO = 30;
+
+    /**
+     * The Constant XMAXIMO.
+     */
+    private static final int XMAXIMO = 30;
+
+    /**
      * The juego.
      */
     private Juego juego;
@@ -119,10 +174,10 @@ public class Mundo {
         xOffset = juego.getEstadoJuego().getPersonaje().getxOffset();
         yOffset = juego.getEstadoJuego().getPersonaje().getYOffset();
 
-        xMinimo = (int) (juego.getCamara().getxOffset() - xOffset - 30);
-        xMaximo = xMinimo + juego.getAncho() + xOffset + 30;
-        yMinimo = (int) juego.getCamara().getyOffset() + yOffset - 60;
-        yMaximo = yMinimo + juego.getAlto() + yOffset + 60;
+        xMinimo = (int) (juego.getCamara().getxOffset() - xOffset - XMINIMO);
+        xMaximo = xMinimo + juego.getAncho() + xOffset + XMAXIMO;
+        yMinimo = (int) juego.getCamara().getyOffset() + yOffset - YMINIMO;
+        yMaximo = yMinimo + juego.getAlto() + yOffset + YMAXIMO;
 
         // Grafico el el tile base
         for (int i = 0; i < alto; i++) {
@@ -131,31 +186,31 @@ public class Mundo {
                 if ((iso[0] >= xMinimo && iso[0] <= xMaximo)
                         && (iso[1] >= yMinimo && iso[1] <= yMaximo)) {
                     int map = juego.getPersonaje().getMapa();
-                    if (map == 1) {
+                    if (map == MAPAUNO) {
                         Tile.getAubenor()[Tile.getAubenorBase()].graficar(g,
                                 (int) (iso[0] - juego.getCamara().getxOffset()),
                                 (int) (iso[1] - juego.getCamara().getyOffset()
-                                        - 32),
-                                64, 64);
-                    } else if (map == 2) {
+                                        - RESTARAY),
+                                ANCHURAALTURA, ANCHURAALTURA);
+                    } else if (map == MAPADOS) {
                         Tile.getAris()[Tile.getArisBase()].graficar(g,
                                 (int) (iso[0] - juego.getCamara().getxOffset()),
                                 (int) (iso[1] - juego.getCamara().getyOffset()
-                                        - 32),
-                                64, 64);
-                    } else if (map == 3) {
+                                        - RESTARAY),
+                                ANCHURAALTURA, ANCHURAALTURA);
+                    } else if (map == MAPATRES) {
                         Tile.getAubenor()[Tile.getAubenorBase()].graficar(g,
                                 (int) (iso[0] - juego.getCamara().getxOffset()),
                                 (int) (iso[1] - juego.getCamara().getyOffset()
-                                        - 32),
-                                64, 64);
+                                        - RESTARAY),
+                                ANCHURAALTURA, ANCHURAALTURA);
                     }
                     if (!getTile(j, i).esSolido()) {
                         getTile(j, i).graficar(g,
                                 (int) (iso[0] - juego.getCamara().getxOffset()),
                                 (int) (iso[1] - juego.getCamara().getyOffset()
-                                        - 32),
-                                64, 64);
+                                        - RESTARAY),
+                                ANCHURAALTURA, ANCHURAALTURA);
                     }
                 }
             }
@@ -213,11 +268,11 @@ public class Mundo {
         Tile t = Tile.getTiles()[tiles[x][y]];
         if (t == null) {
             int map = juego.getPersonaje().getMapa();
-            if (map == 1) {
+            if (map == MAPAUNO) {
                 return Tile.getAubenor()[Tile.getAubenorBase()];
-            } else if (map == 2) {
+            } else if (map == MAPADOS) {
                 return Tile.getAris()[Tile.getArisBase()];
-            } else if (map == 3) {
+            } else if (map == MAPATRES) {
                 return Tile.getAubenor()[Tile.getAubenorBase()];
             }
         }
@@ -239,7 +294,7 @@ public class Mundo {
         ancho = Utilitarias.parseInt(tokens[0]);
         alto = Utilitarias.parseInt(tokens[1]);
         spawnX = Utilitarias.parseInt(tokens[2]);
-        spawnY = Utilitarias.parseInt(tokens[3]);
+        spawnY = Utilitarias.parseInt(tokens[POSICIONSPAWNY]);
 
         tiles = new int[ancho][alto];
         tilesInv = new int[alto][ancho];
@@ -247,7 +302,8 @@ public class Mundo {
         for (int y = 0; y < alto; y++) {
             for (int x = 0; x < ancho; x++) {
 
-                tiles[x][y] = Utilitarias.parseInt(tokens[(x + y * ancho + 4)]);
+                tiles[x][y] = Utilitarias
+                        .parseInt(tokens[(x + y * ancho + SUMAPARCEINT)]);
                 tilesInv[y][x] = tiles[x][y];
             }
         }
