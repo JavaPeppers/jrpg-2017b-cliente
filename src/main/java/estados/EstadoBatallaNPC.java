@@ -30,56 +30,56 @@ import recursos.Recursos;
  */
 public class EstadoBatallaNPC extends Estado {
 
-    /** The Constant TAMXNPC. */
+    /** Constante TAMXNPC. */
     private static final int TAMXNPC = 550;
 
-    /** The Constant TAMY. */
+    /** Constante TAMY. */
     private static final int TAMY = 5;
 
-	/** The Constant TAMX. */
-	private static final int TAMX = 25;
+    /** Constante TAMX. */
+    private static final int TAMX = 25;
 
-	/** The Constant POSYNPC. */
-	private static final int POSYNPC = 75;
+    /** Constante POSYNPC. */
+    private static final int POSYNPC = 75;
 
-	/** The Constant POSXNPC. */
-	private static final int POSXNPC = 550;
+    /** Constante POSXNPC. */
+    private static final int POSXNPC = 550;
 
-	/** The Constant RAZANPC. */
-	private static final int RAZANPC = 7;
+    /** Constante RAZANPC. */
+    private static final int RAZANPC = 7;
 
-	/** The Constant POSYJUGADOR. */
-	private static final int POSYJUGADOR = 175;
+    /** Constante POSYJUGADOR. */
+    private static final int POSYJUGADOR = 175;
 
-	/** The Constant RAZAJUGADOR. */
-	private static final int RAZAJUGADOR = 3;
+    /** Constante RAZAJUGADOR. */
+    private static final int RAZAJUGADOR = 3;
 
-	/** The Constant HABENERGIA. */
-	private static final int HABENERGIA = 6;
+    /** Constante HABENERGIA. */
+    private static final int HABENERGIA = 6;
 
-	/** The Constant ENERGIA. */
-	private static final int ENERGIA = 10;
+    /** Constante ENERGIA. */
+    private static final int ENERGIA = 10;
 
-	/** The Constant HABCASTATRES. */
-	private static final int HABCASTATRES = 5;
+    /** Constante HABCASTATRES. */
+    private static final int HABCASTATRES = 5;
 
-	/** The Constant HABCASTADOS. */
-	private static final int HABCASTADOS = 4;
+    /** Constante HABCASTADOS. */
+    private static final int HABCASTADOS = 4;
 
-	/** The Constant HABCASTAUNO. */
-	private static final int HABCASTAUNO = 3;
+    /** Constante HABCASTAUNO. */
+    private static final int HABCASTAUNO = 3;
 
-	/** The Constant YOFFSET. */
-	private static final int YOFFSET = 150;
+    /** Constante YOFFSET. */
+    private static final int YOFFSET = 150;
 
-	/** The Constant XOFFSET. */
-	private static final int XOFFSET = 350;
+    /** Constante XOFFSET. */
+    private static final int XOFFSET = 350;
 
-	/** The Constant RAZA. */
-	private static final int RAZA = 5;
+    /** Constante RAZA. */
+    private static final int RAZA = 5;
 
-	/**
-     * The Constant ANCHURAALTURA.
+    /**
+     * Constante ANCHURAALTURA.
      */
     private static final int ANCHURAALTURA = 256;
 
@@ -159,7 +159,7 @@ public class EstadoBatallaNPC extends Estado {
     private MenuBatalla menuBatalla;
 
     /**
-     * The Constant PUNTOSSKILLSPORNIVEL.
+     * Constante PUNTOSSKILLSPORNIVEL.
      */
     private static final int PUNTOSSKILLSPORNIVEL = 3;
 
@@ -187,8 +187,8 @@ public class EstadoBatallaNPC extends Estado {
         menuBatalla = new MenuBatalla(miTurno, personaje);
 
         miniaturaEnemigo = Recursos.getSalvaje().get(RAZA)[0];
-        miniaturaPersonaje = Recursos.getPersonaje().
-                get(personaje.getNombreRaza()).get(RAZA)[0];
+        miniaturaPersonaje = Recursos.getPersonaje()
+                .get(personaje.getNombreRaza()).get(RAZA)[0];
 
         paqueteFinalizarBatalla = new PaqueteFinalizarBatallaNPC();
         paqueteFinalizarBatalla.setId(personaje.getIdPersonaje());
@@ -420,12 +420,11 @@ public class EstadoBatallaNPC extends Estado {
         mundo.graficar(g);
 
         g.drawImage(
-                Recursos.getPersonaje().get(paquetePersonaje.getRaza()).
-                get(RAZAJUGADOR)[0], 0,
-                POSYJUGADOR, ANCHURAALTURA, ANCHURAALTURA, null);
-        g.drawImage(Recursos.getSalvaje().get(RAZANPC)[0],
-        		POSXNPC, POSYNPC, ANCHURAALTURA,
-                ANCHURAALTURA, null);
+                Recursos.getPersonaje().get(paquetePersonaje.getRaza())
+                        .get(RAZAJUGADOR)[0],
+                0, POSYJUGADOR, ANCHURAALTURA, ANCHURAALTURA, null);
+        g.drawImage(Recursos.getSalvaje().get(RAZANPC)[0], POSXNPC, POSYNPC,
+                ANCHURAALTURA, ANCHURAALTURA, null);
 
         mundo.graficarObstaculos(g);
         menuBatalla.graficar(g);

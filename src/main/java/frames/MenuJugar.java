@@ -31,81 +31,81 @@ public class MenuJugar extends JFrame {
     /** The Constant LBL_BGD_ALTO. */
     private static final int LBL_BGD_ALTO = 271;
 
-	/** The Constant LBL_BGD_ANCH. */
-	private static final int LBL_BGD_ANCH = 444;
+    /** The Constant LBL_BGD_ANCH. */
+    private static final int LBL_BGD_ANCH = 444;
 
-	/** The Constant BTN_INISES_ALTO. */
-	private static final int BTN_INISES_ALTO = 23;
+    /** The Constant BTN_INISES_ALTO. */
+    private static final int BTN_INISES_ALTO = 23;
 
-	/** The Constant BTN_INISES_ANC. */
-	private static final int BTN_INISES_ANC = 191;
+    /** The Constant BTN_INISES_ANC. */
+    private static final int BTN_INISES_ANC = 191;
 
-	/** The Constant BTN_INISES_Y. */
-	private static final int BTN_INISES_Y = 92;
+    /** The Constant BTN_INISES_Y. */
+    private static final int BTN_INISES_Y = 92;
 
-	/** The Constant BTN_INISES_X. */
-	private static final int BTN_INISES_X = 121;
+    /** The Constant BTN_INISES_X. */
+    private static final int BTN_INISES_X = 121;
 
-	/** The Constant BTN_REG_ALTO. */
-	private static final int BTN_REG_ALTO = 23;
+    /** The Constant BTN_REG_ALTO. */
+    private static final int BTN_REG_ALTO = 23;
 
-	/** The Constant BTN_REG_ANCH. */
-	private static final int BTN_REG_ANCH = 191;
+    /** The Constant BTN_REG_ANCH. */
+    private static final int BTN_REG_ANCH = 191;
 
-	/** The Constant BTN_REG_Y. */
-	private static final int BTN_REG_Y = 162;
+    /** The Constant BTN_REG_Y. */
+    private static final int BTN_REG_Y = 162;
 
-	/** The Constant BTN_REG_X. */
-	private static final int BTN_REG_X = 121;
+    /** The Constant BTN_REG_X. */
+    private static final int BTN_REG_X = 121;
 
-	/** The Constant LBL_INISES_ALTO. */
-	private static final int LBL_INISES_ALTO = 23;
+    /** The Constant LBL_INISES_ALTO. */
+    private static final int LBL_INISES_ALTO = 23;
 
-	/** The Constant LBL_INISES_ANCH. */
-	private static final int LBL_INISES_ANCH = 91;
+    /** The Constant LBL_INISES_ANCH. */
+    private static final int LBL_INISES_ANCH = 91;
 
-	/** The Constant LBL_INISES_Y. */
-	private static final int LBL_INISES_Y = 91;
+    /** The Constant LBL_INISES_Y. */
+    private static final int LBL_INISES_Y = 91;
 
-	/** The Constant LBL_INISES_X. */
-	private static final int LBL_INISES_X = 175;
+    /** The Constant LBL_INISES_X. */
+    private static final int LBL_INISES_X = 175;
 
-	/** The Constant TAM_LET. */
-	private static final int TAM_LET = 15;
+    /** The Constant TAM_LET. */
+    private static final int TAM_LET = 15;
 
-	/** The Constant LBL_REG_ALTO. */
-	private static final int LBL_REG_ALTO = 23;
+    /** The Constant LBL_REG_ALTO. */
+    private static final int LBL_REG_ALTO = 23;
 
-	/** The Constant LBL_REG_ANCH. */
-	private static final int LBL_REG_ANCH = 82;
+    /** The Constant LBL_REG_ANCH. */
+    private static final int LBL_REG_ANCH = 82;
 
-	/** The Constant LBL_REG_Y. */
-	private static final int LBL_REG_Y = 162;
+    /** The Constant LBL_REG_Y. */
+    private static final int LBL_REG_Y = 162;
 
-	/** The Constant LBL_REG_X. */
-	private static final int LBL_REG_X = 181;
+    /** The Constant LBL_REG_X. */
+    private static final int LBL_REG_X = 181;
 
-	/** The Constant LYD_PANE_ALTO. */
-	private static final int LYD_PANE_ALTO = 271;
+    /** The Constant LYD_PANE_ALTO. */
+    private static final int LYD_PANE_ALTO = 271;
 
-	/** The Constant LYD_PANE_ANC. */
-	private static final int LYD_PANE_ANC = 444;
+    /** The Constant LYD_PANE_ANC. */
+    private static final int LYD_PANE_ANC = 444;
 
-	/** The Constant VENT_ALTO. */
-	private static final int VENT_ALTO = 300;
+    /** The Constant VENT_ALTO. */
+    private static final int VENT_ALTO = 300;
 
-	/** The Constant VENT_ANCH. */
-	private static final int VENT_ANCH = 450;
+    /** The Constant VENT_ANCH. */
+    private static final int VENT_ANCH = 450;
 
-	/** The Constant VENT_Y. */
-	private static final int VENT_Y = 100;
+    /** The Constant VENT_Y. */
+    private static final int VENT_Y = 100;
 
-	/** The Constant VENT_X. */
-	private static final int VENT_X = 100;
+    /** The Constant VENT_X. */
+    private static final int VENT_X = 100;
 
-	/** The Constant BORDER. */
-	private static final int BORDER = 5;
-	/**
+    /** The Constant BORDER. */
+    private static final int BORDER = 5;
+    /**
      * The content pane.
      */
     private JPanel contentPane;
@@ -165,8 +165,8 @@ public class MenuJugar extends JFrame {
 
         // Boton Registrarse
         JLabel lblRegistrarse = new JLabel("Registrarse");
-        lblRegistrarse.setBounds(LBL_REG_X, LBL_REG_Y,
-        		LBL_REG_ANCH, LBL_REG_ALTO);
+        lblRegistrarse.setBounds(LBL_REG_X, LBL_REG_Y, LBL_REG_ANCH,
+                LBL_REG_ALTO);
         layeredPane.add(lblRegistrarse, new Integer(2));
         lblRegistrarse.setForeground(Color.WHITE);
         lblRegistrarse.setEnabled(true);
@@ -175,15 +175,15 @@ public class MenuJugar extends JFrame {
 
         // Boton Iniciar sesion
         JLabel lblIniciarSesion = new JLabel("Iniciar Sesion");
-        lblIniciarSesion.setBounds(LBL_INISES_X, LBL_INISES_Y,
-        		LBL_INISES_ANCH, LBL_INISES_ALTO);
+        lblIniciarSesion.setBounds(LBL_INISES_X, LBL_INISES_Y, LBL_INISES_ANCH,
+                LBL_INISES_ALTO);
         layeredPane.add(lblIniciarSesion, new Integer(2));
         lblIniciarSesion.setForeground(Color.WHITE);
         lblIniciarSesion.setFont(new Font("Tahoma", Font.PLAIN, TAM_LET));
 
         JButton btnRegistrar = new JButton("Registrarse");
-        btnRegistrar.setBounds(BTN_REG_X, BTN_REG_Y,
-        		BTN_REG_ANCH, BTN_REG_ALTO);
+        btnRegistrar.setBounds(BTN_REG_X, BTN_REG_Y, BTN_REG_ANCH,
+                BTN_REG_ALTO);
         layeredPane.add(btnRegistrar, new Integer(1));
         btnRegistrar.setFocusable(false);
         btnRegistrar.setIcon(new ImageIcon(
@@ -198,8 +198,8 @@ public class MenuJugar extends JFrame {
         });
 
         JButton btnIniciarSesion = new JButton("Iniciar Sesion");
-        btnIniciarSesion.setBounds(BTN_INISES_X, BTN_INISES_Y,
-        		BTN_INISES_ANC, BTN_INISES_ALTO);
+        btnIniciarSesion.setBounds(BTN_INISES_X, BTN_INISES_Y, BTN_INISES_ANC,
+                BTN_INISES_ALTO);
         layeredPane.add(btnIniciarSesion, new Integer(1));
         btnIniciarSesion.setFocusable(false);
         btnIniciarSesion.setIcon(new ImageIcon(

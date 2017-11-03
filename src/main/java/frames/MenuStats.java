@@ -32,253 +32,253 @@ public class MenuStats extends JFrame {
     /** The Constant YDIST. */
     private static final int YDIST = 350;
 
-	/** The Constant XDIST. */
-	private static final int XDIST = 400;
+    /** The Constant XDIST. */
+    private static final int XDIST = 400;
 
-	/** The Constant ALTOVOLVER. */
-	private static final int ALTOVOLVER = 25;
+    /** The Constant ALTOVOLVER. */
+    private static final int ALTOVOLVER = 25;
 
-	/** The Constant ANCHOVOLVER. */
-	private static final int ANCHOVOLVER = 97;
+    /** The Constant ANCHOVOLVER. */
+    private static final int ANCHOVOLVER = 97;
 
-	/** The Constant YVOLVER. */
-	private static final int YVOLVER = 245;
+    /** The Constant YVOLVER. */
+    private static final int YVOLVER = 245;
 
-	/** The Constant XVOLVER. */
-	private static final int XVOLVER = 128;
+    /** The Constant XVOLVER. */
+    private static final int XVOLVER = 128;
 
-	/** The Constant YENERGIAPJ. */
-	private static final int YENERGIAPJ = 100;
+    /** The Constant YENERGIAPJ. */
+    private static final int YENERGIAPJ = 100;
 
-	/** The Constant XSTATPJ. */
-	private static final int XSTATPJ = 251;
+    /** The Constant XSTATPJ. */
+    private static final int XSTATPJ = 251;
 
-	/** The Constant YEXPERIENCIAPJ. */
-	private static final int YEXPERIENCIAPJ = 42;
+    /** The Constant YEXPERIENCIAPJ. */
+    private static final int YEXPERIENCIAPJ = 42;
 
-	/** The Constant YNIVELPJ. */
-	private static final int YNIVELPJ = 13;
+    /** The Constant YNIVELPJ. */
+    private static final int YNIVELPJ = 13;
 
-	/** The Constant ANCHOCANTITEM. */
-	private static final int ANCHOCANTITEM = 39;
+    /** The Constant ANCHOCANTITEM. */
+    private static final int ANCHOCANTITEM = 39;
 
-	/** The Constant YCANTITEM. */
-	private static final int YCANTITEM = 216;
+    /** The Constant YCANTITEM. */
+    private static final int YCANTITEM = 216;
 
-	/** The Constant XCANTITEM. */
-	private static final int XCANTITEM = 118;
+    /** The Constant XCANTITEM. */
+    private static final int XCANTITEM = 118;
 
-	/** The Constant YINTPJ. */
-	private static final int YINTPJ = 187;
+    /** The Constant YINTPJ. */
+    private static final int YINTPJ = 187;
 
-	/** The Constant YDESTREZAPJ. */
-	private static final int YDESTREZAPJ = 158;
+    /** The Constant YDESTREZAPJ. */
+    private static final int YDESTREZAPJ = 158;
 
-	/** The Constant YFUERZAPJ. */
-	private static final int YFUERZAPJ = 129;
+    /** The Constant YFUERZAPJ. */
+    private static final int YFUERZAPJ = 129;
 
-	/** The Constant YSALUDPJ. */
-	private static final int YSALUDPJ = 100;
+    /** The Constant YSALUDPJ. */
+    private static final int YSALUDPJ = 100;
 
-	/** The Constant YRAZAPJ. */
-	private static final int YRAZAPJ = 71;
+    /** The Constant YRAZAPJ. */
+    private static final int YRAZAPJ = 71;
 
-	/** The Constant YCASTAPJ. */
-	private static final int YCASTAPJ = 42;
+    /** The Constant YCASTAPJ. */
+    private static final int YCASTAPJ = 42;
 
-	/** The Constant YNOMBREPJ. */
-	private static final int YNOMBREPJ = 13;
+    /** The Constant YNOMBREPJ. */
+    private static final int YNOMBREPJ = 13;
 
-	/** The Constant XPJ. */
-	private static final int XPJ = 80;
+    /** The Constant XPJ. */
+    private static final int XPJ = 80;
 
-	/** The Constant ALTOPJ. */
-	private static final int ALTOPJ = 16;
+    /** The Constant ALTOPJ. */
+    private static final int ALTOPJ = 16;
 
-	/** The Constant ANCHOPJ. */
-	private static final int ANCHOPJ = 77;
+    /** The Constant ANCHOPJ. */
+    private static final int ANCHOPJ = 77;
 
-	/** The Constant ALTOITEM. */
-	private static final int ALTOITEM = 16;
+    /** The Constant ALTOITEM. */
+    private static final int ALTOITEM = 16;
 
-	/** The Constant ANCHOITEM. */
-	private static final int ANCHOITEM = 110;
+    /** The Constant ANCHOITEM. */
+    private static final int ANCHOITEM = 110;
 
-	/** The Constant YITEM. */
-	private static final int YITEM = 216;
+    /** The Constant YITEM. */
+    private static final int YITEM = 216;
 
-	/** The Constant XITEM. */
-	private static final int XITEM = 12;
+    /** The Constant XITEM. */
+    private static final int XITEM = 12;
 
-	/** The Constant ALTOMAGIA. */
-	private static final int ALTOMAGIA = 16;
+    /** The Constant ALTOMAGIA. */
+    private static final int ALTOMAGIA = 16;
 
-	/** The Constant ANCHOMAGIA. */
-	private static final int ANCHOMAGIA = 39;
+    /** The Constant ANCHOMAGIA. */
+    private static final int ANCHOMAGIA = 39;
 
-	/** The Constant YMAGIA. */
-	private static final int YMAGIA = 187;
+    /** The Constant YMAGIA. */
+    private static final int YMAGIA = 187;
 
-	/** The Constant XMAGIA. */
-	private static final int XMAGIA = 169;
+    /** The Constant XMAGIA. */
+    private static final int XMAGIA = 169;
 
-	/** The Constant ALTODEF. */
-	private static final int ALTODEF = 16;
+    /** The Constant ALTODEF. */
+    private static final int ALTODEF = 16;
 
-	/** The Constant ANCHODEF. */
-	private static final int ANCHODEF = 56;
+    /** The Constant ANCHODEF. */
+    private static final int ANCHODEF = 56;
 
-	/** The Constant YDEF. */
-	private static final int YDEF = 158;
+    /** The Constant YDEF. */
+    private static final int YDEF = 158;
 
-	/** The Constant XDEF. */
-	private static final int XDEF = 169;
+    /** The Constant XDEF. */
+    private static final int XDEF = 169;
 
-	/** The Constant ALTOATK. */
-	private static final int ALTOATK = 16;
+    /** The Constant ALTOATK. */
+    private static final int ALTOATK = 16;
 
-	/** The Constant ANCHOATK. */
-	private static final int ANCHOATK = 48;
+    /** The Constant ANCHOATK. */
+    private static final int ANCHOATK = 48;
 
-	/** The Constant YATK. */
-	private static final int YATK = 129;
+    /** The Constant YATK. */
+    private static final int YATK = 129;
 
-	/** The Constant XATK. */
-	private static final int XATK = 169;
+    /** The Constant XATK. */
+    private static final int XATK = 169;
 
-	/** The Constant ALTOINT. */
-	private static final int ALTOINT = 16;
+    /** The Constant ALTOINT. */
+    private static final int ALTOINT = 16;
 
-	/** The Constant ANCHOINT. */
-	private static final int ANCHOINT = 72;
+    /** The Constant ANCHOINT. */
+    private static final int ANCHOINT = 72;
 
-	/** The Constant YINT. */
-	private static final int YINT = 187;
+    /** The Constant YINT. */
+    private static final int YINT = 187;
 
-	/** The Constant XINT. */
-	private static final int XINT = 12;
+    /** The Constant XINT. */
+    private static final int XINT = 12;
 
-	/** The Constant ALTODESTREZA. */
-	private static final int ALTODESTREZA = 16;
+    /** The Constant ALTODESTREZA. */
+    private static final int ALTODESTREZA = 16;
 
-	/** The Constant ANCHODESTREZA. */
-	private static final int ANCHODESTREZA = 56;
+    /** The Constant ANCHODESTREZA. */
+    private static final int ANCHODESTREZA = 56;
 
-	/** The Constant YDESTREZA. */
-	private static final int YDESTREZA = 158;
+    /** The Constant YDESTREZA. */
+    private static final int YDESTREZA = 158;
 
-	/** The Constant XDESTREZA. */
-	private static final int XDESTREZA = 12;
+    /** The Constant XDESTREZA. */
+    private static final int XDESTREZA = 12;
 
-	/** The Constant ALTOFUERZA. */
-	private static final int ALTOFUERZA = 16;
+    /** The Constant ALTOFUERZA. */
+    private static final int ALTOFUERZA = 16;
 
-	/** The Constant ANCHOFUERZA. */
-	private static final int ANCHOFUERZA = 48;
+    /** The Constant ANCHOFUERZA. */
+    private static final int ANCHOFUERZA = 48;
 
-	/** The Constant YFUERZA. */
-	private static final int YFUERZA = 129;
+    /** The Constant YFUERZA. */
+    private static final int YFUERZA = 129;
 
-	/** The Constant XFUERZA. */
-	private static final int XFUERZA = 12;
+    /** The Constant XFUERZA. */
+    private static final int XFUERZA = 12;
 
-	/** The Constant ALTOSALUD. */
-	private static final int ALTOSALUD = 16;
+    /** The Constant ALTOSALUD. */
+    private static final int ALTOSALUD = 16;
 
-	/** The Constant ANCHOSALUD. */
-	private static final int ANCHOSALUD = 56;
+    /** The Constant ANCHOSALUD. */
+    private static final int ANCHOSALUD = 56;
 
-	/** The Constant YSALUD. */
-	private static final int YSALUD = 100;
+    /** The Constant YSALUD. */
+    private static final int YSALUD = 100;
 
-	/** The Constant XSALUD. */
-	private static final int XSALUD = 12;
+    /** The Constant XSALUD. */
+    private static final int XSALUD = 12;
 
-	/** The Constant ALTOENERGIA. */
-	private static final int ALTOENERGIA = 16;
+    /** The Constant ALTOENERGIA. */
+    private static final int ALTOENERGIA = 16;
 
-	/** The Constant ANCHOENERGIA. */
-	private static final int ANCHOENERGIA = 48;
+    /** The Constant ANCHOENERGIA. */
+    private static final int ANCHOENERGIA = 48;
 
-	/** The Constant YENERGIA. */
-	private static final int YENERGIA = 100;
+    /** The Constant YENERGIA. */
+    private static final int YENERGIA = 100;
 
-	/** The Constant XENERGIA. */
-	private static final int XENERGIA = 169;
+    /** The Constant XENERGIA. */
+    private static final int XENERGIA = 169;
 
-	/** The Constant ALTOEXP. */
-	private static final int ALTOEXP = 16;
+    /** The Constant ALTOEXP. */
+    private static final int ALTOEXP = 16;
 
-	/** The Constant ANCHOEXP. */
-	private static final int ANCHOEXP = 72;
+    /** The Constant ANCHOEXP. */
+    private static final int ANCHOEXP = 72;
 
-	/** The Constant YEXP. */
-	private static final int YEXP = 42;
+    /** The Constant YEXP. */
+    private static final int YEXP = 42;
 
-	/** The Constant XEXP. */
-	private static final int XEXP = 169;
+    /** The Constant XEXP. */
+    private static final int XEXP = 169;
 
-	/** The Constant ALTONIVEL. */
-	private static final int ALTONIVEL = 16;
+    /** The Constant ALTONIVEL. */
+    private static final int ALTONIVEL = 16;
 
-	/** The Constant ANCHONIVEL. */
-	private static final int ANCHONIVEL = 56;
+    /** The Constant ANCHONIVEL. */
+    private static final int ANCHONIVEL = 56;
 
-	/** The Constant YNIVEL. */
-	private static final int YNIVEL = 13;
+    /** The Constant YNIVEL. */
+    private static final int YNIVEL = 13;
 
-	/** The Constant XNIVEL. */
-	private static final int XNIVEL = 169;
+    /** The Constant XNIVEL. */
+    private static final int XNIVEL = 169;
 
-	/** The Constant ALTORAZA. */
-	private static final int ALTORAZA = 16;
+    /** The Constant ALTORAZA. */
+    private static final int ALTORAZA = 16;
 
-	/** The Constant ANCHORAZA. */
-	private static final int ANCHORAZA = 56;
+    /** The Constant ANCHORAZA. */
+    private static final int ANCHORAZA = 56;
 
-	/** The Constant YRAZA. */
-	private static final int YRAZA = 71;
+    /** The Constant YRAZA. */
+    private static final int YRAZA = 71;
 
-	/** The Constant XRAZA. */
-	private static final int XRAZA = 12;
+    /** The Constant XRAZA. */
+    private static final int XRAZA = 12;
 
-	/** The Constant ALTOCASTA. */
-	private static final int ALTOCASTA = 16;
+    /** The Constant ALTOCASTA. */
+    private static final int ALTOCASTA = 16;
 
-	/** The Constant ANCHOCASTA. */
-	private static final int ANCHOCASTA = 56;
+    /** The Constant ANCHOCASTA. */
+    private static final int ANCHOCASTA = 56;
 
-	/** The Constant YCASTA. */
-	private static final int YCASTA = 42;
+    /** The Constant YCASTA. */
+    private static final int YCASTA = 42;
 
-	/** The Constant XCASTA. */
-	private static final int XCASTA = 12;
+    /** The Constant XCASTA. */
+    private static final int XCASTA = 12;
 
-	/** The Constant ALTONOMBRE. */
-	private static final int ALTONOMBRE = 16;
+    /** The Constant ALTONOMBRE. */
+    private static final int ALTONOMBRE = 16;
 
-	/** The Constant ANCHONOMBRE. */
-	private static final int ANCHONOMBRE = 56;
+    /** The Constant ANCHONOMBRE. */
+    private static final int ANCHONOMBRE = 56;
 
-	/** The Constant YNOMBRE. */
-	private static final int YNOMBRE = 13;
+    /** The Constant YNOMBRE. */
+    private static final int YNOMBRE = 13;
 
-	/** The Constant XNOMBRE. */
-	private static final int XNOMBRE = 12;
+    /** The Constant XNOMBRE. */
+    private static final int XNOMBRE = 12;
 
-	/** The Constant DIMSTAT. */
-	private static final int DIMSTAT = 100;
+    /** The Constant DIMSTAT. */
+    private static final int DIMSTAT = 100;
 
-	/** The Constant ALTOSTAT. */
-	private static final int ALTOSTAT = 321;
+    /** The Constant ALTOSTAT. */
+    private static final int ALTOSTAT = 321;
 
-	/** The Constant ANCHOSTAT. */
-	private static final int ANCHOSTAT = 346;
+    /** The Constant ANCHOSTAT. */
+    private static final int ANCHOSTAT = 346;
 
-	/** The Constant LIMVACIO. */
-	private static final int LIMVACIO = 5;
+    /** The Constant LIMVACIO. */
+    private static final int LIMVACIO = 5;
 
-	/**
+    /**
      * The Constant ALTO.
      */
     private static final int ALTO = 312;
@@ -329,8 +329,8 @@ public class MenuStats extends JFrame {
         this.setTitle("Estadísticas");
 
         contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(LIMVACIO, LIMVACIO,
-        		LIMVACIO, LIMVACIO));
+        contentPane.setBorder(
+                new EmptyBorder(LIMVACIO, LIMVACIO, LIMVACIO, LIMVACIO));
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
@@ -392,8 +392,8 @@ public class MenuStats extends JFrame {
 
         JLabel lblDestreza = new JLabel("Destreza");
         lblDestreza.setForeground(Color.WHITE);
-        lblDestreza.setBounds(XDESTREZA, YDESTREZA,
-        		ANCHODESTREZA, ALTODESTREZA);
+        lblDestreza.setBounds(XDESTREZA, YDESTREZA, ANCHODESTREZA,
+                ALTODESTREZA);
         contentPane.add(lblDestreza);
 
         JLabel lblInteligencia = new JLabel("Inteligencia");
@@ -524,9 +524,8 @@ public class MenuStats extends JFrame {
         });
         btnVolver.setBounds(XVOLVER, YVOLVER, ANCHOVOLVER, ALTOVOLVER);
         contentPane.add(btnVolver);
-        JLabel background = new JLabel(new ImageIcon(
-                imagenFondo.getScaledInstance(XDIST, YDIST,
-                		Image.SCALE_DEFAULT)));
+        JLabel background = new JLabel(new ImageIcon(imagenFondo
+                .getScaledInstance(XDIST, YDIST, Image.SCALE_DEFAULT)));
         background.setBounds(EJEX, EJEY, ANCHO, ALTO);
         contentPane.add(background);
     }

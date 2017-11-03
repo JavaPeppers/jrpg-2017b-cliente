@@ -31,82 +31,82 @@ import recursos.Recursos;
  */
 public class EstadoJuego extends Estado {
 
-    /** The Constant YPARAM. */
+    /** Constante YPARAM. */
     private static final int YPARAM = 50;
 
-	/** The Constant XPARAM. */
-	private static final int XPARAM = 300;
+    /** Constante XPARAM. */
+    private static final int XPARAM = 300;
 
-	/** The Constant TERCERMUNDO. */
-	private static final int TERCERMUNDO = 3;
+    /** Constante TERCERMUNDO. */
+    private static final int TERCERMUNDO = 3;
 
-	/** The Constant ANCHOALTURA. */
-	private static final int ANCHOALTURA = 64;
+    /** Constante ANCHOALTURA. */
+    private static final int ANCHOALTURA = 64;
 
-	/** The Constant ALTURARECTANGULO. */
-	private static final int ALTURARECTANGULO = 10;
+    /** Constante ALTURARECTANGULO. */
+    private static final int ALTURARECTANGULO = 10;
 
-	/** The Constant YOFFSET. */
-	private static final int YOFFSET = 20;
+    /** Constante YOFFSET. */
+    private static final int YOFFSET = 20;
 
-	/** The Constant XOFFSET. */
-	private static final int XOFFSET = 32;
+    /** Constante XOFFSET. */
+    private static final int XOFFSET = 32;
 
-	/** The Constant TAMFONT. */
-	private static final int TAMFONT = 15;
+    /** Constante TAMFONT. */
+    private static final int TAMFONT = 15;
 
-	/** The Constant ALTOCHAT. */
-	private static final int ALTOCHAT = 35;
+    /** Constante ALTOCHAT. */
+    private static final int ALTOCHAT = 35;
 
-	/** The Constant ANCHOCHAT. */
-	private static final int ANCHOCHAT = 102;
+    /** Constante ANCHOCHAT. */
+    private static final int ANCHOCHAT = 102;
 
-	/** The Constant POSCHATY. */
-	private static final int POSCHATY = 524;
+    /** Constante POSCHATY. */
+    private static final int POSCHATY = 524;
 
-	/** The Constant POSCHATX. */
-	private static final int POSCHATX = 3;
+    /** Constante POSCHATX. */
+    private static final int POSCHATX = 3;
 
-	/** The Constant ALTOMENU. */
-	private static final int ALTOMENU = 35;
+    /** Constante ALTOMENU. */
+    private static final int ALTOMENU = 35;
 
-	/** The Constant ANCHOMENU. */
-	private static final int ANCHOMENU = 102;
+    /** Constante ANCHOMENU. */
+    private static final int ANCHOMENU = 102;
 
-	/** The Constant POSMENUY. */
-	private static final int POSMENUY = 562;
+    /** Constante POSMENUY. */
+    private static final int POSMENUY = 562;
 
-	/** The Constant POSMENUX. */
-	private static final int POSMENUX = 3;
+    /** Constante POSMENUX. */
+    private static final int POSMENUX = 3;
 
-	/** The Constant ALTOMOCHILA. */
-	private static final int ALTOMOCHILA = 52;
+    /** Constante ALTOMOCHILA. */
+    private static final int ALTOMOCHILA = 52;
 
-	/** The Constant ANCHOMOCHILA. */
-	private static final int ANCHOMOCHILA = 59;
+    /** Constante ANCHOMOCHILA. */
+    private static final int ANCHOMOCHILA = 59;
 
-	/** The Constant POSMOCHILAY. */
-	private static final int POSMOCHILAY = 545;
+    /** Constante POSMOCHILAY. */
+    private static final int POSMOCHILAY = 545;
 
-	/** The Constant POSMOCHILAX. */
-	private static final int POSMOCHILAX = 738;
+    /** Constante POSMOCHILAX. */
+    private static final int POSMOCHILAX = 738;
 
-	/** The Constant POSJUGADORY. */
-	private static final int POSJUGADORY = 5;
+    /** Constante POSJUGADORY. */
+    private static final int POSJUGADORY = 5;
 
-	/** The Constant POSJUGADORX. */
-	private static final int POSJUGADORX = 5;
+    /** Constante POSJUGADORX. */
+    private static final int POSJUGADORX = 5;
 
-	/** The Constant VELANIMACION. */
-	private static final int VELANIMACION = 150;
+    /** Constante VELANIMACION. */
+    private static final int VELANIMACION = 150;
 
-	/** The Constant ANCHOALTO. */
-	private static final int ANCHOALTO = 64;
+    /** Constante ANCHOALTO. */
+    private static final int ANCHOALTO = 64;
 
-	/** The Constant RAZA. */
-	private static final int RAZA = 5;
+    /** Constante RAZA. */
+    private static final int RAZA = 5;
 
-	/**
+    /**
      * The entidad personaje.
      */
     private Entidad entidadPersonaje;
@@ -221,13 +221,13 @@ public class EstadoJuego extends Estado {
         g.drawImage(Recursos.getMarco(), 0, 0, juego.getAncho(),
                 juego.getAlto(), null);
         EstadoDePersonaje.dibujarEstadoDePersonaje(g, POSJUGADORX, POSJUGADORY,
-        		paquetePersonaje, miniaturaPersonaje);
+                paquetePersonaje, miniaturaPersonaje);
         g.drawImage(Recursos.getMochila(), POSMOCHILAX, POSMOCHILAY,
-        		ANCHOMOCHILA, ALTOMOCHILA, null);
-        g.drawImage(Recursos.getMenu(), POSMENUX, POSMENUY,
-        		ANCHOMENU, ALTOMENU, null);
-        g.drawImage(Recursos.getChat(), POSCHATX, POSCHATY,
-        		ANCHOCHAT, ALTOCHAT, null);
+                ANCHOMOCHILA, ALTOMOCHILA, null);
+        g.drawImage(Recursos.getMenu(), POSMENUX, POSMENUY, ANCHOMENU, ALTOMENU,
+                null);
+        g.drawImage(Recursos.getChat(), POSCHATX, POSCHATY, ANCHOCHAT, ALTOCHAT,
+                null);
         if (haySolicitud) {
             menuEnemigo.graficar(g, tipoSolicitud);
         }
@@ -259,7 +259,7 @@ public class EstadoJuego extends Estado {
                             (int) (actual.getY()
                                     - juego.getCamara().getyOffset() - YOFFSET),
                             0, ALTURARECTANGULO),
-                    		enemigos.get(actual.getId()).getNombre());
+                            enemigos.get(actual.getId()).getNombre());
                     g.drawImage(Recursos.getSalvaje().get(RAZA)[0],
                             (int) (actual.getX()
                                     - juego.getCamara().getxOffset()),

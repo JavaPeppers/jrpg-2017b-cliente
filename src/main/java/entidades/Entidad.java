@@ -515,7 +515,7 @@ public class Entidad {
                             if (juego.getEstadoJuego().getTipoSolicitud()
                                     == MenuInfoPersonaje.MENUCOMERCIAR) {
                                 if ((int) comercio[0] >= LIMCOMERCIOCEROINF
-                                	&& (int) comercio[0] <= LIMCOMERCIOCEROSUP
+                                    && (int) comercio[0] <= LIMCOMERCIOCEROSUP
                                 	&& (int) comercio[1] >= 0
                                 	&& (int) comercio[1] <= COMERCIOUNO) {
                                     if (juego.getCliente().getM1() == null) {

@@ -11,6 +11,16 @@ import estados.Estado;
 public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
 
     /**
+     * The Constant FUERZA.
+     */
+    private static final int FUERZA = 25;
+
+    /**
+     * The Constant SALUDTOPE.
+     */
+    private static final int SALUDTOPE = 60;
+
+    /**
      * The id.
      */
     private int id;
@@ -71,8 +81,8 @@ public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
         // idMapa = 1;
         nombre = "Enemigo";
         estado = Estado.ESTADOJUEGO;
-        saludTope = 60;
-        fuerza = 25;
+        saludTope = SALUDTOPE;
+        fuerza = FUERZA;
         nivel = 1;
         this.x = xParam;
         this.y = yParam;

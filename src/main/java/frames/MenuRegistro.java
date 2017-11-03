@@ -30,6 +30,66 @@ import mensajeria.Comando;
 public class MenuRegistro extends JFrame {
 
     /**
+     * Constante COLUMNASTXTUSUARIO.
+     */
+    private static final int COLUMNASTXTUSUARIO = 10;
+
+    /**
+     * Constante TAMANIOQUINCE.
+     */
+    private static final int TAMANIOQUINCE = 15;
+
+    /**
+     * Constante TRES.
+     */
+    private static final int TRES = 3;
+
+    /**
+     * Constante WOMEREGISTRASE.
+     */
+    private static final int[] WOMEREGISTRASE = {100, 100, 450, 300 };
+
+    /**
+     * Constante USUARIO.
+     */
+    private static final int[] USUARIO = {113, 70, 57, 19 };
+
+    /**
+     * Constante PASSWORD.
+     */
+    private static final int[] PASSWORD = {113, 121, 65, 17 };
+
+    /**
+     * Constante REGISTRARSE.
+     */
+    private static final int[] REGISTRARSE = {186, 182, 82, 23 };
+
+    /**
+     * Constante BOTONREGISTRARSE.
+     */
+    private static final int[] BOTONREGISTRARSE = {143, 182, 153, 23 };
+
+    /**
+     * Constante PWPASSWORD.
+     */
+    private static final int[] PWPASSWORD = {199, 120, 118, 20 };
+
+    /**
+     * Constante TXTUSUARIO.
+     */
+    private static final int[] TXTUSUARIO = {199, 69, 118, 20 };
+
+    /**
+     * Constante LAYAREDPANEL.
+     */
+    private static final int[] LAYAREDPANEL = {0, 0, 444, 271 };
+
+    /**
+     * Constante LABELBACKGROUND.
+     */
+    private static final int[] LABELBACKGROUND = {0, 0, 444, 271 };
+
+    /**
      * The txt usuario.
      */
     private JTextField txtUsuario;
@@ -67,34 +127,39 @@ public class MenuRegistro extends JFrame {
         setTitle("WOME - Registrarse");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
-        setBounds(100, 100, 450, 300);
+        setBounds(WOMEREGISTRASE[0], WOMEREGISTRASE[1], WOMEREGISTRASE[2],
+                WOMEREGISTRASE[TRES]);
         getContentPane().setLayout(null);
         setLocationRelativeTo(null);
 
         JLayeredPane layeredPane = new JLayeredPane();
-        layeredPane.setBounds(0, 0, 444, 271);
+        layeredPane.setBounds(LAYAREDPANEL[0], LAYAREDPANEL[1], LAYAREDPANEL[2],
+                LAYAREDPANEL[TRES]);
         getContentPane().add(layeredPane);
 
         JLabel lblUsuario = new JLabel("Usuario");
-        lblUsuario.setBounds(113, 70, 57, 19);
+        lblUsuario.setBounds(USUARIO[0], USUARIO[1], USUARIO[2], USUARIO[TRES]);
         layeredPane.add(lblUsuario, new Integer(1));
         lblUsuario.setForeground(Color.WHITE);
-        lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, TAMANIOQUINCE));
 
         JLabel lblPassword = new JLabel("Password");
-        lblPassword.setBounds(113, 121, 65, 17);
+        lblPassword.setBounds(PASSWORD[0], PASSWORD[1], PASSWORD[2],
+                PASSWORD[TRES]);
         layeredPane.add(lblPassword, new Integer(1));
         lblPassword.setForeground(Color.WHITE);
-        lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        lblPassword.setFont(new Font("Tahoma", Font.PLAIN, TAMANIOQUINCE));
 
         JLabel lblRegistrarse = new JLabel("Registrarse");
-        lblRegistrarse.setBounds(186, 182, 82, 23);
+        lblRegistrarse.setBounds(REGISTRARSE[0], REGISTRARSE[1], REGISTRARSE[2],
+                REGISTRARSE[TRES]);
         layeredPane.add(lblRegistrarse, new Integer(2));
         lblRegistrarse.setForeground(Color.WHITE);
-        lblRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        lblRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, TAMANIOQUINCE));
 
         JButton btnRegistrarse = new JButton("");
-        btnRegistrarse.setBounds(143, 182, 153, 23);
+        btnRegistrarse.setBounds(BOTONREGISTRARSE[0], BOTONREGISTRARSE[1],
+                BOTONREGISTRARSE[2], BOTONREGISTRARSE[TRES]);
         layeredPane.add(btnRegistrarse, new Integer(1));
         btnRegistrarse.setFocusable(false);
         btnRegistrarse.setIcon(new ImageIcon(
@@ -108,7 +173,8 @@ public class MenuRegistro extends JFrame {
                 dispose();
             }
         });
-        pwPassword.setBounds(199, 120, 118, 20);
+        pwPassword.setBounds(PWPASSWORD[0], PWPASSWORD[1], PWPASSWORD[2],
+                PWPASSWORD[TRES]);
         layeredPane.add(pwPassword, new Integer(1));
 
         txtUsuario = new JTextField();
@@ -119,12 +185,14 @@ public class MenuRegistro extends JFrame {
                 dispose();
             }
         });
-        txtUsuario.setBounds(199, 69, 118, 20);
+        txtUsuario.setBounds(TXTUSUARIO[0], TXTUSUARIO[1], TXTUSUARIO[2],
+                TXTUSUARIO[TRES]);
         layeredPane.add(txtUsuario, new Integer(1));
-        txtUsuario.setColumns(10);
+        txtUsuario.setColumns(COLUMNASTXTUSUARIO);
 
         JLabel labelBackground = new JLabel("");
-        labelBackground.setBounds(0, 0, 444, 271);
+        labelBackground.setBounds(LABELBACKGROUND[0], LABELBACKGROUND[1],
+                LABELBACKGROUND[2], LABELBACKGROUND[TRES]);
         layeredPane.add(labelBackground, new Integer(0));
         labelBackground.setIcon(new ImageIcon(
                 MenuRegistro.class.getResource("/frames/menuBackground.jpg")));

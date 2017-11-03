@@ -39,6 +39,196 @@ import mensajeria.Comando;
 public class MenuComerciar extends JFrame {
 
     /**
+     * The Constant IFITEMS.
+     */
+    private static final int IFITEMS = 9;
+
+    /**
+     * The Constant TRES.
+     */
+    private static final int TRES = 3;
+
+    /**
+     * The Constant MENUCOMERCIAR.
+     */
+    private static final int[] MENUCOMERCIAR = {100, 100, 610, 363 };
+
+    /**
+     * The Constant MENUCOMERCIAR2.
+     */
+    private static final int[] MENUCOMERCIAR2 = {5, 5, 5, 5 };
+
+    /**
+     * The Constant BOTONCANCELAR.
+     */
+    private static final int[] BOTONCANCELAR = {276, 245, 97, 25 };
+
+    /**
+     * The Constant LISTAMISITEMS.
+     */
+    private static final int[] LISTAMISITEMS = {12, 42, 157, 162 };
+
+    /**
+     * The Constant LISTAADAR.
+     */
+    private static final int[] LISTAADAR = {244, 42, 157, 162 };
+
+    /**
+     * The Constant LISTAAOBTENER.
+     */
+    private static final int[] LISTAAOBTENER = {428, 42, 157, 162 };
+
+    /**
+     * The Constant LABELMISITEMS.
+     */
+    private static final int[] LABELMISITEMS = {12, 13, 157, 16 };
+
+    /**
+     * The Constant ITEMSADAR.
+     */
+    private static final int[] ITEMSADAR = {244, 13, 157, 16 };
+
+    /**
+     * The Constant ITEMSAOBTENER.
+     */
+    private static final int[] ITEMSAOBTENER = {428, 13, 157, 16 };
+
+    /**
+     * The Constant SALUD.
+     */
+    private static final int[] SALUD = {12, 217, 56, 16 };
+
+    /**
+     * The Constant ENERGIA.
+     */
+    private static final int[] ENERGIA = {12, 240, 56, 16 };
+
+    /**
+     * The Constant FUERZA.
+     */
+    private static final int[] FUERZA = {113, 217, 56, 16 };
+
+    /**
+     * The Constant DESTREZA.
+     */
+    private static final int[] DESTREZA = {113, 240, 56, 16 };
+
+    /**
+     * The Constant INTELIGENCIA.
+     */
+    private static final int[] INTELIGENCIA = {12, 263, 71, 16 };
+
+    /**
+     * The Constant LABELSALUDENEMIGO.
+     */
+    private static final int[] LABELSALUDENEMIGO = {387, 217, 56, 16 };
+
+    /**
+     * The Constant LABELENERGIAENEMIGO.
+     */
+    private static final int[] LABELENERGIAENEMIGO = {387, 240, 56, 16 };
+
+    /**
+     * The Constant LABELFUERZAENEMIGO.
+     */
+    private static final int[] LABELFUERZAENEMIGO = {497, 217, 56, 16 };
+
+    /**
+     * The Constant LABELDESTREZAENEMIGO.
+     */
+    private static final int[] LABELDESTREZAENEMIGO = {497, 240, 56, 16 };
+
+    /**
+     * The Constant LABELINTELIGENCIAENEMIGO.
+     */
+    private static final int[] LABELINTELIGENCIAENEMIGO = {387, 263, 71, 16 };
+
+    /**
+     * The Constant LISTO.
+     */
+    private static final int[] LISTO = {276, 279, 56, 16 };
+
+    /**
+     * The Constant BONUSSALUD.
+     */
+    private static final int[] BONUSSALUD = {51, 217, 56, 16 };
+
+    /**
+     * The Constant BONUSENERGIA.
+     */
+    private static final int[] BONUSENERGIA = {51, 240, 56, 16 };
+
+    /**
+     * The Constant BONUSFUERZA.
+     */
+    private static final int[] BONUSFUERZA = {176, 217, 56, 16 };
+
+    /**
+     * The Constant BONUSDESTREZA.
+     */
+    private static final int[] BONUSDESTREZA = {176, 240, 56, 16 };
+
+    /**
+     * The Constant BONUSINTELIGENCIA.
+     */
+    private static final int[] BONUSINTELIGENCIA = {51, 263, 56, 16 };
+
+    /**
+     * The Constant SALUDENEMIGO.
+     */
+    private static final int[] SALUDENEMIGO = {428, 217, 56, 16 };
+
+    /**
+     * The Constant ENERGIAENEMIGO.
+     */
+    private static final int[] ENERGIAENEMIGO = {428, 240, 56, 16 };
+
+    /**
+     * The Constant FUERZAENEMIGO.
+     */
+    private static final int[] FUERZAENEMIGO = {536, 217, 56, 16 };
+
+    /**
+     * The Constant DESTREZAENEMIGO.
+     */
+    private static final int[] DESTREZAENEMIGO = {536, 240, 56, 16 };
+
+    /**
+     * The Constant INTELIGENCIAENEMIGO.
+     */
+    private static final int[] INTELIGENCIAENEMIGO = {428, 263, 56, 16 };
+
+    /**
+     * The Constant LEYENDA.
+     */
+    private static final int[] LEYENDA = {12, 299, 282, 16 };
+
+    /**
+     * The Constant BOTONAGREGAR.
+     */
+    private static final int[] BOTONAGREGAR = {181, 93, 51, 25 };
+
+    /**
+     * The Constant BOTONSACAR.
+     */
+    private static final int[] BOTONSACAR = {181, 131, 51, 25 };
+
+    /**
+     * The Constant CANTIDADLISTO.
+     */
+    private static final int[] CANTIDADLISTO = {317, 278, 56, 16 };
+
+    /**
+     * The Constant CHCKBXLISTO.
+     */
+    private static final int[] CHCKBXLISTO = {289, 213, 71, 25 };
+
+    /**
+     * The Constant BACKGROUND.
+     */
+    private static final int[] BACKGROUND = {-12, 0, 628, 336 };
+
+    /**
      * The content pane.
      */
     private JPanel contentPane;
@@ -107,12 +297,14 @@ public class MenuComerciar extends JFrame {
     public MenuComerciar(final Cliente cliente) {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);
-        this.setBounds(100, 100, 610, 363);
+        this.setBounds(MENUCOMERCIAR[0], MENUCOMERCIAR[1], MENUCOMERCIAR[2],
+                MENUCOMERCIAR[TRES]);
         this.setLocationRelativeTo(null);
         this.setTitle("Comercio");
 
         contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setBorder(new EmptyBorder(MENUCOMERCIAR2[0],
+                MENUCOMERCIAR2[1], MENUCOMERCIAR2[2], MENUCOMERCIAR2[TRES]));
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
@@ -140,152 +332,178 @@ public class MenuComerciar extends JFrame {
                 dispose();
             }
         });
-        btnCancelar.setBounds(276, 245, 97, 25);
+        btnCancelar.setBounds(BOTONCANCELAR[0], BOTONCANCELAR[1],
+                BOTONCANCELAR[2], BOTONCANCELAR[TRES]);
         contentPane.add(btnCancelar);
 
         final JList<String> listMisItems = new JList<String>();
-        listMisItems.setBounds(12, 42, 157, 162);
+        listMisItems.setBounds(LISTAMISITEMS[0], LISTAMISITEMS[1],
+                LISTAMISITEMS[2], LISTAMISITEMS[TRES]);
         contentPane.add(listMisItems);
 
         final JList<String> listADar = new JList<String>();
-        listADar.setBounds(244, 42, 157, 162);
+        listADar.setBounds(LISTAADAR[0], LISTAADAR[1], LISTAADAR[2],
+                LISTAADAR[TRES]);
         contentPane.add(listADar);
 
         final JList<String> listAObtener = new JList<String>();
-        listAObtener.setBounds(428, 42, 157, 162);
+        listAObtener.setBounds(LISTAAOBTENER[0], LISTAAOBTENER[1],
+                LISTAAOBTENER[2], LISTAAOBTENER[TRES]);
         contentPane.add(listAObtener);
 
         final JLabel lblMisItems = new JLabel("Mis Items");
         lblMisItems.setForeground(Color.WHITE);
         lblMisItems.setHorizontalAlignment(SwingConstants.CENTER);
-        lblMisItems.setBounds(12, 13, 157, 16);
+        lblMisItems.setBounds(LABELMISITEMS[0], LABELMISITEMS[1],
+                LABELMISITEMS[2], LABELMISITEMS[TRES]);
         contentPane.add(lblMisItems);
 
         final JLabel lblItemsAIntercambiar = new JLabel("Items a Dar");
         lblItemsAIntercambiar.setForeground(Color.WHITE);
         lblItemsAIntercambiar.setHorizontalAlignment(SwingConstants.CENTER);
-        lblItemsAIntercambiar.setBounds(244, 13, 157, 16);
+        lblItemsAIntercambiar.setBounds(ITEMSADAR[0], ITEMSADAR[1],
+                ITEMSADAR[2], ITEMSADAR[TRES]);
         contentPane.add(lblItemsAIntercambiar);
 
         final JLabel lblItemsAObtener = new JLabel("Items a Obtener");
         lblItemsAObtener.setForeground(Color.WHITE);
         lblItemsAObtener.setHorizontalAlignment(SwingConstants.CENTER);
-        lblItemsAObtener.setBounds(428, 13, 157, 16);
+        lblItemsAObtener.setBounds(ITEMSAOBTENER[0], ITEMSAOBTENER[1],
+                ITEMSAOBTENER[2], ITEMSAOBTENER[TRES]);
         contentPane.add(lblItemsAObtener);
 
         final JLabel lblSalud = new JLabel("Salud");
         lblSalud.setForeground(Color.WHITE);
-        lblSalud.setBounds(12, 217, 56, 16);
+        lblSalud.setBounds(SALUD[0], SALUD[1], SALUD[2], SALUD[TRES]);
         contentPane.add(lblSalud);
 
         final JLabel lblEnerga = new JLabel("Energía");
         lblEnerga.setForeground(Color.WHITE);
-        lblEnerga.setBounds(12, 240, 56, 16);
+        lblEnerga.setBounds(ENERGIA[0], ENERGIA[1], ENERGIA[2], ENERGIA[TRES]);
         contentPane.add(lblEnerga);
 
         final JLabel lblFuerza = new JLabel("Fuerza");
         lblFuerza.setForeground(Color.WHITE);
-        lblFuerza.setBounds(113, 217, 56, 16);
+        lblFuerza.setBounds(FUERZA[0], FUERZA[1], FUERZA[2], FUERZA[TRES]);
         contentPane.add(lblFuerza);
 
         final JLabel lblDestreza = new JLabel("Destreza");
         lblDestreza.setForeground(Color.WHITE);
-        lblDestreza.setBounds(113, 240, 56, 16);
+        lblDestreza.setBounds(DESTREZA[0], DESTREZA[1], DESTREZA[2],
+                DESTREZA[TRES]);
         contentPane.add(lblDestreza);
 
         final JLabel lblInteligencia = new JLabel("Inteligencia");
         lblInteligencia.setForeground(Color.WHITE);
-        lblInteligencia.setBounds(12, 263, 71, 16);
+        lblInteligencia.setBounds(INTELIGENCIA[0], INTELIGENCIA[1],
+                INTELIGENCIA[2], INTELIGENCIA[TRES]);
         contentPane.add(lblInteligencia);
 
         final JLabel lblSaludEnemy = new JLabel("Salud");
         lblSaludEnemy.setForeground(Color.WHITE);
-        lblSaludEnemy.setBounds(387, 217, 56, 16);
+        lblSaludEnemy.setBounds(LABELSALUDENEMIGO[0], LABELSALUDENEMIGO[1],
+                LABELSALUDENEMIGO[2], LABELSALUDENEMIGO[TRES]);
         contentPane.add(lblSaludEnemy);
 
         final JLabel lblEnergiaEnemy = new JLabel("Energía");
         lblEnergiaEnemy.setForeground(Color.WHITE);
-        lblEnergiaEnemy.setBounds(387, 240, 56, 16);
+        lblEnergiaEnemy.setBounds(LABELENERGIAENEMIGO[0],
+                LABELENERGIAENEMIGO[1], LABELENERGIAENEMIGO[2],
+                LABELENERGIAENEMIGO[TRES]);
         contentPane.add(lblEnergiaEnemy);
 
         final JLabel lblFzaEnemy = new JLabel("Fuerza");
         lblFzaEnemy.setForeground(Color.WHITE);
-        lblFzaEnemy.setBounds(497, 217, 56, 16);
+        lblFzaEnemy.setBounds(LABELFUERZAENEMIGO[0], LABELFUERZAENEMIGO[1],
+                LABELFUERZAENEMIGO[2], LABELFUERZAENEMIGO[TRES]);
         contentPane.add(lblFzaEnemy);
 
         final JLabel lblDesEnemy = new JLabel("Destreza");
         lblDesEnemy.setForeground(Color.WHITE);
-        lblDesEnemy.setBounds(497, 240, 56, 16);
+        lblDesEnemy.setBounds(LABELDESTREZAENEMIGO[0], LABELDESTREZAENEMIGO[1],
+                LABELDESTREZAENEMIGO[2], LABELDESTREZAENEMIGO[TRES]);
         contentPane.add(lblDesEnemy);
 
         final JLabel lblIntEnemy = new JLabel("Inteligencia");
         lblIntEnemy.setForeground(Color.WHITE);
-        lblIntEnemy.setBounds(387, 263, 71, 16);
+        lblIntEnemy.setBounds(LABELINTELIGENCIAENEMIGO[0],
+                LABELINTELIGENCIAENEMIGO[1], LABELINTELIGENCIAENEMIGO[2],
+                LABELINTELIGENCIAENEMIGO[TRES]);
         contentPane.add(lblIntEnemy);
 
         final JLabel lblListo = new JLabel("Listo");
         lblListo.setForeground(Color.WHITE);
-        lblListo.setBounds(276, 279, 56, 16);
+        lblListo.setBounds(LISTO[0], LISTO[1], LISTO[2], LISTO[TRES]);
         contentPane.add(lblListo);
 
         final JLabel bonusSalud = new JLabel("");
         bonusSalud.setForeground(Color.WHITE);
         bonusSalud.setHorizontalAlignment(SwingConstants.RIGHT);
-        bonusSalud.setBounds(51, 217, 56, 16);
+        bonusSalud.setBounds(BONUSSALUD[0], BONUSSALUD[1], BONUSSALUD[2],
+                BONUSSALUD[TRES]);
         contentPane.add(bonusSalud);
 
         final JLabel bonusEnergia = new JLabel("");
         bonusEnergia.setForeground(Color.WHITE);
         bonusEnergia.setHorizontalAlignment(SwingConstants.RIGHT);
-        bonusEnergia.setBounds(51, 240, 56, 16);
+        bonusEnergia.setBounds(BONUSENERGIA[0], BONUSENERGIA[1],
+                BONUSENERGIA[2], BONUSENERGIA[TRES]);
         contentPane.add(bonusEnergia);
 
         final JLabel bonusFuerza = new JLabel("");
         bonusFuerza.setForeground(Color.WHITE);
         bonusFuerza.setHorizontalAlignment(SwingConstants.RIGHT);
-        bonusFuerza.setBounds(176, 217, 56, 16);
+        bonusFuerza.setBounds(BONUSFUERZA[0], BONUSFUERZA[1], BONUSFUERZA[2],
+                BONUSFUERZA[TRES]);
         contentPane.add(bonusFuerza);
 
         final JLabel bonusDes = new JLabel("");
         bonusDes.setForeground(Color.WHITE);
         bonusDes.setHorizontalAlignment(SwingConstants.RIGHT);
-        bonusDes.setBounds(176, 240, 56, 16);
+        bonusDes.setBounds(BONUSDESTREZA[0], BONUSDESTREZA[1], BONUSDESTREZA[2],
+                BONUSDESTREZA[TRES]);
         contentPane.add(bonusDes);
 
         final JLabel bonusInt = new JLabel("");
         bonusInt.setForeground(Color.WHITE);
         bonusInt.setHorizontalAlignment(SwingConstants.RIGHT);
-        bonusInt.setBounds(51, 263, 56, 16);
+        bonusInt.setBounds(BONUSINTELIGENCIA[0], BONUSINTELIGENCIA[1],
+                BONUSINTELIGENCIA[2], BONUSINTELIGENCIA[TRES]);
         contentPane.add(bonusInt);
 
         final JLabel saludEnemy = new JLabel("");
         saludEnemy.setHorizontalAlignment(SwingConstants.RIGHT);
         saludEnemy.setForeground(Color.WHITE);
-        saludEnemy.setBounds(428, 217, 56, 16);
+        saludEnemy.setBounds(SALUDENEMIGO[0], SALUDENEMIGO[1], SALUDENEMIGO[2],
+                SALUDENEMIGO[TRES]);
         contentPane.add(saludEnemy);
 
         final JLabel energyEnemy = new JLabel("");
         energyEnemy.setHorizontalAlignment(SwingConstants.RIGHT);
         energyEnemy.setForeground(Color.WHITE);
-        energyEnemy.setBounds(428, 240, 56, 16);
+        energyEnemy.setBounds(ENERGIAENEMIGO[0], ENERGIAENEMIGO[1],
+                ENERGIAENEMIGO[2], ENERGIAENEMIGO[TRES]);
         contentPane.add(energyEnemy);
 
         final JLabel fzaEnemy = new JLabel("");
         fzaEnemy.setHorizontalAlignment(SwingConstants.RIGHT);
         fzaEnemy.setForeground(Color.WHITE);
-        fzaEnemy.setBounds(536, 217, 56, 16);
+        fzaEnemy.setBounds(FUERZAENEMIGO[0], FUERZAENEMIGO[1], FUERZAENEMIGO[2],
+                FUERZAENEMIGO[TRES]);
         contentPane.add(fzaEnemy);
 
         final JLabel desEnemy = new JLabel("");
         desEnemy.setHorizontalAlignment(SwingConstants.RIGHT);
         desEnemy.setForeground(Color.WHITE);
-        desEnemy.setBounds(536, 240, 56, 16);
+        desEnemy.setBounds(DESTREZAENEMIGO[0], DESTREZAENEMIGO[1],
+                DESTREZAENEMIGO[2], DESTREZAENEMIGO[TRES]);
         contentPane.add(desEnemy);
 
         final JLabel intEnemy = new JLabel("");
         intEnemy.setHorizontalAlignment(SwingConstants.RIGHT);
         intEnemy.setForeground(Color.WHITE);
-        intEnemy.setBounds(428, 263, 56, 16);
+        intEnemy.setBounds(INTELIGENCIAENEMIGO[0], INTELIGENCIAENEMIGO[1],
+                INTELIGENCIAENEMIGO[2], INTELIGENCIAENEMIGO[TRES]);
         contentPane.add(intEnemy);
 
         chckbxListo = new JCheckBox("Listo");
@@ -296,7 +514,7 @@ public class MenuComerciar extends JFrame {
 
         leyenda = new JLabel("Recuerda que la máxima cantidad de items es 9");
         leyenda.setForeground(Color.WHITE);
-        leyenda.setBounds(12, 299, 282, 16);
+        leyenda.setBounds(LEYENDA[0], LEYENDA[1], LEYENDA[2], LEYENDA[TRES]);
         contentPane.add(leyenda);
         leyenda.setVisible(false);
 
@@ -307,7 +525,8 @@ public class MenuComerciar extends JFrame {
                 if (listMisItems.getSelectedValue() != null) {
                     dar.addElement(listMisItems.getSelectedValue());
                     if (obtener.size() != 0) {
-                        if (sizeItems - dar.size() + obtener.size() <= 9) {
+                        if (sizeItems - dar.size()
+                                + obtener.size() <= IFITEMS) {
                             chckbxListo.setEnabled(true);
                             leyenda.setVisible(false);
                         }
@@ -345,7 +564,8 @@ public class MenuComerciar extends JFrame {
                 }
             }
         });
-        btnAgregar.setBounds(181, 93, 51, 25);
+        btnAgregar.setBounds(BOTONAGREGAR[0], BOTONAGREGAR[1], BOTONAGREGAR[2],
+                BOTONAGREGAR[TRES]);
         contentPane.add(btnAgregar);
 
         final JButton btnSacar = new JButton("<--");
@@ -368,7 +588,7 @@ public class MenuComerciar extends JFrame {
                         chckbxListo.setEnabled(false);
                     }
                     // Si los items en total es mayor a 9 no puedo comerciar
-                    if (sizeItems - dar.size() + obtener.size() > 9) {
+                    if (sizeItems - dar.size() + obtener.size() > IFITEMS) {
                         chckbxListo.setEnabled(false);
                         leyenda.setVisible(true);
                     }
@@ -404,7 +624,8 @@ public class MenuComerciar extends JFrame {
                 }
             }
         });
-        btnSacar.setBounds(181, 131, 51, 25);
+        btnSacar.setBounds(BOTONSACAR[0], BOTONSACAR[1], BOTONSACAR[2],
+                BOTONSACAR[TRES]);
         contentPane.add(btnSacar);
 
         // List Listener para cargar stats del item mio clickeado
@@ -476,7 +697,8 @@ public class MenuComerciar extends JFrame {
         cantListo = new JLabel("0/2");
         cantListo.setHorizontalAlignment(SwingConstants.RIGHT);
         cantListo.setForeground(Color.WHITE);
-        cantListo.setBounds(317, 278, 56, 16);
+        cantListo.setBounds(CANTIDADLISTO[0], CANTIDADLISTO[1],
+                CANTIDADLISTO[2], CANTIDADLISTO[TRES]);
         contentPane.add(cantListo);
 
         chckbxListo.addItemListener(new ItemListener() {
@@ -563,12 +785,14 @@ public class MenuComerciar extends JFrame {
             }
         });
         chckbxListo.setHorizontalAlignment(SwingConstants.CENTER);
-        chckbxListo.setBounds(289, 213, 71, 25);
+        chckbxListo.setBounds(CHCKBXLISTO[0], CHCKBXLISTO[1], CHCKBXLISTO[2],
+                CHCKBXLISTO[TRES]);
         contentPane.add(chckbxListo);
 
         final JLabel background = new JLabel(new ImageIcon(
                 imagenFondo.getScaledInstance(610, 416, Image.SCALE_DEFAULT)));
-        background.setBounds(-12, 0, 628, 336);
+        background.setBounds(BACKGROUND[0], BACKGROUND[1], BACKGROUND[2],
+                BACKGROUND[TRES]);
         contentPane.add(background);
     }
 

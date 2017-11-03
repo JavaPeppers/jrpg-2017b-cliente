@@ -19,7 +19,207 @@ import mundo.Tile;
 public final class Recursos {
 
     /**
-     * constante posiciones.
+     * Constante FOR2GETTILE.
+     */
+    private static final int FOR2GETTILE = 10;
+
+    /**
+     * Constante FOR1GETTILE.
+     */
+    private static final int FOR1GETTILE = 8;
+
+    /**
+     * Constante ANCHURAALTURAGETARIS.
+     */
+    private static final int ANCHURAALTURAGETARIS = 64;
+
+    /**
+     * Constante SUMAGETARIS.
+     */
+    private static final int SUMAGETARIS = 1;
+
+    /**
+     * Constante MULTIPLICADORYGETARIS.
+     */
+    private static final int MULTIPLICADORYGETARIS = 10;
+
+    /**
+     * Constante ANCHURAALTURAGETAUBENOR.
+     */
+    private static final int ANCHURAALTURAGETAUBENOR = 64;
+
+    /**
+     * Constante MULTIPLICADORYGETTILE.
+     */
+    private static final int MULTIPLICADORYGETTILE = 64;
+
+    /**
+     * Constante ANCHURAALTURAGETTILE.
+     */
+    private static final int ANCHURAALTURAGETTILE = 64;
+
+    /**
+     * Constante MULTIPLICADORXGETTILE.
+     */
+    private static final int MULTIPLICADORXGETTILE = 64;
+
+    /**
+     * Constante SUMAGETAUBENOR.
+     */
+    private static final int SUMAGETAUBENOR = 1;
+
+    /**
+     * Constante MULTIPLICADORYGETAUBENOR.
+     */
+    private static final int MULTIPLICADORYGETAUBENOR = 10;
+
+    /**
+     * Constante TAMANIOTILE.
+     */
+    private static final int TAMANIOTILE = 81;
+
+    /**
+     * Constante ALTOARBOLES.
+     */
+    private static final int ALTOARBOLES = 50;
+
+    /**
+     * Constante ANCHOARBOLES.
+     */
+    private static final int ANCHOARBOLES = 42;
+
+    /**
+     * Constante MULTIPLICADORSALVAJEABAJOIZQ.
+     */
+    private static final int MULTIPLICADORSALVAJEABAJOIZQ = 7;
+
+    /**
+     * Constante MULTIPLICADORSALVAJEABAJO.
+     */
+    private static final int MULTIPLICADORSALVAJEABAJO = 6;
+
+    /**
+     * Constante MULTIPLICADORSALVAJEABAJODER.
+     */
+    private static final int MULTIPLICADORSALVAJEABAJODER = 5;
+
+    /**
+     * Constante MULTIPLICADORSALVAJEDERECHA.
+     */
+    private static final int MULTIPLICADORSALVAJEDERECHA = 4;
+
+    /**
+     * Constante MULTIPLICADORSALVAJEARRIBADER.
+     */
+    private static final int MULTIPLICADORSALVAJEARRIBADER = 3;
+
+    /**
+     * Constante MULTIPLICADORSALVAJEARRIBA.
+     */
+    private static final int MULTIPLICADORSALVAJEARRIBA = 2;
+
+    /**
+     * Constante MULTIPLICADORELFOABAJOIZQ.
+     */
+    private static final int MULTIPLICADORELFOABAJOIZQ = 7;
+
+    /**
+     * Constante MULTIPLICADORELFOABAJO.
+     */
+    private static final int MULTIPLICADORELFOABAJO = 6;
+
+    /**
+     * Constante MULTIPLICADORELFOABAJODER.
+     */
+    private static final int MULTIPLICADORELFOABAJODER = 5;
+
+    /**
+     * Constante MULTIPLICADORELFODERECHA.
+     */
+    private static final int MULTIPLICADORELFODERECHA = 4;
+
+    /**
+     * Constante MULTIPLICADORELFOARRIBADER.
+     */
+    private static final int MULTIPLICADORELFOARRIBADER = 3;
+
+    /**
+     * Constante MULTIPLICADORELFOARRIBA.
+     */
+    private static final int MULTIPLICADORELFOARRIBA = 2;
+
+    /**
+     * Constante MULTIPLICADORORCOABAJOIZQ.
+     */
+    private static final int MULTIPLICADORORCOABAJOIZQ = 7;
+
+    /**
+     * Constante MULTIPLICADORORCOABAJO.
+     */
+    private static final int MULTIPLICADORORCOABAJO = 6;
+
+    /**
+     * Constante MULTIPLICADORORCOABAJODER.
+     */
+    private static final int MULTIPLICADORORCOABAJODER = 5;
+
+    /**
+     * Constante MULTIPLICADORORCODERECHA.
+     */
+    private static final int MULTIPLICADORORCODERECHA = 4;
+
+    /**
+     * Constante MULTIPLICADORORCOARRIBADER.
+     */
+    private static final int MULTIPLICADORORCOARRIBADER = 3;
+
+    /**
+     * Constante MULTIPLICADORORCOARRIBA.
+     */
+    private static final int MULTIPLICADORORCOARRIBA = 2;
+
+    /**
+     * Constante MULTIPLICADORHUMANOABAJOIZQ.
+     */
+    private static final int MULTIPLICADORHUMANOABAJOIZQ = 7;
+
+    /**
+     * Constante MULTIPLICADORHUMANOABAJO.
+     */
+    private static final int MULTIPLICADORHUMANOABAJO = 6;
+
+    /**
+     * Constante MULTIPLICADORHUMANOABAJODER.
+     */
+    private static final int MULTIPLICADORHUMANOABAJODER = 5;
+
+    /**
+     * Constante MULTIPLICADORHUMANODERECHA.
+     */
+    private static final int MULTIPLICADORHUMANODERECHA = 4;
+
+    /**
+     * Constante MULTIPLICADORHUMANOARRIBADER.
+     */
+    private static final int MULTIPLICADORHUMANOARRIBADER = 3;
+
+    /**
+     * Constante MULTIPLICADORHUMANOARRIBA.
+     */
+    private static final int MULTIPLICADORHUMANOARRIBA = 2;
+
+    /**
+     * Constante ALTO.
+     */
+    private static final int ALTO = 256;
+
+    /**
+     * Constante ANCHO.
+     */
+    private static final int ANCHO = 256;
+
+    /**
+     * Constante posiciones.
      */
     private static final int POSICIONES = 4;
 
@@ -62,7 +262,7 @@ public final class Recursos {
      * Hash de imagenes para los enemigos (se pueden agregar mas Sprites).
      */
     private static Map<String, LinkedList<BufferedImage[]>> enemigos
-                    = new HashMap<>();
+                        = new HashMap<>();
 
     /**
      * El sprite humano.
@@ -479,8 +679,8 @@ public final class Recursos {
 
         int elementosCargados = 0;
 
-        ancho = 256;
-        alto = 256;
+        ancho = ANCHO;
+        alto = ALTO;
         // Items
 
         setNoItem(ImageIO.read(new File("recursos//noItem.png")));
@@ -517,43 +717,43 @@ public final class Recursos {
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            humanoArriba[i] = spriteHumano.getTile(ancho * i, alto * 2, ancho,
-                    alto);
+            humanoArriba[i] = spriteHumano.getTile(ancho * i,
+                    alto * MULTIPLICADORHUMANOARRIBA, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            humanoArribaDer[i] = spriteHumano.getTile(ancho * i, alto * 3,
-                    ancho, alto);
+            humanoArribaDer[i] = spriteHumano.getTile(ancho * i,
+                    alto * MULTIPLICADORHUMANOARRIBADER, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            humanoDer[i] = spriteHumano.getTile(ancho * i, alto * 4, ancho,
-                    alto);
+            humanoDer[i] = spriteHumano.getTile(ancho * i,
+                    alto * MULTIPLICADORHUMANODERECHA, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            humanoAbajoDer[i] = spriteHumano.getTile(ancho * i, alto * 5, ancho,
-                    alto);
+            humanoAbajoDer[i] = spriteHumano.getTile(ancho * i,
+                    alto * MULTIPLICADORHUMANOABAJODER, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            humanoAbajo[i] = spriteHumano.getTile(ancho * i, alto * 6, ancho,
-                    alto);
+            humanoAbajo[i] = spriteHumano.getTile(ancho * i,
+                    alto * MULTIPLICADORHUMANOABAJO, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            humanoAbajoIzq[i] = spriteHumano.getTile(ancho * i, alto * 7, ancho,
-                    alto);
+            humanoAbajoIzq[i] = spriteHumano.getTile(ancho * i,
+                    alto * MULTIPLICADORHUMANOABAJOIZQ, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
@@ -595,41 +795,43 @@ public final class Recursos {
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            orcoArriba[i] = spriteOgro.getTile(ancho * i, alto * 2, ancho,
-                    alto);
+            orcoArriba[i] = spriteOgro.getTile(ancho * i,
+                    alto * MULTIPLICADORORCOARRIBA, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            orcoArribaDer[i] = spriteOgro.getTile(ancho * i, alto * 3, ancho,
-                    alto);
+            orcoArribaDer[i] = spriteOgro.getTile(ancho * i,
+                    alto * MULTIPLICADORORCOARRIBADER, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            orcoDer[i] = spriteOgro.getTile(ancho * i, alto * 4, ancho, alto);
+            orcoDer[i] = spriteOgro.getTile(ancho * i,
+                    alto * MULTIPLICADORORCODERECHA, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            orcoAbajoDer[i] = spriteOgro.getTile(ancho * i, alto * 5, ancho,
-                    alto);
+            orcoAbajoDer[i] = spriteOgro.getTile(ancho * i,
+                    alto * MULTIPLICADORORCOABAJODER, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            orcoAbajo[i] = spriteOgro.getTile(ancho * i, alto * 6, ancho, alto);
+            orcoAbajo[i] = spriteOgro.getTile(ancho * i,
+                    alto * MULTIPLICADORORCOABAJO, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            orcoAbajoIzq[i] = spriteOgro.getTile(ancho * i, alto * 7, ancho,
-                    alto);
+            orcoAbajoIzq[i] = spriteOgro.getTile(ancho * i,
+                    alto * MULTIPLICADORORCOABAJOIZQ, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
@@ -672,41 +874,43 @@ public final class Recursos {
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            elfoArriba[i] = spriteElfo.getTile(ancho * i, alto * 2, ancho,
-                    alto);
+            elfoArriba[i] = spriteElfo.getTile(ancho * i,
+                    alto * MULTIPLICADORELFOARRIBA, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            elfoArribaDer[i] = spriteElfo.getTile(ancho * i, alto * 3, ancho,
-                    alto);
+            elfoArribaDer[i] = spriteElfo.getTile(ancho * i,
+                    alto * MULTIPLICADORELFOARRIBADER, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            elfoDer[i] = spriteElfo.getTile(ancho * i, alto * 4, ancho, alto);
+            elfoDer[i] = spriteElfo.getTile(ancho * i,
+                    alto * MULTIPLICADORELFODERECHA, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            elfoAbajoDer[i] = spriteElfo.getTile(ancho * i, alto * 5, ancho,
-                    alto);
+            elfoAbajoDer[i] = spriteElfo.getTile(ancho * i,
+                    alto * MULTIPLICADORELFOABAJODER, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            elfoAbajo[i] = spriteElfo.getTile(ancho * i, alto * 6, ancho, alto);
+            elfoAbajo[i] = spriteElfo.getTile(ancho * i,
+                    alto * MULTIPLICADORELFOABAJO, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            elfoAbajoIzq[i] = spriteElfo.getTile(ancho * i, alto * 7, ancho,
-                    alto);
+            elfoAbajoIzq[i] = spriteElfo.getTile(ancho * i,
+                    alto * MULTIPLICADORELFOABAJOIZQ, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
@@ -752,43 +956,43 @@ public final class Recursos {
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            salvajeArriba[i] = spriteSalvaje.getTile(ancho * i, alto * 2, ancho,
-                    alto);
+            salvajeArriba[i] = spriteSalvaje.getTile(ancho * i,
+                    alto * MULTIPLICADORSALVAJEARRIBA, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            salvajeArribaDer[i] = spriteSalvaje.getTile(ancho * i, alto * 3,
-                    ancho, alto);
+            salvajeArribaDer[i] = spriteSalvaje.getTile(ancho * i,
+                    alto * MULTIPLICADORSALVAJEARRIBADER, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            salvajeDer[i] = spriteSalvaje.getTile(ancho * i, alto * 4, ancho,
-                    alto);
+            salvajeDer[i] = spriteSalvaje.getTile(ancho * i,
+                    alto * MULTIPLICADORSALVAJEDERECHA, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            salvajeAbajoDer[i] = spriteSalvaje.getTile(ancho * i, alto * 5,
-                    ancho, alto);
+            salvajeAbajoDer[i] = spriteSalvaje.getTile(ancho * i,
+                    alto * MULTIPLICADORSALVAJEABAJODER, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            salvajeAbajo[i] = spriteSalvaje.getTile(ancho * i, alto * 6, ancho,
-                    alto);
+            salvajeAbajo[i] = spriteSalvaje.getTile(ancho * i,
+                    alto * MULTIPLICADORSALVAJEABAJO, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         for (int i = 0; i < POSICIONES; i++) {
-            salvajeAbajoIzq[i] = spriteSalvaje.getTile(ancho * i, alto * 7,
-                    ancho, alto);
+            salvajeAbajoIzq[i] = spriteSalvaje.getTile(ancho * i,
+                    alto * MULTIPLICADORSALVAJEABAJOIZQ, ancho, alto);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
@@ -827,7 +1031,7 @@ public final class Recursos {
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
         trees = new SpriteSheet(CargadorImagen.cargarImagen("/trees.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
-        setGreenTree(trees.getTile(0, 0, 42, 50));
+        setGreenTree(trees.getTile(0, 0, ANCHOARBOLES, ALTOARBOLES));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
         setNievePiso1(CargadorImagen.cargarImagen("/nieve piso.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
@@ -837,7 +1041,7 @@ public final class Recursos {
         if (MenuMapas.getNumberMap() == 1) {
             SpriteSheet mapaAubenor = new SpriteSheet(
                     CargadorImagen.cargarImagen("/Aubenor.png"));
-            Tile.setAubenor(new Tile[81]);
+            Tile.setAubenor(new Tile[TAMANIOTILE]);
             boolean[][] solidezAubenor = {
                     {true, true, false, true, false, true, true, true, true,
                             true },
@@ -855,17 +1059,26 @@ public final class Recursos {
                             true },
                     {true, true, true, true, true, true, true, true, true,
                             true } };
-            for (int y = 0; y < 8; y++) {
-                for (int x = 0; x < 10; x++) {
-                    Tile.getAubenor()[y * 10 + x + 1] = new Tile(
-                            mapaAubenor.getTile(x * 64, y * 64, 64, 64),
-                            y * 10 + x + 1, solidezAubenor[y][x], 64, 64);
+            for (int y = 0; y < FOR1GETTILE; y++) {
+                for (int x = 0; x < FOR2GETTILE; x++) {
+                    Tile.getAubenor()[y * MULTIPLICADORYGETAUBENOR + x
+                            + SUMAGETAUBENOR] = new Tile(
+                                    mapaAubenor.getTile(
+                                            x * MULTIPLICADORXGETTILE,
+                                            y * MULTIPLICADORYGETTILE,
+                                            ANCHURAALTURAGETTILE,
+                                            ANCHURAALTURAGETTILE),
+                                    y * MULTIPLICADORYGETAUBENOR + x
+                                            + SUMAGETAUBENOR,
+                                    solidezAubenor[y][x],
+                                    ANCHURAALTURAGETAUBENOR,
+                                    ANCHURAALTURAGETAUBENOR);
                 }
             }
         } else {
             SpriteSheet mapaAris = new SpriteSheet(
                     CargadorImagen.cargarImagen("/Aris.png"));
-            Tile.setAris(new Tile[81]);
+            Tile.setAris(new Tile[TAMANIOTILE]);
             boolean[][] solidezAris = {
                     {true, false, false, false, false, false, false, true,
                             true, true },
@@ -883,11 +1096,17 @@ public final class Recursos {
                             true },
                     {true, true, true, true, true, true, true, true, true,
                             true } };
-            for (int y = 0; y < 8; y++) {
-                for (int x = 0; x < 10; x++) {
-                    Tile.getAris()[y * 10 + x + 1] = new Tile(
-                            mapaAris.getTile(x * 64, y * 64, 64, 64),
-                            y * 10 + x + 1, solidezAris[y][x], 64, 64);
+            for (int y = 0; y < FOR1GETTILE; y++) {
+                for (int x = 0; x < FOR2GETTILE; x++) {
+                    Tile.getAris()[y * MULTIPLICADORYGETARIS + x
+                            + SUMAGETARIS] = new Tile(
+                                    mapaAris.getTile(x * MULTIPLICADORXGETTILE,
+                                            y * MULTIPLICADORYGETTILE,
+                                            ANCHURAALTURAGETTILE,
+                                            ANCHURAALTURAGETTILE),
+                                    y * MULTIPLICADORYGETARIS + x + SUMAGETARIS,
+                                    solidezAris[y][x], ANCHURAALTURAGETARIS,
+                                    ANCHURAALTURAGETARIS);
                 }
             }
         }

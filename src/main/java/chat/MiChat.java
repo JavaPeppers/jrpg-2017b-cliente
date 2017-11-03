@@ -33,70 +33,70 @@ public class MiChat extends JFrame {
     /** Constante ALTO_BGD. */
     private static final int ALTO_BGD = 283;
 
-	/** Constante ANCHO_BGD. */
-	private static final int ANCHO_BGD = 480;
+    /** Constante ANCHO_BGD. */
+    private static final int ANCHO_BGD = 480;
 
-	/** Constante POSY_BGD. */
-	private static final int POSY_BGD = 0;
+    /** Constante POSY_BGD. */
+    private static final int POSY_BGD = 0;
 
-	/** Constante POSX_BGD. */
-	private static final int POSX_BGD = -20;
+    /** Constante POSX_BGD. */
+    private static final int POSX_BGD = -20;
 
-	/** Constante COLTXT. */
-	private static final int COLTXT = 10;
+    /** Constante COLTXT. */
+    private static final int COLTXT = 10;
 
-	/** Constante ALTO_TXT. */
-	private static final int ALTO_TXT = 27;
+    /** Constante ALTO_TXT. */
+    private static final int ALTO_TXT = 27;
 
-	/** Constante ANCHO_TXT. */
-	private static final int ANCHO_TXT = 314;
+    /** Constante ANCHO_TXT. */
+    private static final int ANCHO_TXT = 314;
 
-	/** Constante POSY_TXT. */
-	private static final int POSY_TXT = 223;
+    /** Constante POSY_TXT. */
+    private static final int POSY_TXT = 223;
 
-	/** Constante POSX_TXT. */
-	private static final int POSX_TXT = 10;
+    /** Constante POSX_TXT. */
+    private static final int POSX_TXT = 10;
 
-	/** Constante ALTO_ENV. */
-	private static final int ALTO_ENV = 23;
+    /** Constante ALTO_ENV. */
+    private static final int ALTO_ENV = 23;
 
-	/** Constante ANCHO_ENV. */
-	private static final int ANCHO_ENV = 81;
+    /** Constante ANCHO_ENV. */
+    private static final int ANCHO_ENV = 81;
 
-	/** Constante POS_Y_ENV. */
-	private static final int POS_Y_ENV = 225;
+    /** Constante POS_Y_ENV. */
+    private static final int POS_Y_ENV = 225;
 
-	/** Constante POS_X_ENV. */
-	private static final int POS_X_ENV = 334;
+    /** Constante POS_X_ENV. */
+    private static final int POS_X_ENV = 334;
 
-	/** Constante ALTO_SP. */
-	private static final int ALTO_SP = 201;
+    /** Constante ALTO_SP. */
+    private static final int ALTO_SP = 201;
 
-	/** Constante ANCHO_SP. */
-	private static final int ANCHO_SP = 414;
+    /** Constante ANCHO_SP. */
+    private static final int ANCHO_SP = 414;
 
-	/** Constante POS_Y_SP. */
-	private static final int POS_Y_SP = 11;
+    /** Constante POS_Y_SP. */
+    private static final int POS_Y_SP = 11;
 
-	/** Constante POS_X_SP. */
-	private static final int POS_X_SP = 10;
+    /** Constante POS_X_SP. */
+    private static final int POS_X_SP = 10;
 
-	/** Constante BORDER. */
-	private static final int BORDER = 5;
+    /** Constante BORDER. */
+    private static final int BORDER = 5;
 
-	/** Constante ALTO_CHAT. */
-	private static final int ALTO_CHAT = 300;
+    /** Constante ALTO_CHAT. */
+    private static final int ALTO_CHAT = 300;
 
-	/** Constante ANCHO_CHAT. */
-	private static final int ANCHO_CHAT = 450;
+    /** Constante ANCHO_CHAT. */
+    private static final int ANCHO_CHAT = 450;
 
-	/** Constante POS_Y_CHAT. */
-	private static final int POS_Y_CHAT = 100;
+    /** Constante POS_Y_CHAT. */
+    private static final int POS_Y_CHAT = 100;
 
-	/** Constante POS_X_CHAT. */
-	private static final int POS_X_CHAT = 100;
+    /** Constante POS_X_CHAT. */
+    private static final int POS_X_CHAT = 100;
 
-	/**
+    /**
      * The content pane.
      */
     private JPanel contentPane;

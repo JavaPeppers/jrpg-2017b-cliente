@@ -16,7 +16,6 @@ import inventario.Inventario;
 import juego.Pantalla;
 import mensajeria.Comando;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class MenuInventario.
  */
@@ -25,12 +24,12 @@ public class MenuInventario extends JFrame {
     /** The Constant UBIC_Y. */
     private static final int UBIC_Y = 140;
 
-	/** The Constant UBIC_X. */
-	private static final int UBIC_X = 900;
+    /** The Constant UBIC_X. */
+    private static final int UBIC_X = 900;
 
-	/** The Constant DIMENS_INVENT. */
-	private static final int DIMENS_INVENT = 600;
-	/**
+    /** The Constant DIMENS_INVENT. */
+    private static final int DIMENS_INVENT = 600;
+    /**
      * The cancelar.
      */
     private JButton cancelar = new JButton("Exit");
@@ -71,8 +70,8 @@ public class MenuInventario extends JFrame {
                     "Falló al iniciar el inventario");
 
         }
-        this.setBounds(DIMENS_INVENT, DIMENS_INVENT,
-        		DIMENS_INVENT, DIMENS_INVENT);
+        this.setBounds(DIMENS_INVENT, DIMENS_INVENT, DIMENS_INVENT,
+                DIMENS_INVENT);
         this.pack();
         this.setLocationRelativeTo(null);
         this.setLocation(UBIC_X, UBIC_Y);

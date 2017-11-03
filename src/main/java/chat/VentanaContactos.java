@@ -30,55 +30,55 @@ public class VentanaContactos extends JFrame {
     /** Constante ALTO_BGND. */
     private static final int ALTO_BGND = 254;
 
-	/** Constante ANCHO_BGND. */
-	private static final int ANCHO_BGND = 352;
+    /** Constante ANCHO_BGND. */
+    private static final int ANCHO_BGND = 352;
 
-	/** Constante Y_BGND. */
-	private static final int Y_BGND = 0;
+    /** Constante Y_BGND. */
+    private static final int Y_BGND = 0;
 
-	/** Constante X_BGND. */
-	private static final int X_BGND = -16;
+    /** Constante X_BGND. */
+    private static final int X_BGND = -16;
 
-	/** Constante ALTO_BTNMC. */
-	private static final int ALTO_BTNMC = 23;
+    /** Constante ALTO_BTNMC. */
+    private static final int ALTO_BTNMC = 23;
 
-	/** Constante ANCHO_BTNMC. */
-	private static final int ANCHO_BTNMC = 89;
+    /** Constante ANCHO_BTNMC. */
+    private static final int ANCHO_BTNMC = 89;
 
-	/** Constante Y_BTNMC. */
-	private static final int Y_BTNMC = 208;
+    /** Constante Y_BTNMC. */
+    private static final int Y_BTNMC = 208;
 
-	/** Constante X_BTNMC. */
-	private static final int X_BTNMC = 119;
+    /** Constante X_BTNMC. */
+    private static final int X_BTNMC = 119;
 
-	/** Constante ALTO_SP. */
-	private static final int ALTO_SP = 188;
+    /** Constante ALTO_SP. */
+    private static final int ALTO_SP = 188;
 
-	/** Constante ANCHO_SP. */
-	private static final int ANCHO_SP = 299;
+    /** Constante ANCHO_SP. */
+    private static final int ANCHO_SP = 299;
 
-	/** Constante POSY_SP. */
-	private static final int POSY_SP = 11;
+    /** Constante POSY_SP. */
+    private static final int POSY_SP = 11;
 
-	/** Constante POSX_SP. */
-	private static final int POSX_SP = 10;
+    /** Constante POSX_SP. */
+    private static final int POSX_SP = 10;
 
-	/** Constante BORDERS. */
-	private static final int BORDERS = 5;
+    /** Constante BORDERS. */
+    private static final int BORDERS = 5;
 
-	/** Constante ALTO_VC. */
-	private static final int ALTO_VC = 273;
+    /** Constante ALTO_VC. */
+    private static final int ALTO_VC = 273;
 
-	/** Constante ANCHO_VC. */
-	private static final int ANCHO_VC = 327;
+    /** Constante ANCHO_VC. */
+    private static final int ANCHO_VC = 327;
 
-	/** Constante POSY_VC. */
-	private static final int POSY_VC = 100;
+    /** Constante POSY_VC. */
+    private static final int POSY_VC = 100;
 
-	/** Constante POSX_VC. */
-	private static final int POSX_VC = 100;
+    /** Constante POSX_VC. */
+    private static final int POSX_VC = 100;
 
-	/**
+    /**
      * The content pane.
      */
     private JPanel contentPane;
@@ -117,8 +117,8 @@ public class VentanaContactos extends JFrame {
         setTitle("Usuarios");
 
         contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(BORDERS, BORDERS,
-        		BORDERS, BORDERS));
+        contentPane
+                .setBorder(new EmptyBorder(BORDERS, BORDERS, BORDERS, BORDERS));
         setContentPane(contentPane);
         contentPane.setLayout(null);
 

@@ -35,58 +35,58 @@ import recursos.Recursos;
  */
 public class EstadoBatalla extends Estado {
 
-	/** The Constant TAMXNPC. */
-	private static final int TAMXNPC = 550;
+    /** The Constant TAMXNPC. */
+    private static final int TAMXNPC = 550;
 
-	/** The Constant TAMY. */
-	private static final int TAMY = 5;
+    /** The Constant TAMY. */
+    private static final int TAMY = 5;
 
-	/** The Constant TAMX. */
-	private static final int TAMX = 25;
+    /** The Constant TAMX. */
+    private static final int TAMX = 25;
 
-	/** The Constant POSYNPC. */
-	private static final int POSYNPC = 75;
+    /** The Constant POSYNPC. */
+    private static final int POSYNPC = 75;
 
-	/** The Constant POSXNPC. */
-	private static final int POSXNPC = 550;
+    /** The Constant POSXNPC. */
+    private static final int POSXNPC = 550;
 
-	/** The Constant RAZANPC. */
-	private static final int RAZANPC = 7;
+    /** The Constant RAZANPC. */
+    private static final int RAZANPC = 7;
 
-	/** The Constant POSYJUGADOR. */
-	private static final int POSYJUGADOR = 175;
+    /** The Constant POSYJUGADOR. */
+    private static final int POSYJUGADOR = 175;
 
-	/** The Constant RAZA. */
-	private static final int RAZA = 3;
+    /** The Constant RAZA. */
+    private static final int RAZA = 3;
 
-	/** The Constant EXPBASE. */
-	private static final int EXPBASE = 40;
+    /** The Constant EXPBASE. */
+    private static final int EXPBASE = 40;
 
-	/** The Constant ENERGIA. */
-	private static final int ENERGIA = 10;
+    /** The Constant ENERGIA. */
+    private static final int ENERGIA = 10;
 
-	/** The Constant HABENERGIA. */
-	private static final int HABENERGIA = 6;
+    /** The Constant HABENERGIA. */
+    private static final int HABENERGIA = 6;
 
-	/** The Constant HABCASTATRES. */
-	private static final int HABCASTATRES = 5;
+    /** The Constant HABCASTATRES. */
+    private static final int HABCASTATRES = 5;
 
-	/** The Constant HABCASTADOS. */
-	private static final int HABCASTADOS = 4;
+    /** The Constant HABCASTADOS. */
+    private static final int HABCASTADOS = 4;
 
-	/** The Constant HABCASTAUNO. */
-	private static final int HABCASTAUNO = 3;
+    /** The Constant HABCASTAUNO. */
+    private static final int HABCASTAUNO = 3;
 
-	/** The Constant YOFFSET. */
-	private static final int YOFFSET = 150;
+    /** The Constant YOFFSET. */
+    private static final int YOFFSET = 150;
 
-	/** The Constant XOFFSET. */
-	private static final int XOFFSET = 350;
+    /** The Constant XOFFSET. */
+    private static final int XOFFSET = 350;
 
-	/** The Constant QUINTARAZA. */
-	private static final int QUINTARAZA = 5;
+    /** The Constant QUINTARAZA. */
+    private static final int QUINTARAZA = 5;
 
-	/**
+    /**
      * The Constant ANCHURAALTURA.
      */
     private static final int ANCHURAALTURA = 256;
@@ -302,9 +302,8 @@ public class EstadoBatalla extends Estado {
                         juego.getEstadoJuego().setHaySolicitud(true,
                                 juego.getPersonaje(),
                                 MenuInfoPersonaje.MENUGANARBATALLA);
-                        if (personaje
-                                .ganarExperiencia(
-                                		enemigo.getNivel() * EXPBASE)) {
+                        if (personaje.ganarExperiencia(
+                                enemigo.getNivel() * EXPBASE)) {
                             juego.getPersonaje().setNivel(personaje.getNivel());
                             juego.getEstadoJuego().setHaySolicitud(true,
                                     juego.getPersonaje(),
@@ -316,14 +315,14 @@ public class EstadoBatalla extends Estado {
                         Estado.setEstado(juego.getEstadoJuego());
 
                     } else {
-                    	paqueteAtacar = new PaqueteAtacar(
+                        paqueteAtacar = new PaqueteAtacar(
                                 paquetePersonaje.getId(),
                                 paqueteEnemigo.getId(), personaje.getSalud(),
                                 personaje.getEnergia(), enemigo.getSalud(),
                                 enemigo.getEnergia(), personaje.getDefensa(),
                                 enemigo.getDefensa(),
                                 personaje.getCasta()
-                                				.getProbabilidadEvitarDaño(),
+                                        .getProbabilidadEvitarDaño(),
                                 enemigo.getCasta().getProbabilidadEvitarDaño());
                         enviarAtaque(paqueteAtacar);
                         miTurno = false;
@@ -352,12 +351,13 @@ public class EstadoBatalla extends Estado {
         g.fillRect(0, 0, juego.getAncho(), juego.getAlto());
         mundo.graficar(g);
 
-        g.drawImage(Recursos.getPersonaje().get(paquetePersonaje.getRaza())
-                .get(RAZA)[0],
+        g.drawImage(
+                Recursos.getPersonaje().get(paquetePersonaje.getRaza())
+                        .get(RAZA)[0],
                 0, POSYJUGADOR, ANCHURAALTURA, ANCHURAALTURA, null);
         g.drawImage(
-                Recursos.getPersonaje()
-                .get(paqueteEnemigo.getRaza()).get(RAZANPC)[0],
+                Recursos.getPersonaje().get(paqueteEnemigo.getRaza())
+                        .get(RAZANPC)[0],
                 POSXNPC, POSYNPC, ANCHURAALTURA, ANCHURAALTURA, null);
 
         mundo.graficarObstaculos(g);
