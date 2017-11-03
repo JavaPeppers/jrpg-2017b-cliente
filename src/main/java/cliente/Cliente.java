@@ -209,7 +209,7 @@ public class Cliente extends Thread {
                         wait();
 
                         comand = (ComandosCliente) Paquete.getObjetoSet(
-                                Comando.NOMBREPAQUETE, getAccion());
+                        		Comando.NOMBREPAQUETE, getAccion());
                         comand.setCadena(null);
                         comand.setCliente(this);
                         comand.ejecutar();

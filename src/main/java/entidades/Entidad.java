@@ -407,7 +407,7 @@ public class Entidad {
                                 } catch (IOException e) {
                                     JOptionPane.showMessageDialog(null,
                                             "Fallo la conexión "
-                                                    + "con el servidor");
+                                                    + "con el servidor al enviar pBatalla");
                                 }
                             } else {
                                 JOptionPane.showMessageDialog(null,
@@ -438,7 +438,7 @@ public class Entidad {
                                         } catch (IOException e) {
                                             JOptionPane.showMessageDialog(null,
                                                     "Fallo la conexión "
-                                                    + "con el servidor");
+                                                    + "con el servidor al comerciar");
                                         }
                                     } else {
                                         JOptionPane.showMessageDialog(null,
@@ -688,7 +688,8 @@ public class Entidad {
                 key = it.next();
                 actual = enemigos.get(key);
                 if (actual != null
-                        && actual.getEstado() == Estado.ESTADOJUEGO) {
+                        && actual.getEstado() == Estado.ESTADOJUEGO 
+                        && juego.getPersonaje().getEstado() == Estado.ESTADOJUEGO) {
                     if (Math.sqrt(Math.pow(actual.getX() - x, 2) + Math
                             .pow(actual.getY() - y, 2)) <= Enemigo.RANGO) {
 
@@ -697,14 +698,13 @@ public class Entidad {
                         pBatalla.setIdEnemigo(key);
 
                         try {
-                            juego.getCliente().getSalida()
-                                    .writeObject(gson.toJson(pBatalla));
+                            juego.getCliente().getSalida(
+                            		).writeObject(gson.toJson(pBatalla));
                         } catch (IOException e) {
-                            System.out.println(
-                                    "Error al enviar paquete Batalla NPC");
+                        	JOptionPane.showMessageDialog(null,
+                                    "Fallo la conexión "
+                                    + "con el servidor al enviar pBatallaNPC");
                         }
-
-                        // esPelea = true;
                         break;
                     }
                 }

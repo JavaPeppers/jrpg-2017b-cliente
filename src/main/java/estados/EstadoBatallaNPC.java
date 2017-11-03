@@ -147,8 +147,8 @@ public class EstadoBatallaNPC extends Estado {
         paqueteFinalizarBatalla.setIdEnemigo(paqueteEnemigo.getId());
 
         // por defecto batalla perdida
-        juego.getEstadoJuego().setHaySolicitud(true, juego.getPersonaje(),
-                MenuInfoPersonaje.MENUPERDERBATALLA);
+//        juego.getEstadoJuego().setHaySolicitud(true, juego.getPersonaje(),
+//                MenuInfoPersonaje.MENUPERDERBATALLA);
 
         // limpio la accion del mouse
         juego.getHandlerMouse().setNuevoClick(false);
@@ -243,7 +243,7 @@ public class EstadoBatallaNPC extends Estado {
                         paqueteFinalizarBatalla.setGanadorBatalla(
                                 juego.getPersonaje().getId());
                         finalizarBatalla();
-                        Estado.setEstado(juego.getEstadoJuego());
+                        Estado.setEstado(juego.getEstadoJuego()); //Vuelvo al mapa
 
                     } else {
                         enemigo.atacar(personaje);
@@ -253,14 +253,14 @@ public class EstadoBatallaNPC extends Estado {
                                     juego.getPersonaje(),
                                     MenuInfoPersonaje.MENUPERDERBATALLA);
 
-                            juego.getPersonaje().setEstado(Estado.ESTADOJUEGO);
+                            //juego.getPersonaje().setEstado(Estado.ESTADOJUEGO);
 
-                            paqueteFinalizarBatalla.setGanadorBatalla(juego
-                                    .getEnemigos()
-                                    .get(paqueteFinalizarBatalla.getIdEnemigo())
-                                    .getId());
+                            paqueteFinalizarBatalla.setGanadorBatalla(
+                            		juego.getEnemigos().
+                            		get(paqueteFinalizarBatalla.getIdEnemigo()).
+                            		getId());
                             finalizarBatalla();
-                            Estado.setEstado(juego.getEstadoJuego());
+                            Estado.setEstado(juego.getEstadoJuego()); //Vuelvo al mapa
                         }
 
                         miTurno = true;
@@ -281,9 +281,8 @@ public class EstadoBatallaNPC extends Estado {
      */
     private void finalizarBatalla() {
         try {
-            paqueteFinalizarBatalla.setComando(Comando.FINALIZARBATALLANPC);
-            juego.getCliente().getSalida()
-                    .writeObject(gson.toJson(paqueteFinalizarBatalla));
+            juego.getCliente().getSalida(
+            		).writeObject(gson.toJson(paqueteFinalizarBatalla));
 
             paquetePersonaje.setSaludTope(personaje.getSaludTope());
             paquetePersonaje.setEnergiaTope(personaje.getEnergiaTope());
@@ -293,6 +292,8 @@ public class EstadoBatallaNPC extends Estado {
             paquetePersonaje.setFuerza(personaje.getFuerza());
             paquetePersonaje.setInteligencia(personaje.getInteligencia());
             paquetePersonaje.removerBonus();
+            
+            paqueteEnemigo.setSaludTope(paqueteEnemigo.getSaludTope());
 
             if (paquetePersonaje.getNivel() > this.nivelDePersonaje) {
                 paquetePersonaje.actualizarPuntosSkillsDisponibles(
@@ -300,7 +301,6 @@ public class EstadoBatallaNPC extends Estado {
             }
 
             paquetePersonaje.setComando(Comando.ACTUALIZARPERSONAJE);
-            paqueteEnemigo.setComando(Comando.FINALIZARBATALLANPC);
 
             juego.getCliente().getSalida()
                     .writeObject(gson.toJson(paquetePersonaje));

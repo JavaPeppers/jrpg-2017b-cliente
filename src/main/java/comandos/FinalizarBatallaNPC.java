@@ -18,12 +18,12 @@ public class FinalizarBatallaNPC extends ComandosEscucha {
         PaqueteFinalizarBatallaNPC paqueteFinalizarBatalla
         = (PaqueteFinalizarBatallaNPC) getGson().fromJson(
                 getCadenaLeida(), PaqueteFinalizarBatallaNPC.class);
-        juego.getPersonaje().setEstado(Estado.ESTADOJUEGO);
-        juego.getEnemigos().get(paqueteFinalizarBatalla.getIdEnemigo())
-                .setEstado(Estado.ESTADOJUEGO);
-        juego.actualizarEnemigo();
-        Estado.setEstado(juego.getEstadoJuego());
-
+        juego.getPersonajesConectados().get(paqueteFinalizarBatalla.getId()).setEstado(Estado.ESTADOJUEGO);
+        //juego.getPersonaje().setEstado(Estado.ESTADOJUEGO);
+//        juego.getEnemigos().get(paqueteFinalizarBatalla.getIdEnemigo()).
+//        			setEstado(Estado.ESTADOJUEGO);
+        //juego.actualizarEnemigo();
+        //Estado.setEstado(juego.getEstadoJuego());
     }
 
 }

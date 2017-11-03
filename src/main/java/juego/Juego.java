@@ -439,13 +439,13 @@ public class Juego implements Runnable {
                 .get(paquetePersonaje.getId()).clone());
     }
 
-    /**
-     * Actualizar enemigo.
-     */
-    public void actualizarEnemigo() {
-        paqueteEnemigo = (PaqueteEnemigo) (enemigos.get(paqueteEnemigo.getId())
-                .clone());
-    }
+//    /**
+//     * Actualizar enemigo.
+//     */
+//    public void actualizarEnemigo() {
+//        paqueteEnemigo = (PaqueteEnemigo) (enemigos.get(
+//        		paqueteEnemigo.getId()).clone());
+//    }
 
     /**
      * Gets the personajes conectados.
@@ -533,5 +533,21 @@ public class Juego implements Runnable {
     public void setEstadoBatallaNPC(final Estado estadoBatallaNPCParam) {
         this.estadoBatallaNPC = estadoBatallaNPCParam;
     }
+
+    /**
+     * Get paquete Enemigo.
+     * @return paqueteEnemigo
+     */
+	public PaqueteEnemigo getPaqueteEnemigo() {
+		return paqueteEnemigo;
+	}
+
+	/**
+	 * Set paquete Enemigo.
+	 * @param paqueteEnemigoParam
+	 */
+	public void setPaqueteEnemigo(PaqueteEnemigo paqueteEnemigoParam) {
+		this.paqueteEnemigo = paqueteEnemigoParam;
+	}
 
 }
