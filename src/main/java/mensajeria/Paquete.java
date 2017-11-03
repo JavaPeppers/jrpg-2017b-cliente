@@ -166,15 +166,17 @@ public class Paquete implements Serializable, Cloneable {
      * @return the objeto
      */
     public Comando getObjeto(final String nombrePaquete) {
+    	Comando c;
+    	Comando error = null;
         try {
-            Comando c;
+        	error = (Comando) Class.forName(nombrePaquete + "." + Comando.CLASSNAMES[Comando.COMANDOERROR]).newInstance();
             c = (Comando) Class
                     .forName(nombrePaquete + "." + Comando.CLASSNAMES[comando])
                     .newInstance();
             return c;
         } catch (ClassNotFoundException | InstantiationException
-                | IllegalAccessException e) {
-            return null;
+                | IllegalAccessException | ArrayIndexOutOfBoundsException e) {
+            return error;
         }
 
     }
@@ -190,18 +192,19 @@ public class Paquete implements Serializable, Cloneable {
      */
     public static Comando getObjetoSet(final String nombrePaquete,
             final int accion) {
-        try {
-            Comando c;
+    	Comando c;
+    	Comando error = null;
+        try { 
+        	error = (Comando) Class.forName(nombrePaquete + "." + Comando.CLASSNAMESBIS[Comando.COMANDOERROR]).newInstance();
             c = (Comando) Class
                     .forName(
                             nombrePaquete + "." + Comando.CLASSNAMESBIS[accion])
                     .newInstance();
             return c;
         } catch (ClassNotFoundException | InstantiationException
-                | IllegalAccessException e) {
-            return null;
+                | IllegalAccessException | ArrayIndexOutOfBoundsException e) {
+        	return error;
         }
-
     }
 
     /**

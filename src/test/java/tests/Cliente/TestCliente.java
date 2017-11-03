@@ -21,6 +21,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 import cliente.Cliente;
+import comandos.ComandosCliente;
 import mensajeria.Comando;
 import mensajeria.Paquete;
 import mensajeria.PaquetePersonaje;
@@ -418,5 +419,17 @@ public class TestCliente {
         } catch (IOException | JsonSyntaxException | ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Falló");
         }
+    }
+    
+    /**
+     * Test que prueba que se ejecute el comandoError
+     * cuando recibe mal el paquete.
+     */
+    @Test
+    public void queEjecuteComandoError() {
+    	ComandosCliente command;
+    	Paquete paquete = new Paquete(45);
+    	command = (ComandosCliente) paquete.getObjeto(Comando.NOMBREPAQUETE);
+    	Assert.assertEquals(Comando.NOMBREPAQUETE + "." + Comando.CLASSNAMES[Comando.COMANDOERROR], command.getClass().getName());
     }
 }

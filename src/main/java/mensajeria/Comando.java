@@ -22,7 +22,7 @@ public abstract class Comando {
             "ActualizarPersonaje", "ActualizarPersonajeLvl",
             "ActualizarInventario", "Comercio", "ActualizarComercio", "Trueque",
             "ActualizarTrueque", "Talk", "ActualizarPuntosSkills",
-            "SetEnemigos", "FinalizarBatallaNPC", "BatallaNPC" };
+            "SetEnemigos", "FinalizarBatallaNPC", "BatallaNPC", "ComandoError" };
 
     /**
      * The Constant CLASSNAMESBIS.
@@ -33,7 +33,7 @@ public abstract class Comando {
             "ActualizarPersonaje", "ActualizarPersonajeLvl",
             "ActualizarInventario", "Comercio", "ActualizarComercio", "Trueque",
             "ActualizarTrueque", "Talk", "ActualizarPuntosSkills",
-            "SetEnemigos", "FinalizarBatallaNPC", "BatallaNPC" };
+            "SetEnemigos", "FinalizarBatallaNPC", "BatallaNPC", "ComandoError"};
 
     /**
      * The Constant CONEXION.
@@ -150,6 +150,10 @@ public abstract class Comando {
      */
     public static final int BATALLANPC = 22;
 
+    /**
+     * Constante que indica el comando error.
+     */
+    public static final int COMANDOERROR = 23;
     /**
      * The gson.
      */
