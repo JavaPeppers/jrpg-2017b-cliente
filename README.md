@@ -16,7 +16,7 @@
 * Lautaro Perez ([LautaroPerez](https://github.com/LautaroPerez))
 * Micaela De Rito ([micaderito](https://github.com/micaderito))
 * Facundo Mediotte ([FMediotte96](https://github.com/FMediotte96))
-* Tomás Reynoso ([ThomiReynoso](https://github.com/FMediotte96))
+* Thomas Reynoso ([ThomiReynoso](https://github.com/FMediotte96))
 * Pablo Bermudez ([pablobermudez](https://github.com/pablobermudez))
 * Lisa Ayala ([lisa-ayala](https://github.com/lisa-ayala))
 * Alexis Sessarego ([Halaris](https://github.com/Halaris))
