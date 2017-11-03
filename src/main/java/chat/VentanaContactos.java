@@ -27,7 +27,58 @@ import mensajeria.PaquetePersonaje;
  */
 public class VentanaContactos extends JFrame {
 
-    /**
+    /** Constante ALTO_BGND. */
+    private static final int ALTO_BGND = 254;
+
+	/** Constante ANCHO_BGND. */
+	private static final int ANCHO_BGND = 352;
+
+	/** Constante Y_BGND. */
+	private static final int Y_BGND = 0;
+
+	/** Constante X_BGND. */
+	private static final int X_BGND = -16;
+
+	/** Constante ALTO_BTNMC. */
+	private static final int ALTO_BTNMC = 23;
+
+	/** Constante ANCHO_BTNMC. */
+	private static final int ANCHO_BTNMC = 89;
+
+	/** Constante Y_BTNMC. */
+	private static final int Y_BTNMC = 208;
+
+	/** Constante X_BTNMC. */
+	private static final int X_BTNMC = 119;
+
+	/** Constante ALTO_SP. */
+	private static final int ALTO_SP = 188;
+
+	/** Constante ANCHO_SP. */
+	private static final int ANCHO_SP = 299;
+
+	/** Constante POSY_SP. */
+	private static final int POSY_SP = 11;
+
+	/** Constante POSX_SP. */
+	private static final int POSX_SP = 10;
+
+	/** Constante BORDERS. */
+	private static final int BORDERS = 5;
+
+	/** Constante ALTO_VC. */
+	private static final int ALTO_VC = 273;
+
+	/** Constante ANCHO_VC. */
+	private static final int ANCHO_VC = 327;
+
+	/** Constante POSY_VC. */
+	private static final int POSY_VC = 100;
+
+	/** Constante POSX_VC. */
+	private static final int POSX_VC = 100;
+
+	/**
      * The content pane.
      */
     private JPanel contentPane;
@@ -61,17 +112,18 @@ public class VentanaContactos extends JFrame {
     public VentanaContactos(final Juego juego) {
         setResizable(false);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 327, 273);
+        setBounds(POSX_VC, POSY_VC, ANCHO_VC, ALTO_VC);
         setLocationRelativeTo(null);
         setTitle("Usuarios");
 
         contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setBorder(new EmptyBorder(BORDERS, BORDERS,
+        		BORDERS, BORDERS));
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
         JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(10, 11, 299, 188);
+        scrollPane.setBounds(POSX_SP, POSY_SP, ANCHO_SP, ALTO_SP);
         contentPane.add(scrollPane);
 
         addWindowListener(new WindowAdapter() {
@@ -97,7 +149,7 @@ public class VentanaContactos extends JFrame {
                 }
             }
         });
-        botonMc.setBounds(119, 208, 89, 23);
+        botonMc.setBounds(X_BTNMC, Y_BTNMC, ANCHO_BTNMC, ALTO_BTNMC);
         contentPane.add(botonMc);
 
         // Cargo la lista de contactos
@@ -133,7 +185,7 @@ public class VentanaContactos extends JFrame {
         scrollPane.setViewportView(list);
 
         background = new JLabel(new ImageIcon("recursos//background.jpg"));
-        background.setBounds(-16, 0, 352, 254);
+        background.setBounds(X_BGND, Y_BGND, ANCHO_BGND, ALTO_BGND);
         contentPane.add(background);
     }
 

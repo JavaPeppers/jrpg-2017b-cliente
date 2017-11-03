@@ -30,7 +30,73 @@ import mensajeria.Comando;
  */
 public class MiChat extends JFrame {
 
-    /**
+    /** Constante ALTO_BGD. */
+    private static final int ALTO_BGD = 283;
+
+	/** Constante ANCHO_BGD. */
+	private static final int ANCHO_BGD = 480;
+
+	/** Constante POSY_BGD. */
+	private static final int POSY_BGD = 0;
+
+	/** Constante POSX_BGD. */
+	private static final int POSX_BGD = -20;
+
+	/** Constante COLTXT. */
+	private static final int COLTXT = 10;
+
+	/** Constante ALTO_TXT. */
+	private static final int ALTO_TXT = 27;
+
+	/** Constante ANCHO_TXT. */
+	private static final int ANCHO_TXT = 314;
+
+	/** Constante POSY_TXT. */
+	private static final int POSY_TXT = 223;
+
+	/** Constante POSX_TXT. */
+	private static final int POSX_TXT = 10;
+
+	/** Constante ALTO_ENV. */
+	private static final int ALTO_ENV = 23;
+
+	/** Constante ANCHO_ENV. */
+	private static final int ANCHO_ENV = 81;
+
+	/** Constante POS_Y_ENV. */
+	private static final int POS_Y_ENV = 225;
+
+	/** Constante POS_X_ENV. */
+	private static final int POS_X_ENV = 334;
+
+	/** Constante ALTO_SP. */
+	private static final int ALTO_SP = 201;
+
+	/** Constante ANCHO_SP. */
+	private static final int ANCHO_SP = 414;
+
+	/** Constante POS_Y_SP. */
+	private static final int POS_Y_SP = 11;
+
+	/** Constante POS_X_SP. */
+	private static final int POS_X_SP = 10;
+
+	/** Constante BORDER. */
+	private static final int BORDER = 5;
+
+	/** Constante ALTO_CHAT. */
+	private static final int ALTO_CHAT = 300;
+
+	/** Constante ANCHO_CHAT. */
+	private static final int ANCHO_CHAT = 450;
+
+	/** Constante POS_Y_CHAT. */
+	private static final int POS_Y_CHAT = 100;
+
+	/** Constante POS_X_CHAT. */
+	private static final int POS_X_CHAT = 100;
+
+	/**
      * The content pane.
      */
     private JPanel contentPane;
@@ -77,17 +143,17 @@ public class MiChat extends JFrame {
         setTitle("Mi Chat");
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 450, 300);
+        setBounds(POS_X_CHAT, POS_Y_CHAT, ANCHO_CHAT, ALTO_CHAT);
         setResizable(false);
         contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setBorder(new EmptyBorder(BORDER, BORDER, BORDER, BORDER));
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setVerticalScrollBarPolicy(
                 ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollPane.setBounds(10, 11, 414, 201);
+        scrollPane.setBounds(POS_X_SP, POS_Y_SP, ANCHO_SP, ALTO_SP);
         contentPane.add(scrollPane);
 
         chat = new JTextArea();
@@ -185,13 +251,13 @@ public class MiChat extends JFrame {
                 texto.requestFocus();
             }
         });
-        enviar.setBounds(334, 225, 81, 23);
+        enviar.setBounds(POS_X_ENV, POS_Y_ENV, ANCHO_ENV, ALTO_ENV);
         contentPane.add(enviar);
 
-        texto.setBounds(10, 223, 314, 27);
+        texto.setBounds(POSX_TXT, POSY_TXT, ANCHO_TXT, ALTO_TXT);
         contentPane.add(texto);
-        texto.setColumns(10);
-        background.setBounds(-20, 0, 480, 283);
+        texto.setColumns(COLTXT);
+        background.setBounds(POSX_BGD, POSY_BGD, ANCHO_BGD, ALTO_BGD);
         contentPane.add(background);
     }
 
