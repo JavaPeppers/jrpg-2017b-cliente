@@ -697,6 +697,7 @@ public class Entidad {
                         pBatalla.setId(juego.getPersonaje().getId());
                         pBatalla.setIdEnemigo(key);
 
+                        juego.getPersonaje().setEstado(Estado.ESTADOBATALLANPC);
                         try {
                             juego.getCliente().getSalida(
                             		).writeObject(gson.toJson(pBatalla));
