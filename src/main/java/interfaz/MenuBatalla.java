@@ -15,6 +15,76 @@ import recursos.Recursos;
 public class MenuBatalla {
 
     /**
+     * The Constant BOTONESCUATRO.
+     */
+    private static final int BOTONESCUATRO = 4;
+
+    /**
+     * The Constant BOTONESTRES.
+     */
+    private static final int BOTONESTRES = 3;
+
+    /**
+     * The Constant BOTONESDOS.
+     */
+    private static final int BOTONESDOS = 2;
+
+    /**
+     * The Constant BOTONESUNO.
+     */
+    private static final int BOTONESUNO = 1;
+
+    /**
+     * The Constant BOTONESCERO.
+     */
+    private static final int BOTONESCERO = 0;
+
+    /**
+     * The Constant BOTONESCINCO.
+     */
+    private static final int BOTONESCINCO = 5;
+
+    /**
+     * The Constant SUMAYGETHABILIDADES2.
+     */
+    private static final int SUMAYGETHABILIDADES2 = 168;
+
+    /**
+     * The Constant SUMAYGETHABILIDADES.
+     */
+    private static final int SUMAYGETHABILIDADES = 94;
+
+    /**
+     * The Constant SUMAXHABILIDADESCASTA2.
+     */
+    private static final int SUMAXHABILIDADESCASTA2 = 442;
+
+    /**
+     * The Constant SUMAXHABILIDADESCASTA.
+     */
+    private static final int SUMAXHABILIDADESCASTA = 268;
+
+    /**
+     * The Constant SUMAXHABILIDADESRAZA.
+     */
+    private static final int SUMAXHABILIDADESRAZA = 95;
+
+    /**
+     * The Constant TAMANIOCATORCE.
+     */
+    private static final int TAMANIOCATORCE = 14;
+
+    /**
+     * The Constant SUMAYRECTANGULO.
+     */
+    private static final int SUMAYRECTANGULO = 5;
+
+    /**
+     * The Constant ANCHURA.
+     */
+    private static final int ANCHURA = 20;
+
+    /**
      * The Constant x.
      */
     private static final int X = 100;
@@ -78,46 +148,60 @@ public class MenuBatalla {
         g.drawImage(
                 Recursos.getHabilidades()
                         .get(personaje.getHabilidadesRaza()[0]),
-                BOTONES[0][0], BOTONES[0][1], ANCHOBOTON, ANCHOBOTON, null);
+                BOTONES[BOTONESCERO][BOTONESCERO],
+                BOTONES[BOTONESCERO][BOTONESUNO], ANCHOBOTON, ANCHOBOTON, null);
         g.drawImage(
                 Recursos.getHabilidades()
                         .get(personaje.getHabilidadesRaza()[1]),
-                BOTONES[1][0], BOTONES[1][1], ANCHOBOTON, ANCHOBOTON, null);
+                BOTONES[BOTONESUNO][BOTONESCERO],
+                BOTONES[BOTONESUNO][BOTONESUNO], ANCHOBOTON, ANCHOBOTON, null);
         g.drawImage(
                 Recursos.getHabilidades()
                         .get(personaje.getHabilidadesCasta()[0]),
-                BOTONES[2][0], BOTONES[2][1], ANCHOBOTON, ANCHOBOTON, null);
+                BOTONES[BOTONESDOS][BOTONESCERO],
+                BOTONES[BOTONESDOS][BOTONESUNO], ANCHOBOTON, ANCHOBOTON, null);
         g.drawImage(
                 Recursos.getHabilidades()
                         .get(personaje.getHabilidadesCasta()[1]),
-                BOTONES[3][0], BOTONES[3][1], ANCHOBOTON, ANCHOBOTON, null);
+                BOTONES[BOTONESTRES][BOTONESCERO],
+                BOTONES[BOTONESTRES][BOTONESUNO], ANCHOBOTON, ANCHOBOTON, null);
         g.drawImage(
                 Recursos.getHabilidades()
                         .get(personaje.getHabilidadesCasta()[2]),
-                BOTONES[4][0], BOTONES[4][1], ANCHOBOTON, ANCHOBOTON, null);
+                BOTONES[BOTONESCUATRO][BOTONESCERO],
+                BOTONES[BOTONESCUATRO][BOTONESUNO], ANCHOBOTON, ANCHOBOTON,
+                null);
         g.drawImage(Recursos.getHabilidades().get("Ser Energizado"),
-                BOTONES[5][0], BOTONES[5][1], ANCHOBOTON, ANCHOBOTON, null);
+                BOTONES[BOTONESCINCO][BOTONESCERO],
+                BOTONES[BOTONESCINCO][BOTONESUNO], ANCHOBOTON, ANCHOBOTON,
+                null);
 
         // Dibujo las leyendas
-        g.setFont(new Font("Book Antiqua", 1, 14));
-        g.drawString(personaje.getHabilidadesRaza()[0], X + 95, Y + 94);
-        g.drawString(personaje.getHabilidadesRaza()[1], X + 95, Y + 168);
-        g.drawString(personaje.getHabilidadesCasta()[0], X + 268, Y + 94);
-        g.drawString(personaje.getHabilidadesCasta()[1], X + 268, Y + 168);
-        g.drawString(personaje.getHabilidadesCasta()[2], X + 442, Y + 94);
-        g.drawString("Ser energizado", X + 442, Y + 168);
+        g.setFont(new Font("Book Antiqua", 1, TAMANIOCATORCE));
+        g.drawString(personaje.getHabilidadesRaza()[0],
+                X + SUMAXHABILIDADESRAZA, Y + SUMAYGETHABILIDADES);
+        g.drawString(personaje.getHabilidadesRaza()[1],
+                X + SUMAXHABILIDADESRAZA, Y + SUMAYGETHABILIDADES2);
+        g.drawString(personaje.getHabilidadesCasta()[0],
+                X + SUMAXHABILIDADESCASTA, Y + SUMAYGETHABILIDADES);
+        g.drawString(personaje.getHabilidadesCasta()[1],
+                X + SUMAXHABILIDADESCASTA, Y + SUMAYGETHABILIDADES2);
+        g.drawString(personaje.getHabilidadesCasta()[2],
+                X + SUMAXHABILIDADESCASTA2, Y + SUMAYGETHABILIDADES);
+        g.drawString("Ser energizado", X + SUMAXHABILIDADESCASTA2,
+                Y + SUMAYGETHABILIDADES2);
 
         // Dibujo el turno de quien es
         g.setColor(Color.WHITE);
         if (habilitado) {
             Pantalla.centerString(g,
-                    new Rectangle(X, Y + 5,
-                            Recursos.getMenuBatalla().getWidth(), 20),
+                    new Rectangle(X, Y + SUMAYRECTANGULO,
+                            Recursos.getMenuBatalla().getWidth(), ANCHURA),
                     "Mi Turno");
         } else {
             Pantalla.centerString(g,
-                    new Rectangle(X, Y + 5,
-                            Recursos.getMenuBatalla().getWidth(), 20),
+                    new Rectangle(X, Y + SUMAYRECTANGULO,
+                            Recursos.getMenuBatalla().getWidth(), ANCHURA),
                     "Turno Rival");
         }
     }

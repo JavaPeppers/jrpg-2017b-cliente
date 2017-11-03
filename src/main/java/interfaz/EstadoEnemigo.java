@@ -15,6 +15,51 @@ import recursos.Recursos;
 public final class EstadoEnemigo {
 
     /**
+     * The Constant SUMAYENEMIGO.
+     */
+    private static final int SUMAYENEMIGO = 70;
+
+    /**
+     * The Constant SUMAXENEMIGO.
+     */
+    private static final int SUMAXENEMIGO = 59;
+
+    /**
+     * The Constant SUMAYSALUDTOPE.
+     */
+    private static final int SUMAYSALUDTOPE = 37;
+
+    /**
+     * The Constant SUMAXSALUDTOPE.
+     */
+    private static final int SUMAXSALUDTOPE = 132;
+
+    /**
+     * The Constant SUMAYBARRASALUD.
+     */
+    private static final int SUMAYBARRASALUD = 26;
+
+    /**
+     * The Constant SUMAXBARRASALUD.
+     */
+    private static final int SUMAXBARRASALUD = 80;
+
+    /**
+     * The Constant TAMANIODIEZ.
+     */
+    private static final int TAMANIODIEZ = 10;
+
+    /**
+     * The Constant SUMAYMINIATURAENEMIGO.
+     */
+    private static final int SUMAYMINIATURAENEMIGO = 9;
+
+    /**
+     * The Constant SUMAXMINIATURAENEMIGO.
+     */
+    private static final int SUMAXMINIATURAENEMIGO = 10;
+
+    /**
      * Instantiates a new estado enemigo.
      */
     private EstadoEnemigo() {
@@ -63,8 +108,8 @@ public final class EstadoEnemigo {
 
         g.drawImage(Recursos.getEstadoPersonaje(), x, y, null);
 
-        g.drawImage(miniaturaEnemigo, x + 10, y + 9, ANCHOMINIATURA,
-                ALTOMINIATURA, null);
+        g.drawImage(miniaturaEnemigo, x + SUMAXMINIATURAENEMIGO,
+                y + SUMAYMINIATURAENEMIGO, ANCHOMINIATURA, ALTOMINIATURA, null);
 
         if (enemigo.getSalud() == enemigo.getSaludTope()) {
             drawBarra = ANCHOBARRA;
@@ -74,17 +119,18 @@ public final class EstadoEnemigo {
         }
 
         g.setColor(Color.WHITE);
-        g.setFont(new Font("Tahoma", Font.PLAIN, 10));
-        g.drawImage(Recursos.getBarraSalud(), x + 80, y + 26, drawBarra,
-                ALTOSALUD, null);
+        g.setFont(new Font("Tahoma", Font.PLAIN, TAMANIODIEZ));
+        g.drawImage(Recursos.getBarraSalud(), x + SUMAXBARRASALUD,
+                y + SUMAYBARRASALUD, drawBarra, ALTOSALUD, null);
         g.drawString(
                 String.valueOf(enemigo.getSalud()) + " / "
                         + String.valueOf(enemigo.getSaludTope()),
-                x + 132, y + 37);
+                x + SUMAXSALUDTOPE, y + SUMAYSALUDTOPE);
 
-        g.setFont(new Font("Tahoma", Font.PLAIN, 10));
+        g.setFont(new Font("Tahoma", Font.PLAIN, TAMANIODIEZ));
         g.setColor(Color.GREEN);
-        g.drawString(String.valueOf(enemigo.getNivel()), x + 59, y + 70);
+        g.drawString(String.valueOf(enemigo.getNivel()), x + SUMAXENEMIGO,
+                y + SUMAYENEMIGO);
 
     }
 
@@ -110,19 +156,20 @@ public final class EstadoEnemigo {
 
         g.drawImage(Recursos.getEstadoPersonaje(), x, y, null);
 
-        g.drawImage(miniaturaEnemigo, x + 10, y + 9, ANCHOMINIATURA,
-                ALTOMINIATURA, null);
+        g.drawImage(miniaturaEnemigo, x + SUMAXMINIATURAENEMIGO,
+                y + SUMAYMINIATURAENEMIGO, ANCHOMINIATURA, ALTOMINIATURA, null);
 
         g.setColor(Color.WHITE);
-        g.setFont(new Font("Tahoma", Font.PLAIN, 10));
-        g.drawImage(Recursos.getBarraSalud(), x + 80, y + 26, drawBarra,
-                ALTOSALUD, null);
+        g.setFont(new Font("Tahoma", Font.PLAIN, TAMANIODIEZ));
+        g.drawImage(Recursos.getBarraSalud(), x + SUMAXBARRASALUD,
+                y + SUMAYBARRASALUD, drawBarra, ALTOSALUD, null);
         g.drawString(
                 String.valueOf(enemigo.getSaludTope()) + " / "
                         + String.valueOf(enemigo.getSaludTope()),
-                x + 132, y + 37);
-        g.setFont(new Font("Tahoma", Font.PLAIN, 10));
+                x + SUMAXSALUDTOPE, y + SUMAYSALUDTOPE);
+        g.setFont(new Font("Tahoma", Font.PLAIN, TAMANIODIEZ));
         g.setColor(Color.GREEN);
-        g.drawString(String.valueOf(enemigo.getNivel()), x + 59, y + 70);
+        g.drawString(String.valueOf(enemigo.getNivel()), x + SUMAXENEMIGO,
+                y + SUMAYENEMIGO);
     }
 }
