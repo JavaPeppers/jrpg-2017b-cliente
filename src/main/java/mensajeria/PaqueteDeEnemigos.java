@@ -1,6 +1,7 @@
 package mensajeria;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -19,7 +20,7 @@ public class PaqueteDeEnemigos extends Paquete
      * Instantiates a new paquete de enemigos.
      */
     public PaqueteDeEnemigos() {
-
+    	this.enemigos = new HashMap<Integer, PaqueteEnemigo>();
     }
 
     /**

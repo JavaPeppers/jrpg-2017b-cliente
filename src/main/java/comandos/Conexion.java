@@ -1,5 +1,6 @@
 package comandos;
 
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.swing.DefaultListModel;
@@ -21,7 +22,16 @@ public class Conexion extends ComandosEscucha {
     public void ejecutar() {
         PaqueteDePersonajes pdp = (PaqueteDePersonajes) getGson()
                 .fromJson(getCadenaLeida(), PaqueteDePersonajes.class);
-        juego.setPersonajesConectados(pdp.getPersonajes());
+        Iterator<Integer> it = pdp.getPersonajes().keySet().iterator();
+        int key;
+        PaquetePersonaje actual;
+
+        while (it.hasNext()) {
+            key = it.next();
+            actual = pdp.getPersonajes().get(key);
+            if(actual.getMapa() == juego.getPersonaje().getMapa())
+            	juego.getPersonajesConectados().put(key, actual);
+        }
         actualizarLista(pdp);
     }
 
