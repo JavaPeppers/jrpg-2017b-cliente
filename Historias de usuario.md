@@ -47,5 +47,12 @@ Como `jugador` quiero que el `juego` tenga `Enemigos` situados en lugares aleato
 3. Se debe establecer una batalla con un `Enemigo` al acercarme al mismo. 
 4. No es necesario obtener `Ìtems` cuando se pasa de nivel venciendo al `Enemigo` 
 
-## 07 Puntos Skills
+## 07 Puntos de Skills:
+Como `jugador` quiero poder aumentar los stats de mi `personaje`. Para ello, a medida que suba de nivel, se deberian ir acumulando puntos para poder asignar al `Skill` que desee.
+### Condiciones de aceptación:
+1. Se deben acumular 3(Tres) puntos de `Skills` por cada nivel subido con mi `personaje`
+2. Se deben poder desasignar puntos a una `Skill` que se le asignó previamente, e incrementar los puntos disponibles para asignar a otra `Skill`
+3. No se debe poder desasignar puntos a una `Skill` cuando está en su cantidad base o inicial
+4. Solo se deben ganar `puntos skills` cuando se sube de nivel.
 
+ 
