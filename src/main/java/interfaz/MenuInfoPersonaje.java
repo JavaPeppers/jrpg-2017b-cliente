@@ -17,6 +17,236 @@ import recursos.Recursos;
 public class MenuInfoPersonaje {
 
     /**
+     * The Constant POSICIONVECTORPESONAJE.
+     */
+    private static final int POSICIONVECTORPESONAJE = 0;
+
+    /**
+     * The Constant POSICIONMAPAPERSONAJE.
+     */
+    private static final int POSICIONMAPAPERSONAJE = 6;
+
+    /**
+     * The Constant SUMAMOUSEY4.
+     */
+    private static final int SUMAMOUSEY4 = 405;
+
+    /**
+     * The Constant SUMAMOUSEY3.
+     */
+    private static final int SUMAMOUSEY3 = 380;
+
+    /**
+     * The Constant SUMAMOUSEX2.
+     */
+    private static final int SUMAMOUSEX2 = 250;
+
+    /**
+     * The Constant SUMAMOUSEX.
+     */
+    private static final int SUMAMOUSEX = 50;
+
+    /**
+     * The Constant SUMAMOUSEY2.
+     */
+    private static final int SUMAMOUSEY2 = 36;
+
+    /**
+     * The Constant SUMAMOUSEY.
+     */
+    private static final int SUMAMOUSEY = 12;
+
+    /**
+     * The Constant SUMAMENUANCHURA.
+     */
+    private static final int SUMAMENUANCHURA = 4;
+
+    /**
+     * The Constant RESTAMENUANCHURA.
+     */
+    private static final int RESTAMENUANCHURA = 24;
+
+    /**
+     * The Constant SUMAYPERSONAJEEXPERIENCIA.
+     */
+    private static final int SUMAYPERSONAJEEXPERIENCIA = 320;
+
+    /**
+     * The Constant SUMAXPERSONAJEEXPERIENCIA.
+     */
+    private static final int SUMAXPERSONAJEEXPERIENCIA = 150;
+
+    /**
+     * The Constant SUMAYPERSONAJECASTA.
+     */
+    private static final int SUMAYPERSONAJECASTA = 260;
+
+    /**
+     * The Constant SUMAYPERSONAJENIVEL.
+     */
+    private static final int SUMAYPERSONAJENIVEL = 290;
+
+    /**
+     * The Constant SUMAXPERSONAJENIVEL.
+     */
+    private static final int SUMAXPERSONAJENIVEL = 100;
+
+    /**
+     * The Constant SUMAXPERSONAJECASTA.
+     */
+    private static final int SUMAXPERSONAJECASTA = 100;
+
+    /**
+     * The Constant SUMAYEXPERIENCIA.
+     */
+    private static final int SUMAYEXPERIENCIA = 320;
+
+    /**
+     * The Constant SUMAYNIVEL.
+     */
+    private static final int SUMAYNIVEL = 290;
+
+    /**
+     * The Constant SUMAYCASTA.
+     */
+    private static final int SUMAYCASTA = 260;
+
+    /**
+     * The Constant SUMAXEXPERIENCIA.
+     */
+    private static final int SUMAXEXPERIENCIA = 30;
+
+    /**
+     * The Constant SUMAXNIVEL.
+     */
+    private static final int SUMAXNIVEL = 30;
+
+    /**
+     * The Constant SUMAXCASTA.
+     */
+    private static final int SUMAXCASTA = 30;
+
+    /**
+     * The Constant SUMAYRECTANGULO10.
+     */
+    private static final int SUMAYRECTANGULO10 = 240;
+
+    /**
+     * The Constant SUMAYRECTANGULO11.
+     */
+    private static final int SUMAYRECTANGULO11 = 325;
+
+    /**
+     * The Constant TAMANIO62.
+     */
+    private static final int TAMANIO62 = 62;
+
+    /**
+     * The Constant TAMANIODIECIOCHO.
+     */
+    private static final int TAMANIODIECIOCHO = 18;
+
+    /**
+     * The Constant SUMAYRECTANGULO9.
+     */
+    private static final int SUMAYRECTANGULO9 = 330;
+
+    /**
+     * The Constant SUMAYRECTANGULO8.
+     */
+    private static final int SUMAYRECTANGULO8 = 230;
+
+    /**
+     * The Constant SUMAYRECTANGULO7.
+     */
+    private static final int SUMAYRECTANGULO7 = 310;
+
+    /**
+     * The Constant SUMAYRECTANGULO6.
+     */
+    private static final int SUMAYRECTANGULO6 = 290;
+
+    /**
+     * The Constant SUMAYRECTANGULO5.
+     */
+    private static final int SUMAYRECTANGULO5 = 270;
+
+    /**
+     * The Constant SUMAYRECTANGULO4.
+     */
+    private static final int SUMAYRECTANGULO4 = 250;
+
+    /**
+     * The Constant SUMAYRECTANGULO3.
+     */
+    private static final int SUMAYRECTANGULO3 = 200;
+
+    /**
+     * The Constant TAMANIOCATORCE.
+     */
+    private static final int TAMANIOCATORCE = 14;
+
+    /**
+     * The Constant SUMAYGETPERSONAJE.
+     */
+    private static final int SUMAYGETPERSONAJE = 70;
+
+    /**
+     * The Constant DIVISORANCHOPERSONAJE.
+     */
+    private static final int DIVISORANCHOPERSONAJE = 2;
+
+    /**
+     * The Constant DIVISORXGETPERSONAJE.
+     */
+    private static final int DIVISORXGETPERSONAJE = 2;
+
+    /**
+     * The Constant SUMAYBOTONMENU.
+     */
+    private static final int SUMAYBOTONMENU = 380;
+
+    /**
+     * The Constant SUMAXBOTONMENU.
+     */
+    private static final int SUMAXBOTONMENU = 50;
+
+    /**
+     * The Constant ALTORECTANGULO.
+     */
+    private static final int ALTORECTANGULO = 25;
+
+    /**
+     * The Constant ANCHORECTANGULO.
+     */
+    private static final int ANCHORECTANGULO = 200;
+
+    /**
+     * The Constant SUMAYRECTANGULO2.
+     */
+    private static final int SUMAYRECTANGULO2 = 380;
+
+    /**
+     * The Constant SUMAXRECTANGULO.
+     */
+    private static final int SUMAXRECTANGULO = 50;
+
+    /**
+     * The Constant SUMAYRECTANGULO.
+     */
+    private static final int SUMAYRECTANGULO = 15;
+
+    /**
+     * The Constant TAMANIOVEINTE.
+     */
+    private static final int TAMANIOVEINTE = 20;
+
+    /**
+     * The Constant ANCHURAALTURA.
+     */
+    private static final int ANCHURAALTURA = 128;
+
+    /**
      * The Constant anchoPersonaje.
      */
     private static final int ANCHOPERSONAJE = 128;
@@ -113,14 +343,18 @@ public class MenuInfoPersonaje {
         g.drawImage(MENU, x, y, null);
 
         // dibujo el personaje
-        g.drawImage(Recursos.getPersonaje().get(personaje.getRaza()).get(6)[0],
-                x + MENU.getWidth() / 2 - ANCHOPERSONAJE / 2, y + 70, 128, 128,
-                null);
+        g.drawImage(
+                Recursos.getPersonaje().get(personaje.getRaza())
+                        .get(POSICIONMAPAPERSONAJE)[POSICIONVECTORPESONAJE],
+                x + MENU.getWidth() / DIVISORXGETPERSONAJE
+                        - ANCHOPERSONAJE / DIVISORANCHOPERSONAJE,
+                y + SUMAYGETPERSONAJE, ANCHURAALTURA, ANCHURAALTURA, null);
 
         // muestro el nombre
         g.setColor(Color.WHITE);
-        g.setFont(new Font("Book Antiqua", 1, 20));
-        Pantalla.centerString(g, new Rectangle(x, y + 15, MENU.getWidth(), 0),
+        g.setFont(new Font("Book Antiqua", 1, TAMANIOVEINTE));
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO, MENU.getWidth(), 0),
                 personaje.getNombre());
 
         // Grafico la leyenda segun el tipo de menu
@@ -150,10 +384,13 @@ public class MenuInfoPersonaje {
         }
 
         // muestro los botones
-        g.setFont(new Font("Book Antiqua", 1, 20));
-        g.drawImage(Recursos.getBotonMenu(), x + 50, y + 380, 200, 25, null);
+        g.setFont(new Font("Book Antiqua", 1, TAMANIOVEINTE));
+        g.drawImage(Recursos.getBotonMenu(), x + SUMAXBOTONMENU,
+                y + SUMAYBOTONMENU, ANCHORECTANGULO, ALTORECTANGULO, null);
         g.setColor(Color.WHITE);
-        Pantalla.centerString(g, new Rectangle(x + 50, y + 380, 200, 25),
+        Pantalla.centerString(g,
+                new Rectangle(x + SUMAXRECTANGULO, y + SUMAYRECTANGULO2,
+                        ANCHORECTANGULO, ALTORECTANGULO),
                 LEYENDABOTON[tipoMenu]);
     }
 
@@ -167,17 +404,22 @@ public class MenuInfoPersonaje {
 
         // Informo que perdio la batalla
         g.setColor(Color.BLACK);
-        Pantalla.centerString(g, new Rectangle(x, y + 200, MENU.getWidth(), 0),
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO3, MENU.getWidth(), 0),
                 "¡Has sido derrotado!");
 
-        g.setFont(new Font("Book Antiqua", 0, 14));
-        Pantalla.centerString(g, new Rectangle(x, y + 250, MENU.getWidth(), 0),
+        g.setFont(new Font("Book Antiqua", 0, TAMANIOCATORCE));
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO4, MENU.getWidth(), 0),
                 "¡No te rindas! Sigue luchando");
-        Pantalla.centerString(g, new Rectangle(x, y + 270, MENU.getWidth(), 0),
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO5, MENU.getWidth(), 0),
                 "contra los demás personajes");
-        Pantalla.centerString(g, new Rectangle(x, y + 290, MENU.getWidth(), 0),
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO6, MENU.getWidth(), 0),
                 "para aumentar tu nivel y");
-        Pantalla.centerString(g, new Rectangle(x, y + 310, MENU.getWidth(), 0),
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO7, MENU.getWidth(), 0),
                 "mejorar tus atributos.");
     }
 
@@ -191,19 +433,25 @@ public class MenuInfoPersonaje {
 
         // Informo que gano la batalla
         g.setColor(Color.BLACK);
-        Pantalla.centerString(g, new Rectangle(x, y + 200, MENU.getWidth(), 0),
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO3, MENU.getWidth(), 0),
                 "¡Has derrotado");
-        Pantalla.centerString(g, new Rectangle(x, y + 230, MENU.getWidth(), 0),
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO8, MENU.getWidth(), 0),
                 "a tu enemigo!");
 
-        g.setFont(new Font("Book Antiqua", 0, 14));
-        Pantalla.centerString(g, new Rectangle(x, y + 270, MENU.getWidth(), 0),
+        g.setFont(new Font("Book Antiqua", 0, TAMANIOCATORCE));
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO5, MENU.getWidth(), 0),
                 "¡Felicitaciones! Has derrotado");
-        Pantalla.centerString(g, new Rectangle(x, y + 290, MENU.getWidth(), 0),
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO6, MENU.getWidth(), 0),
                 "a tu oponente, sigue así");
-        Pantalla.centerString(g, new Rectangle(x, y + 310, MENU.getWidth(), 0),
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO7, MENU.getWidth(), 0),
                 "para lograr subir de nivel");
-        Pantalla.centerString(g, new Rectangle(x, y + 330, MENU.getWidth(), 0),
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO9, MENU.getWidth(), 0),
                 "y mejorar tus atributos.");
 
     }
@@ -218,16 +466,20 @@ public class MenuInfoPersonaje {
 
         // Informo que subio de nivel
         g.setColor(Color.BLACK);
-        Pantalla.centerString(g, new Rectangle(x, y + 200, MENU.getWidth(), 0),
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO3, MENU.getWidth(), 0),
                 "¡Has subido de nivel!");
 
-        g.setFont(new Font("Book Antiqua", 0, 18));
-        Pantalla.centerString(g, new Rectangle(x, y + 240, MENU.getWidth(), 0),
+        g.setFont(new Font("Book Antiqua", 0, TAMANIODIECIOCHO));
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO10, MENU.getWidth(), 0),
                 "¡Felicitaciones!");
-        Pantalla.centerString(g, new Rectangle(x, y + 270, MENU.getWidth(), 0),
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO5, MENU.getWidth(), 0),
                 "Nuevo Nivel");
-        g.setFont(new Font("Book Antiqua", 1, 62));
-        Pantalla.centerString(g, new Rectangle(x, y + 325, MENU.getWidth(), 0),
+        g.setFont(new Font("Book Antiqua", 1, TAMANIO62));
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO11, MENU.getWidth(), 0),
                 String.valueOf(personaje.getNivel()));
 
     }
@@ -242,19 +494,25 @@ public class MenuInfoPersonaje {
 
         // muestro los nombres de los atributos
         g.setColor(Color.BLACK);
-        Pantalla.centerString(g, new Rectangle(x, y + 200, MENU.getWidth(), 0),
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO3, MENU.getWidth(), 0),
                 personaje.getRaza());
-        g.drawString("Casta: ", x + 30, y + 260);
-        g.drawString("Nivel: ", x + 30, y + 290);
-        g.drawString("Experiencia: ", x + 30, y + 320);
+        g.drawString("Casta: ", x + SUMAXCASTA, y + SUMAYCASTA);
+        g.drawString("Nivel: ", x + SUMAXNIVEL, y + SUMAYNIVEL);
+        g.drawString("Experiencia: ", x + SUMAXEXPERIENCIA,
+                y + SUMAYEXPERIENCIA);
 
         // muestro los atributos
-        g.setFont(new Font("Book Antiqua", 0, 20));
-        g.drawString(personaje.getCasta(), x + 100, y + 260);
-        g.drawString(personaje.getNivel() + " ", x + 100, y + 290);
-        g.drawString(personaje.getExperiencia() + " / "
-                + Personaje.getTablaDeNiveles()[personaje.getNivel() + 1],
-                x + 150, y + 320);
+        g.setFont(new Font("Book Antiqua", 0, TAMANIOVEINTE));
+        g.drawString(personaje.getCasta(), x + SUMAXPERSONAJECASTA,
+                y + SUMAYPERSONAJECASTA);
+        g.drawString(personaje.getNivel() + " ", x + SUMAXPERSONAJENIVEL,
+                y + SUMAYPERSONAJENIVEL);
+        g.drawString(
+                personaje.getExperiencia() + " / "
+                        + Personaje.getTablaDeNiveles()[personaje.getNivel()
+                                + 1],
+                x + SUMAXPERSONAJEEXPERIENCIA, y + SUMAYPERSONAJEEXPERIENCIA);
 
     }
 
@@ -268,16 +526,20 @@ public class MenuInfoPersonaje {
 
         // Informo que subio de nivel
         g.setColor(Color.BLACK);
-        Pantalla.centerString(g, new Rectangle(x, y + 200, MENU.getWidth(), 0),
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO3, MENU.getWidth(), 0),
                 "¡Aca iria algo!");
 
-        g.setFont(new Font("Book Antiqua", 0, 18));
-        Pantalla.centerString(g, new Rectangle(x, y + 240, MENU.getWidth(), 0),
+        g.setFont(new Font("Book Antiqua", 0, TAMANIODIECIOCHO));
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO10, MENU.getWidth(), 0),
                 "¡Aca otra cosa!");
-        Pantalla.centerString(g, new Rectangle(x, y + 270, MENU.getWidth(), 0),
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO5, MENU.getWidth(), 0),
                 "Nuevo Nivel");
-        g.setFont(new Font("Book Antiqua", 1, 62));
-        Pantalla.centerString(g, new Rectangle(x, y + 325, MENU.getWidth(), 0),
+        g.setFont(new Font("Book Antiqua", 1, TAMANIO62));
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO11, MENU.getWidth(), 0),
                 String.valueOf(personaje.getNivel()));
 
     }
@@ -292,19 +554,25 @@ public class MenuInfoPersonaje {
 
         // muestro los nombres de los atributos
         g.setColor(Color.BLACK);
-        Pantalla.centerString(g, new Rectangle(x, y + 200, MENU.getWidth(), 0),
+        Pantalla.centerString(g,
+                new Rectangle(x, y + SUMAYRECTANGULO3, MENU.getWidth(), 0),
                 personaje.getRaza());
-        g.drawString("Casta: ", x + 30, y + 260);
-        g.drawString("Nivel: ", x + 30, y + 290);
-        g.drawString("Experiencia: ", x + 30, y + 320);
+        g.drawString("Casta: ", x + SUMAXCASTA, y + SUMAYCASTA);
+        g.drawString("Nivel: ", x + SUMAXNIVEL, y + SUMAYNIVEL);
+        g.drawString("Experiencia: ", x + SUMAXEXPERIENCIA,
+                y + SUMAYEXPERIENCIA);
 
         // muestro los atributos
-        g.setFont(new Font("Book Antiqua", 0, 20));
-        g.drawString(personaje.getCasta(), x + 100, y + 260);
-        g.drawString(personaje.getNivel() + " ", x + 100, y + 290);
-        g.drawString(personaje.getExperiencia() + " / "
-                + Personaje.getTablaDeNiveles()[personaje.getNivel() + 1],
-                x + 150, y + 320);
+        g.setFont(new Font("Book Antiqua", 0, TAMANIOVEINTE));
+        g.drawString(personaje.getCasta(), x + SUMAXPERSONAJECASTA,
+                y + SUMAYPERSONAJECASTA);
+        g.drawString(personaje.getNivel() + " ", x + SUMAXPERSONAJENIVEL,
+                y + SUMAYPERSONAJENIVEL);
+        g.drawString(
+                personaje.getExperiencia() + " / "
+                        + Personaje.getTablaDeNiveles()[personaje.getNivel()
+                                + 1],
+                x + SUMAXPERSONAJEEXPERIENCIA, y + SUMAYPERSONAJEEXPERIENCIA);
 
     }
 
@@ -318,8 +586,9 @@ public class MenuInfoPersonaje {
      * @return true, if successful
      */
     public boolean clickEnBoton(final int mouseX, final int mouseY) {
-        if (mouseX >= x + 50 && mouseX <= x + 250 && mouseY >= y + 380
-                && mouseY <= y + 405) {
+        if (mouseX >= x + SUMAMOUSEX && mouseX <= x + SUMAMOUSEX2
+                && mouseY >= y + SUMAMOUSEY3
+                && mouseY <= y + SUMAMOUSEY4) {
             return true;
         }
         return false;
@@ -335,9 +604,9 @@ public class MenuInfoPersonaje {
      * @return true, if successful
      */
     public boolean clickEnCerrar(final int mouseX, final int mouseY) {
-        if (mouseX >= x + MENU.getWidth() - 24
-                && mouseX <= x + MENU.getWidth() + 4 && mouseY >= y + 12
-                && mouseY <= y + 36) {
+        if (mouseX >= x + MENU.getWidth() - RESTAMENUANCHURA
+                && mouseX <= x + MENU.getWidth() + SUMAMENUANCHURA
+                && mouseY >= y + SUMAMOUSEY && mouseY <= y + SUMAMOUSEY2) {
             return true;
         }
         return false;
