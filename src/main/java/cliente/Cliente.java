@@ -1,13 +1,20 @@
 package cliente;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
 import com.google.gson.Gson;
+import com.sun.xml.internal.fastinfoset.sax.Properties;
 
 import comandos.ComandosCliente;
 import frames.MenuCarga;
@@ -105,7 +112,7 @@ public class Cliente extends Thread {
     /**
      * The puerto.
      */
-    private final int puerto = 55050;
+    private int puerto;
 
     /**
      * Pide la accion.
@@ -138,9 +145,11 @@ public class Cliente extends Thread {
 
     /**
      * Constructor del Cliente.
+     * @throws FileNotFoundException 
      */
-    public Cliente() {
+    public Cliente() throws FileNotFoundException {
 
+        puerto = getPuerto();
         ip = JOptionPane.showInputDialog(
                 "Ingrese IP del servidor: (default localhost)");
         if (ip == null) {
@@ -180,6 +189,7 @@ public class Cliente extends Thread {
             System.exit(1);
         }
     }
+    
 
     /*
      * (non-Javadoc)
@@ -450,8 +460,15 @@ public class Cliente extends Thread {
      * Gets the puerto.
      *
      * @return the puerto
+     * @throws FileNotFoundException 
      */
-    public int getPuerto() {
+    public int getPuerto() throws FileNotFoundException {
+        int puerto;
+        Scanner sc = new Scanner(new File("puerto.properties"));
+        sc.next();
+        sc.next();
+        puerto = sc.nextInt();
+        sc.close();
         return puerto;
     }
 

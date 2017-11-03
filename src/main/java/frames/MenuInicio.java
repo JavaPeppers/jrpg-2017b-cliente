@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 import cliente.Cliente;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.FileNotFoundException;
 
 /**
  * The Class MenuInicio.
@@ -38,7 +39,12 @@ public class MenuInicio extends JFrame {
             @Override
             public void keyPressed(final KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    Cliente cliente = new Cliente();
+                    Cliente cliente = null;
+                    try {
+                        cliente = new Cliente();
+                    } catch (FileNotFoundException e1) {
+                        e1.printStackTrace();
+                    }
                     cliente.start();
                     dispose();
                 }
@@ -98,7 +104,12 @@ public class MenuInicio extends JFrame {
         btnRegistrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                Cliente cliente = new Cliente();
+                Cliente cliente = null;
+                try {
+                    cliente = new Cliente();
+                } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                }
                 cliente.start();
                 dispose();
             }
