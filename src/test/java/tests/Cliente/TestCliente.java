@@ -32,7 +32,9 @@ import mensajeria.PaqueteUsuario;
  */
 public class TestCliente {
 
-    /**
+    private static final int NUMEROPAQUETE = 45;
+
+	/**
      * Constante SALUDTOPE.
      */
     private static final int SALUDTOPE = 10000;
@@ -427,7 +429,7 @@ public class TestCliente {
             JOptionPane.showMessageDialog(null, "Falló");
         }
     }
-    
+
     /**
      * Test que prueba que se ejecute el comandoError
      * cuando recibe mal el paquete.
@@ -435,7 +437,7 @@ public class TestCliente {
     @Test
     public void queEjecuteComandoError() {
     	ComandosCliente command;
-    	Paquete paquete = new Paquete(45);
+    	Paquete paquete = new Paquete(NUMEROPAQUETE);
     	command = (ComandosCliente) paquete.getObjeto(Comando.NOMBREPAQUETE);
     	Assert.assertEquals(Comando.NOMBREPAQUETE + "." + Comando.CLASSNAMES[Comando.COMANDOERROR], command.getClass().getName());
     }

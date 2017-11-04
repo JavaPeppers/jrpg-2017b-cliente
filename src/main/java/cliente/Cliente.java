@@ -1,11 +1,8 @@
 package cliente;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -14,7 +11,6 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 import com.google.gson.Gson;
-import com.sun.xml.internal.fastinfoset.sax.Properties;
 
 import comandos.ComandosCliente;
 import frames.MenuCarga;
@@ -461,7 +457,7 @@ public class Cliente extends Thread {
      * Gets the puerto.
      *
      * @return the puerto
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException
      */
     public int getPuerto() throws FileNotFoundException {
         int puerto;

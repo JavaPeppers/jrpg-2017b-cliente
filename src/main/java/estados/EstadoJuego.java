@@ -163,7 +163,7 @@ public class EstadoJuego extends Estado {
     /**
      * Lista con los mapas disponibles en el juego
      */
-    private final static ArrayList<String> MUNDOSDISPONIBLES = new ArrayList<String>(Arrays.asList("Aubenor" , "Aris", "Eodrim"));
+    private final static ArrayList<String> MUNDOSDISPONIBLES = new ArrayList<String>(Arrays.asList("Aubenor","Aris","Eodrim"));
     /**
      * Instantiates a new estado juego.
      *

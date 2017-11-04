@@ -89,12 +89,12 @@ public class MenuMapas extends JFrame {
     /**
      * The Constant BOTONARIS.
      */
-    private static final int[] BOTONARIS = {148, 192, 143, 23 };
+    private static final int[] BOTONEODRIM = {148, 192, 143, 23 };
 
     /**
      * The Constant BOTONEODRIM.
      */
-    private static final int[] BOTONEODRIM = {148, 130, 143, 23 };
+    private static final int[] BOTONARIS = {148, 130, 143, 23 };
 
     /**
      * The Constant LABELBACKGROUND.

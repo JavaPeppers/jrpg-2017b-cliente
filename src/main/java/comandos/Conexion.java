@@ -29,8 +29,9 @@ public class Conexion extends ComandosEscucha {
         while (it.hasNext()) {
             key = it.next();
             actual = pdp.getPersonajes().get(key);
-            if(actual.getMapa() == juego.getPersonaje().getMapa())
-            	juego.getPersonajesConectados().put(key, actual);
+            if (actual.getMapa() == juego.getPersonaje().getMapa()) {
+                 juego.getPersonajesConectados().put(key, actual);
+            }
         }
         actualizarLista(pdp);
     }

@@ -566,7 +566,7 @@ public class Juego implements Runnable {
 	 * Set paquete Enemigo.
 	 * @param paqueteEnemigoParam
 	 */
-	public void setPaqueteEnemigo(PaqueteEnemigo paqueteEnemigoParam) {
+	public void setPaqueteEnemigo(final PaqueteEnemigo paqueteEnemigoParam) {
 		this.paqueteEnemigo = paqueteEnemigoParam;
 	}
 

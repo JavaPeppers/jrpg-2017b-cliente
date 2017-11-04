@@ -493,10 +493,10 @@ public class Mundo {
 	}
 
 	/**
-	 * Set de SpawnY
-	 * @param spawnYParam
+	 * Set de SpawnY.
+	 * @param spawnYParam setea el spawn y
 	 */
-	public void setSpawnY(int spawnYParam) {
+	public void setSpawnY(final int spawnYParam) {
 		this.spawnY = spawnYParam;
 	}
 }
