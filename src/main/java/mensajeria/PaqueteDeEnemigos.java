@@ -20,7 +20,7 @@ public class PaqueteDeEnemigos extends Paquete
      * Instantiates a new paquete de enemigos.
      */
     public PaqueteDeEnemigos() {
-    	this.enemigos = new HashMap<Integer, PaqueteEnemigo>();
+        this.enemigos = new HashMap<Integer, PaqueteEnemigo>();
     }
 
     /**

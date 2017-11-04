@@ -470,33 +470,39 @@ public class Mundo {
 
     /**
      * Get de SpawnX.
+     *
      * @return spawnX
      */
-	public int getSpawnX() {
-		return spawnX;
-	}
+    public int getSpawnX() {
+        return spawnX;
+    }
 
-	/**
-	 * Set de SpawnX.
-	 * @param spawnXParam
-	 */
-	public void setSpawnX(int spawnXParam) {
-		this.spawnX = spawnXParam;
-	}
+    /**
+     * Set de SpawnX.
+     *
+     * @param spawnXParam
+     *            setea el spawn x.
+     */
+    public void setSpawnX(final int spawnXParam) {
+        this.spawnX = spawnXParam;
+    }
 
-	/**
-	 * Get de SpawnY.
-	 * @return spawnY
-	 */
-	public int getSpawnY() {
-		return spawnY;
-	}
+    /**
+     * Get de SpawnY.
+     *
+     * @return spawnY
+     */
+    public int getSpawnY() {
+        return spawnY;
+    }
 
-	/**
-	 * Set de SpawnY.
-	 * @param spawnYParam setea el spawn y
-	 */
-	public void setSpawnY(final int spawnYParam) {
-		this.spawnY = spawnYParam;
-	}
+    /**
+     * Set de SpawnY.
+     *
+     * @param spawnYParam
+     *            setea el spawn y
+     */
+    public void setSpawnY(final int spawnYParam) {
+        this.spawnY = spawnYParam;
+    }
 }

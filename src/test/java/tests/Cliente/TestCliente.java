@@ -32,9 +32,12 @@ import mensajeria.PaqueteUsuario;
  */
 public class TestCliente {
 
+    /**
+     * The Constant NUMEROPAQUETE.
+     */
     private static final int NUMEROPAQUETE = 45;
 
-	/**
+    /**
      * Constante SALUDTOPE.
      */
     private static final int SALUDTOPE = 10000;
@@ -42,7 +45,7 @@ public class TestCliente {
     /**
      * Constante PUERTO.
      */
-    private int puerto;// = 55050;
+    private int puerto;
 
     /**
      * Hilo myThread.
@@ -69,22 +72,34 @@ public class TestCliente {
      */
     private ObjectInputStream entrada;
 
-    
+    /**
+     * Gets the puerto.
+     *
+     * @return the puerto
+     * @throws FileNotFoundException
+     *             the file not found exception
+     */
     public int getPuerto() throws FileNotFoundException {
-        int puerto;
+        int puertoParam;
         Scanner sc = new Scanner(new File("puerto.properties"));
         sc.next();
         sc.next();
-        puerto = sc.nextInt();
+        puertoParam = sc.nextInt();
         sc.close();
-        return puerto;
+        return puertoParam;
     }
-    
-    @Before //LO USO PARA CREAR ALGO ANTES DE TODAS LAS PRUEBAS DE LA MISMA CLASE, PARA NO ESTAR CREANDO EL CONTADOR DENTRO DE TODOS LOS TEST
+
+    /**
+     * Crea puerto.
+     *
+     * @throws FileNotFoundException
+     *             the file not found exception
+     */
+    @Before
     public void creaPuerto() throws FileNotFoundException {
         puerto = getPuerto();
     }
-    
+
     // Si quiero probar la conexión del cliente si o si necesito un servidor
     // stub (lamentablemente)
     // Y para no complicarme la existencia con que el server se quede esperando
@@ -94,7 +109,8 @@ public class TestCliente {
     /**
      * Test server.
      *
-     * @param cantPaquetes cantidad de paquetes.
+     * @param cantPaquetes
+     *            cantidad de paquetes.
      */
     // Paquete tipo "Paquete", el test de PjTest me de bien..
     public void testServer(final Queue<Paquete> cantPaquetes) {
@@ -142,7 +158,7 @@ public class TestCliente {
      * Test conexion con el servidor.
      */
     @SuppressWarnings("deprecation")
-	@Test
+    @Test
     public void testConexionConElServidor() {
         Queue<Paquete> queue = new LinkedList<Paquete>();
 
@@ -174,7 +190,7 @@ public class TestCliente {
      * Test registro.
      */
     @SuppressWarnings("deprecation")
-	@Test
+    @Test
     public void testRegistro() {
 
         Queue<Paquete> queue = new LinkedList<Paquete>();
@@ -218,7 +234,7 @@ public class TestCliente {
      * Test registro fallido.
      */
     @SuppressWarnings("deprecation")
-	@Test
+    @Test
 
     public void testRegistroFallido() {
 
@@ -266,7 +282,7 @@ public class TestCliente {
      *             Signals that an I/O exception has occurred.
      */
     @SuppressWarnings("deprecation")
-	@Test
+    @Test
     public void testRegistrarPersonaje() throws IOException {
         Queue<Paquete> queue = new LinkedList<Paquete>();
 
@@ -301,7 +317,7 @@ public class TestCliente {
 
             // Recibo la respuesta del servidor
             @SuppressWarnings("unused")
-			Paquete paquete = (Paquete) gson.fromJson(
+            Paquete paquete = (Paquete) gson.fromJson(
                     (String) cliente.getEntrada().readObject(), Paquete.class);
 
             // Envio el paquete de registro de personaje
@@ -336,7 +352,7 @@ public class TestCliente {
      *             Signals that an I/O exception has occurred.
      */
     @SuppressWarnings("deprecation")
-	@Test
+    @Test
     public void testIniciarSesion() throws IOException {
         Queue<Paquete> queue = new LinkedList<Paquete>();
 
@@ -384,7 +400,7 @@ public class TestCliente {
      *             Signals that an I/O exception has occurred.
      */
     @SuppressWarnings("deprecation")
-	@Test
+    @Test
     public void testActualizarPersonaje() throws IOException {
 
         Queue<Paquete> queue = new LinkedList<Paquete>();
@@ -431,14 +447,17 @@ public class TestCliente {
     }
 
     /**
-     * Test que prueba que se ejecute el comandoError
-     * cuando recibe mal el paquete.
+     * Test que prueba que se ejecute el comandoError cuando recibe mal el
+     * paquete.
      */
     @Test
     public void queEjecuteComandoError() {
-    	ComandosCliente command;
-    	Paquete paquete = new Paquete(NUMEROPAQUETE);
-    	command = (ComandosCliente) paquete.getObjeto(Comando.NOMBREPAQUETE);
-    	Assert.assertEquals(Comando.NOMBREPAQUETE + "." + Comando.CLASSNAMES[Comando.COMANDOERROR], command.getClass().getName());
+        ComandosCliente command;
+        Paquete paquete = new Paquete(NUMEROPAQUETE);
+        command = (ComandosCliente) paquete.getObjeto(Comando.NOMBREPAQUETE);
+        Assert.assertEquals(
+                Comando.NOMBREPAQUETE + "."
+                        + Comando.CLASSNAMES[Comando.COMANDOERROR],
+                command.getClass().getName());
     }
 }

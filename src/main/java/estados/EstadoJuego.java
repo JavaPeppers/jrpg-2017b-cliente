@@ -161,9 +161,12 @@ public class EstadoJuego extends Estado {
     private MenuInfoPersonaje menuEnemigo;
 
     /**
-     * Lista con los mapas disponibles en el juego
+     * Lista con los mapas disponibles en el juego.
      */
-    private final static ArrayList<String> MUNDOSDISPONIBLES = new ArrayList<String>(Arrays.asList("Aubenor","Aris","Eodrim"));
+    private static final ArrayList<String> MUNDOSDISPONIBLES
+    = new ArrayList<String>(
+            Arrays.asList("Aubenor", "Aris", "Eodrim"));
+
     /**
      * Instantiates a new estado juego.
      *
@@ -336,7 +339,7 @@ public class EstadoJuego extends Estado {
      * @return the mundo
      */
     private String getMundo() {
-    	return MUNDOSDISPONIBLES.get(juego.getPersonaje().getMapa() - 1);
+        return MUNDOSDISPONIBLES.get(juego.getPersonaje().getMapa() - 1);
     }
 
     /**

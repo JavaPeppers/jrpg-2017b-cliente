@@ -503,7 +503,7 @@ public class Entidad {
                                 } catch (IOException e) {
                                     JOptionPane.showMessageDialog(null,
                                             "Fallo la conexión "
-                                                    + "con el servidor al enviar pBatalla");
+                                     + "con el servidor al enviar pBatalla");
                                 }
                             } else {
                                 JOptionPane.showMessageDialog(null,
@@ -534,7 +534,7 @@ public class Entidad {
                                         } catch (IOException e) {
                                             JOptionPane.showMessageDialog(null,
                                                     "Fallo la conexión "
-                                                    + "con el servidor al comerciar");
+                                          + "con el servidor al comerciar");
                                         }
                                     } else {
                                         JOptionPane.showMessageDialog(null,
@@ -785,8 +785,9 @@ public class Entidad {
                 key = it.next();
                 actual = enemigos.get(key);
                 if (actual != null
-                        && actual.getEstado() == Estado.ESTADOJUEGO 
-                        && juego.getPersonaje().getEstado() == Estado.ESTADOJUEGO) {
+                        && actual.getEstado() == Estado.ESTADOJUEGO
+                        && juego.getPersonaje().getEstado()
+                        == Estado.ESTADOJUEGO) {
                     if (Math.sqrt(Math.pow(actual.getX() - x, 2) + Math
                             .pow(actual.getY() - y, 2)) <= Enemigo.RANGO) {
 
@@ -1002,7 +1003,8 @@ public class Entidad {
      * @return true or false
      */
     private boolean estanEnDiagonal(final Nodo nodoUno, final Nodo nodoDos) {
-        return (!(nodoUno.obtenerX() == nodoDos.obtenerX() || nodoUno.obtenerY() == nodoDos.obtenerY()));
+        return (!(nodoUno.obtenerX() == nodoDos.obtenerX()
+                || nodoUno.obtenerY() == nodoDos.obtenerY()));
     }
 
     /**

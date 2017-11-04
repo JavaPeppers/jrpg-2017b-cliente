@@ -256,13 +256,13 @@ public final class Recursos {
      * Hash de imagenes para los personajes (humano, ogro, elfo).
      */
     private static Map<String, LinkedList<BufferedImage[]>> personaje
-                        = new HashMap<>();
+    = new HashMap<>();
 
     /**
      * Hash de imagenes para los enemigos (se pueden agregar mas Sprites).
      */
     private static Map<String, LinkedList<BufferedImage[]>> enemigos
-                        = new HashMap<>();
+    = new HashMap<>();
 
     /**
      * El sprite humano.
@@ -1487,33 +1487,37 @@ public final class Recursos {
 
     /**
      * Get Cesped.
+     *
      * @return cesped
      */
-	public static BufferedImage getCesped() {
-		return cesped;
-	}
+    public static BufferedImage getCesped() {
+        return cesped;
+    }
 
-	/**
-	 * Set Cesped.
-	 * @param cespedParam
-	 */
-	public static void setCesped(BufferedImage cespedParam) {
-		Recursos.cesped = cespedParam;
-	}
+    /**
+     * Set Cesped.
+     *
+     * @param cespedParam setea el cesped.
+     */
+    public static void setCesped(final BufferedImage cespedParam) {
+        Recursos.cesped = cespedParam;
+    }
 
-	/**
-	 * Get Roca.
-	 * @return roca
-	 */
-	public static BufferedImage getRoca() {
-		return roca;
-	}
+    /**
+     * Get Roca.
+     *
+     * @return roca
+     */
+    public static BufferedImage getRoca() {
+        return roca;
+    }
 
-	/**
-	 * Set Roca.
-	 * @param rocaParam
-	 */
-	public static void setRoca(BufferedImage rocaParam) {
-		Recursos.roca = rocaParam;
-	}
+    /**
+     * Set Roca.
+     *
+     * @param rocaParam setea la roca.
+     */
+    public static void setRoca(final BufferedImage rocaParam) {
+        Recursos.roca = rocaParam;
+    }
 }

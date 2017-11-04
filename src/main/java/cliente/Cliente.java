@@ -141,7 +141,8 @@ public class Cliente extends Thread {
 
     /**
      * Constructor del Cliente.
-     * @throws FileNotFoundException 
+     *
+     * @throws FileNotFoundException no encuentra el archivo.
      */
     public Cliente() throws FileNotFoundException {
 
@@ -185,7 +186,6 @@ public class Cliente extends Thread {
             System.exit(1);
         }
     }
-    
 
     /*
      * (non-Javadoc)
@@ -215,7 +215,7 @@ public class Cliente extends Thread {
                         wait();
 
                         comand = (ComandosCliente) Paquete.getObjetoSet(
-                        		Comando.NOMBREPAQUETE, getAccion());
+                                Comando.NOMBREPAQUETE, getAccion());
                         comand.setCadena(null);
                         comand.setCliente(this);
                         comand.ejecutar();
@@ -227,8 +227,8 @@ public class Cliente extends Thread {
                     String cadenaLeida = (String) entrada.readObject();
                     Paquete paquete = gson.fromJson(cadenaLeida, Paquete.class);
 
-                    comand = (ComandosCliente) paquete.
-                              getObjeto(Comando.NOMBREPAQUETE);
+                    comand = (ComandosCliente) paquete
+                            .getObjeto(Comando.NOMBREPAQUETE);
                     comand.setCadena(cadenaLeida);
                     comand.setCliente(this);
                     comand.ejecutar();
@@ -458,15 +458,16 @@ public class Cliente extends Thread {
      *
      * @return the puerto
      * @throws FileNotFoundException
+     *             excepcion porque no encuentra el archivo.
      */
     public int getPuerto() throws FileNotFoundException {
-        int puerto;
+        int puertoParam;
         Scanner sc = new Scanner(new File("puerto.properties"));
         sc.next();
         sc.next();
-        puerto = sc.nextInt();
+        puertoParam = sc.nextInt();
         sc.close();
-        return puerto;
+        return puertoParam;
     }
 
     /**

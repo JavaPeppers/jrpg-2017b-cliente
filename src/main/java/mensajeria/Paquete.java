@@ -166,10 +166,13 @@ public class Paquete implements Serializable, Cloneable {
      * @return the objeto
      */
     public Comando getObjeto(final String nombrePaquete) {
-    	Comando c;
-    	Comando error = null;
+        Comando c;
+        Comando error = null;
         try {
-        	error = (Comando) Class.forName(nombrePaquete + "." + Comando.CLASSNAMES[Comando.COMANDOERROR]).newInstance();
+            error = (Comando) Class
+                    .forName(nombrePaquete + "."
+                            + Comando.CLASSNAMES[Comando.COMANDOERROR])
+                    .newInstance();
             c = (Comando) Class
                     .forName(nombrePaquete + "." + Comando.CLASSNAMES[comando])
                     .newInstance();
@@ -192,10 +195,13 @@ public class Paquete implements Serializable, Cloneable {
      */
     public static Comando getObjetoSet(final String nombrePaquete,
             final int accion) {
-    	Comando c;
-    	Comando error = null;
-        try { 
-        	error = (Comando) Class.forName(nombrePaquete + "." + Comando.CLASSNAMESBIS[Comando.COMANDOERROR]).newInstance();
+        Comando c;
+        Comando error = null;
+        try {
+            error = (Comando) Class
+                    .forName(nombrePaquete + "."
+                            + Comando.CLASSNAMESBIS[Comando.COMANDOERROR])
+                    .newInstance();
             c = (Comando) Class
                     .forName(
                             nombrePaquete + "." + Comando.CLASSNAMESBIS[accion])
@@ -203,7 +209,7 @@ public class Paquete implements Serializable, Cloneable {
             return c;
         } catch (ClassNotFoundException | InstantiationException
                 | IllegalAccessException | ArrayIndexOutOfBoundsException e) {
-        	return error;
+            return error;
         }
     }
 
@@ -215,7 +221,8 @@ public class Paquete implements Serializable, Cloneable {
     }
 
     /**
-     * @param msjFracasoParam the msjFracaso to set
+     * @param msjFracasoParam
+     *            the msjFracaso to set
      */
     public static void setMsjFracaso(final String msjFracasoParam) {
         Paquete.msjFracaso = msjFracasoParam;
@@ -229,7 +236,8 @@ public class Paquete implements Serializable, Cloneable {
     }
 
     /**
-     * @param msjExitoParam the msjExito to set
+     * @param msjExitoParam
+     *            the msjExito to set
      */
     public static void setMsjExito(final String msjExitoParam) {
         Paquete.msjExito = msjExitoParam;

@@ -5,11 +5,11 @@ package comandos;
  * al querer acceder a algún comando.
  *
  */
-public class ComandoError extends ComandosCliente{
+public class ComandoError extends ComandosCliente {
 
-	@Override
-	public void ejecutar() {
-		
-	}
+    @Override
+    public void ejecutar() {
+
+    }
 
 }

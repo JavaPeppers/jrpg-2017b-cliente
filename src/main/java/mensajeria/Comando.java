@@ -22,7 +22,8 @@ public abstract class Comando {
             "ActualizarPersonaje", "ActualizarPersonajeLvl",
             "ActualizarInventario", "Comercio", "ActualizarComercio", "Trueque",
             "ActualizarTrueque", "Talk", "ActualizarPuntosSkills",
-            "SetEnemigos", "FinalizarBatallaNPC", "BatallaNPC", "ActualizarEnemigo","DesaparecerEnemigo", "ComandoError"};
+            "SetEnemigos", "FinalizarBatallaNPC", "BatallaNPC",
+            "ActualizarEnemigo", "DesaparecerEnemigo", "ComandoError" };
 
     /**
      * The Constant CLASSNAMESBIS.
@@ -33,7 +34,8 @@ public abstract class Comando {
             "ActualizarPersonaje", "ActualizarPersonajeLvl",
             "ActualizarInventario", "Comercio", "ActualizarComercio", "Trueque",
             "ActualizarTrueque", "Talk", "ActualizarPuntosSkills",
-            "SetEnemigos", "FinalizarBatallaNPC", "BatallaNPC", "ActualizarEnemigo","DesaparecerEnemigo", "ComandoError"};
+            "SetEnemigos", "FinalizarBatallaNPC", "BatallaNPC",
+            "ActualizarEnemigo", "DesaparecerEnemigo", "ComandoError" };
     /**
      * The Constant CONEXION.
      */
@@ -148,17 +150,17 @@ public abstract class Comando {
      * The Constant BATALLANPC.
      */
     public static final int BATALLANPC = 22;
-    
+
     /**
-     * The Constant ACTUALIZARENEMIGO
+     * The Constant ACTUALIZARENEMIGO.
      */
     public static final int ACTUALIZARENEMIGO = 23;
 
     /**
-     * The Constant DESAPARECERENEMIGO
+     * The Constant DESAPARECERENEMIGO.
      */
     public static final int DESAPARECERENEMIGO = 24;
-    
+
     /**
      * Constante que indica el comando error.
      */
@@ -197,7 +199,8 @@ public abstract class Comando {
     }
 
     /**
-     * @param cadenaLeidaParam the cadenaLeida to set
+     * @param cadenaLeidaParam
+     *            the cadenaLeida to set
      */
     public void setCadenaLeida(final String cadenaLeidaParam) {
         this.cadenaLeida = cadenaLeidaParam;

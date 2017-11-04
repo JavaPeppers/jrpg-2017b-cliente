@@ -44,7 +44,8 @@ public class EscuchaMensajes extends Thread {
     /**
      * Constructor de EscuchaMensaje.
      *
-     * @param juegoParam juego del que se escucha el mensaje
+     * @param juegoParam
+     *            juego del que se escucha el mensaje
      */
     public EscuchaMensajes(final Juego juegoParam) {
         this.juego = juegoParam;
@@ -76,8 +77,8 @@ public class EscuchaMensajes extends Thread {
                 String objetoLeido = (String) entrada.readObject();
 
                 paquete = gson.fromJson(objetoLeido, Paquete.class);
-                comand = (ComandosEscucha) paquete.getObjeto(
-                		Comando.NOMBREPAQUETE);
+                comand = (ComandosEscucha) paquete
+                        .getObjeto(Comando.NOMBREPAQUETE);
                 comand.setJuego(juego);
                 comand.setCadena(objetoLeido);
                 comand.ejecutar();

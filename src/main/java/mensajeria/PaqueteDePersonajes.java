@@ -20,7 +20,7 @@ public class PaqueteDePersonajes extends Paquete
      * Instantiates a new paquete de personajes.
      */
     public PaqueteDePersonajes() {
-    	this.personajes = new HashMap<Integer, PaquetePersonaje>();
+        this.personajes = new HashMap<Integer, PaquetePersonaje>();
     }
 
     /**

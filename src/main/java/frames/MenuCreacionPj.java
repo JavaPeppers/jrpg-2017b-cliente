@@ -281,64 +281,64 @@ public class MenuCreacionPj extends JFrame {
         contentPane.add(layeredPane);
 
         JLabel lblNewLabel5 = new JLabel("Fuerza");
-        lblNewLabel5.setBounds(LABELFUERZA[1], LABELFUERZA[1], LABELFUERZA[2],
+        lblNewLabel5.setBounds(LABELFUERZA[0], LABELFUERZA[1], LABELFUERZA[2],
                 LABELFUERZA[TRES]);
         layeredPane.add(lblNewLabel5, new Integer(1));
         lblNewLabel5.setForeground(Color.WHITE);
         lblNewLabel5.setFont(new Font("Tahoma", Font.PLAIN, TAMANIOTRECE));
 
         fuerza = new JLabel("15");
-        fuerza.setBounds(FUERZA[1], FUERZA[1], FUERZA[2], FUERZA[TRES]);
+        fuerza.setBounds(FUERZA[0], FUERZA[1], FUERZA[2], FUERZA[TRES]);
         layeredPane.add(fuerza, new Integer(1));
         fuerza.setForeground(Color.GREEN);
 
         JLabel lblDestreza = new JLabel("Destreza");
-        lblDestreza.setBounds(LABELDESTREZA[1], LABELDESTREZA[1],
+        lblDestreza.setBounds(LABELDESTREZA[0], LABELDESTREZA[1],
                 LABELDESTREZA[2], LABELDESTREZA[TRES]);
         layeredPane.add(lblDestreza, new Integer(1));
         lblDestreza.setForeground(Color.WHITE);
         lblDestreza.setFont(new Font("Tahoma", Font.PLAIN, TAMANIOTRECE));
 
         destreza = new JLabel("10");
-        destreza.setBounds(DESTREZA[1], DESTREZA[1], DESTREZA[2],
+        destreza.setBounds(DESTREZA[0], DESTREZA[1], DESTREZA[2],
                 DESTREZA[TRES]);
         layeredPane.add(destreza, new Integer(1));
         destreza.setForeground(Color.GREEN);
 
         JLabel lblInteligencia = new JLabel("Inteligencia");
-        lblInteligencia.setBounds(LABELINTELIGENCIA[1], LABELINTELIGENCIA[1],
+        lblInteligencia.setBounds(LABELINTELIGENCIA[0], LABELINTELIGENCIA[1],
                 LABELINTELIGENCIA[2], LABELINTELIGENCIA[TRES]);
         layeredPane.add(lblInteligencia, new Integer(1));
         lblInteligencia.setFont(new Font("Tahoma", Font.PLAIN, TAMANIOTRECE));
         lblInteligencia.setForeground(Color.WHITE);
 
         inteligencia = new JLabel("10");
-        inteligencia.setBounds(INTELIGENCIA[1], INTELIGENCIA[1],
+        inteligencia.setBounds(INTELIGENCIA[0], INTELIGENCIA[1],
                 INTELIGENCIA[2], INTELIGENCIA[TRES]);
         layeredPane.add(inteligencia, new Integer(1));
         inteligencia.setForeground(Color.GREEN);
 
         JLabel lblSalud = new JLabel("Salud");
-        lblSalud.setBounds(LABELSALUD[1], LABELSALUD[1], LABELSALUD[2],
+        lblSalud.setBounds(LABELSALUD[0], LABELSALUD[1], LABELSALUD[2],
                 LABELSALUD[TRES]);
         layeredPane.add(lblSalud, new Integer(1));
         lblSalud.setFont(new Font("Tahoma", Font.PLAIN, TAMANIOTRECE));
         lblSalud.setForeground(Color.WHITE);
 
         salud = new JLabel("55");
-        salud.setBounds(SALUD[1], SALUD[1], SALUD[2], SALUD[TRES]);
+        salud.setBounds(SALUD[0], SALUD[1], SALUD[2], SALUD[TRES]);
         layeredPane.add(salud, new Integer(1));
         salud.setForeground(Color.GREEN);
 
         JLabel lblEnergia = new JLabel("Energia");
-        lblEnergia.setBounds(LABELENERGIA[1], LABELENERGIA[1], LABELENERGIA[2],
+        lblEnergia.setBounds(LABELENERGIA[0], LABELENERGIA[1], LABELENERGIA[2],
                 LABELENERGIA[TRES]);
         layeredPane.add(lblEnergia, new Integer(1));
         lblEnergia.setForeground(Color.WHITE);
         lblEnergia.setFont(new Font("Tahoma", Font.PLAIN, TAMANIOTRECE));
 
         energia = new JLabel("55");
-        energia.setBounds(ENERGIA[1], ENERGIA[1], ENERGIA[2], ENERGIA[TRES]);
+        energia.setBounds(ENERGIA[0], ENERGIA[1], ENERGIA[2], ENERGIA[TRES]);
         layeredPane.add(energia, new Integer(1));
         energia.setForeground(Color.GREEN);
 

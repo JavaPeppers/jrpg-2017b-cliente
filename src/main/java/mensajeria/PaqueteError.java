@@ -2,9 +2,15 @@ package mensajeria;
 
 import java.io.Serializable;
 
-public class PaqueteError extends Paquete implements Serializable, Cloneable  {
+/**
+ * The Class PaqueteError.
+ */
+public class PaqueteError extends Paquete implements Serializable, Cloneable {
 
-	public PaqueteError() {
-		setComando(Comando.COMANDOERROR);
-	}
+    /**
+     * Instantiates a new paquete error.
+     */
+    public PaqueteError() {
+        setComando(Comando.COMANDOERROR);
+    }
 }
