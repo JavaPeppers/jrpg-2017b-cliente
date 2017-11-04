@@ -25,6 +25,26 @@ import mensajeria.PaquetePersonaje;
 public class Juego implements Runnable {
 
     /**
+     * The Constant FPS.
+     */
+    private static final int FPS = 60;
+
+    /**
+     * The Constant TAMANIOFONT.
+     */
+    private static final int TAMANIOFONT = 15;
+
+    /**
+     * The Constant NUMERODEBUFFER.
+     */
+    private static final int NUMERODEBUFFER = 3;
+
+    /**
+     * The Constant DIRECCION.
+     */
+    private static final int DIRECCION = 6;
+
+    /**
      * The Constant NANOSEGUNDOS.
      */
     private static final int NANOSEGUNDOS = 1000000000;
@@ -176,7 +196,7 @@ public class Juego implements Runnable {
         ubicacionPersonaje = new PaqueteMovimiento();
         ubicacionPersonaje.setIdPersonaje(paquetePersonaje.getId());
         ubicacionPersonaje.setFrame(0);
-        ubicacionPersonaje.setDireccion(6);
+        ubicacionPersonaje.setDireccion(DIRECCION);
 
         // Creo el escucha de mensajes
         escuchaMensajes = new EscuchaMensajes(this);
@@ -220,7 +240,7 @@ public class Juego implements Runnable {
         bs = pantalla.getCanvas().getBufferStrategy();
         if (bs == null) { // Seteo una estrategia para el canvas en caso de que
                           // no tenga una
-            pantalla.getCanvas().createBufferStrategy(3);
+            pantalla.getCanvas().createBufferStrategy(NUMERODEBUFFER);
             return;
         }
 
@@ -229,7 +249,7 @@ public class Juego implements Runnable {
         g.clearRect(0, 0, ancho, alto); // Limpiamos la pantalla
 
         // Graficado de imagenes
-        g.setFont(new Font("Book Antiqua", 1, 15));
+        g.setFont(new Font("Book Antiqua", 1, TAMANIOFONT));
 
         if (Estado.getEstado() != null) {
             Estado.getEstado().graficar(g);
@@ -249,7 +269,7 @@ public class Juego implements Runnable {
     @Override
     public void run() { // Hilo principal del juego
 
-        int fps = 60; // Cantidad de actualizaciones por segundo que se desean
+        int fps = FPS; // Cantidad de actualizaciones por segundo que se desean
         double tiempoPorActualizacion = NANOSEGUNDOS / fps; // Cantidad de
                                                             // nanosegundos en
                                                             // FPS

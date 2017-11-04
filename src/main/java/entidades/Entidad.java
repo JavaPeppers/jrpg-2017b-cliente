@@ -37,7 +37,103 @@ import mundo.Nodo;
  */
 public class Entidad {
 
-    /**
+    /** The Constant COSTO. */
+    private static final double COSTO = 1.5;
+
+	/** The Constant ALTURA. */
+	private static final int ALTURA = 10;
+
+	/** The Constant MODIFICOX. */
+	private static final int MODIFICOX = 32;
+
+	/** The Constant MODIFICICOY. */
+	private static final int MODIFICICOY = 20;
+
+	/** The Constant INCREMENTOY. */
+	private static final int INCREMENTOY = 4;
+
+	/** The Constant TAMFONT. */
+	private static final int TAMFONT = 15;
+
+	/** The Constant DIFY. */
+	private static final int DIFY = 32;
+
+	/** The Constant POSUNOSUP. */
+	private static final int POSUNOSUP = 29;
+
+	/** The Constant POSUNOINF. */
+	private static final int POSUNOINF = 0;
+
+	/** The Constant POSCEROSUP. */
+	private static final int POSCEROSUP = 71;
+
+	/** The Constant POSCEROINF. */
+	private static final int POSCEROINF = 44;
+
+	/** The Constant COMERCIOUNO. */
+	private static final int COMERCIOUNO = 29;
+
+	/** The Constant LIMCOMERCIOCEROSUP. */
+	private static final int LIMCOMERCIOCEROSUP = 71;
+
+	/** The Constant LIMCOMERCIOCEROINF. */
+	private static final int LIMCOMERCIOCEROINF = 44;
+
+	/** The Constant LIMCUATROSUP. */
+	private static final int LIMCUATROSUP = 559;
+
+	/** The Constant LIMCUATROINF. */
+	private static final int LIMCUATROINF = 524;
+
+	/** The Constant LIMTRESSUP. */
+	private static final int LIMTRESSUP = 597;
+
+	/** The Constant LIMTRESINF. */
+	private static final int LIMTRESINF = 562;
+
+	/** The Constant LIMDOSSUP. */
+	private static final int LIMDOSSUP = 105;
+
+	/** The Constant LIMDOSINF. */
+	private static final int LIMDOSINF = 3;
+
+	/** The Constant LIMUNOSUP. */
+	private static final int LIMUNOSUP = 597;
+
+	/** The Constant LIMUNOINF. */
+	private static final int LIMUNOINF = 545;
+
+	/** The Constant LIMCEROSUP. */
+	private static final int LIMCEROSUP = 797;
+
+	/** The Constant LIMCEROINF. */
+	private static final int LIMCEROINF = 738;
+
+	/** The Constant SEPTIMAANIM. */
+	private static final int SEPTIMAANIM = 7;
+
+	/** The Constant SEXTAANIM. */
+	private static final int SEXTAANIM = 6;
+
+	/** The Constant QUINTAANIM. */
+	private static final int QUINTAANIM = 5;
+
+	/** The Constant CUARTAANIM. */
+	private static final int CUARTAANIM = 4;
+
+	/** The Constant TERCERANIM. */
+	private static final int TERCERANIM = 3;
+
+	/** The Constant MODIFICADORY. */
+	private static final int MODIFICADORY = 32;
+
+	/** The Constant MODIFICADORX. */
+	private static final int MODIFICADORX = 64;
+
+	/** The Constant MOVIMIENTOHACIA. */
+	private static final int MOVIMIENTOHACIA = 6;
+
+	/**
      * The juego.
      */
     private Juego juego;
@@ -173,7 +269,7 @@ public class Entidad {
     /**
      * The movimiento hacia.
      */
-    private int movimientoHacia = 6;
+    private int movimientoHacia = MOVIMIENTOHACIA;
 
     /**
      * ArrayList de animaciones que contiene los frames de los personajes.
@@ -286,18 +382,18 @@ public class Entidad {
         this.mundo = mundoParam;
         xOffset = ancho / 2;
         yOffset = alto / 2;
-        x = (int) (spawnX / 64) * 64;
-        y = (int) (spawnY / 32) * 32;
+        x = (int) (spawnX / MODIFICADORX) * MODIFICADORX;
+        y = (int) (spawnY / MODIFICADORY) * MODIFICADORY;
 
         mov = new ArrayList<Animacion>();
         mov.add(new Animacion(velAnimacion, animaciones.get(0)));
         mov.add(new Animacion(velAnimacion, animaciones.get(1)));
         mov.add(new Animacion(velAnimacion, animaciones.get(2)));
-        mov.add(new Animacion(velAnimacion, animaciones.get(3)));
-        mov.add(new Animacion(velAnimacion, animaciones.get(4)));
-        mov.add(new Animacion(velAnimacion, animaciones.get(5)));
-        mov.add(new Animacion(velAnimacion, animaciones.get(6)));
-        mov.add(new Animacion(velAnimacion, animaciones.get(7)));
+        mov.add(new Animacion(velAnimacion, animaciones.get(TERCERANIM)));
+        mov.add(new Animacion(velAnimacion, animaciones.get(CUARTAANIM)));
+        mov.add(new Animacion(velAnimacion, animaciones.get(QUINTAANIM)));
+        mov.add(new Animacion(velAnimacion, animaciones.get(SEXTAANIM)));
+        mov.add(new Animacion(velAnimacion, animaciones.get(SEPTIMAANIM)));
 
         // Informo mi posicion actual
         juego.getUbicacionPersonaje().setPosX(x);
@@ -333,9 +429,9 @@ public class Entidad {
     public void getEntrada() {
         posMouseRecorrido = juego.getHandlerMouse().getPosMouseRecorrido();
         posMouse = juego.getHandlerMouse().getPosMouse();
-        if (juego.getHandlerMouse().getNuevoClick() && posMouse[0] >= 738
-                && posMouse[0] <= 797 && posMouse[1] >= 545
-                && posMouse[1] <= 597) {
+        if (juego.getHandlerMouse().getNuevoClick() && posMouse[0] >= LIMCEROINF
+                && posMouse[0] <= LIMCEROSUP && posMouse[1] >= LIMUNOINF
+                && posMouse[1] <= LIMUNOSUP) {
             if (Pantalla.getMenuInventario() == null) {
                 Pantalla.setMenuInventario(
                         new MenuInventario(juego.getCliente()));
@@ -343,18 +439,18 @@ public class Entidad {
             }
             juego.getHandlerMouse().setNuevoClick(false);
         }
-        if (juego.getHandlerMouse().getNuevoClick() && posMouse[0] >= 3
-                && posMouse[0] <= 105 && posMouse[1] >= 562
-                && posMouse[1] <= 597) {
+        if (juego.getHandlerMouse().getNuevoClick() && posMouse[0] >= LIMDOSINF
+                && posMouse[0] <= LIMDOSSUP && posMouse[1] >= LIMTRESINF
+                && posMouse[1] <= LIMTRESSUP) {
             if (Pantalla.getMenuEscp() == null) {
                 Pantalla.setMenuEscp(new MenuEscape(juego.getCliente()));
                 Pantalla.getMenuEscp().setVisible(true);
             }
             juego.getHandlerMouse().setNuevoClick(false);
         }
-        if (juego.getHandlerMouse().getNuevoClick() && posMouse[0] >= 3
-                && posMouse[0] <= 105 && posMouse[1] >= 524
-                && posMouse[1] <= 559) {
+        if (juego.getHandlerMouse().getNuevoClick() && posMouse[0] >= LIMDOSINF
+                && posMouse[0] <= LIMDOSSUP && posMouse[1] >= LIMCUATROINF
+                && posMouse[1] <= LIMCUATROSUP) {
             if (Pantalla.getVentContac() == null) {
                 Pantalla.setVentContac(new VentanaContactos(juego));
                 Pantalla.getVentContac().setVisible(true);
@@ -387,10 +483,10 @@ public class Entidad {
                                 == MenuInfoPersonaje.MENUBATALLAR) {
                             // ME FIJO SI CON EL QUE QUIERO BATALLAR ESTA EN LA
                             // ZONA DE COMERCIO
-                            if (!((int) comercio[0] >= 44
-                                    && (int) comercio[0] <= 71
+                            if (!((int) comercio[0] >= LIMCOMERCIOCEROINF
+                                    && (int) comercio[0] <= LIMCOMERCIOCEROSUP
                                     && (int) comercio[1] >= 0
-                                    && (int) comercio[1] <= 29)) {
+                                    && (int) comercio[1] <= COMERCIOUNO)) {
                                 juego.getEstadoJuego().setHaySolicitud(false,
                                         null, MenuInfoPersonaje.MENUBATALLAR);
                                 PaqueteBatalla pBatalla = new PaqueteBatalla();
@@ -418,10 +514,10 @@ public class Entidad {
                             // PREGUNTO SI EL MENU EMERGENTE ES DE TIPO COMERCIO
                             if (juego.getEstadoJuego().getTipoSolicitud()
                                     == MenuInfoPersonaje.MENUCOMERCIAR) {
-                                if ((int) comercio[0] >= 44
-                                        && (int) comercio[0] <= 71
-                                        && (int) comercio[1] >= 0
-                                        && (int) comercio[1] <= 29) {
+                                if ((int) comercio[0] >= LIMCOMERCIOCEROINF
+                                    && (int) comercio[0] <= LIMCOMERCIOCEROSUP
+                                	&& (int) comercio[1] >= 0
+                                	&& (int) comercio[1] <= COMERCIOUNO) {
                                     if (juego.getCliente().getM1() == null) {
                                         juego.getCliente().setPaqueteComercio(
                                                 new PaqueteComerciar());
@@ -491,8 +587,9 @@ public class Entidad {
                             idEnemigo = actual.getIdPersonaje();
                             float[] xY = Mundo.isoA2D(x, y);
                             // ESTA ESTE PARA NO MOVERME HASTA EL LUGAR.
-                            if (xY[0] >= 44 && xY[0] <= 71 && xY[1] >= 0
-                                    && xY[1] <= 29) {
+                            if (xY[0] >= POSCEROINF && xY[0] <= POSCEROSUP
+                            		&& xY[1] >= POSUNOINF
+                                    && xY[1] <= POSUNOSUP) {
                                 // SI ESTOY DENTRO DE LA ZONA DE COMERCIO SETEO
                                 // QUE SE ABRA EL MENU
                                 // DE COMERCIO
@@ -631,7 +728,7 @@ public class Entidad {
 
         double paso = 1;
 
-        if (enMovimiento && !(x == xFinal && y == yFinal - 32)) {
+        if (enMovimiento && !(x == xFinal && y == yFinal - DIFY)) {
             if (movimientoHacia == VERTICALSUP) {
                 dy -= paso;
             } else if (movimientoHacia == VERTICALINF) {
@@ -665,7 +762,7 @@ public class Entidad {
             }
             intervaloEnvio++;
 
-            if (x == xFinal && y == yFinal - 32) {
+            if (x == xFinal && y == yFinal - DIFY) {
                 enMovimiento = false;
             }
         }
@@ -722,7 +819,8 @@ public class Entidad {
     public void graficar(final Graphics g) {
         drawX = (int) (x - juego.getCamara().getxOffset());
         drawY = (int) (y - juego.getCamara().getyOffset());
-        g.drawImage(getFrameAnimacionActual(), drawX, drawY + 4, ancho, alto,
+        g.drawImage(getFrameAnimacionActual(), drawX, drawY + INCREMENTOY,
+        		ancho, alto,
                 null);
     }
 
@@ -734,9 +832,10 @@ public class Entidad {
      */
     public void graficarNombre(final Graphics g) {
         g.setColor(Color.WHITE);
-        g.setFont(new Font("Book Antiqua", Font.BOLD, 15));
+        g.setFont(new Font("Book Antiqua", Font.BOLD, TAMFONT));
         Pantalla.centerString(g,
-                new java.awt.Rectangle(drawX + 32, drawY - 20, 0, 10), nombre);
+                new java.awt.Rectangle(drawX + MODIFICOX, drawY - MODIFICICOY,
+                		0, ALTURA), nombre);
     }
 
     /**
@@ -833,7 +932,7 @@ public class Entidad {
             if (estanEnDiagonal(grafoLibres.obtenerNodos()[nodoInicial],
                     grafoLibres.obtenerNodos()[adyacentes[i]
                             .obtenerIndice()])) {
-                vecCostos[adyacentes[i].obtenerIndice()] = 1.5;
+                vecCostos[adyacentes[i].obtenerIndice()] = COSTO;
             } else {
                 vecCostos[adyacentes[i].obtenerIndice()] = 1;
             }
@@ -868,7 +967,7 @@ public class Entidad {
                 if (estanEnDiagonal(grafoLibres.obtenerNodos()[indiceMinimo],
                         grafoLibres.obtenerNodos()[adyacentes[i]
                                 .obtenerIndice()])) {
-                    valorASumar = 1.5;
+                    valorASumar = COSTO;
                 }
                 if (vecCostos[indiceMinimo]
                         + valorASumar < vecCostos[adyacentes[i]

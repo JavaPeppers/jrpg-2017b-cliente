@@ -22,6 +22,14 @@ import mensajeria.Comando;
 @SuppressWarnings("serial")
 public class MenuInventario extends JFrame {
 
+    /** The Constant UBIC_Y. */
+    private static final int UBIC_Y = 140;
+
+    /** The Constant UBIC_X. */
+    private static final int UBIC_X = 900;
+
+    /** The Constant DIMENS_INVENT. */
+    private static final int DIMENS_INVENT = 600;
     /**
      * The cancelar.
      */
@@ -63,10 +71,11 @@ public class MenuInventario extends JFrame {
                     "Falló al iniciar el inventario");
 
         }
-        this.setBounds(600, 600, 600, 600);
+        this.setBounds(DIMENS_INVENT, DIMENS_INVENT, DIMENS_INVENT,
+                DIMENS_INVENT);
         this.pack();
         this.setLocationRelativeTo(null);
-        this.setLocation(900, 140);
+        this.setLocation(UBIC_X, UBIC_Y);
         this.setResizable(false);
         this.setVisible(true);
     }

@@ -33,6 +33,78 @@ import recursos.Recursos;
  */
 public class EstadoJuego extends Estado {
 
+    /** Constante YPARAM. */
+    private static final int YPARAM = 50;
+
+    /** Constante XPARAM. */
+    private static final int XPARAM = 300;
+
+    /** Constante ANCHOALTURA. */
+    private static final int ANCHOALTURA = 64;
+
+    /** Constante ALTURARECTANGULO. */
+    private static final int ALTURARECTANGULO = 10;
+
+    /** Constante YOFFSET. */
+    private static final int YOFFSET = 20;
+
+    /** Constante XOFFSET. */
+    private static final int XOFFSET = 32;
+
+    /** Constante TAMFONT. */
+    private static final int TAMFONT = 15;
+
+    /** Constante ALTOCHAT. */
+    private static final int ALTOCHAT = 35;
+
+    /** Constante ANCHOCHAT. */
+    private static final int ANCHOCHAT = 102;
+
+    /** Constante POSCHATY. */
+    private static final int POSCHATY = 524;
+
+    /** Constante POSCHATX. */
+    private static final int POSCHATX = 3;
+
+    /** Constante ALTOMENU. */
+    private static final int ALTOMENU = 35;
+
+    /** Constante ANCHOMENU. */
+    private static final int ANCHOMENU = 102;
+
+    /** Constante POSMENUY. */
+    private static final int POSMENUY = 562;
+
+    /** Constante POSMENUX. */
+    private static final int POSMENUX = 3;
+
+    /** Constante ALTOMOCHILA. */
+    private static final int ALTOMOCHILA = 52;
+
+    /** Constante ANCHOMOCHILA. */
+    private static final int ANCHOMOCHILA = 59;
+
+    /** Constante POSMOCHILAY. */
+    private static final int POSMOCHILAY = 545;
+
+    /** Constante POSMOCHILAX. */
+    private static final int POSMOCHILAX = 738;
+
+    /** Constante POSJUGADORY. */
+    private static final int POSJUGADORY = 5;
+
+    /** Constante POSJUGADORX. */
+    private static final int POSJUGADORX = 5;
+
+    /** Constante VELANIMACION. */
+    private static final int VELANIMACION = 150;
+
+    /** Constante ANCHOALTO. */
+    private static final int ANCHOALTO = 64;
+
+    /** Constante RAZA. */
+    private static final int RAZA = 5;
+
     /**
      * The entidad personaje.
      */
@@ -103,12 +175,12 @@ public class EstadoJuego extends Estado {
         mundo = new Mundo(juego, "recursos/" + getMundo() + ".txt",
                 "recursos/" + getMundo() + ".txt");
         paquetePersonaje = juego.getPersonaje();
-        entidadPersonaje = new Entidad(juego, mundo, 64, 64,
+        entidadPersonaje = new Entidad(juego, mundo, ANCHOALTO, ANCHOALTO,
                 juego.getPersonaje().getNombre(), 0, 0,
                 Recursos.getPersonaje().get(juego.getPersonaje().getRaza()),
-                150);
+                VELANIMACION);
         miniaturaPersonaje = Recursos.getPersonaje()
-                .get(paquetePersonaje.getRaza()).get(5)[0];
+                .get(paquetePersonaje.getRaza()).get(RAZA)[0];
 
         try {
             // Le envio al servidor que me conecte al mapa y mi posicion
@@ -151,11 +223,14 @@ public class EstadoJuego extends Estado {
         entidadPersonaje.graficarNombre(g);
         g.drawImage(Recursos.getMarco(), 0, 0, juego.getAncho(),
                 juego.getAlto(), null);
-        EstadoDePersonaje.dibujarEstadoDePersonaje(g, 5, 5, paquetePersonaje,
-                miniaturaPersonaje);
-        g.drawImage(Recursos.getMochila(), 738, 545, 59, 52, null);
-        g.drawImage(Recursos.getMenu(), 3, 562, 102, 35, null);
-        g.drawImage(Recursos.getChat(), 3, 524, 102, 35, null);
+        EstadoDePersonaje.dibujarEstadoDePersonaje(g, POSJUGADORX, POSJUGADORY,
+                paquetePersonaje, miniaturaPersonaje);
+        g.drawImage(Recursos.getMochila(), POSMOCHILAX, POSMOCHILAY,
+                ANCHOMOCHILA, ALTOMOCHILA, null);
+        g.drawImage(Recursos.getMenu(), POSMENUX, POSMENUY, ANCHOMENU, ALTOMENU,
+                null);
+        g.drawImage(Recursos.getChat(), POSCHATX, POSCHATY, ANCHOCHAT, ALTOCHAT,
+                null);
         if (haySolicitud) {
             menuEnemigo.graficar(g, tipoSolicitud);
         }
@@ -175,7 +250,7 @@ public class EstadoJuego extends Estado {
             int key;
             PaqueteEnemigo actual;
             g.setColor(Color.WHITE);
-            g.setFont(new Font("Book Antiqua", Font.PLAIN, 15));
+            g.setFont(new Font("Book Antiqua", Font.PLAIN, TAMFONT));
             while (it.hasNext()) {
                 key = it.next();
                 actual = enemigos.get(key);
@@ -183,16 +258,17 @@ public class EstadoJuego extends Estado {
                         .getEstado() == Estado.ESTADOJUEGO) {
                     Pantalla.centerString(g, new Rectangle(
                             (int) (actual.getX()
-                                    - juego.getCamara().getxOffset() + 32),
+                                    - juego.getCamara().getxOffset() + XOFFSET),
                             (int) (actual.getY()
-                                    - juego.getCamara().getyOffset() - 20),
-                            0, 10), enemigos.get(actual.getId()).getNombre());
-                    g.drawImage(Recursos.getSalvaje().get(5)[0],
+                                    - juego.getCamara().getyOffset() - YOFFSET),
+                            0, ALTURARECTANGULO),
+                            enemigos.get(actual.getId()).getNombre());
+                    g.drawImage(Recursos.getSalvaje().get(RAZA)[0],
                             (int) (actual.getX()
                                     - juego.getCamara().getxOffset()),
                             (int) (actual.getY()
                                     - juego.getCamara().getyOffset()),
-                            64, 64, null);
+                            ANCHOALTURA, ANCHOALTURA, null);
                 }
             }
         }
@@ -214,7 +290,7 @@ public class EstadoJuego extends Estado {
             int key;
             PaqueteMovimiento actual;
             g.setColor(Color.WHITE);
-            g.setFont(new Font("Book Antiqua", Font.PLAIN, 15));
+            g.setFont(new Font("Book Antiqua", Font.PLAIN, TAMFONT));
             while (it.hasNext()) {
                 key = it.next();
                 actual = ubicacionPersonajes.get(key);
@@ -225,10 +301,10 @@ public class EstadoJuego extends Estado {
                                 .getEstado() == Estado.ESTADOJUEGO) {
                     Pantalla.centerString(g, new Rectangle(
                             (int) (actual.getPosX()
-                                    - juego.getCamara().getxOffset() + 32),
+                                    - juego.getCamara().getxOffset() + XOFFSET),
                             (int) (actual.getPosY()
-                                    - juego.getCamara().getyOffset() - 20),
-                            0, 10),
+                                    - juego.getCamara().getyOffset() - YOFFSET),
+                            0, ALTURARECTANGULO),
                             personajesConectados.get(actual.getIdPersonaje())
                                     .getNombre());
                     g.drawImage(Recursos.getPersonaje()
@@ -239,7 +315,7 @@ public class EstadoJuego extends Estado {
                                     - juego.getCamara().getxOffset()),
                             (int) (actual.getPosY()
                                     - juego.getCamara().getyOffset()),
-                            64, 64, null);
+                            ANCHOALTURA, ANCHOALTURA, null);
                 }
             }
         }
@@ -261,17 +337,6 @@ public class EstadoJuego extends Estado {
      */
     private String getMundo() {
     	return MUNDOSDISPONIBLES.get(juego.getPersonaje().getMapa() - 1);
-//        int mundoParam = juego.getPersonaje().getMapa();
-//
-//        if (mundoParam == 1) {
-//            return "Aubenor";
-//        } else if (mundoParam == 2) {
-//            return "Aris";
-//        } else if (mundoParam == 3) {
-//            return "Eodrim";
-//        }
-//
-//        return null;
     }
 
     /**
@@ -288,7 +353,7 @@ public class EstadoJuego extends Estado {
             final int tipoSolicitudParam) {
         haySolicitud = b;
         // menu que mostrara al enemigo
-        menuEnemigo = new MenuInfoPersonaje(300, 50, enemigo);
+        menuEnemigo = new MenuInfoPersonaje(XPARAM, YPARAM, enemigo);
         this.tipoSolicitud = tipoSolicitudParam;
     }
 

@@ -35,6 +35,57 @@ import recursos.Recursos;
  */
 public class EstadoBatalla extends Estado {
 
+    /** The Constant TAMXNPC. */
+    private static final int TAMXNPC = 550;
+
+    /** The Constant TAMY. */
+    private static final int TAMY = 5;
+
+    /** The Constant TAMX. */
+    private static final int TAMX = 25;
+
+    /** The Constant POSYNPC. */
+    private static final int POSYNPC = 75;
+
+    /** The Constant POSXNPC. */
+    private static final int POSXNPC = 550;
+
+    /** The Constant RAZANPC. */
+    private static final int RAZANPC = 7;
+
+    /** The Constant POSYJUGADOR. */
+    private static final int POSYJUGADOR = 175;
+
+    /** The Constant RAZA. */
+    private static final int RAZA = 3;
+
+    /** The Constant EXPBASE. */
+    private static final int EXPBASE = 40;
+
+    /** The Constant ENERGIA. */
+    private static final int ENERGIA = 10;
+
+    /** The Constant HABENERGIA. */
+    private static final int HABENERGIA = 6;
+
+    /** The Constant HABCASTATRES. */
+    private static final int HABCASTATRES = 5;
+
+    /** The Constant HABCASTADOS. */
+    private static final int HABCASTADOS = 4;
+
+    /** The Constant HABCASTAUNO. */
+    private static final int HABCASTAUNO = 3;
+
+    /** The Constant YOFFSET. */
+    private static final int YOFFSET = 150;
+
+    /** The Constant XOFFSET. */
+    private static final int XOFFSET = 350;
+
+    /** The Constant QUINTARAZA. */
+    private static final int QUINTARAZA = 5;
+
     /**
      * The Constant ANCHURAALTURA.
      */
@@ -155,9 +206,9 @@ public class EstadoBatalla extends Estado {
         menuBatalla = new MenuBatalla(miTurno, personaje);
 
         miniaturaEnemigo = Recursos.getPersonaje().get(enemigo.getNombreRaza())
-                .get(5)[0];
+                .get(QUINTARAZA)[0];
         miniaturaPersonaje = Recursos.getPersonaje()
-                .get(personaje.getNombreRaza()).get(5)[0];
+                .get(personaje.getNombreRaza()).get(QUINTARAZA)[0];
 
         paqueteFinalizarBatalla = new PaqueteFinalizarBatalla();
         paqueteFinalizarBatalla.setId(personaje.getIdPersonaje());
@@ -180,8 +231,8 @@ public class EstadoBatalla extends Estado {
     @Override
     public void actualizar() {
 
-        juego.getCamara().setxOffset(-350);
-        juego.getCamara().setyOffset(150);
+        juego.getCamara().setxOffset(-XOFFSET);
+        juego.getCamara().setyOffset(YOFFSET);
 
         seRealizoAccion = false;
         haySpellSeleccionada = false;
@@ -212,7 +263,7 @@ public class EstadoBatalla extends Estado {
                     }
 
                     if (menuBatalla.getBotonClickeado(posMouse[0],
-                            posMouse[1]) == 3) {
+                            posMouse[1]) == HABCASTAUNO) {
                         if (personaje.puedeAtacar()) {
                             seRealizoAccion = true;
                             personaje.habilidadCasta1(enemigo);
@@ -221,7 +272,7 @@ public class EstadoBatalla extends Estado {
                     }
 
                     if (menuBatalla.getBotonClickeado(posMouse[0],
-                            posMouse[1]) == 4) {
+                            posMouse[1]) == HABCASTADOS) {
                         if (personaje.puedeAtacar()) {
                             seRealizoAccion = true;
                             personaje.habilidadCasta2(enemigo);
@@ -230,7 +281,7 @@ public class EstadoBatalla extends Estado {
                     }
 
                     if (menuBatalla.getBotonClickeado(posMouse[0],
-                            posMouse[1]) == 5) {
+                            posMouse[1]) == HABCASTATRES) {
                         if (personaje.puedeAtacar()) {
                             seRealizoAccion = true;
                             personaje.habilidadCasta3(enemigo);
@@ -239,9 +290,9 @@ public class EstadoBatalla extends Estado {
                     }
 
                     if (menuBatalla.getBotonClickeado(posMouse[0],
-                            posMouse[1]) == 6) {
+                            posMouse[1]) == HABENERGIA) {
                         seRealizoAccion = true;
-                        personaje.serEnergizado(10);
+                        personaje.serEnergizado(ENERGIA);
                         haySpellSeleccionada = true;
                     }
                 }
@@ -251,8 +302,8 @@ public class EstadoBatalla extends Estado {
                         juego.getEstadoJuego().setHaySolicitud(true,
                                 juego.getPersonaje(),
                                 MenuInfoPersonaje.MENUGANARBATALLA);
-                        if (personaje
-                                .ganarExperiencia(enemigo.getNivel() * 40)) {
+                        if (personaje.ganarExperiencia(
+                                enemigo.getNivel() * EXPBASE)) {
                             juego.getPersonaje().setNivel(personaje.getNivel());
                             juego.getEstadoJuego().setHaySolicitud(true,
                                     juego.getPersonaje(),
@@ -300,20 +351,23 @@ public class EstadoBatalla extends Estado {
         g.fillRect(0, 0, juego.getAncho(), juego.getAlto());
         mundo.graficar(g);
 
-        g.drawImage(Recursos.getPersonaje().get(paquetePersonaje.getRaza())
-                .get(3)[0], 0, 175, ANCHURAALTURA, ANCHURAALTURA, null);
         g.drawImage(
-                Recursos.getPersonaje().get(paqueteEnemigo.getRaza()).get(7)[0],
-                550, 75, ANCHURAALTURA, ANCHURAALTURA, null);
+                Recursos.getPersonaje().get(paquetePersonaje.getRaza())
+                        .get(RAZA)[0],
+                0, POSYJUGADOR, ANCHURAALTURA, ANCHURAALTURA, null);
+        g.drawImage(
+                Recursos.getPersonaje().get(paqueteEnemigo.getRaza())
+                        .get(RAZANPC)[0],
+                POSXNPC, POSYNPC, ANCHURAALTURA, ANCHURAALTURA, null);
 
         mundo.graficarObstaculos(g);
         menuBatalla.graficar(g);
 
         g.setColor(Color.GREEN);
 
-        EstadoDePersonaje.dibujarEstadoDePersonaje(g, 25, 5, personaje,
+        EstadoDePersonaje.dibujarEstadoDePersonaje(g, TAMX, TAMY, personaje,
                 miniaturaPersonaje);
-        EstadoDePersonaje.dibujarEstadoDePersonaje(g, 550, 5, enemigo,
+        EstadoDePersonaje.dibujarEstadoDePersonaje(g, TAMXNPC, TAMY, enemigo,
                 miniaturaEnemigo);
 
     }

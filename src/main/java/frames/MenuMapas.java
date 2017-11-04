@@ -32,6 +32,78 @@ import java.awt.event.KeyEvent;
 public class MenuMapas extends JFrame {
 
     /**
+     * The Constant SETMAPAEODRIM.
+     */
+    private static final int SETMAPAEODRIM = 3;
+
+    /**
+     * The Constant TAMANIOQUINCE.
+     */
+    private static final int TAMANIOQUINCE = 15;
+
+    /**
+     * The Constant TRES.
+     */
+    private static final int TRES = 3;
+
+    /**
+     * The Constant ELEGIRMAPA.
+     */
+    private static final int[] ELEGIRMAPA = {100, 100, 450, 300 };
+
+    /**
+     * The Constant WOMEELEGIRMAPA.
+     */
+    private static final int[] WOMEELEGIRMAPA = {100, 100, 450, 300 };
+
+    /**
+     * The Constant WOMEELEGIRMAPA2.
+     */
+    private static final int[] WOMEELEGIRMAPA2 = {5, 5, 5, 5 };
+
+    /**
+     * The Constant LAYAREDPANEL.
+     */
+    private static final int[] LAYAREDPANEL = {0, 0, 444, 271 };
+
+    /**
+     * The Constant ARIS.
+     */
+    private static final int[] ARIS = {204, 129, 32, 23 };
+
+    /**
+     * The Constant AUBENOR.
+     */
+    private static final int[] AUBENOR = {191, 72, 66, 23 };
+
+    /**
+     * The Constant EODRIM.
+     */
+    private static final int[] EODRIM = {198, 192, 53, 23 };
+
+    /**
+     * The Constant BOTONAUBENOR.
+     */
+    private static final int[] BOTONAUBENOR = {148, 72, 143, 23 };
+
+    /**
+     * The Constant BOTONARIS.
+     */
+    private static final int[] BOTONARIS = {148, 192, 143, 23 };
+
+    /**
+     * The Constant BOTONEODRIM.
+     */
+    private static final int[] BOTONEODRIM = {148, 130, 143, 23 };
+
+    /**
+     * The Constant LABELBACKGROUND.
+     */
+    private static final int[] LABELBACKGROUND = {0, 0, 444, 271 };
+    // private static final int[] = {};
+    // private static final int[] = {};
+
+    /**
      * The number map.
      */
     private static int numberMap = 0;
@@ -69,7 +141,8 @@ public class MenuMapas extends JFrame {
                 new Point(0, 0), "custom cursor"));
 
         setTitle("Elegir Mapa");
-        setBounds(100, 100, 450, 300);
+        setBounds(ELEGIRMAPA[0], ELEGIRMAPA[1], ELEGIRMAPA[2],
+                ELEGIRMAPA[TRES]);
 
         // En caso de cerrar
         addWindowListener(new WindowAdapter() {
@@ -86,48 +159,53 @@ public class MenuMapas extends JFrame {
         // Panel
         setTitle("WOME - Elegir Mapa");
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-        setBounds(100, 100, 450, 300);
+        setBounds(WOMEELEGIRMAPA[0], WOMEELEGIRMAPA[1], WOMEELEGIRMAPA[2],
+                WOMEELEGIRMAPA[TRES]);
         contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setBorder(new EmptyBorder(WOMEELEGIRMAPA2[0],
+                WOMEELEGIRMAPA2[1], WOMEELEGIRMAPA2[2], WOMEELEGIRMAPA2[TRES]));
         setContentPane(contentPane);
         contentPane.setLayout(null);
         setLocationRelativeTo(null);
         setResizable(false);
 
         JLayeredPane layeredPane = new JLayeredPane();
-        layeredPane.setBounds(0, 0, 444, 271);
+        layeredPane.setBounds(LAYAREDPANEL[0], LAYAREDPANEL[1], LAYAREDPANEL[2],
+                LAYAREDPANEL[TRES]);
         contentPane.add(layeredPane);
 
         // Mapa Aris
         JLabel lblAris = new JLabel("Aris");
-        lblAris.setBounds(204, 129, 32, 23);
+        lblAris.setBounds(ARIS[0], ARIS[1], ARIS[2], ARIS[TRES]);
         layeredPane.add(lblAris, new Integer(2));
         lblAris.setForeground(Color.WHITE);
-        lblAris.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        lblAris.setFont(new Font("Tahoma", Font.PLAIN, TAMANIOQUINCE));
 
         // Mapa Aubenor
         JLabel lblAubenor = new JLabel("Aubenor");
-        lblAubenor.setBounds(191, 72, 66, 23);
+        lblAubenor.setBounds(AUBENOR[0], AUBENOR[1], AUBENOR[2], AUBENOR[TRES]);
         layeredPane.add(lblAubenor, new Integer(2));
         lblAubenor.setForeground(Color.WHITE);
-        lblAubenor.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        lblAubenor.setFont(new Font("Tahoma", Font.PLAIN, TAMANIOQUINCE));
 
         // Mapa Eodrim
         JLabel lblEodrim = new JLabel("Eodrim");
-        lblEodrim.setBounds(198, 192, 53, 23);
+        lblEodrim.setBounds(EODRIM[0], EODRIM[1], EODRIM[2], EODRIM[TRES]);
         layeredPane.add(lblEodrim, new Integer(2));
         lblEodrim.setForeground(Color.WHITE);
-        lblEodrim.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        lblEodrim.setFont(new Font("Tahoma", Font.PLAIN, TAMANIOQUINCE));
 
         JButton btnAubenor = new JButton("");
-        btnAubenor.setBounds(148, 72, 143, 23);
+        btnAubenor.setBounds(BOTONAUBENOR[0], BOTONAUBENOR[1], BOTONAUBENOR[2],
+                BOTONAUBENOR[TRES]);
         layeredPane.add(btnAubenor, new Integer(1));
         btnAubenor.setFocusable(false);
         btnAubenor.setIcon(new ImageIcon(
                 MenuMapas.class.getResource("/frames/BotonMenu.png")));
 
         JButton btnEodrim = new JButton("");
-        btnEodrim.setBounds(148, 192, 143, 23);
+        btnEodrim.setBounds(BOTONEODRIM[0], BOTONEODRIM[1], BOTONEODRIM[2],
+                BOTONEODRIM[TRES]);
         layeredPane.add(btnEodrim, new Integer(1));
         btnEodrim.setFocusable(false);
         btnEodrim.setEnabled(false);
@@ -137,7 +215,7 @@ public class MenuMapas extends JFrame {
             @Override
             public void actionPerformed(final ActionEvent e) {
                 synchronized (cliente) {
-                    cliente.getPaquetePersonaje().setMapa(3);
+                    cliente.getPaquetePersonaje().setMapa(SETMAPAEODRIM);
                     cliente.notify();
                 }
                 dispose();
@@ -147,7 +225,8 @@ public class MenuMapas extends JFrame {
         btnEodrim.setEnabled(false);
 
         JButton btnAris = new JButton("");
-        btnAris.setBounds(148, 130, 143, 23);
+        btnAris.setBounds(BOTONARIS[0], BOTONARIS[1], BOTONARIS[2],
+                BOTONARIS[TRES]);
         layeredPane.add(btnAris, new Integer(1));
         btnAris.setFocusable(false);
         btnAris.setIcon(new ImageIcon(
@@ -167,7 +246,8 @@ public class MenuMapas extends JFrame {
         btnAris.setEnabled(true);
 
         JLabel lblBackground = new JLabel("");
-        lblBackground.setBounds(0, 0, 444, 271);
+        lblBackground.setBounds(LABELBACKGROUND[0], LABELBACKGROUND[1],
+                LABELBACKGROUND[2], LABELBACKGROUND[TRES]);
         layeredPane.add(lblBackground, new Integer(0));
         lblBackground.setIcon(new ImageIcon(
                 MenuMapas.class.getResource("/frames/menuBackground.jpg")));
@@ -192,7 +272,8 @@ public class MenuMapas extends JFrame {
     }
 
     /**
-     * @param numberMapParam the numberMap to set
+     * @param numberMapParam
+     *            the numberMap to set
      */
     public static void setNumberMap(final int numberMapParam) {
         MenuMapas.numberMap = numberMapParam;

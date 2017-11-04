@@ -9,9 +9,19 @@ import java.awt.image.BufferedImage;
 public class Tile {
 
     /**
+     * The Constant BASESMUNDOS.
+     */
+    private static final int BASESMUNDOS = 3;
+
+    /**
+     * The Constant TAMANIOTILES.
+     */
+    private static final int TAMANIOTILES = 256;
+
+    /**
      * The tiles.
      */
-    private static Tile[] tiles = new Tile[256];
+    private static Tile[] tiles = new Tile[TAMANIOTILES];
 
     /**
      * The aubenor.
@@ -26,12 +36,12 @@ public class Tile {
     /**
      * es el piso de aubenor por defecto si queres llamarlo asi, es gris.
      */
-    private static int arisBase = 3;
+    private static int arisBase = BASESMUNDOS;
 
     /**
      * The aubenor base.
      */
-    private static int aubenorBase = 3;
+    private static int aubenorBase = BASESMUNDOS;
 
     /**
      * The Constant ANCHO.

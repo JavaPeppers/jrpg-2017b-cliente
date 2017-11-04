@@ -30,8 +30,56 @@ import recursos.Recursos;
  */
 public class EstadoBatallaNPC extends Estado {
 
+    /** Constante TAMXNPC. */
+    private static final int TAMXNPC = 550;
+
+    /** Constante TAMY. */
+    private static final int TAMY = 5;
+
+    /** Constante TAMX. */
+    private static final int TAMX = 25;
+
+    /** Constante POSYNPC. */
+    private static final int POSYNPC = 75;
+
+    /** Constante POSXNPC. */
+    private static final int POSXNPC = 550;
+
+    /** Constante RAZANPC. */
+    private static final int RAZANPC = 7;
+
+    /** Constante POSYJUGADOR. */
+    private static final int POSYJUGADOR = 175;
+
+    /** Constante RAZAJUGADOR. */
+    private static final int RAZAJUGADOR = 3;
+
+    /** Constante HABENERGIA. */
+    private static final int HABENERGIA = 6;
+
+    /** Constante ENERGIA. */
+    private static final int ENERGIA = 10;
+
+    /** Constante HABCASTATRES. */
+    private static final int HABCASTATRES = 5;
+
+    /** Constante HABCASTADOS. */
+    private static final int HABCASTADOS = 4;
+
+    /** Constante HABCASTAUNO. */
+    private static final int HABCASTAUNO = 3;
+
+    /** Constante YOFFSET. */
+    private static final int YOFFSET = 150;
+
+    /** Constante XOFFSET. */
+    private static final int XOFFSET = 350;
+
+    /** Constante RAZA. */
+    private static final int RAZA = 5;
+
     /**
-     * The Constant ANCHURAALTURA.
+     * Constante ANCHURAALTURA.
      */
     private static final int ANCHURAALTURA = 256;
 
@@ -111,7 +159,7 @@ public class EstadoBatallaNPC extends Estado {
     private MenuBatalla menuBatalla;
 
     /**
-     * The Constant PUNTOSSKILLSPORNIVEL.
+     * Constante PUNTOSSKILLSPORNIVEL.
      */
     private static final int PUNTOSSKILLSPORNIVEL = 3;
 
@@ -138,9 +186,9 @@ public class EstadoBatallaNPC extends Estado {
 
         menuBatalla = new MenuBatalla(miTurno, personaje);
 
-        miniaturaEnemigo = Recursos.getSalvaje().get(5)[0];
-        miniaturaPersonaje = Recursos.getPersonaje().
-                get(personaje.getNombreRaza()).get(5)[0];
+        miniaturaEnemigo = Recursos.getSalvaje().get(RAZA)[0];
+        miniaturaPersonaje = Recursos.getPersonaje()
+                .get(personaje.getNombreRaza()).get(RAZA)[0];
 
         paqueteFinalizarBatalla = new PaqueteFinalizarBatallaNPC();
         paqueteFinalizarBatalla.setId(personaje.getIdPersonaje());
@@ -161,8 +209,8 @@ public class EstadoBatallaNPC extends Estado {
      */
     @Override
     public void actualizar() {
-        juego.getCamara().setxOffset(-350);
-        juego.getCamara().setyOffset(150);
+        juego.getCamara().setxOffset(-XOFFSET);
+        juego.getCamara().setyOffset(YOFFSET);
 
         seRealizoAccion = false;
         haySpellSeleccionada = false;
@@ -193,7 +241,7 @@ public class EstadoBatallaNPC extends Estado {
                     }
 
                     if (menuBatalla.getBotonClickeado(posMouse[0],
-                            posMouse[1]) == 3) {
+                            posMouse[1]) == HABCASTAUNO) {
                         if (personaje.puedeAtacar()) {
                             seRealizoAccion = true;
                             personaje.habilidadCasta1(enemigo);
@@ -202,7 +250,7 @@ public class EstadoBatallaNPC extends Estado {
                     }
 
                     if (menuBatalla.getBotonClickeado(posMouse[0],
-                            posMouse[1]) == 4) {
+                            posMouse[1]) == HABCASTADOS) {
                         if (personaje.puedeAtacar()) {
                             seRealizoAccion = true;
                             personaje.habilidadCasta2(enemigo);
@@ -211,7 +259,7 @@ public class EstadoBatallaNPC extends Estado {
                     }
 
                     if (menuBatalla.getBotonClickeado(posMouse[0],
-                            posMouse[1]) == 5) {
+                            posMouse[1]) == HABCASTATRES) {
                         if (personaje.puedeAtacar()) {
                             seRealizoAccion = true;
                             personaje.habilidadCasta3(enemigo);
@@ -220,9 +268,9 @@ public class EstadoBatallaNPC extends Estado {
                     }
 
                     if (menuBatalla.getBotonClickeado(posMouse[0],
-                            posMouse[1]) == 6) {
+                            posMouse[1]) == HABENERGIA) {
                         seRealizoAccion = true;
-                        personaje.serEnergizado(10);
+                        personaje.serEnergizado(ENERGIA);
                         haySpellSeleccionada = true;
                     }
                 }
@@ -375,19 +423,20 @@ public class EstadoBatallaNPC extends Estado {
         mundo.graficar(g);
 
         g.drawImage(
-                Recursos.getPersonaje().get(paquetePersonaje.getRaza()).
-                get(3)[0], 0, 175, ANCHURAALTURA, ANCHURAALTURA, null);
-        g.drawImage(Recursos.getSalvaje().get(7)[0], 550, 75, ANCHURAALTURA,
-                ANCHURAALTURA, null);
+                Recursos.getPersonaje().get(paquetePersonaje.getRaza())
+                        .get(RAZAJUGADOR)[0],
+                0, POSYJUGADOR, ANCHURAALTURA, ANCHURAALTURA, null);
+        g.drawImage(Recursos.getSalvaje().get(RAZANPC)[0], POSXNPC, POSYNPC,
+                ANCHURAALTURA, ANCHURAALTURA, null);
 
         mundo.graficarObstaculos(g);
         menuBatalla.graficar(g);
 
         g.setColor(Color.GREEN);
 
-        EstadoDePersonaje.dibujarEstadoDePersonaje(g, 25, 5, personaje,
+        EstadoDePersonaje.dibujarEstadoDePersonaje(g, TAMX, TAMY, personaje,
                 miniaturaPersonaje);
-        EstadoEnemigo.dibujarEstadoDeEnemigo(g, 550, 5, enemigo,
+        EstadoEnemigo.dibujarEstadoDeEnemigo(g, TAMXNPC, TAMY, enemigo,
                 miniaturaEnemigo);
     }
 

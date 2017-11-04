@@ -6,6 +6,11 @@ package mundo;
 public class Nodo {
 
     /**
+     * The Constant NODOSADYACENTES.
+     */
+    private static final int NODOSADYACENTES = 8;
+
+    /**
      * The x.
      */
     private int x;
@@ -45,7 +50,7 @@ public class Nodo {
         this.y = yParam;
         this.indice = indiceParam;
         cantidadDeAdyacentes = 0;
-        nodosAdyacentes = new Nodo[8];
+        nodosAdyacentes = new Nodo[NODOSADYACENTES];
     }
 
     /**
