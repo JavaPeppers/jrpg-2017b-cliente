@@ -52,31 +52,6 @@ public class Pantalla {
      */
     private Canvas canvas;
 
-//    /**
-//     * The menu inventario.
-//     */
-//    // Menus
-//    private static MenuInventario menuInventario;
-
-//    /**
-//     * The menu asignar.
-//     */
-//    private static MenuAsignarSkills menuAsignar;
-
-//    /**
-//     * The menu stats.
-//     */
-//    private static MenuStats menuStats;
-
-//    /**
-//     * The menu escp.
-//     */
-//    private static MenuEscape menuEscp;
-
-//    /**
-//     * The vent contac.
-//     */
-//    private static VentanaContactos ventContac;
 
 	/**
      * The gson.
