@@ -301,7 +301,9 @@ public class EstadoJuego extends Estado {
                         && actual.getIdPersonaje() != juego.getPersonaje()
                                 .getId()
                         && personajesConectados.get(actual.getIdPersonaje())
-                                .getEstado() == Estado.ESTADOJUEGO) {
+                                .getEstado() == Estado.ESTADOJUEGO
+                        && personajesConectados.get(actual.getIdPersonaje()).getMapa()
+                        == juego.getPersonaje().getMapa()) {
                     Pantalla.centerString(g, new Rectangle(
                             (int) (actual.getPosX()
                                     - juego.getCamara().getxOffset() + XOFFSET),

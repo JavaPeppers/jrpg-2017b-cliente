@@ -23,12 +23,17 @@ import com.google.gson.Gson;
 
 import chat.VentanaContactos;
 import cliente.Cliente;
-import estados.Estado;
 import frames.MenuAsignarSkills;
 import frames.MenuEscape;
 import frames.MenuInventario;
 import frames.MenuJugar;
 import frames.MenuStats;
+import keyEvents.Controlador;
+import keyEvents.TeclaA;
+import keyEvents.TeclaC;
+import keyEvents.TeclaEsc;
+import keyEvents.TeclaI;
+import keyEvents.TeclaS;
 import mensajeria.Comando;
 import mensajeria.Paquete;
 
@@ -47,33 +52,33 @@ public class Pantalla {
      */
     private Canvas canvas;
 
-    /**
-     * The menu inventario.
-     */
-    // Menus
-    private static MenuInventario menuInventario;
+//    /**
+//     * The menu inventario.
+//     */
+//    // Menus
+//    private static MenuInventario menuInventario;
 
-    /**
-     * The menu asignar.
-     */
-    private static MenuAsignarSkills menuAsignar;
+//    /**
+//     * The menu asignar.
+//     */
+//    private static MenuAsignarSkills menuAsignar;
 
-    /**
-     * The menu stats.
-     */
-    private static MenuStats menuStats;
+//    /**
+//     * The menu stats.
+//     */
+//    private static MenuStats menuStats;
 
-    /**
-     * The menu escp.
-     */
-    private static MenuEscape menuEscp;
+//    /**
+//     * The menu escp.
+//     */
+//    private static MenuEscape menuEscp;
 
-    /**
-     * The vent contac.
-     */
-    private static VentanaContactos ventContac;
+//    /**
+//     * The vent contac.
+//     */
+//    private static VentanaContactos ventContac;
 
-    /**
+	/**
      * The gson.
      */
     private final Gson gson = new Gson();
@@ -125,42 +130,8 @@ public class Pantalla {
         pantalla.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(final KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_I) {
-                    if (Estado.getEstado().esEstadoDeJuego()) {
-                        if (menuInventario == null) {
-                            menuInventario = new MenuInventario(cliente);
-                            menuInventario.setVisible(true);
-                        }
-                    }
-                } else if (e.getKeyCode() == KeyEvent.VK_A) {
-                    if (Estado.getEstado().esEstadoDeJuego()) {
-                        if (menuAsignar == null) {
-                            menuAsignar = new MenuAsignarSkills(cliente);
-                            menuAsignar.setVisible(true);
-                        }
-                    }
-                } else if (e.getKeyCode() == KeyEvent.VK_S) {
-                    if (Estado.getEstado().esEstadoDeJuego()) {
-                        if (menuStats == null) {
-                            menuStats = new MenuStats(cliente);
-                            menuStats.setVisible(true);
-                        }
-                    }
-                } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    if (Estado.getEstado().esEstadoDeJuego()) {
-                        if (menuEscp == null) {
-                            menuEscp = new MenuEscape(cliente);
-                            menuEscp.setVisible(true);
-                        }
-                    }
-                } else if (e.getKeyCode() == KeyEvent.VK_C) {
-                    // if(Estado.getEstado().esEstadoDeJuego()) {
-                    if (ventContac == null) {
-                        ventContac = new VentanaContactos(cliente.getJuego());
-                        ventContac.setVisible(true);
-                    }
-                    // }
-                }
+            	Controlador controller = new Controlador();
+            	controller.ejecutarAccion(e.getKeyCode(), cliente);	
             }
         });
 
@@ -192,7 +163,7 @@ public class Pantalla {
      * @return ventContac
      */
     public static VentanaContactos getVentContac() {
-        return ventContac;
+        return TeclaC.getVentContac();
     }
 
     /**
@@ -202,7 +173,7 @@ public class Pantalla {
      *            ventana contactos a setear.
      */
     public static void setVentContac(final VentanaContactos ventContacParam) {
-        Pantalla.ventContac = ventContacParam;
+        TeclaC.setVentContac(ventContacParam);
     }
 
     /**
@@ -251,7 +222,7 @@ public class Pantalla {
      * @return the menuAsignar
      */
     public static MenuAsignarSkills getMenuAsignar() {
-        return menuAsignar;
+        return TeclaA.getMenuAsignar();
     }
 
     /**
@@ -260,14 +231,14 @@ public class Pantalla {
      */
     public static void setMenuAsignar(
             final MenuAsignarSkills menuAsignarParam) {
-        Pantalla.menuAsignar = menuAsignarParam;
+        TeclaA.setMenuAsignar(menuAsignarParam);
     }
 
     /**
      * @return the menuInventario
      */
     public static MenuInventario getMenuInventario() {
-        return menuInventario;
+        return TeclaI.getMenuInventario();
     }
 
     /**
@@ -276,14 +247,14 @@ public class Pantalla {
      */
     public static void setMenuInventario(
             final MenuInventario menuInventarioParam) {
-        Pantalla.menuInventario = menuInventarioParam;
+        TeclaI.setMenuInventario(menuInventarioParam);
     }
 
     /**
      * @return the menuStats
      */
     public static MenuStats getMenuStats() {
-        return menuStats;
+        return TeclaS.getMenuStats();
     }
 
     /**
@@ -291,14 +262,14 @@ public class Pantalla {
      *            the menuStats to set
      */
     public static void setMenuStats(final MenuStats menuStatsParam) {
-        Pantalla.menuStats = menuStatsParam;
+        TeclaS.setMenuStats(menuStatsParam);
     }
 
     /**
      * @return the menuEscp
      */
     public static MenuEscape getMenuEscp() {
-        return menuEscp;
+        return TeclaEsc.getMenuEscp();
     }
 
     /**
@@ -306,6 +277,7 @@ public class Pantalla {
      *            the menuEscp to set
      */
     public static void setMenuEscp(final MenuEscape menuEscpParam) {
-        Pantalla.menuEscp = menuEscpParam;
+        TeclaEsc.setMenuEscp(menuEscpParam);
     }
+
 }
