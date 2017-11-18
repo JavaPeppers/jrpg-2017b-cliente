@@ -197,7 +197,7 @@ public class MiChat extends JFrame {
 	                                "Error al enviar paquetePersonaje");
 						}
                     }else if(mensaje.equals("tinydaddy")) {
-                    	juego.getPersonaje().setTinnyDaddy();
+                    	juego.getPersonaje().setTinyDaddy();
                     	juego.getCliente().getPaquetePersonaje().setComando(Comando.TINYDADDY);
                     	try {
 							juego.getCliente().getSalida().writeObject(gson.toJson(
@@ -237,33 +237,35 @@ public class MiChat extends JFrame {
 	                                "Error al enviar paquetePersonaje");
 						}
                     }
-                    juego.getCliente().getPaqueteMensaje()
-                            .setUserEmisor(juego.getPersonaje().getNombre());
-                    juego.getCliente().getPaqueteMensaje()
-                            .setUserReceptor(getTitle());
-                    juego.getCliente().getPaqueteMensaje()
-                            .setMensaje(texto.getText());
-
-                    // MANDO EL COMANDO PARA QUE ENVIE EL MSJ
-                    juego.getCliente().getPaqueteMensaje()
-                            .setComando(Comando.TALK);
-                    // El user receptor en espacio indica que es para todos
-                    if (getTitle() == "Sala") {
-                        juego.getCliente().getPaqueteMensaje()
-                                .setUserReceptor(null);
+                    else {
+	                    juego.getCliente().getPaqueteMensaje()
+	                            .setUserEmisor(juego.getPersonaje().getNombre());
+	                    juego.getCliente().getPaqueteMensaje()
+	                            .setUserReceptor(getTitle());
+	                    juego.getCliente().getPaqueteMensaje()
+	                            .setMensaje(texto.getText());
+	
+	                    // MANDO EL COMANDO PARA QUE ENVIE EL MSJ
+	                    juego.getCliente().getPaqueteMensaje()
+	                            .setComando(Comando.TALK);
+	                    // El user receptor en espacio indica que es para todos
+	                    if (getTitle() == "Sala") {
+	                        juego.getCliente().getPaqueteMensaje()
+	                                .setUserReceptor(null);
+	                    }
+	
+	                    try {
+	                        juego.getCliente().getSalida().writeObject(gson.toJson(
+	                                juego.getCliente().getPaqueteMensaje()));
+	                    } catch (IOException e1) {
+	                        JOptionPane.showMessageDialog(null,
+	                                "Error al enviar mensaje");
+	                    }
                     }
-
-                    try {
-                        juego.getCliente().getSalida().writeObject(gson.toJson(
-                                juego.getCliente().getPaqueteMensaje()));
-                    } catch (IOException e1) {
-                        JOptionPane.showMessageDialog(null,
-                                "Error al enviar mensaje");
-                    }
-                    texto.setText("");
-                }
-                texto.requestFocus();
-            }
+	                    texto.setText("");
+	                }
+	                texto.requestFocus();
+	            }
         });
 
         // SI TOCO ENVIAR

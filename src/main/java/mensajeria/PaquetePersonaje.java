@@ -124,12 +124,15 @@ public class PaquetePersonaje extends Paquete
 		this.modoDios = modoDios;
 	}
 
-	public void setTinnyDaddy() {
+	public void setTinyDaddy() {
 		this.fuerza /= DADDY;
 	}
 
 	public void setBigDaddy() {
-		this.fuerza *= DADDY;
+		if(this.fuerza == 0)
+			this.fuerza = 1;
+		else
+			this.fuerza *= DADDY;
 	}
 	
 	public void setAtravesarParedes() {
