@@ -14,6 +14,8 @@ import estados.Estado;
 @SuppressWarnings("serial")
 public class PaquetePersonaje extends Paquete
         implements Serializable, Cloneable {
+	
+	private static final int DADDY = 2;
 
     /**
      * The id.
@@ -99,8 +101,50 @@ public class PaquetePersonaje extends Paquete
      * The inteligencia skill.
      */
     private int inteligenciaSkill;
+    
+    private boolean modoDios;
+    
+    private boolean modoInvisible;
+    
+    private boolean modoAtravesarParedes;
 
-    /**
+    public int getIdMapa() {
+		return idMapa;
+	}
+
+	public void setIdMapa(int idMapa) {
+		this.idMapa = idMapa;
+	}
+
+	public boolean isModoDios() {
+		return modoDios;
+	}
+
+	public void setModoDios(boolean modoDios) {
+		this.modoDios = modoDios;
+	}
+
+	public void setTinnyDaddy() {
+		this.fuerza /= DADDY;
+	}
+
+	public void setBigDaddy() {
+		this.fuerza *= DADDY;
+	}
+	
+	public void setAtravesarParedes() {
+		this.modoAtravesarParedes = !(this.modoAtravesarParedes == false);
+	}
+	
+	public void setModoDios() {
+		this.modoDios = !(this.modoDios == false);
+	}
+	
+	public void setModoInvisible() {
+		this.modoInvisible = !(this.modoInvisible == false);
+	}
+	
+	/**
      * The items.
      */
     private ArrayList<Item> items = new ArrayList<Item>();

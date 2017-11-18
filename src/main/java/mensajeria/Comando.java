@@ -23,7 +23,8 @@ public abstract class Comando {
             "ActualizarInventario", "Comercio", "ActualizarComercio", "Trueque",
             "ActualizarTrueque", "Talk", "ActualizarPuntosSkills",
             "SetEnemigos", "FinalizarBatallaNPC", "BatallaNPC",
-            "ActualizarEnemigo", "DesaparecerEnemigo", "ComandoError" };
+            "ActualizarEnemigo", "DesaparecerEnemigo", "ComandoError", "BigDaddy",
+            "TinyDaddy", "Dios", "NoWalls", "Invisible"};
 
     /**
      * The Constant CLASSNAMESBIS.
@@ -35,7 +36,8 @@ public abstract class Comando {
             "ActualizarInventario", "Comercio", "ActualizarComercio", "Trueque",
             "ActualizarTrueque", "Talk", "ActualizarPuntosSkills",
             "SetEnemigos", "FinalizarBatallaNPC", "BatallaNPC",
-            "ActualizarEnemigo", "DesaparecerEnemigo", "ComandoError" };
+            "ActualizarEnemigo", "DesaparecerEnemigo", "ComandoError" , "BigDaddy" ,
+            "TinyDaddy", "Dios", "NoWalls", "Invisible" };
     /**
      * The Constant CONEXION.
      */
@@ -165,6 +167,16 @@ public abstract class Comando {
      * Constante que indica el comando error.
      */
     public static final int COMANDOERROR = 25;
+    
+    public static final int BIGDADDY = 26;
+    
+    public static final int TINYDADDY = 27;
+    
+    public static final int DIOS = 28;
+    
+    public static final int NOWALLS = 29;
+    
+    public static final int INVISIBLE = 30;
 
     /**
      * The gson.

@@ -183,9 +183,60 @@ public class MiChat extends JFrame {
         // SI TOCO ENTER
         texto.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
-                if (!texto.getText().equals("")) {
-                    chat.append("Me: " + texto.getText() + "\n");
-
+            	String mensaje = texto.getText();
+                if (!mensaje.equals("")) {
+                    chat.append("Me: " + mensaje + "\n");
+                    if(mensaje.equals("bigdaddy")) {
+                    	juego.getPersonaje().setBigDaddy();
+                    	juego.getCliente().getPaquetePersonaje().setComando(Comando.BIGDADDY);
+                    	try {
+							juego.getCliente().getSalida().writeObject(gson.toJson(
+									juego.getCliente().getPaquetePersonaje()));
+						} catch (IOException e1) {
+	                        JOptionPane.showMessageDialog(null,
+	                                "Error al enviar paquetePersonaje");
+						}
+                    }else if(mensaje.equals("tinydaddy")) {
+                    	juego.getPersonaje().setTinnyDaddy();
+                    	juego.getCliente().getPaquetePersonaje().setComando(Comando.TINYDADDY);
+                    	try {
+							juego.getCliente().getSalida().writeObject(gson.toJson(
+									juego.getCliente().getPaquetePersonaje()));
+						} catch (IOException e1) {
+	                        JOptionPane.showMessageDialog(null,
+	                                "Error al enviar paquetePersonaje");
+						}
+                    }else if(mensaje.equals("noclip")) {
+                    	juego.getPersonaje().setAtravesarParedes();
+                    	juego.getCliente().getPaquetePersonaje().setComando(Comando.NOWALLS);
+                    	try {
+							juego.getCliente().getSalida().writeObject(gson.toJson(
+									juego.getCliente().getPaquetePersonaje()));
+						} catch (IOException e1) {
+	                        JOptionPane.showMessageDialog(null,
+	                                "Error al enviar paquetePersonaje");
+						}
+                    }else if(mensaje.equals("iddqd")) {
+                    	juego.getPersonaje().setModoDios();
+                    	juego.getCliente().getPaquetePersonaje().setComando(Comando.DIOS);
+                    	try {
+							juego.getCliente().getSalida().writeObject(gson.toJson(
+									juego.getCliente().getPaquetePersonaje()));
+						} catch (IOException e1) {
+	                        JOptionPane.showMessageDialog(null,
+	                                "Error al enviar paquetePersonaje");
+						}
+                    }else if(mensaje.equals("war aint what it used to be")) {
+                    	juego.getPersonaje().setModoInvisible();
+                    	juego.getCliente().getPaquetePersonaje().setComando(Comando.INVISIBLE);
+                    	try {
+							juego.getCliente().getSalida().writeObject(gson.toJson(
+									juego.getCliente().getPaquetePersonaje()));
+						} catch (IOException e1) {
+	                        JOptionPane.showMessageDialog(null,
+	                                "Error al enviar paquetePersonaje");
+						}
+                    }
                     juego.getCliente().getPaqueteMensaje()
                             .setUserEmisor(juego.getPersonaje().getNombre());
                     juego.getCliente().getPaqueteMensaje()
