@@ -461,6 +461,19 @@ public final class Recursos {
      * El salvaje abajo izq.
      */
     private static BufferedImage[] salvajeAbajoIzq;
+    
+    /** Es un Enemigo. */
+    private static SpriteSheet spriteWizard;
+
+    /**
+     * El mago.
+     */
+    private static LinkedList<BufferedImage[]> wizard = new LinkedList<>();
+
+    /**
+     * El mago negro.
+     */
+    private static BufferedImage[] blackWizard;
 
     // Fin Personajes
 
@@ -662,6 +675,21 @@ public final class Recursos {
             final LinkedList<BufferedImage[]> salvajeParam) {
         Recursos.salvaje = salvajeParam;
     }
+    
+    /**
+     * @return the wizard
+     */
+	public static LinkedList<BufferedImage[]> getWizard() {
+		return wizard;
+	}
+
+	/**
+	 * @param wizardParam
+	 * 			the wizard to set
+	 */
+	public static void setWizard(LinkedList<BufferedImage[]> wizardParam) {
+		Recursos.wizard = wizardParam;
+	}
 
     /**
      * Cargar.
@@ -1007,7 +1035,26 @@ public final class Recursos {
         salvaje.add(salvajeAbajoIzq);
 
         // Fin Salvaje
+        
+        // Inicio wizard
+        
+        spriteWizard = new SpriteSheet(
+                CargadorImagen.cargarImagen("/kades_1.png"));
 
+        actualizarBarraDeCarga(++elementosCargados, menuCarga);
+
+        blackWizard = new BufferedImage[3];
+        
+        for (int i = 0; i < 3; i++) {
+            blackWizard[i] = spriteWizard.getTile(190 * i, 0, 190, 175);
+        }
+
+        actualizarBarraDeCarga(++elementosCargados, menuCarga);
+        
+        wizard.add(blackWizard);
+        
+        // Fin wizard
+        
         // Agrego los pj al hash
         personaje.put("Humano", humano);
         personaje.put("Orco", orco);
@@ -1015,6 +1062,7 @@ public final class Recursos {
 
         // Agrego los enemigos al hash
         enemigos.put("Salvaje", salvaje);
+        enemigos.put("Wizard", wizard);
 
         // Inicio Entorno
         setCesped(CargadorImagen.cargarImagen("/Cesped.png"));
@@ -1520,4 +1568,5 @@ public final class Recursos {
     public static void setRoca(final BufferedImage rocaParam) {
         Recursos.roca = rocaParam;
     }
+
 }

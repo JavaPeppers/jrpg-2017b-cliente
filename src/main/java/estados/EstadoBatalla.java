@@ -181,6 +181,8 @@ public class EstadoBatalla extends Estado {
      */
     private static final int PUNTOSSKILLSPORNIVEL = 3;
 
+	private static final int ENERGIAMINIMA = 10;
+
     /**
      * Instantiates a new estado batalla.
      *
@@ -248,7 +250,10 @@ public class EstadoBatalla extends Estado {
                             posMouse[1]) == 1) {
                         if (personaje.puedeAtacar()) {
                             seRealizoAccion = true;
-                            personaje.habilidadRaza1(enemigo);
+                            if(!paqueteEnemigo.isModoDios() || (paquetePersonaje.isModoDios() && paqueteEnemigo.isModoDios()))
+                            	personaje.habilidadRaza1(enemigo);
+                            if (personaje.getEnergia() >= ENERGIAMINIMA) 
+                    			personaje.reducirEnergia(ENERGIAMINIMA);
                         }
                         haySpellSeleccionada = true;
                     }
@@ -257,7 +262,10 @@ public class EstadoBatalla extends Estado {
                             posMouse[1]) == 2) {
                         if (personaje.puedeAtacar()) {
                             seRealizoAccion = true;
-                            personaje.habilidadRaza2(enemigo);
+                            if(!paqueteEnemigo.isModoDios() || (paquetePersonaje.isModoDios() && paqueteEnemigo.isModoDios()))
+                            	personaje.habilidadRaza2(enemigo);
+                            if (personaje.getEnergia() >= ENERGIAMINIMA) 
+                    			personaje.reducirEnergia(ENERGIAMINIMA);
                         }
                         haySpellSeleccionada = true;
                     }
@@ -266,7 +274,10 @@ public class EstadoBatalla extends Estado {
                             posMouse[1]) == HABCASTAUNO) {
                         if (personaje.puedeAtacar()) {
                             seRealizoAccion = true;
-                            personaje.habilidadCasta1(enemigo);
+                            if(!paqueteEnemigo.isModoDios() || (paquetePersonaje.isModoDios() && paqueteEnemigo.isModoDios()))
+                            	personaje.habilidadCasta1(enemigo);
+                            if (personaje.getEnergia() >= ENERGIAMINIMA) 
+                    			personaje.reducirEnergia(ENERGIAMINIMA);
                         }
                         haySpellSeleccionada = true;
                     }
@@ -275,7 +286,10 @@ public class EstadoBatalla extends Estado {
                             posMouse[1]) == HABCASTADOS) {
                         if (personaje.puedeAtacar()) {
                             seRealizoAccion = true;
-                            personaje.habilidadCasta2(enemigo);
+                            if(!enemigo.isModoDios() || (personaje.isModoDios() && enemigo.isModoDios()))
+                            	personaje.habilidadCasta2(enemigo);
+                            if (personaje.getEnergia() >= ENERGIAMINIMA) 
+                    			personaje.reducirEnergia(ENERGIAMINIMA);
                         }
                         haySpellSeleccionada = true;
                     }
@@ -284,7 +298,10 @@ public class EstadoBatalla extends Estado {
                             posMouse[1]) == HABCASTATRES) {
                         if (personaje.puedeAtacar()) {
                             seRealizoAccion = true;
-                            personaje.habilidadCasta3(enemigo);
+                            if(!enemigo.isModoDios() || (personaje.isModoDios() && enemigo.isModoDios()))
+                            	personaje.habilidadCasta3(enemigo);
+                            if (personaje.getEnergia() >= ENERGIAMINIMA) 
+                    			personaje.reducirEnergia(ENERGIAMINIMA);
                         }
                         haySpellSeleccionada = true;
                     }

@@ -182,6 +182,10 @@ public final class EstadoDePersonaje {
 
         g.drawImage(Recursos.getBarraEnergia(), x + SUMAXBARRAENERGIA,
                 y + SUMAYBARRAENERGIA, drawBarra, ALTOENERGIA, null);
+        
+        if(personaje.isModoDios())
+        	g.drawString("ModoDios", 82, 44);
+        
         g.drawString(
                 String.valueOf(personaje.getEnergia()) + " / "
                         + String.valueOf(personaje.getEnergiaTope()),

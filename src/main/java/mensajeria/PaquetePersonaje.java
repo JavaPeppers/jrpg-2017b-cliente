@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import dominio.Item;
+import dominio.Personaje;
 import estados.Estado;
 
 /**
@@ -102,51 +103,12 @@ public class PaquetePersonaje extends Paquete
      */
     private int inteligenciaSkill;
     
-    private boolean modoDios;
+	private boolean modoDios;
     
     private boolean modoInvisible;
     
     private boolean modoAtravesarParedes;
 
-    public int getIdMapa() {
-		return idMapa;
-	}
-
-	public void setIdMapa(int idMapa) {
-		this.idMapa = idMapa;
-	}
-
-	public boolean isModoDios() {
-		return modoDios;
-	}
-
-	public void setModoDios(boolean modoDios) {
-		this.modoDios = modoDios;
-	}
-
-	public void setTinyDaddy() {
-		this.fuerza /= DADDY;
-	}
-
-	public void setBigDaddy() {
-		if(this.fuerza == 0)
-			this.fuerza = 1;
-		else
-			this.fuerza *= DADDY;
-	}
-	
-	public void setAtravesarParedes() {
-		this.modoAtravesarParedes = !(this.modoAtravesarParedes == false);
-	}
-	
-	public void setModoDios() {
-		this.modoDios = !(this.modoDios == false);
-	}
-	
-	public void setModoInvisible() {
-		this.modoInvisible = !(this.modoInvisible == false);
-	}
-	
 	/**
      * The items.
      */
@@ -622,7 +584,6 @@ public class PaquetePersonaje extends Paquete
      * @return the iterator
      */
     public Iterator<Item> getIterator() {
-        // TODO Auto-generated method stub
         return items.iterator();
     }
 
@@ -820,5 +781,42 @@ public class PaquetePersonaje extends Paquete
     public void setInteligenciaSkill(final int inteligenciaSkillParam) {
         this.inteligenciaSkill = inteligenciaSkillParam;
     }
+    
+    public int getIdMapa() {
+		return idMapa;
+	}
+
+	public void setIdMapa(int idMapa) {
+		this.idMapa = idMapa;
+	}
+
+	public boolean isModoDios() {
+		return this.modoDios;
+	}
+
+	public void setModoDios() {
+		Personaje.setModoDios();
+		this.modoDios = !(this.modoDios);
+	}
+
+	public void setTinyDaddy() {
+		this.fuerza /= DADDY;
+	}
+
+	public void setBigDaddy() {
+		if(this.fuerza == 0)
+			this.fuerza = 1;
+		else
+			this.fuerza *= DADDY;
+	}
+	
+	public void setAtravesarParedes() {
+		this.modoAtravesarParedes = !(this.modoAtravesarParedes);
+	}
+	
+	
+	public void setModoInvisible() {
+		this.modoInvisible = !(this.modoInvisible);
+	}
 
 }

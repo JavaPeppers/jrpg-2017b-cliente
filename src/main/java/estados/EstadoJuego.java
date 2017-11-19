@@ -266,7 +266,7 @@ public class EstadoJuego extends Estado {
                                     - juego.getCamara().getyOffset() - YOFFSET),
                             0, ALTURARECTANGULO),
                             enemigos.get(actual.getId()).getNombre());
-                    g.drawImage(Recursos.getSalvaje().get(RAZA)[0],
+                    g.drawImage(Recursos.getWizard().get(0)[0],
                             (int) (actual.getX()
                                     - juego.getCamara().getxOffset()),
                             (int) (actual.getY()
