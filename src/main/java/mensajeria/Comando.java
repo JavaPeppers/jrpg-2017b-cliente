@@ -23,8 +23,8 @@ public abstract class Comando {
             "ActualizarInventario", "Comercio", "ActualizarComercio", "Trueque",
             "ActualizarTrueque", "Talk", "ActualizarPuntosSkills",
             "SetEnemigos", "FinalizarBatallaNPC", "BatallaNPC",
-            "ActualizarEnemigo", "DesaparecerEnemigo", "ComandoError", "BigDaddy",
-            "TinyDaddy", "Dios", "NoWalls", "Invisible"};
+            "ActualizarEnemigo", "DesaparecerEnemigo", "ComandoError",
+            "BigDaddy", "TinyDaddy", "Dios", "NoWalls", "Invisible"};
 
     /**
      * The Constant CLASSNAMESBIS.
@@ -36,8 +36,8 @@ public abstract class Comando {
             "ActualizarInventario", "Comercio", "ActualizarComercio", "Trueque",
             "ActualizarTrueque", "Talk", "ActualizarPuntosSkills",
             "SetEnemigos", "FinalizarBatallaNPC", "BatallaNPC",
-            "ActualizarEnemigo", "DesaparecerEnemigo", "ComandoError" , "BigDaddy" ,
-            "TinyDaddy", "Dios", "NoWalls", "Invisible" };
+            "ActualizarEnemigo", "DesaparecerEnemigo", "ComandoError",
+            "BigDaddy", "TinyDaddy", "Dios", "NoWalls", "Invisible" };
     /**
      * The Constant CONEXION.
      */
@@ -167,15 +167,30 @@ public abstract class Comando {
      * Constante que indica el comando error.
      */
     public static final int COMANDOERROR = 25;
-    
+
+    /**
+     * The Constant BIGDADDY.
+     */
     public static final int BIGDADDY = 26;
-    
+
+    /**
+     * The Constant TINYDADDY.
+     */
     public static final int TINYDADDY = 27;
-    
+
+    /**
+     * The Constant DIOS.
+     */
     public static final int DIOS = 28;
-    
+
+    /**
+     * The Constant NOWALLS.
+     */
     public static final int NOWALLS = 29;
-    
+
+    /**
+     * The Constant INVISIBLE.
+     */
     public static final int INVISIBLE = 30;
 
     /**

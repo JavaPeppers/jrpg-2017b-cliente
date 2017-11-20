@@ -2,18 +2,43 @@ package keyEvents;
 
 import cliente.Cliente;
 
+/**
+ * The Class ChainOfResponsability.
+ */
 public abstract class ChainOfResponsability {
-	
-	protected ChainOfResponsability next;
-		
-	public abstract void ejecutarAccion(int evento, Cliente cliente);
 
-	public ChainOfResponsability getNext() {
-		return next;
-	}
+    /**
+     * The next.
+     */
+    protected ChainOfResponsability next;
 
-	public void setNext(ChainOfResponsability next) {
-		this.next = next;
-	}
+    /**
+     * Ejecutar accion.
+     *
+     * @param evento
+     *            the evento
+     * @param cliente
+     *            the cliente
+     */
+    public abstract void ejecutarAccion(int evento, Cliente cliente);
+
+    /**
+     * Gets the next.
+     *
+     * @return the next
+     */
+    public ChainOfResponsability getNext() {
+        return next;
+    }
+
+    /**
+     * Sets the next.
+     *
+     * @param nextParam
+     *            the new next
+     */
+    public void setNext(final ChainOfResponsability nextParam) {
+        this.next = nextParam;
+    }
 
 }

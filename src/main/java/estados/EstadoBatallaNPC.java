@@ -46,7 +46,7 @@ public class EstadoBatallaNPC extends Estado {
     private static final int POSXNPC = 550;
 
     /** Constante RAZANPC. */
-//    private static final int RAZANPC = 7;
+    // private static final int RAZANPC = 7;
 
     /** Constante POSYJUGADOR. */
     private static final int POSYJUGADOR = 175;
@@ -185,12 +185,12 @@ public class EstadoBatallaNPC extends Estado {
         crearPersonajes();
 
         menuBatalla = new MenuBatalla(miTurno, personaje);
-        if(paqueteEnemigo.getId() != -21) {
-        	miniaturaEnemigo = Recursos.getWizard().get(0)[0];
-        }else {
-        	miniaturaEnemigo = Recursos.getSkullReaper().get(0)[0];
+        if (paqueteEnemigo.getId() != -21) {
+            miniaturaEnemigo = Recursos.getWizard().get(0)[0];
+        } else {
+            miniaturaEnemigo = Recursos.getSkullReaper().get(0)[0];
         }
-        
+
         miniaturaPersonaje = Recursos.getPersonaje()
                 .get(personaje.getNombreRaza()).get(RAZA)[0];
 
@@ -285,11 +285,12 @@ public class EstadoBatallaNPC extends Estado {
                         juego.getEstadoJuego().setHaySolicitud(true,
                                 juego.getPersonaje(),
                                 MenuInfoPersonaje.MENUGANARBATALLA);
-                        int exp = (int)(enemigo.otorgarExp() * personaje.getNivel() * 0.2);
-                        if(paqueteEnemigo.getId()==-21) {
-                        	exp = 1000;
+                        int exp = (int) (enemigo.otorgarExp()
+                                * personaje.getNivel() * 0.2);
+                        if (paqueteEnemigo.getId() == -21) {
+                            exp = 1000;
                         }
-                        if (personaje.ganarExperiencia(exp)){
+                        if (personaje.ganarExperiencia(exp)) {
 
                             juego.getPersonaje().setNivel(personaje.getNivel());
                             juego.getEstadoJuego().setHaySolicitud(true,
@@ -309,7 +310,6 @@ public class EstadoBatallaNPC extends Estado {
                             juego.getEstadoJuego().setHaySolicitud(true,
                                     juego.getPersonaje(),
                                     MenuInfoPersonaje.MENUPERDERBATALLA);
-
 
                             paqueteFinalizarBatalla.setGanadorBatalla(juego
                                     .getEnemigos()
@@ -403,8 +403,8 @@ public class EstadoBatallaNPC extends Estado {
                             Integer.TYPE)
                     .newInstance(nombre, salud, energia, fuerza, destreza,
                             inteligencia, casta, experiencia, nivel, id);
-            if(paquetePersonaje.isModoDios()) {
-            	personaje.setModoDios();
+            if (paquetePersonaje.isModoDios()) {
+                personaje.setModoDios();
             }
         } catch (InstantiationException | IllegalAccessException
                 | ClassNotFoundException | IllegalArgumentException
@@ -414,29 +414,29 @@ public class EstadoBatallaNPC extends Estado {
         }
 
         /** Se crea mi Enemigo en la batalla */
-        if(paqueteEnemigo.getId() == -21) {
-        	nombre = "The Skull Reaper";
-        	salud = 1000;
-        	fuerza = 500;
-        	
-        	enemigo = new Enemigo(nombre, fuerza, 30, salud);
-        	enemigo.setSaludTope(salud);
-        }else {
-        	nombre = paqueteEnemigo.getNombre();
+        if (paqueteEnemigo.getId() == -21) {
+            nombre = "The Skull Reaper";
+            salud = 1000;
+            fuerza = 500;
+
+            enemigo = new Enemigo(nombre, fuerza, 30, salud);
+            enemigo.setSaludTope(salud);
+        } else {
+            nombre = paqueteEnemigo.getNombre();
             paqueteEnemigo.setSaludTope(personaje.getSalud());
             salud = paqueteEnemigo.getSaludTope();
-            if(paquetePersonaje.getNivel()!=1) {
-            	fuerza = (int)(paqueteEnemigo.getFuerza()*0.4*nivel);
-            }else {
-            	fuerza = paqueteEnemigo.getFuerza();
+            if (paquetePersonaje.getNivel() != 1) {
+                fuerza = (int) (paqueteEnemigo.getFuerza() * 0.4 * nivel);
+            } else {
+                fuerza = paqueteEnemigo.getFuerza();
             }
-            
+
             id = paqueteEnemigo.getId();
 
             enemigo = new Enemigo("Enemigo", fuerza, nivel, salud);
             enemigo.setSaludTope(salud);
         }
-        
+
     }
 
     /*
@@ -454,14 +454,13 @@ public class EstadoBatallaNPC extends Estado {
                 Recursos.getPersonaje().get(paquetePersonaje.getRaza())
                         .get(RAZAJUGADOR)[0],
                 0, POSYJUGADOR, ANCHURAALTURA, ANCHURAALTURA, null);
-        if(paqueteEnemigo.getId() != -21) {
-        	g.drawImage(Recursos.getWizard().get(0)[0], POSXNPC, POSYNPC,
+        if (paqueteEnemigo.getId() != -21) {
+            g.drawImage(Recursos.getWizard().get(0)[0], POSXNPC, POSYNPC,
                     ANCHURAALTURA, ANCHURAALTURA, null);
-        }else {
-        	g.drawImage(Recursos.getSkullReaper().get(0)[0], POSXNPC-100, POSYNPC,
-                    300, 218, null);
+        } else {
+            g.drawImage(Recursos.getSkullReaper().get(0)[0], POSXNPC - 100,
+                    POSYNPC, 300, 218, null);
         }
-        
 
         mundo.graficarObstaculos(g);
         menuBatalla.graficar(g);

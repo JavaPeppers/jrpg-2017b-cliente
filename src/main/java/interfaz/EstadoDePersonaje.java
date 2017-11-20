@@ -182,8 +182,7 @@ public final class EstadoDePersonaje {
 
         g.drawImage(Recursos.getBarraEnergia(), x + SUMAXBARRAENERGIA,
                 y + SUMAYBARRAENERGIA, drawBarra, ALTOENERGIA, null);
-               	
-        
+
         g.drawString(
                 String.valueOf(personaje.getEnergia()) + " / "
                         + String.valueOf(personaje.getEnergiaTope()),
@@ -209,10 +208,10 @@ public final class EstadoDePersonaje {
         g.setColor(Color.GREEN);
         g.drawString(String.valueOf(personaje.getNivel()), x + SUMAXPERSONAJE2,
                 y + SUMAYPERSONAJE3);
-        
-        if(personaje.isModoDios()) {
-        	g.drawImage(Recursos.getModoDios(), x+60, y, 15, 15, null);
-        	g.drawString("ModoDios", x + 10, y+10);
+
+        if (personaje.isModoDios()) {
+            g.drawImage(Recursos.getModoDios(), x + 60, y, 15, 15, null);
+            g.drawString("ModoDios", x + 10, y + 10);
         }
 
     }
@@ -279,14 +278,14 @@ public final class EstadoDePersonaje {
         g.setColor(Color.GREEN);
         g.drawString(String.valueOf(personaje.getNivel()), x + SUMAXPERSONAJE2,
                 y + SUMAYPERSONAJE3);
-        
-        if(personaje.isModoDios()) {
-        	g.drawImage(Recursos.getModoDios(), x+60, y, 15, 15, null);
-        	g.drawString("ModoDios", x + 10, y+10);
+
+        if (personaje.isModoDios()) {
+            g.drawImage(Recursos.getModoDios(), x + 60, y, 15, 15, null);
+            g.drawString("ModoDios", x + 10, y + 10);
         }
-        if(personaje.isModoInvisible()) {
-        	g.drawImage(Recursos.getInvisible(), x+45, y+85, 30, 30, null);
-        	g.drawString("Invisible", x + 10, y+100);
+        if (personaje.isModoInvisible()) {
+            g.drawImage(Recursos.getInvisible(), x + 45, y + 85, 30, 30, null);
+            g.drawString("Invisible", x + 10, y + 100);
         }
     }
 }

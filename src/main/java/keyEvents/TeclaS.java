@@ -6,31 +6,53 @@ import cliente.Cliente;
 import estados.Estado;
 import frames.MenuStats;
 
+/**
+ * The Class TeclaS.
+ */
 public class TeclaS extends ChainOfResponsability {
 
-	private static MenuStats menuStats;
+    /**
+     * The menu stats.
+     */
+    private static MenuStats menuStats;
 
-	@Override
-	public void ejecutarAccion(int evento, Cliente cliente) {
-		if (evento == KeyEvent.VK_S) {
-			if (Estado.getEstado().esEstadoDeJuego()) {
-				if (menuStats == null) {
-					menuStats = new MenuStats(cliente);
-					menuStats.setVisible(true);
-				}
-			}
-		}else {
-			next.ejecutarAccion(evento, cliente);
-		}
+    /*
+     * (non-Javadoc)
+     *
+     * @see keyEvents.ChainOfResponsability#ejecutarAccion(int, cliente.Cliente)
+     */
+    @Override
+    public void ejecutarAccion(final int evento, final Cliente cliente) {
+        if (evento == KeyEvent.VK_S) {
+            if (Estado.getEstado().esEstadoDeJuego()) {
+                if (menuStats == null) {
+                    menuStats = new MenuStats(cliente);
+                    menuStats.setVisible(true);
+                }
+            }
+        } else {
+            next.ejecutarAccion(evento, cliente);
+        }
 
-	}
+    }
 
-	public static MenuStats getMenuStats() {
-		return menuStats;
-	}
+    /**
+     * Gets the menu stats.
+     *
+     * @return the menu stats
+     */
+    public static MenuStats getMenuStats() {
+        return menuStats;
+    }
 
-	public static void setMenuStats(MenuStats menuStats) {
-		TeclaS.menuStats = menuStats;
-	}
-	
+    /**
+     * Sets the menu stats.
+     *
+     * @param menuStatsParam
+     *            the new menu stats
+     */
+    public static void setMenuStats(final MenuStats menuStatsParam) {
+        TeclaS.menuStats = menuStatsParam;
+    }
+
 }

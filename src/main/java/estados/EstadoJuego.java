@@ -164,7 +164,7 @@ public class EstadoJuego extends Estado {
      * Lista con los mapas disponibles en el juego.
      */
     private static final ArrayList<String> MUNDOSDISPONIBLES
-    = new ArrayList<String>(
+            = new ArrayList<String>(
             Arrays.asList("Aubenor", "Aris", "Eodrim"));
 
     /**
@@ -257,8 +257,10 @@ public class EstadoJuego extends Estado {
             while (it.hasNext()) {
                 key = it.next();
                 actual = enemigos.get(key);
-                if (actual != null && enemigos.get(actual.getId())
-                        .getEstado() == Estado.ESTADOJUEGO && key!=-21) {
+                if (actual != null
+                        && enemigos.get(actual.getId())
+                                .getEstado() == Estado.ESTADOJUEGO
+                        && key != -21) {
                     Pantalla.centerString(g, new Rectangle(
                             (int) (actual.getX()
                                     - juego.getCamara().getxOffset() + XOFFSET),
@@ -273,8 +275,9 @@ public class EstadoJuego extends Estado {
                                     - juego.getCamara().getyOffset()),
                             ANCHOALTURA, ANCHOALTURA, null);
                 }
-                if(key==-21 && enemigos.get(actual.getId()).getEstado() == Estado.ESTADOJUEGO) {
-                	Pantalla.centerString(g, new Rectangle(
+                if (key == -21 && enemigos.get(actual.getId())
+                        .getEstado() == Estado.ESTADOJUEGO) {
+                    Pantalla.centerString(g, new Rectangle(
                             (int) (actual.getX()
                                     - juego.getCamara().getxOffset() + XOFFSET),
                             (int) (actual.getY()
@@ -414,19 +417,29 @@ public class EstadoJuego extends Estado {
     public boolean esEstadoDeJuego() {
         return true;
     }
-    
-    public boolean condicionesParaGraficar(PaqueteMovimiento actual) {
-    	if (actual != null && actual.getIdPersonaje() != juego.getPersonaje().getId()
-    			&& personajesConectados.get(actual.getIdPersonaje()).getEstado() == Estado.ESTADOJUEGO
-                	&& personajesConectados.get(actual.getIdPersonaje()).getMapa()
-                		== juego.getPersonaje().getMapa()) {
-    		if((!personajesConectados.get(actual.getIdPersonaje()).isModoInvisible())
-    				|| (personajesConectados.get(actual.getIdPersonaje()).isModoInvisible() &&
-    						juego.getPersonaje().isModoInvisible())) {
-    			return true;
-    		}
-    	}
-    	return false;
+
+    /**
+     * Condiciones para graficar.
+     *
+     * @param actual the actual
+     * @return true, if successful
+     */
+    public boolean condicionesParaGraficar(final PaqueteMovimiento actual) {
+        if (actual != null
+                && actual.getIdPersonaje() != juego.getPersonaje().getId()
+                && personajesConectados.get(actual.getIdPersonaje())
+                        .getEstado() == Estado.ESTADOJUEGO
+                && personajesConectados.get(actual.getIdPersonaje())
+                        .getMapa() == juego.getPersonaje().getMapa()) {
+            if ((!personajesConectados.get(actual.getIdPersonaje())
+                    .isModoInvisible())
+                    || (personajesConectados.get(actual.getIdPersonaje())
+                            .isModoInvisible()
+                            && juego.getPersonaje().isModoInvisible())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

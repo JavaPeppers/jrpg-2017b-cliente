@@ -256,13 +256,13 @@ public final class Recursos {
      * Hash de imagenes para los personajes (humano, ogro, elfo).
      */
     private static Map<String, LinkedList<BufferedImage[]>> personaje
-    = new HashMap<>();
+                = new HashMap<>();
 
     /**
      * Hash de imagenes para los enemigos (se pueden agregar mas Sprites).
      */
     private static Map<String, LinkedList<BufferedImage[]>> enemigos
-    = new HashMap<>();
+                = new HashMap<>();
 
     /**
      * El sprite humano.
@@ -461,7 +461,7 @@ public final class Recursos {
      * El salvaje abajo izq.
      */
     private static BufferedImage[] salvajeAbajoIzq;
-    
+
     /** Es un Enemigo. */
     private static SpriteSheet spriteWizard;
 
@@ -474,8 +474,7 @@ public final class Recursos {
      * El mago negro.
      */
     private static BufferedImage[] blackWizard;
-    
-    
+
     /** Es un Enemigo. */
     private static SpriteSheet spriteSkull;
 
@@ -558,14 +557,14 @@ public final class Recursos {
      * El estado personaje.
      */
     private static BufferedImage estadoPersonaje;
-    
+
     /**
-     * Imagen modoDios
+     * Imagen modoDios.
      */
     private static BufferedImage modoDios;
-    
+
     /**
-     * Imagen invisible
+     * Imagen invisible.
      */
     private static BufferedImage invisible;
 
@@ -699,21 +698,22 @@ public final class Recursos {
             final LinkedList<BufferedImage[]> salvajeParam) {
         Recursos.salvaje = salvajeParam;
     }
-    
+
     /**
      * @return the wizard
      */
-	public static LinkedList<BufferedImage[]> getWizard() {
-		return wizard;
-	}
+    public static LinkedList<BufferedImage[]> getWizard() {
+        return wizard;
+    }
 
-	/**
-	 * @param wizardParam
-	 * 			the wizard to set
-	 */
-	public static void setWizard(LinkedList<BufferedImage[]> wizardParam) {
-		Recursos.wizard = wizardParam;
-	}
+    /**
+     * @param wizardParam
+     *            the wizard to set
+     */
+    public static void setWizard(
+            final LinkedList<BufferedImage[]> wizardParam) {
+        Recursos.wizard = wizardParam;
+    }
 
     /**
      * Cargar.
@@ -1059,44 +1059,43 @@ public final class Recursos {
         salvaje.add(salvajeAbajoIzq);
 
         // Fin Salvaje
-        
+
         // Inicio wizard
-        
+
         spriteWizard = new SpriteSheet(
                 CargadorImagen.cargarImagen("/kades_1.png"));
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         blackWizard = new BufferedImage[3];
-        
+
         for (int i = 0; i < 3; i++) {
             blackWizard[i] = spriteWizard.getTile(190 * i, 0, 190, 175);
         }
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
-        
+
         wizard.add(blackWizard);
-        
+
         // Fin wizard
-        
+
         // Inicio skull
-        
+
         spriteSkull = new SpriteSheet(
                 CargadorImagen.cargarImagen("/SkullReaper.png"));
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         skull = new BufferedImage[1];
-        
+
         skull[0] = spriteSkull.getTile(0, 0, 400, 218);
-        
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
-        
+
         skullReaper.add(skull);
-        
+
         // Fin skull
-        
+
         // Agrego los pj al hash
         personaje.put("Humano", humano);
         personaje.put("Orco", orco);
@@ -1592,7 +1591,8 @@ public final class Recursos {
     /**
      * Set Cesped.
      *
-     * @param cespedParam setea el cesped.
+     * @param cespedParam
+     *            setea el cesped.
      */
     public static void setCesped(final BufferedImage cespedParam) {
         Recursos.cesped = cespedParam;
@@ -1610,7 +1610,8 @@ public final class Recursos {
     /**
      * Set Roca.
      *
-     * @param rocaParam setea la roca.
+     * @param rocaParam
+     *            setea la roca.
      */
     public static void setRoca(final BufferedImage rocaParam) {
         Recursos.roca = rocaParam;
@@ -1619,37 +1620,50 @@ public final class Recursos {
     /**
      * @return modoDios
      */
-	public static BufferedImage getModoDios() {
-		return modoDios;
-	}
+    public static BufferedImage getModoDios() {
+        return modoDios;
+    }
 
-	/**
-	 * @param modoDiosParam setea la imagen Dios
-	 */
-	public static void setModoDios(BufferedImage modoDiosParam) {
-		Recursos.modoDios = modoDiosParam;
-	}
+    /**
+     * @param modoDiosParam
+     *            setea la imagen Dios
+     */
+    public static void setModoDios(final BufferedImage modoDiosParam) {
+        Recursos.modoDios = modoDiosParam;
+    }
 
-	/**
-	 * @return invisible
-	 */
-	public static BufferedImage getInvisible() {
-		return invisible;
-	}
+    /**
+     * @return invisible
+     */
+    public static BufferedImage getInvisible() {
+        return invisible;
+    }
 
-	/**
-	 * @param invisibleParam setea la imagen invisible skin
-	 */
-	public static void setInvisible(BufferedImage invisibleParam) {
-		Recursos.invisible = invisibleParam;
-	}
+    /**
+     * @param invisibleParam
+     *            setea la imagen invisible skin
+     */
+    public static void setInvisible(final BufferedImage invisibleParam) {
+        Recursos.invisible = invisibleParam;
+    }
 
-	public static LinkedList<BufferedImage[]> getSkullReaper() {
-		return skullReaper;
-	}
+    /**
+     * Gets the skull reaper.
+     *
+     * @return the skull reaper
+     */
+    public static LinkedList<BufferedImage[]> getSkullReaper() {
+        return skullReaper;
+    }
 
-	public static void setSkullReaper(LinkedList<BufferedImage[]> skullReaper) {
-		Recursos.skullReaper = skullReaper;
-	}
+    /**
+     * Sets the skull reaper.
+     *
+     * @param skullReaperParam the new skull reaper
+     */
+    public static void setSkullReaper(
+            final LinkedList<BufferedImage[]> skullReaperParam) {
+        Recursos.skullReaper = skullReaperParam;
+    }
 
 }

@@ -1154,8 +1154,14 @@ public class Entidad {
     public void setTile(final int[] tileParam) {
         this.tile = tileParam;
     }
-    
-    public boolean condicionesParaBatallar(PaqueteMovimiento actual) {
+
+    /**
+     * Condiciones para batallar.
+     *
+     * @param actual the actual
+     * @return true, if successful
+     */
+    public boolean condicionesParaBatallar(final PaqueteMovimiento actual) {
     	if (actual != null
                 && actual.getIdPersonaje() != juego.getPersonaje()
                         .getId()
@@ -1165,11 +1171,13 @@ public class Entidad {
                         .get(actual.getIdPersonaje())
                         .getEstado() == Estado.ESTADOJUEGO
                 && juego.getPersonajesConectados()
-                		.get(actual.getIdPersonaje()).getMapa() ==
-                		juego.getPersonaje().getMapa()) {
-    		if((!juego.getPersonajesConectados().get(actual.getIdPersonaje()).isModoInvisible())
-    				|| juego.getPersonaje().isModoInvisible())
+                		.get(actual.getIdPersonaje()).getMapa()
+                		== juego.getPersonaje().getMapa()) {
+    		if ((!juego.getPersonajesConectados().
+    		        get(actual.getIdPersonaje()).isModoInvisible())
+    				|| juego.getPersonaje().isModoInvisible()) {
     			return true;
+    		}
     	}
     	return false;
     }

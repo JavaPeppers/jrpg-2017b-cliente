@@ -106,7 +106,7 @@ public class Pantalla {
             @Override
             public void keyReleased(final KeyEvent e) {
             	Controlador controller = new Controlador();
-            	controller.ejecutarAccion(e.getKeyCode(), cliente);	
+            	controller.ejecutarAccion(e.getKeyCode(), cliente);
             }
         });
 

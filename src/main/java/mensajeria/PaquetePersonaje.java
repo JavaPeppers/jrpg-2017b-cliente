@@ -14,7 +14,10 @@ import estados.Estado;
 @SuppressWarnings("serial")
 public class PaquetePersonaje extends Paquete
         implements Serializable, Cloneable {
-	
+
+	/**
+	 * The Constant DADDY.
+	 */
 	private static final int DADDY = 2;
 
     /**
@@ -101,11 +104,20 @@ public class PaquetePersonaje extends Paquete
      * The inteligencia skill.
      */
     private int inteligenciaSkill;
-    
+
+	/**
+	 * The modo dios.
+	 */
 	private boolean modoDios;
-    
+
+    /**
+     * The modo invisible.
+     */
     private boolean modoInvisible;
-    
+
+    /**
+     * The modo atravesar paredes.
+     */
     private boolean modoAtravesarParedes;
 
 	/**
@@ -780,43 +792,79 @@ public class PaquetePersonaje extends Paquete
     public void setInteligenciaSkill(final int inteligenciaSkillParam) {
         this.inteligenciaSkill = inteligenciaSkillParam;
     }
-    
+
+    /**
+     * Gets the id mapa.
+     *
+     * @return the id mapa
+     */
     public int getIdMapa() {
 		return idMapa;
 	}
 
-	public void setIdMapa(int idMapa) {
-		this.idMapa = idMapa;
+	/**
+	 * Sets the id mapa.
+	 *
+	 * @param idMapaParam the new id mapa
+	 */
+	public void setIdMapa(final int idMapaParam) {
+		this.idMapa = idMapaParam;
 	}
 
+	/**
+	 * Checks if is modo dios.
+	 *
+	 * @return true, if is modo dios
+	 */
 	public boolean isModoDios() {
 		return this.modoDios;
 	}
 
+	/**
+	 * Sets the modo dios.
+	 */
 	public void setModoDios() {
 		this.modoDios = !(this.modoDios);
 	}
 
+	/**
+	 * Sets the tiny daddy.
+	 */
 	public void setTinyDaddy() {
 		this.fuerza /= DADDY;
 	}
 
+	/**
+	 * Sets the big daddy.
+	 */
 	public void setBigDaddy() {
-		if(this.fuerza == 0)
+		if (this.fuerza == 0) {
 			this.fuerza = 1;
-		else
+		} else {
 			this.fuerza *= DADDY;
+		}
 	}
-	
+
+	/**
+	 * Sets the atravesar paredes.
+	 */
 	public void setAtravesarParedes() {
 		this.modoAtravesarParedes = !(this.modoAtravesarParedes);
 	}
-	
-	
+
+
+	/**
+	 * Sets the modo invisible.
+	 */
 	public void setModoInvisible() {
 		this.modoInvisible = !(this.modoInvisible);
 	}
 
+	/**
+	 * Checks if is modo invisible.
+	 *
+	 * @return true, if is modo invisible
+	 */
 	public boolean isModoInvisible() {
 		return this.modoInvisible;
 	}
