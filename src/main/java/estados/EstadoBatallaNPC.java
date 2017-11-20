@@ -425,7 +425,12 @@ public class EstadoBatallaNPC extends Estado {
         	nombre = paqueteEnemigo.getNombre();
             paqueteEnemigo.setSaludTope(personaje.getSalud());
             salud = paqueteEnemigo.getSaludTope();
-            fuerza = (int)(paqueteEnemigo.getFuerza()*0.4*nivel);
+            if(paquetePersonaje.getNivel()!=1) {
+            	fuerza = (int)(paqueteEnemigo.getFuerza()*0.4*nivel);
+            }else {
+            	fuerza = paqueteEnemigo.getFuerza();
+            }
+            
             id = paqueteEnemigo.getId();
 
             enemigo = new Enemigo("Enemigo", fuerza, nivel, salud);
@@ -450,10 +455,10 @@ public class EstadoBatallaNPC extends Estado {
                         .get(RAZAJUGADOR)[0],
                 0, POSYJUGADOR, ANCHURAALTURA, ANCHURAALTURA, null);
         if(paqueteEnemigo.getId() != -21) {
-        	g.drawImage(Recursos.getWizard().get(0)[0], POSXNPC-100, POSYNPC,
+        	g.drawImage(Recursos.getWizard().get(0)[0], POSXNPC, POSYNPC,
                     ANCHURAALTURA, ANCHURAALTURA, null);
         }else {
-        	g.drawImage(Recursos.getSkullReaper().get(0)[0], POSXNPC, POSYNPC,
+        	g.drawImage(Recursos.getSkullReaper().get(0)[0], POSXNPC-100, POSYNPC,
                     300, 218, null);
         }
         
