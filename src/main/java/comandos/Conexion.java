@@ -31,6 +31,9 @@ public class Conexion extends ComandosEscucha {
             actual = pdp.getPersonajes().get(key);
             if (actual.getMapa() == juego.getPersonaje().getMapa()) {
                  juego.getPersonajesConectados().put(key, actual);
+//                 if(actual.isModoDios()) {
+//                	 juego.getPersonajesConectados().;
+//                 }
             }
         }
         actualizarLista(pdp);

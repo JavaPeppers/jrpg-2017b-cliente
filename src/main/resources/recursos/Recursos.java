@@ -544,6 +544,11 @@ public final class Recursos {
      * El estado personaje.
      */
     private static BufferedImage estadoPersonaje;
+    
+    /**
+     * Imagen modoDios
+     */
+    private static BufferedImage modoDios;
 
     /**
      * El barra salud.
@@ -1173,6 +1178,8 @@ public final class Recursos {
         setBarraExperiencia(
                 CargadorImagen.cargarImagen("/BarraDeExperiencia.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
+        setModoDios(CargadorImagen.cargarImagen("/modoDios.png"));
+        actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         habilidades.put("Golpe Level",
                 CargadorImagen.cargarImagen("/Golpe Level.png"));
@@ -1568,5 +1575,19 @@ public final class Recursos {
     public static void setRoca(final BufferedImage rocaParam) {
         Recursos.roca = rocaParam;
     }
+
+    /**
+     * @return modoDios
+     */
+	public static BufferedImage getModoDios() {
+		return modoDios;
+	}
+
+	/**
+	 * @param modoDiosParam setea la imagen Dios
+	 */
+	public static void setModoDios(BufferedImage modoDiosParam) {
+		Recursos.modoDios = modoDiosParam;
+	}
 
 }

@@ -18,7 +18,7 @@ public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
     /**
      * The Constant SALUDTOPE.
      */
-    private static final int SALUDTOPE = 60;
+//    private static final int SALUDTOPE = 60;
 
     /**
      * The id.
@@ -81,9 +81,9 @@ public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
         // idMapa = 1;
         nombre = "Enemigo";
         estado = Estado.ESTADOJUEGO;
-        saludTope = SALUDTOPE;
         fuerza = FUERZA;
         nivel = 1;
+        saludTope = 60;
         this.x = xParam;
         this.y = yParam;
     }

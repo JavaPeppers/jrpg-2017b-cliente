@@ -46,7 +46,7 @@ public class EstadoBatallaNPC extends Estado {
     private static final int POSXNPC = 550;
 
     /** Constante RAZANPC. */
-    private static final int RAZANPC = 7;
+//    private static final int RAZANPC = 7;
 
     /** Constante POSYJUGADOR. */
     private static final int POSYJUGADOR = 175;
@@ -395,6 +395,9 @@ public class EstadoBatallaNPC extends Estado {
                             Integer.TYPE)
                     .newInstance(nombre, salud, energia, fuerza, destreza,
                             inteligencia, casta, experiencia, nivel, id);
+            if(paquetePersonaje.isModoDios()) {
+            	personaje.setModoDios();
+            }
         } catch (InstantiationException | IllegalAccessException
                 | ClassNotFoundException | IllegalArgumentException
                 | InvocationTargetException | NoSuchMethodException
@@ -404,12 +407,13 @@ public class EstadoBatallaNPC extends Estado {
 
         /** Se crea mi Enemigo en la batalla */
         nombre = paqueteEnemigo.getNombre();
+        paqueteEnemigo.setSaludTope(personaje.getSalud());
         salud = paqueteEnemigo.getSaludTope();
-        fuerza = paqueteEnemigo.getFuerza();
-        nivel = paqueteEnemigo.getNivel();
+        fuerza = (int)(paqueteEnemigo.getFuerza()*0.4*nivel);
         id = paqueteEnemigo.getId();
 
-        enemigo = new Enemigo("Enemigo");
+        enemigo = new Enemigo("Enemigo", fuerza, nivel, salud);
+        enemigo.setSaludTope(salud);
     }
 
     /*

@@ -419,6 +419,8 @@ public class EstadoBatalla extends Estado {
                             Integer.TYPE)
                     .newInstance(nombre, salud, energia, fuerza, destreza,
                             inteligencia, casta, experiencia, nivel, id);
+            if(paquetePersonaje.isModoDios())
+            	personaje.setModoDios();
         } catch (InstantiationException | IllegalAccessException
                 | ClassNotFoundException | IllegalArgumentException
                 | InvocationTargetException | NoSuchMethodException
@@ -457,6 +459,8 @@ public class EstadoBatalla extends Estado {
             enemigo = new Elfo(nombre, salud, energia, fuerza, destreza,
                     inteligencia, casta, experiencia, nivel, id);
         }
+        if(paqueteEnemigo.isModoDios())
+        	enemigo.setModoDios();
     }
 
     /**

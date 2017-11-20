@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import dominio.Item;
-import dominio.Personaje;
 import estados.Estado;
 
 /**
@@ -795,7 +794,6 @@ public class PaquetePersonaje extends Paquete
 	}
 
 	public void setModoDios() {
-		Personaje.setModoDios();
 		this.modoDios = !(this.modoDios);
 	}
 

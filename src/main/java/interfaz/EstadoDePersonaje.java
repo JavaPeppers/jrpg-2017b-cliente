@@ -182,9 +182,7 @@ public final class EstadoDePersonaje {
 
         g.drawImage(Recursos.getBarraEnergia(), x + SUMAXBARRAENERGIA,
                 y + SUMAYBARRAENERGIA, drawBarra, ALTOENERGIA, null);
-        
-        if(personaje.isModoDios())
-        	g.drawString("ModoDios", 82, 44);
+               	
         
         g.drawString(
                 String.valueOf(personaje.getEnergia()) + " / "
@@ -211,6 +209,11 @@ public final class EstadoDePersonaje {
         g.setColor(Color.GREEN);
         g.drawString(String.valueOf(personaje.getNivel()), x + SUMAXPERSONAJE2,
                 y + SUMAYPERSONAJE3);
+        
+        if(personaje.isModoDios()) {
+        	g.drawImage(Recursos.getModoDios(), x+60, y, 15, 15, null);
+        	g.drawString("ModoDios", x + 10, y+10);
+        }
 
     }
 
@@ -276,5 +279,10 @@ public final class EstadoDePersonaje {
         g.setColor(Color.GREEN);
         g.drawString(String.valueOf(personaje.getNivel()), x + SUMAXPERSONAJE2,
                 y + SUMAYPERSONAJE3);
+        
+        if(personaje.isModoDios()) {
+        	g.drawImage(Recursos.getModoDios(), x+60, y, 15, 15, null);
+        	g.drawString("ModoDios", x + 10, y+10);
+        }
     }
 }
