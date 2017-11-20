@@ -1088,7 +1088,7 @@ public final class Recursos {
 
         skull = new BufferedImage[1];
         
-        skull[0] = spriteSkull.getTile(0, 0, 200, 255);
+        skull[0] = spriteSkull.getTile(0, 0, 400, 218);
         
 
         actualizarBarraDeCarga(++elementosCargados, menuCarga);

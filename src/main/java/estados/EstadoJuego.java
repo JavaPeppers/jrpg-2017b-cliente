@@ -273,7 +273,7 @@ public class EstadoJuego extends Estado {
                                     - juego.getCamara().getyOffset()),
                             ANCHOALTURA, ANCHOALTURA, null);
                 }
-                if(key==-21) {
+                if(key==-21 && enemigos.get(actual.getId()).getEstado() == Estado.ESTADOJUEGO) {
                 	Pantalla.centerString(g, new Rectangle(
                             (int) (actual.getX()
                                     - juego.getCamara().getxOffset() + XOFFSET),

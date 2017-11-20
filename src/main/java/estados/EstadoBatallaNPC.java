@@ -450,11 +450,11 @@ public class EstadoBatallaNPC extends Estado {
                         .get(RAZAJUGADOR)[0],
                 0, POSYJUGADOR, ANCHURAALTURA, ANCHURAALTURA, null);
         if(paqueteEnemigo.getId() != -21) {
-        	g.drawImage(Recursos.getWizard().get(0)[0], POSXNPC, POSYNPC,
+        	g.drawImage(Recursos.getWizard().get(0)[0], POSXNPC-100, POSYNPC,
                     ANCHURAALTURA, ANCHURAALTURA, null);
         }else {
         	g.drawImage(Recursos.getSkullReaper().get(0)[0], POSXNPC, POSYNPC,
-                    200, 255, null);
+                    300, 218, null);
         }
         
 
