@@ -258,7 +258,7 @@ public class EstadoJuego extends Estado {
                 key = it.next();
                 actual = enemigos.get(key);
                 if (actual != null && enemigos.get(actual.getId())
-                        .getEstado() == Estado.ESTADOJUEGO) {
+                        .getEstado() == Estado.ESTADOJUEGO && key!=-21) {
                     Pantalla.centerString(g, new Rectangle(
                             (int) (actual.getX()
                                     - juego.getCamara().getxOffset() + XOFFSET),
@@ -272,6 +272,21 @@ public class EstadoJuego extends Estado {
                             (int) (actual.getY()
                                     - juego.getCamara().getyOffset()),
                             ANCHOALTURA, ANCHOALTURA, null);
+                }
+                if(key==-21) {
+                	Pantalla.centerString(g, new Rectangle(
+                            (int) (actual.getX()
+                                    - juego.getCamara().getxOffset() + XOFFSET),
+                            (int) (actual.getY()
+                                    - juego.getCamara().getyOffset() - YOFFSET),
+                            0, ALTURARECTANGULO),
+                            enemigos.get(actual.getId()).getNombre());
+                    g.drawImage(Recursos.getSkullReaper().get(0)[0],
+                            (int) (actual.getX()
+                                    - juego.getCamara().getxOffset()),
+                            (int) (actual.getY()
+                                    - juego.getCamara().getyOffset()),
+                            150, 100, null);
                 }
             }
         }
@@ -297,13 +312,7 @@ public class EstadoJuego extends Estado {
             while (it.hasNext()) {
                 key = it.next();
                 actual = ubicacionPersonajes.get(key);
-                if (actual != null
-                        && actual.getIdPersonaje() != juego.getPersonaje()
-                                .getId()
-                        && personajesConectados.get(actual.getIdPersonaje())
-                                .getEstado() == Estado.ESTADOJUEGO
-                        && personajesConectados.get(actual.getIdPersonaje()).getMapa()
-                        == juego.getPersonaje().getMapa()) {
+                if (condicionesParaGraficar(actual)) {
                     Pantalla.centerString(g, new Rectangle(
                             (int) (actual.getPosX()
                                     - juego.getCamara().getxOffset() + XOFFSET),
@@ -404,6 +413,20 @@ public class EstadoJuego extends Estado {
     @Override
     public boolean esEstadoDeJuego() {
         return true;
+    }
+    
+    public boolean condicionesParaGraficar(PaqueteMovimiento actual) {
+    	if (actual != null && actual.getIdPersonaje() != juego.getPersonaje().getId()
+    			&& personajesConectados.get(actual.getIdPersonaje()).getEstado() == Estado.ESTADOJUEGO
+                	&& personajesConectados.get(actual.getIdPersonaje()).getMapa()
+                		== juego.getPersonaje().getMapa()) {
+    		if((!personajesConectados.get(actual.getIdPersonaje()).isModoInvisible())
+    				|| (personajesConectados.get(actual.getIdPersonaje()).isModoInvisible() &&
+    						juego.getPersonaje().isModoInvisible())) {
+    			return true;
+    		}
+    	}
+    	return false;
     }
 
 }

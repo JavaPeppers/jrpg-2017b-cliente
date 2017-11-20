@@ -573,14 +573,7 @@ public class Entidad {
                     actual = juego.getUbicacionPersonajes().get(key);
                     tilePersonajes = Mundo.mouseATile(actual.getPosX(),
                             actual.getPosY());
-                    if (actual != null
-                            && actual.getIdPersonaje() != juego.getPersonaje()
-                                    .getId()
-                            && juego.getPersonajesConectados()
-                                    .get(actual.getIdPersonaje()) != null
-                            && juego.getPersonajesConectados()
-                                    .get(actual.getIdPersonaje())
-                                    .getEstado() == Estado.ESTADOJUEGO) {
+                    if (condicionesParaBatallar(actual)) {
 
                         if (tileMoverme[0] == tilePersonajes[0]
                                 && tileMoverme[1] == tilePersonajes[1]) {
@@ -1160,5 +1153,24 @@ public class Entidad {
      */
     public void setTile(final int[] tileParam) {
         this.tile = tileParam;
+    }
+    
+    public boolean condicionesParaBatallar(PaqueteMovimiento actual) {
+    	if (actual != null
+                && actual.getIdPersonaje() != juego.getPersonaje()
+                        .getId()
+                && juego.getPersonajesConectados()
+                        .get(actual.getIdPersonaje()) != null
+                && juego.getPersonajesConectados()
+                        .get(actual.getIdPersonaje())
+                        .getEstado() == Estado.ESTADOJUEGO
+                && juego.getPersonajesConectados()
+                		.get(actual.getIdPersonaje()).getMapa() ==
+                		juego.getPersonaje().getMapa()) {
+    		if((!juego.getPersonajesConectados().get(actual.getIdPersonaje()).isModoInvisible())
+    				|| juego.getPersonaje().isModoInvisible())
+    			return true;
+    	}
+    	return false;
     }
 }

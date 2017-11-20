@@ -817,4 +817,8 @@ public class PaquetePersonaje extends Paquete
 		this.modoInvisible = !(this.modoInvisible);
 	}
 
+	public boolean isModoInvisible() {
+		return this.modoInvisible;
+	}
+
 }

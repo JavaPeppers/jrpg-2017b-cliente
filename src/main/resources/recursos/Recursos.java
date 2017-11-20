@@ -474,6 +474,20 @@ public final class Recursos {
      * El mago negro.
      */
     private static BufferedImage[] blackWizard;
+    
+    
+    /** Es un Enemigo. */
+    private static SpriteSheet spriteSkull;
+
+    /**
+     * The Skull Reaper.
+     */
+    private static LinkedList<BufferedImage[]> skullReaper = new LinkedList<>();
+
+    /**
+     * The skull Reaper image.
+     */
+    private static BufferedImage[] skull;
 
     // Fin Personajes
 
@@ -549,6 +563,11 @@ public final class Recursos {
      * Imagen modoDios
      */
     private static BufferedImage modoDios;
+    
+    /**
+     * Imagen invisible
+     */
+    private static BufferedImage invisible;
 
     /**
      * El barra salud.
@@ -1060,6 +1079,24 @@ public final class Recursos {
         
         // Fin wizard
         
+        // Inicio skull
+        
+        spriteSkull = new SpriteSheet(
+                CargadorImagen.cargarImagen("/SkullReaper.png"));
+
+        actualizarBarraDeCarga(++elementosCargados, menuCarga);
+
+        skull = new BufferedImage[1];
+        
+        skull[0] = spriteSkull.getTile(0, 0, 200, 255);
+        
+
+        actualizarBarraDeCarga(++elementosCargados, menuCarga);
+        
+        skullReaper.add(skull);
+        
+        // Fin skull
+        
         // Agrego los pj al hash
         personaje.put("Humano", humano);
         personaje.put("Orco", orco);
@@ -1068,6 +1105,7 @@ public final class Recursos {
         // Agrego los enemigos al hash
         enemigos.put("Salvaje", salvaje);
         enemigos.put("Wizard", wizard);
+        enemigos.put("SkullReaper", skullReaper);
 
         // Inicio Entorno
         setCesped(CargadorImagen.cargarImagen("/Cesped.png"));
@@ -1179,6 +1217,8 @@ public final class Recursos {
                 CargadorImagen.cargarImagen("/BarraDeExperiencia.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
         setModoDios(CargadorImagen.cargarImagen("/modoDios.png"));
+        actualizarBarraDeCarga(++elementosCargados, menuCarga);
+        setInvisible(CargadorImagen.cargarImagen("/Invisible-skin.png"));
         actualizarBarraDeCarga(++elementosCargados, menuCarga);
 
         habilidades.put("Golpe Level",
@@ -1588,6 +1628,28 @@ public final class Recursos {
 	 */
 	public static void setModoDios(BufferedImage modoDiosParam) {
 		Recursos.modoDios = modoDiosParam;
+	}
+
+	/**
+	 * @return invisible
+	 */
+	public static BufferedImage getInvisible() {
+		return invisible;
+	}
+
+	/**
+	 * @param invisibleParam setea la imagen invisible skin
+	 */
+	public static void setInvisible(BufferedImage invisibleParam) {
+		Recursos.invisible = invisibleParam;
+	}
+
+	public static LinkedList<BufferedImage[]> getSkullReaper() {
+		return skullReaper;
+	}
+
+	public static void setSkullReaper(LinkedList<BufferedImage[]> skullReaper) {
+		Recursos.skullReaper = skullReaper;
 	}
 
 }
