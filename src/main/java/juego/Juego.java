@@ -27,7 +27,7 @@ public class Juego implements Runnable {
     /**
      * The Constant FPS.
      */
-    private static final int FPS = 60;
+    private static final int FPS = 80;
 
     /**
      * The Constant TAMANIOFONT.

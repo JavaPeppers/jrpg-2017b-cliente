@@ -20,7 +20,7 @@ public class Salir extends ComandosCliente {
         try {
             cliente.getPaqueteUsuario().setInicioSesion(false);
             cliente.getSalida().writeObject(getGson()
-                    .toJson(new Paquete(Comando.DESCONECTAR), Paquete.class));
+                    .toJson(new Paquete(Comando.SALIR), Paquete.class));
             cliente.getSocket().close();
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Error al salir");
