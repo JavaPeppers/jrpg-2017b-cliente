@@ -287,5 +287,8 @@ public final class EstadoDePersonaje {
             g.drawImage(Recursos.getInvisible(), x + 45, y + 85, 30, 30, null);
             g.drawString("Invisible", x + 10, y + 100);
         }
+        if (personaje.isModoAtravesarParedes()) {
+        	g.drawString("NoWalls", x + 10, y + 110);
+        }
     }
 }

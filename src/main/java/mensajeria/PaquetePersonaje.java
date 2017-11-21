@@ -846,6 +846,13 @@ public class PaquetePersonaje extends Paquete
 	}
 
 	/**
+	 * @return modoAtravesarParedes
+	 */
+	public boolean isModoAtravesarParedes() {
+		return this.modoAtravesarParedes;
+	}
+	
+	/**
 	 * Sets the atravesar paredes.
 	 */
 	public void setAtravesarParedes() {
