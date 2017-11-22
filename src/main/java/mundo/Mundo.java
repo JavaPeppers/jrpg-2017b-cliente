@@ -139,6 +139,11 @@ public class Mundo {
      * The grafo de tiles no solidos.
      */
     private Grafo grafoDeTilesNoSolidos;
+    
+    private Grafo grafoDeTilesNoSolidosNormal;
+    
+    private Grafo grafoDeTilesNoSolidosAtravesando;
+    
 
     /**
      * Instantiates a new mundo.
@@ -155,6 +160,8 @@ public class Mundo {
         this.juego = juegoParam;
         cargarMundo(pathMap, pathObstac);
         mundoAGrafo();
+        mundoAGrafoDos();
+        grafoDeTilesNoSolidos = grafoDeTilesNoSolidosNormal;
     }
 
     /**
@@ -162,9 +169,9 @@ public class Mundo {
      */
     public void actualizar() {
     	if(juego.getPersonaje().isModoAtravesarParedes()) {
-    		mundoAGrafoDos();
+    		grafoDeTilesNoSolidos = grafoDeTilesNoSolidosAtravesando;
     	}else {
-    		mundoAGrafo();
+    	    grafoDeTilesNoSolidos = grafoDeTilesNoSolidosNormal;
     	}
     }
 
@@ -381,12 +388,12 @@ public class Mundo {
             }
         }
         // Creo un grafo para almacenar solo los tiles no solidos
-        grafoDeTilesNoSolidos = new Grafo(ancho * alto);
+        grafoDeTilesNoSolidosNormal = new Grafo(ancho * alto);
         indice = 0;
         // Paso la matriz a un array
         for (int i = 0; i < ancho; i++) {
             for (int j = 0; j < alto; j++) {
-                grafoDeTilesNoSolidos.agregarNodo(nodos[i][j]);
+                grafoDeTilesNoSolidosNormal.agregarNodo(nodos[i][j]);
             }
         }
     }
@@ -448,12 +455,12 @@ public class Mundo {
             }
         }
         // Creo un grafo para almacenar solo los tiles no solidos
-        grafoDeTilesNoSolidos = new Grafo(ancho * alto);
+        grafoDeTilesNoSolidosAtravesando = new Grafo(ancho * alto);
         indice = 0;
         // Paso la matriz a un array
         for (int i = 0; i < ancho; i++) {
             for (int j = 0; j < alto; j++) {
-                grafoDeTilesNoSolidos.agregarNodo(nodos[i][j]);
+                grafoDeTilesNoSolidosAtravesando.agregarNodo(nodos[i][j]);
             }
         }
     }
