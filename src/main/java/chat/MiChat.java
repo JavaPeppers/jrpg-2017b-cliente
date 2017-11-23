@@ -187,7 +187,7 @@ public class MiChat extends JFrame {
                 if (!mensaje.equals("")) {
                     chat.append("Me: " + mensaje + "\n");
                     if (mensaje.equals("bigdaddy")) {
-                        juego.getPersonaje().setBigDaddy();
+                        juego.getCliente().getPaquetePersonaje().setBigDaddy();
                         juego.getCliente().getPaquetePersonaje()
                                 .setComando(Comando.BIGDADDY);
                         try {
@@ -199,7 +199,7 @@ public class MiChat extends JFrame {
                                     "Error al enviar paquetePersonaje");
                         }
                     } else if (mensaje.equals("tinydaddy")) {
-                        juego.getPersonaje().setTinyDaddy();
+                        juego.getCliente().getPaquetePersonaje().setTinyDaddy();
                         juego.getCliente().getPaquetePersonaje()
                                 .setComando(Comando.TINYDADDY);
                         try {

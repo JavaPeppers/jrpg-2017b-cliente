@@ -419,7 +419,7 @@ public class EstadoBatalla extends Estado {
         String nombre = paquetePersonaje.getNombre();
         int salud = paquetePersonaje.getSaludTope();
         int energia = paquetePersonaje.getEnergiaTope();
-        int fuerza = paquetePersonaje.getFuerza();
+        int fuerza = paquetePersonaje.getFuerzaExtra();
         int destreza = paquetePersonaje.getDestreza();
         int inteligencia = paquetePersonaje.getInteligencia();
         int experiencia = paquetePersonaje.getExperiencia();
@@ -454,7 +454,7 @@ public class EstadoBatalla extends Estado {
         nombre = paqueteEnemigo.getNombre();
         salud = paqueteEnemigo.getSaludTope();
         energia = paqueteEnemigo.getEnergiaTope();
-        fuerza = paqueteEnemigo.getFuerza();
+        fuerza = paqueteEnemigo.getFuerzaExtra();
         destreza = paqueteEnemigo.getDestreza();
         inteligencia = paqueteEnemigo.getInteligencia();
         experiencia = paqueteEnemigo.getExperiencia();

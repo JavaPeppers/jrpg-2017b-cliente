@@ -447,7 +447,7 @@ public class MenuStats extends JFrame {
         saludPj.setBounds(XPJ, YSALUDPJ, ANCHOPJ, ALTOPJ);
         contentPane.add(saludPj);
 
-        JLabel fzaPj = new JLabel(String.valueOf(paquetePersonaje.getFuerza()));
+        JLabel fzaPj = new JLabel(String.valueOf(paquetePersonaje.getFuerzaExtra()));
         fzaPj.setForeground(Color.WHITE);
         fzaPj.setHorizontalAlignment(SwingConstants.RIGHT);
         fzaPj.setBounds(XPJ, YFUERZAPJ, ANCHOPJ, ALTOPJ);
@@ -494,7 +494,7 @@ public class MenuStats extends JFrame {
         energiaPj.setBounds(XSTATPJ, YENERGIAPJ, ANCHOPJ, ALTOPJ);
         contentPane.add(energiaPj);
 
-        int ataquePj = calcularAtaque(paquetePersonaje.getFuerza());
+        int ataquePj = calcularAtaque(paquetePersonaje.getFuerzaExtra());
         JLabel ataPj = new JLabel(String.valueOf(ataquePj));
         ataPj.setForeground(Color.WHITE);
         ataPj.setHorizontalAlignment(SwingConstants.RIGHT);

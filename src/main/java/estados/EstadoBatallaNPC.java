@@ -381,7 +381,7 @@ public class EstadoBatallaNPC extends Estado {
         String nombre = paquetePersonaje.getNombre();
         int salud = paquetePersonaje.getSaludTope();
         int energia = paquetePersonaje.getEnergiaTope();
-        int fuerza = paquetePersonaje.getFuerza();
+        int fuerza = paquetePersonaje.getFuerzaExtra();
         int destreza = paquetePersonaje.getDestreza();
         int inteligencia = paquetePersonaje.getInteligencia();
         int experiencia = paquetePersonaje.getExperiencia();
