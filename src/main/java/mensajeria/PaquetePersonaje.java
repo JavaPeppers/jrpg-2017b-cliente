@@ -121,6 +121,26 @@ public class PaquetePersonaje extends Paquete implements Serializable, Cloneable
 
 	private int fuerzaExtra;
 
+	private int idMochila;
+	
+	private int idInventario;
+	
+	public int getidMochila() {
+		return idMochila;
+	}
+
+	public void setidMochila(int idMochila) {
+		this.idMochila = idMochila;
+	}
+
+	public int getidInventario() {
+		return idInventario;
+	}
+
+	public void setidInventario(int idInventario) {
+		this.idInventario = idInventario;
+	}
+
 	/**
 	 * The items.
 	 */
