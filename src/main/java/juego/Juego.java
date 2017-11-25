@@ -459,14 +459,6 @@ public class Juego implements Runnable {
                 .get(paquetePersonaje.getId()).clone());
     }
 
-    // /**
-    // * Actualizar enemigo.
-    // */
-    // public void actualizarEnemigo() {
-    // paqueteEnemigo = (PaqueteEnemigo) (enemigos.get(
-    // paqueteEnemigo.getId()).clone());
-    // }
-
     /**
      * Gets the personajes conectados.
      *

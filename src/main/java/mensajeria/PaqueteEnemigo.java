@@ -16,11 +16,6 @@ public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
     private static final int FUERZA = 25;
 
     /**
-     * The Constant SALUDTOPE.
-     */
-//    private static final int SALUDTOPE = 60;
-
-    /**
      * The id.
      */
     private int id;
@@ -78,7 +73,6 @@ public class PaqueteEnemigo extends Paquete implements Serializable, Cloneable {
     public PaqueteEnemigo(final int idParam, final float xParam,
             final float yParam) {
         this.id = idParam;
-        // idMapa = 1;
         nombre = "Enemigo";
         estado = Estado.ESTADOJUEGO;
         fuerza = FUERZA;
