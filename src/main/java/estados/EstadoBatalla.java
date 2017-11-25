@@ -515,7 +515,7 @@ public class EstadoBatalla extends Estado {
             paquetePersonaje.setNivel(personaje.getNivel());
             paquetePersonaje.setExperiencia(personaje.getExperiencia());
             paquetePersonaje.setDestreza(personaje.getDestreza());
-            paquetePersonaje.setFuerza(personaje.getFuerza());
+            paquetePersonaje.setFuerzaExtra(personaje.getFuerza());
             paquetePersonaje.setInteligencia(personaje.getInteligencia());
             paquetePersonaje.removerBonus();
 
@@ -524,7 +524,7 @@ public class EstadoBatalla extends Estado {
             paqueteEnemigo.setNivel(enemigo.getNivel());
             paqueteEnemigo.setExperiencia(enemigo.getExperiencia());
             paqueteEnemigo.setDestreza(enemigo.getDestreza());
-            paqueteEnemigo.setFuerza(enemigo.getFuerza());
+            paqueteEnemigo.setFuerzaExtra(enemigo.getFuerza());
             paqueteEnemigo.setInteligencia(enemigo.getInteligencia());
             paqueteEnemigo.removerBonus();
 

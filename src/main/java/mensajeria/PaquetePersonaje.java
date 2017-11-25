@@ -119,10 +119,19 @@ public class PaquetePersonaje extends Paquete implements Serializable, Cloneable
 	 */
 	private boolean modoAtravesarParedes;
 
+	/**
+	 * The fuerza extra.
+	 */
 	private int fuerzaExtra;
 
+	/**
+	 * The id mochila.
+	 */
 	private int idMochila;
 	
+	/**
+	 * The id inventario.
+	 */
 	private int idInventario;
 	
 	public int getidMochila() {
@@ -703,7 +712,7 @@ public class PaquetePersonaje extends Paquete implements Serializable, Cloneable
 		inteligencia = intelig;
 		saludTope = salud;
 		energiaTope = energia;
-		fuerzaExtra = ataque;
+		fuerzaExtra = fuerza;
 	}
 
 	/**
