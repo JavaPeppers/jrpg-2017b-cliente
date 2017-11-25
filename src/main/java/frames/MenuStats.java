@@ -447,7 +447,8 @@ public class MenuStats extends JFrame {
         saludPj.setBounds(XPJ, YSALUDPJ, ANCHOPJ, ALTOPJ);
         contentPane.add(saludPj);
 
-        JLabel fzaPj = new JLabel(String.valueOf(paquetePersonaje.getFuerzaExtra()));
+        JLabel fzaPj = new JLabel(
+                String.valueOf(paquetePersonaje.getFuerzaExtra()));
         fzaPj.setForeground(Color.WHITE);
         fzaPj.setHorizontalAlignment(SwingConstants.RIGHT);
         fzaPj.setBounds(XPJ, YFUERZAPJ, ANCHOPJ, ALTOPJ);

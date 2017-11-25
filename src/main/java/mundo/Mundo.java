@@ -139,11 +139,17 @@ public class Mundo {
      * The grafo de tiles no solidos.
      */
     private Grafo grafoDeTilesNoSolidos;
-    
+
+    /**
+     * The grafo de tiles no solidos normal.
+     */
     private Grafo grafoDeTilesNoSolidosNormal;
-    
+
+    /**
+     * The grafo de tiles no solidos atravesando.
+     */
     private Grafo grafoDeTilesNoSolidosAtravesando;
-    
+
 
     /**
      * Instantiates a new mundo.
@@ -168,9 +174,9 @@ public class Mundo {
      * Actualizar.
      */
     public void actualizar() {
-    	if(juego.getPersonaje().isModoAtravesarParedes()) {
+    	if (juego.getPersonaje().isModoAtravesarParedes()) {
     		grafoDeTilesNoSolidos = grafoDeTilesNoSolidosAtravesando;
-    	}else {
+    	} else {
     	    grafoDeTilesNoSolidos = grafoDeTilesNoSolidosNormal;
     	}
     }
@@ -398,6 +404,9 @@ public class Mundo {
         }
     }
 
+    /**
+     * Mundo A grafo dos.
+     */
     private void mundoAGrafoDos() {
         // Creo una matriz de nodos
         Nodo[][] nodos = new Nodo[ancho][alto];
@@ -414,10 +423,10 @@ public class Mundo {
         // Uno cada nodo con sus adyacentes
         for (int x = 0; x < yFinal; x++) {
             for (int y = 0; y < xFinal; y++) {
-                if (tilesInv[x][y]!=1) {
+                if (tilesInv[x][y] != 1) {
                     // Si no es la ultima fila y el tile de abajo es no solido,
                     // lo uno
-                    if (y < yFinal - 1 && tilesInv[x][y + 1]!=1) {
+                    if (y < yFinal - 1 && tilesInv[x][y + 1] != 1) {
                         nodos[x][y].agregarAdyacente(nodos[x][y + 1]);
                         nodos[x][y + 1].agregarAdyacente(nodos[x][y]);
                     }
@@ -445,7 +454,7 @@ public class Mundo {
                         // Debe ser antes de la ultima fila
                         if (y < yFinal - 1
                                 && tilesInv[x + 1][y + 1] != 1
-                                && tilesInv[x + 1][y] != 1 
+                                && tilesInv[x + 1][y] != 1
                                 && tilesInv[x][y + 1] != 1)  {
                             nodos[x][y].agregarAdyacente(nodos[x + 1][y + 1]);
                             nodos[x + 1][y + 1].agregarAdyacente(nodos[x][y]);
@@ -464,7 +473,7 @@ public class Mundo {
             }
         }
     }
-    
+
     /**
      * Obtener grafo de tiles no solidos.
      *

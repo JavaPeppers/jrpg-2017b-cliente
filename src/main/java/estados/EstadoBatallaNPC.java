@@ -349,7 +349,8 @@ public class EstadoBatallaNPC extends Estado {
             paquetePersonaje.removerBonus();
 
             paqueteEnemigo.setSaludTope(paqueteEnemigo.getSaludTope());
-            int diferenciaNivel = paquetePersonaje.getNivel() - this.nivelDePersonaje;
+            int diferenciaNivel = paquetePersonaje.getNivel()
+                    - this.nivelDePersonaje;
             if (paquetePersonaje.getNivel() > this.nivelDePersonaje) {
                 paquetePersonaje.actualizarPuntosSkillsDisponibles(
                         PUNTOSSKILLSPORNIVEL * diferenciaNivel);
