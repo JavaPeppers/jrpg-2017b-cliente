@@ -1,0 +1,14 @@
+Instructivo para la instalación y ejecución de WOME:
+
+1. Descargue desde github los tres proyectos que incluye el juego, los cuales son dominio, cliente y servidor.
+2. Abra su entorno de desarrollo o IDE.
+3. Importe los tres proyectos antes descargados (La manera de importarlos variará dependiendo del IDE que utilice).
+4. Cuando tenga los tres proyectos disponibles, explore las propiedades de cada uno y cambie el encoding a UTF-8. El encoding definirá como el IDE interpretará los caracteres.
+5. Verifique que los siguientes proyectos tengan los enlaces correspondientes:
+	-Servidor: enlace con Cliente y Dominio.
+	-Cliente: enlace con Dominio.
+6. Añada al proyecto del servidor, los JARs que se encuentran dentro de la carpeta hibernate-master/lib
+7. Corra el proyecto del servidor de la forma Servidor - servidor.
+8. Presione Iniciar en el log del Servidor.
+9. Corra el proyecto del cliente de la forma MenuInicio - frames.
+10. Registre un usuario y disfrute del juego.
