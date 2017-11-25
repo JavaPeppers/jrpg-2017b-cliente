@@ -56,7 +56,8 @@ public final class Utilitarias {
         try {
             return Integer.parseInt(numero);
         } catch (NumberFormatException e) {
-
+            JOptionPane.showMessageDialog(null,
+                    "Fallo al convertir string a int ");
             return 0;
         }
     }
