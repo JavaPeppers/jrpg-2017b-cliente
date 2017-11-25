@@ -55,4 +55,10 @@ Como `jugador` quiero poder aumentar los stats de mi `personaje`. Para ello, a m
 3. No se debe poder desasignar puntos a una `Skill` cuando está en su cantidad base o inicial
 4. Solo se deben ganar `puntos skills` cuando se sube de nivel.
 
- 
+## 08 Cheats:
+Como `jugador` quiero poder realizar `cheats` con los cuales pueda obtener distintos beneficios para mi `personaje`.
+### Condiciones de aceptación:
+1. Se debe poder evitar todo ataque de un enemigo (NPC o Personaje) tipeando el comando "iddqd" en el chat. Además, si dos Personajes poseen este `cheat`, si se deben poder hacer daño mutuo.
+2. Se debe poder atravesar paredes, siempre y cuando no se salga del mapa del juego tipeando el comando "noclip" en el chat.
+3. Se debe poder aumentar al doble de la fuerza de mi `personaje` tipeando "bigdaddy" en el chat. Por otro lado, se debe poder disminuir el doble de la fuerza, escribiendo el comando "tinydaddy".
+4. Se debe poder poner invisible mi `personaje` para todos los demas Personajes logueados en el mismo mapa. Pero si otro Personaje se encuentra tambièn en modo invisible, debe poder verme. Todo esto se debe realizar con el comando "war aint what it used to be"
